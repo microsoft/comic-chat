@@ -1,0 +1,16 @@
+--------------------------------------------------------------------
+                       SUPPORT.TXT for Microsoft Chat 3.0 Beta 1
+                    For Microsoft Windows 95 and Windows NT
+                                May 1998            
+--------------------------------------------------------------------
+
+               (c) Copyright Microsoft Corporation, 1998
+
+
+Microsoft Chat 3.0 beta 1 is a beta product and there is no formal suppport for betas. 
+
+However, peer to peer assistance is available on the MS Chat newsgroup [Microsoft.public.internet.mschat] on the Microsoft news server [msnews.microsoft.com]. 
+
+If you find any bugs with the beta, please send your bugs to comichat@microsoft.com. 
+
+
