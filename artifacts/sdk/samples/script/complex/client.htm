@@ -1,0 +1,882 @@
+<html>
+<body bgcolor=white onLoad=init() onUnload=disconnect()>
+
+<script>
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	JavaScript Fields
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+//	the page to use as a starter for the chat history
+var background = "../images/back.gif"
+var blankpage = "<html><body background=" + background + " bgproperties=fixed bgcolor=white>\n"
+
+//	the page to use as a starter for the memberlist
+var pagestarter = "<html><body bgcolor=white>\n"
+
+//	these control the chat text colors
+var defaultColor = "000000"	//	default color
+var systemColor  = "0000d0"	//	system message color
+var motdColor    = "000000"	//	message of the day color
+var messageColor = "000000"	//	message color
+var inviteColor  = "ff8080"	//	invitation color
+var sayColor     = "2020ff"	//	member say color
+var whisperColor = "d02020"	//	member whispered color
+var joinColor    = "008000"	//	member joined color
+var partColor    = "800000"	//	member parted color
+var kickColor    = "d00000"	//	member kicked color
+var nickColor    = "404080"	//	nick changed color
+var listColor	 = "008000"	//	member and user list color
+
+//	determines whether or not we can automatically scroll the chat window
+//	automatic chat window scrolling does not work on some browsers.
+var canscroll = !isIE3X() && !isMC()
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	JavaScript Sample Methods
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+function init()
+{
+	clearChatHistory()
+	clearChatMembers()
+	closeChatMembers()
+	addChatHistory(getVersion())
+	var nick = getSearchParameter("name", null)
+	if (isNull(nick))
+		nick = prompt("Enter a nickname to connect.", "Anonymous")
+	document.chat.message.focus()
+	if (!isNull(nick))
+		connect(nick, null)
+	document.chat.message.focus()
+
+	//	PULL METHOD MUST BE CALLED IN ORDER TO RECEIVE NOTIFICATIONS
+	pull()
+}
+
+function isNull(value)
+{
+	return value == null || value == ""
+}
+
+//	prompts the user to enter the name of someone to kick
+function kickMember()
+{
+	var room = getLocalRoom()
+	if (isNull(room))
+	{
+		alert("You must be in a room to kick a user.")
+		return false
+	}
+	else
+	{
+		if(!isConnected())
+		{
+			alert("You must be connected to a server to kick a user.")
+			return false
+		}
+		var member = prompt("Kick what member?", "Name")
+		if (!isNull(member))
+		{
+			var room = getLocalRoom()
+			document.irc.kickMember(room, member, null);
+		}
+	//	reselect the message area
+	document.chat.message.focus()
+	//	this method returns false so that the chat form doesn't actually submit
+	return false
+	}
+}
+
+function changeNick()
+{
+	var oldnick = getLocalNickname()
+	if (isNull(oldnick))
+		oldnick = "Anonymous"
+	var newnick = prompt("Enter new nickname.", oldnick)
+	if (!isNull(newnick))
+	{
+		setLocalNickname(newnick)
+		if (!isConnected())
+			connect(newnick, null)
+	}
+
+	//	reselect the message area
+	document.chat.message.focus()
+	//	this method returns false so that the chat form doesn't actually submit
+	return false
+}
+
+//	inviteUser
+function inviteUser()
+{
+	var room = getLocalRoom()
+	if (isNull(room))
+	{
+		alert("You must be in a room before you can invite someone.")
+		return false
+	}
+	else
+	{
+		if(!isConnected())
+		{
+			alert("You must be connected to a server before you can invite someone.")
+			return false
+		}
+		var user = prompt("Enter the nickname of person to invite.", "")
+		if (!isNull(user))
+		{
+			sendInvitation(user, room)
+			displayInvitation(getLocalNickname(), user, room)
+		}
+	//	reselect the message area
+	document.chat.message.focus()
+	//	this method returns false so that the chat form doesn't actually submit
+	return false
+	}
+}
+
+//	displays invitation
+function displayInvitation(source, invitee, room)
+{
+	addChatHistory(font(source + " has invited " + invitee + " to join " + room + ".", inviteColor))
+}
+
+//	prompts the user to enter a new room to join
+function changeRoom()
+{
+	if(!isConnected())
+	{
+		alert("You must be connected to a server to join a room.")
+		return false
+	}
+	var oldroom = getLocalRoom()
+	newroom = prompt("Enter name of room to join.", oldroom)
+	if (!isNull(newroom))
+	{
+		if (!isNull(oldroom))
+			partRoom(oldroom)
+		joinRoom(newroom)
+	}
+	//	reselect the message area
+	document.chat.message.focus()
+	//	this method returns false so that the chat form doesn't actually submit
+	return false
+}
+
+//	sends a chat message
+function sendChatMessage(target)
+{
+	var room = getLocalRoom()
+	if (isNull(room))
+	{
+		alert("You must be in a room to send a message.")
+		return false
+	}
+	else
+	{
+		if(!isConnected())
+		{
+			alert("You must be connected to a server to send a message.")
+			return false
+		}
+		var message = clearChatMessage()
+		if (!isNull(message))
+		{
+			sendMessage(target, message)
+			//	display your message
+			var nick = getLocalNickname()
+			var whisper = (target != getLocalRoom())
+			displayChatMessage(nick, target, message, whisper)
+		}
+	//	reselect the message area
+	document.chat.message.focus()
+	//	this method returns false so that the chat form doesn't actually submit
+	return false
+	}
+}
+
+//	sends a whisper after prompting for target
+var lastTarget = ""
+function sendWhisper()
+{
+	var room = getLocalRoom()
+	if (isNull(room))
+	{
+		alert("You must be in a room before you can whisper to someone.")
+		return false
+	}
+	else
+	{
+		if(!isConnected())
+		{
+			alert("You must be connected to a server before you can whisper to someone.")
+			return false
+		}
+		var target = prompt("Whisper to whom?", lastTarget)
+		if (!isNull(target))
+		{
+			sendChatMessage(target)
+			lastTarget = target
+			return false
+		}
+	//	reselect the message area
+	document.chat.message.focus()
+	//	this method returns false so that the chat form doesn't actually submit
+	return false
+	}
+}
+
+//	returns the contents of the chat message input area and then clears it
+function clearChatMessage()
+{
+	var contents = document.chat.message.value
+	document.chat.message.value = ""
+	return contents
+}
+
+//	display chat message
+function displayChatMessage(source, target, message, whisper)
+{
+	//	restrict non-hosts from embedding html tags in chat messages
+	if (!isHost(source))
+		message = disableTags(message);
+
+	if (isPushCommand(source, message))
+		return
+
+	if (whisper)
+		addChatHistory(font(source + " whispers to " + target + ": ", whisperColor) + font(message, messageColor))
+	else
+		addChatHistory(font(source + " says: ", sayColor) + font(message, messageColor))
+}
+
+//	clears the chat history area
+function clearChatHistory()
+{
+	parent.chat.document.close()
+	parent.chat.document.open()
+	parent.chat.document.write(blankpage)
+	//	reselect the message area
+	document.chat.message.focus()
+	//	this method returns false so that the chat form doesn't actually submit
+	return false
+}
+
+//	clears the member list area
+function clearChatMembers()
+{
+	parent.members.document.open()
+	parent.members.document.write(pagestarter)
+}
+
+//	closes the member list area document
+//	(this ensures that all html written to the frame is rendered)
+function closeChatMembers()
+{
+	parent.members.document.close()
+}
+
+//	requests an updated member list
+function updateMemberList()
+{
+	var room = getLocalRoom()
+	if (room == null)
+	{
+		clearChatMembers()
+		closeChatMembers()
+	}
+	else
+	{
+		requestMemberList(room)
+	}
+}
+
+//	adds a message to the history area
+function addChatHistory(text)
+{
+	parent.chat.document.write(text + "<br>\n")
+	if (canscroll)
+		parent.chat.scroll(0, 3200000)
+}
+
+//	adds an array of members to the chat members
+//	prepend is an image tag representing status (host etc.)
+function addChatMembers(image, title, members)
+{
+	for (i = 0; i < members.length; i++)
+		parent.members.document.write(img(image, title + " " + members[i]) + members[i] + "<br>\n")
+}
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	IRCApplet Method Wrappers
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+//	connects to the server
+function connect(localnick, password)
+{
+	document.irc.connect(null, 6667, localnick, password)
+}
+
+//	disconnects from the server
+function disconnect()
+{
+	document.irc.disconnect()
+}
+
+//	returns the local users nickname
+function getLocalNickname()
+{
+	return document.irc.getLocalNickname()
+}
+
+//	returns the first room the user is in
+function getLocalRoom()
+{
+	return document.irc.getLocalRoom()
+}
+
+//	returns an array of all rooms the local user is in
+function getLocalRooms()
+{
+	var rooms = document.irc.getLocalRooms(",")
+	rooms = new String(rooms)
+	return rooms.split(",")
+}
+
+//	returns the room topic or null if unknown
+function getTopic(room)
+{
+	return document.irc.getTopic(room)
+}
+
+//	returns the applet version
+function getVersion()
+{
+	return document.irc.getVersion()
+}
+
+//	returns true if the applet is connected to a chat server
+function isConnected()
+{
+	return document.irc.isConnected()
+}
+
+//	returns true if the user is a host in your room
+function isHost(user)
+{
+	return document.irc.isHost(user, getLocalRoom())
+}
+
+//	attempts to join a room, password may be null
+function joinRoom(room, password)
+{
+	document.irc.joinRoom(room, password)
+}
+
+//	departs from a room
+function partRoom(room)
+{
+	document.irc.partRoom(room)
+}
+
+//	requests an updated member List for a room
+//	applet replies with "memberList" method
+function requestMemberList(room)
+{
+	document.irc.requestMemberList(room)
+}
+
+//	requests an updated list of all rooms on server
+//	applet replies with "roomList" method
+function requestRoomList()
+{
+	if(!isConnected())
+	{
+		alert("You must be connected to a server before requesting a room list.")
+		return false
+	}
+	document.irc.requestRoomList()
+	addChatHistory(font("Creating room list...", listColor))
+	return false
+}
+
+//	requests an updated list of all users on server
+//	applet replies with "userList" method
+function requestUserList()
+{
+	if(!isConnected())
+	{
+		alert("You must be connected to a server before requesting a user list.")
+		return false
+	}
+	document.irc.requestUserList()
+	addChatHistory(font("Creating user list...", listColor))
+	return false
+}
+
+//	sends an invitation to a user to join a room
+function sendInvitation(nick, room)
+{
+	document.irc.sendInvitation(nick, room)
+}
+
+//	sends a message to a room or user
+function sendMessage(target, message)
+{
+	document.irc.sendMessage(target, message)
+}
+
+//	sends a raw line to the irc server without preprocessing
+function sendServer(raw)
+{
+	document.irc.sendServer(raw)
+}
+
+//	attempts to change the localusers nickname
+function setLocalNickname(nick)
+{
+	document.irc.setLocalNickname(nick)
+}
+
+//	attempts to change a rooms topic
+function setTopic(room, topic)
+{
+	document.irc.setTopic(room, topic)
+}
+
+//	disables html tags in chat string by replacing < and > with white space
+function disableTags(message)
+{
+	return document.irc.disableTags(message)
+}
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	IRCListener Notification Methods
+//	called indirectly by applet via "pull" method
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+//	successful connection
+function connected(server, motd)
+{
+	addChatHistory(font("Connected to " + server + ".", systemColor))
+	if (!isNull(motd))
+	{
+		for (i = 0; i < motd.length; i++)
+			addChatHistory(font(motd[i], motdColor))
+	}
+	var room = getSearchParameter("room", null)
+	var password = getSearchParameter("password")
+	if (!isNull(room))
+		joinRoom(room, password)
+	else
+		changeRoom()
+}
+
+//	failed connection attempt, or connection lost
+function disconnected(server)
+{
+	addChatHistory(font("Disconnected from " + server + ".", systemColor))
+	clearChatMembers()
+}
+
+//	invalid nickname or nickname already in use
+//	user should be prompted to try another one
+function invalidNick(badnick)
+{
+	var nick = prompt("Invalid nickname. Enter new nickname.", badnick)
+	if (!isNull(nick))
+		setLocalNickname(nick)
+}
+
+//	an invitation to join a room has arrived
+function invitationArrived(source, room)
+{
+	displayInvitation(source, getLocalNickname(), room)
+	var accept = confirm("Accept " + source +"'s invitation to join room " + room + ".")
+	if (accept)
+	{
+		addChatHistory(font("Accepted.", inviteColor))
+		partRoom(getLocalRoom())
+		joinRoom(room)
+	}
+	else
+	{
+		addChatHistory(font("Declined.", inviteColor))
+	}
+}
+
+//	a new member has joined a room
+function memberJoined(room, nick, identity)
+{
+	addChatHistory(font(nick + " has joined " + room + ".", joinColor))
+	updateMemberList()
+}
+
+//	a room member has been kicked from room
+//	reason may be null
+function memberKicked(room, nick, kicker, reason)
+{
+	addChatHistory(font(kicker + " has kicked " + nick + " from " + room + ".", kickColor))
+	if (!isNull(reason))
+		addChatHistory(font("Reason: " + reason, kickColor))
+	updateMemberList()
+}
+
+//	an updated member list has arrived
+//	called in response to "requestMemberList"
+function memberList(room, hosts, speakers, observers)
+{
+	clearChatMembers()
+	if (hosts != null)
+		addChatMembers("../images/host.gif", "Host", hosts)
+	if (speakers != null)
+		addChatMembers("../images/speaker.gif", "Speaker", speakers)
+	if (observers != null)
+		addChatMembers("../images/observer.gif", "Observer", observers)
+	closeChatMembers()
+}
+
+//	a room member has departed
+function memberParted(room, nick)
+{
+	addChatHistory(font(nick + " has left " + room + ".", partColor))
+	updateMemberList()
+}
+
+//	a chat message has arrived
+function messageArrived(source, target, message, identity)
+{
+	var whisper = (target == getLocalNickname())
+	displayChatMessage(source, target, message, whisper)
+}
+
+//	a member has changed their nickname
+function nickChanged(oldnick, newnick, identity)
+{
+	addChatHistory(font(oldnick + " is now known as " + newnick, nickColor))
+	updateMemberList()
+}
+
+//	an updated room list has arrived
+function roomList(rooms, counts, topics)
+{
+	var table = "<table border=1 width=100%><tr><td><b>Room</b></td><td><b>Count</b></td><td><b>Topic</b></td></tr>"
+	for (i = 0; i < rooms.length; i++)
+		table = table + "<tr><td>" + rooms[i] + "</td><td>" + counts[i] + "</td><td>" + topics[i] + "</td></tr>"
+	table = table + "</table>"
+	openRoomWindow(table)
+}
+
+//	Creates a channel list within a new window
+function openRoomWindow(msg)
+{
+	aPopUp= window.open('','Note','toobar=no,location=no,directories=no,status=no,scrollbars=yes,resizable=yes,copyhistory=no,width=500,height=400')
+	ndoc= aPopUp.document
+	astr ='<html><head><title>Room List</title></head>'
+	astr +='<body background="../images/back.gif" bgproperties=fixed>'
+	astr +='<h2><font face="Verdana, Arial">Room List</font></h2>'
+	astr +=msg +	'<br>'
+	astr +='</body></html>'
+	ndoc.write(astr)
+	ndoc.close()
+	self.aNoteWin = aPopUp
+	aPopUp.focus()
+}
+
+//	a rooms moderation status or topic has changed
+function roomStatusChanged(room, moderated, topic)
+{
+	updateMemberList()
+}
+
+//	an updated user list has arrived
+function userList(nicks, users, rooms, hosts)
+{
+	var table = "<table border=1 width=100%><tr><td><b>Nick</b></td><td><b>User</b></td><td><b>Room</b></td></tr>"
+	for (i = 0; i < users.length; i++)
+		table = table + "<tr><td>" + nicks[i] + "</td><td>" + users[i] + "</td><td>" + rooms[i] + "</td></tr>"
+	table = table + "</table>"
+	openUserWindow(table)
+}
+
+//	Creates a members list within a new window
+function openUserWindow(msg)
+{
+	aPopUp= window.open('','Note','toobar=no,location=no,directories=no,status=no,scrollbars=yes,resizable=yes,copyhistory=no,width=500,height=400')
+	ndoc= aPopUp.document
+	astr ='<html><head><title>User List</title></head>'
+	astr +='<body background="../images/back.gif" bgproperties=fixed>'
+	astr +='<h2><font face="Verdana, Arial">User List</font></h2>'
+	astr +=msg +	'<br>'
+	astr +='</body></html>'
+	ndoc.write(astr)
+	ndoc.close()
+	self.aNoteWin = aPopUp
+	aPopUp.focus()
+}
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	Utility Methods
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+
+//	This method checks the search parameters at the end of the url,
+//	and returns a value if found, or a default value if not found.
+//	this enables information to be passed to the page via url as below
+//	http://www.microsoft.com/java/chat?name=bill&room=newbies
+function getSearchParameter(parameter, def)
+{
+	url = new String(top.location)
+	search = new String(url.substring(url.indexOf("?") + 1, url.length))
+	search = search.split("&")
+	for (i = 0; i < search.length; i++)
+	{
+		pair = new String(search[i])
+		index = pair.indexOf("=")
+		if (index > 0 && index < pair.length)
+		{
+			check = pair.substring(0, index)
+			if (parameter == check)
+				return pair.substring(index + 1, pair.length)
+		}
+	}
+	return def
+}
+
+function bold(msg)
+{
+	return "<b>" + msg + "</b>"
+}
+
+function font(msg, color)
+{
+	return "<font color=" + color + ">" + msg + "</font>"
+}
+
+function center(msg)
+{
+	return "<center>" + msg + "</center>"
+}
+
+function a(msg, href, target)
+{
+	return "<a href=" + href + " target=" + target + ">" + msg + "</a>"
+}
+
+function img(path, alt)
+{
+	return "<img src=" + path + " alt='" + alt + "'>"
+}
+
+//	Check if browser is IE3.0 (requires scripting update to run)
+function isIE30()
+{
+	var t = new String("test")
+	var s = new String(t.split + "")
+	return s.charAt(0) == "u"
+}
+
+//	Check if browser is IE3.x (doesn't support scroll correctly)
+function isIE3X()
+{
+	var s = new String(parent.chat.scroll + "")
+	return s.charAt(0) == "u"
+}
+
+//	MAC Communicator client (doesn't support scroll correctly)
+function isMC()
+{
+	if (navigator.appName != "Netscape")
+		return false
+	var s = new String(navigator.appVersion)
+	return s.indexOf("Macintosh") > 0
+}
+
+//	this functions check to see if a message is a push command, and if so handles it
+function isPushCommand(source, message)
+{
+	var sMessage = new String(message)
+	var command = sMessage.split(" ")
+	if (command[0] != "push")
+		return false
+	if (command[1] == null)
+		return true
+	if (!isHost(source))
+		return true
+	var pushFrame
+	if (command.length < 3)
+		pushFrame = "push"
+	else
+		pushFrame = command[2]
+	if (parent[pushFrame] != null)
+		parent[pushFrame].location = command[1]
+	return true
+}
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	DO NOT REMOVE THE "PULL" OR "EVALUATE" METHODS.
+//	The "pull" method must be called once after the page is loaded.
+//	After that it will call itself using the timeout at the end of the method.
+//	This enables the applet to call the "IRCListener" javascript methods on this page.
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+function pull()
+{
+	meth = document.irc.nextMethod();
+	while (meth != null)
+	{
+		evaluate(meth)
+		meth = document.irc.nextMethod()
+	}
+	timeout = setTimeout("pull()", 1000)
+}
+
+//	evaluates a string pulled from applet representing a javascript method
+function evaluate(raw)
+{
+	var ms = "{"
+	var as = "}"
+
+	meth = new String(raw)
+	meth = meth.substring(1, meth.length)
+	meth = meth.split(ms)
+	for (i = 0; i < meth.length; i++)
+	{
+		obj = new String(meth[i])
+		if (obj == "null")
+			meth[i] = null
+		else if (obj.charAt(0) == as)
+		{
+			meth[i] = obj.substring(1, obj.length)
+			meth[i] = meth[i].split(as)
+		}
+	}
+
+	var evalme = meth[0] + "("
+	for (i = 1; i < meth.length; i++)
+	{
+		evalme = evalme + "meth[" + i + "]"
+		if (i + 1 < meth.length)
+			evalme = evalme + ", "
+	}
+	evalme = evalme + ")"
+
+	eval(evalme)
+}
+
+</script>
+
+<table>
+<tr>
+	<form onSubmit="return clearChatHistory()">
+	<td>
+	<input type=image src=../images/window.jpg onMouseOver="src='../images/window1.jpg'" onMouseOut="src='../images/window.jpg'" alt="Clear Window" border=0>
+	</td>
+	<td>
+	<img src=../images/break.jpg>
+	</td>
+	</form>
+
+	<form onSubmit="return changeNick()">
+	<td>
+	<input type=image src=../images/nick.jpg onMouseOver="src='../images/nick1.jpg'" onMouseOut="src='../images/nick.jpg'" alt="Change Nick" border=0>
+	</td>
+	<td>
+	<img src=../images/break.jpg>
+	</td>
+	</form>
+
+	<form onSubmit="return changeRoom()">
+	<td>
+	<input type=image src=../images/room.jpg onMouseOver="src='../images/room1.jpg'" onMouseOut="src='../images/room.jpg'" alt="Change Room" border=0>
+	</td>
+	<td>
+	<img src=../images/break.jpg>
+	</td>
+	</form>
+
+	<form onSubmit="return inviteUser()">
+	<td>
+	<input type=image src=../images/invite.jpg onMouseOver="src='../images/invite1.jpg'" onMouseOut="src='../images/invite.jpg'" alt="Invite User" border=0>
+	</td>
+	<td>
+	<img src=../images/break.jpg>
+	</td>
+	</form>
+
+	<form onSubmit="return kickMember()">
+	<td>
+	<input type=image src=../images/kick.jpg onMouseOver="src='../images/kick1.jpg'" onMouseOut="src='../images/kick.jpg'" alt="Kick User" border=0>
+	</td>
+	<td>
+	<img src=../images/break.jpg>
+	</td>
+	</form>
+
+	<form onSubmit="return requestRoomList()">
+	<td>
+	<input type=image src=../images/list.jpg onMouseOver="src='../images/list1.jpg'" onMouseOut="src='../images/list.jpg'" alt="Room List" border=0>
+	</td>
+	<td>
+	<img src=../images/break.jpg>
+	</td>
+	</form>
+
+	<form onSubmit="return requestUserList()">
+	<td>
+	<input type=image src=../images/user.jpg onMouseOver="src='../images/user1.jpg'" onMouseOut="src='../images/user.jpg'" alt="User List" border=0>
+	</td>
+	</form>
+</tr>
+</table>
+
+<table>
+<tr>
+	<form name=chat onSubmit="return sendChatMessage(getLocalRoom())">
+	<td>
+	<input type=text name=message size=60>
+	</td>
+	<td>
+	<input type=image src=../images/send.jpg onMouseOver="src='../images/send1.jpg'" onMouseOut="src='../images/send.jpg'" alt="Send Message" border=0>
+	</td>
+	<td>
+	<img src=../images/break.jpg>
+	</td>
+	</form>
+
+	<form onSubmit="return sendWhisper()">
+	<td>
+	<input type=image src=../images/whisper.jpg onMouseOver="src='../images/whisper1.jpg'" onMouseOut="src='../images/whisper.jpg'" alt="Whisper" border=0>
+	</td>
+	</form>
+</tr>
+</table>
+
+<applet codebase=.. name=irc code=IRCApplet width=0 height=0>
+</applet>
+
+</html>

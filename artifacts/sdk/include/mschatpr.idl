@@ -1,0 +1,475 @@
+#include <olectl.h>
+// MsChatPr.idl : IDL source for MsChatPr.ocx
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MsChatPr.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(9FE8A900-96AC-11CF-9086-00AA006C3FBC),
+	version(2.0),
+	helpstring("Microsoft Chat Protocol Control 2.0")
+]
+library MsChatPr
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+		// constants and enumerations
+		typedef enum
+		{
+				stServerMessage		=  1,
+				stChannelAccount	=  2,
+				stChannelClientData	=  3,
+				stChannelHostKey	=  4,
+				stChannelKeyword	=  5,
+				stChannelLanguage	=  6,
+				stChannelName		=  7,
+				stChannelOnJoin		=  8,
+				stChannelOnPart		=  9,
+				stChannelOwnerKey	= 10,
+				stChannelRating		= 11,
+				stChannelSubject	= 12,
+				stChannelTopic		= 13
+		} enumStringType;
+
+
+ 		typedef enum
+		{
+				etMessageOfTheDay	= 0x00,
+				etUsers				= 0x01,
+				etChannels			= 0x02,
+				etChannelsTruncated	= 0x03,
+				etMembers			= 0x04,
+				etInitialMembers	= 0x05
+		} enumEnumType;
+
+
+		typedef enum
+		{
+				ctIRC				= 0x00,
+				ctIRCX				= 0x01
+		} enumConnectionType;
+
+
+		typedef enum
+		{
+				cvtToUTF8			= 0x00,
+				cvtToUnicode		= 0x01
+		} enumConversionType;
+
+
+		typedef enum
+		{
+				cvsNormal			= 0x00,
+				cvsNickname			= 0x01,
+				cvsChannelName		= 0x02
+		} enumConversionSource;
+
+
+ 		typedef enum
+		{
+				csDisconnected		= 0x00,
+				csConnecting		= 0x01,
+				csConnected			= 0x02,
+				csLogging			= 0x03,
+				csLogged			= 0x04,
+				csDisconnecting		= 0x05
+		} enumConnectionState;
+
+
+ 		typedef enum
+		{
+				chsClosed			= 0x00,
+				chsOpening			= 0x01,
+				chsOpen				= 0x02
+		} enumChannelState;
+
+
+ 		typedef enum
+		{
+				smtNormal			= 0x00,
+				smtNotice			= 0x01,
+				smtMessageOfTheDay	= 0x02,
+				smtServerInfo		= 0x03,
+				smtError			= 0x04
+		} enumServerMessageType;
+
+
+ 		typedef enum
+		{
+				pmtNormal			= 0x0000,
+				pmtNotice			= 0x0001,
+				pmtData				= 0x0002,
+				pmtDataRequest		= 0x0004,
+				pmtDataReply		= 0x0008,
+				pmtDataRaw			= 0x0010,
+				pmtAway				= 0x0020,
+				pmtVersion			= 0x0040,
+				pmtLagTime			= 0x0080,
+				pmtLocalTime		= 0x0100,
+				pmtAction			= 0x0200,
+				pmtSound			= 0x0400,
+				pmtCTCP				= 0x0800,
+				pmtInfo				= 0x1000
+		} enumPrivateMessageType;
+
+
+ 		typedef enum
+		{
+				msgtNormal			= 0x0000,
+				msgtNotice			= 0x0001,
+				msgtData			= 0x0002,
+				msgtDataRequest		= 0x0004,
+				msgtDataReply		= 0x0008,
+				msgtDataRaw			= 0x0010,
+				msgtWhisper			= 0x0020,
+				msgtThought			= 0x0040,
+				msgtAction			= 0x0080,
+				msgtSound			= 0x0100,
+				msgtCTCP			= 0x0200,
+				msgtInfo			= 0x0400
+		} enumMessageType;
+
+
+		typedef enum
+		{
+				umNone				= 0x00000000,
+				umClientIgnored		= 0x00000001,
+				umNotClientIgnored	= 0x00000002,
+				umAuthUser			= 0x00000004,
+				umNotAuthUser		= 0x00000008,
+				umAway				= 0x00000010,
+				umNotAway			= 0x00000020,
+				umSysop				= 0x00000040,
+				umNotSysop			= 0x00000080,
+				umAdmin				= 0x00000100,
+				umNotAdmin			= 0x00000200,
+				umInvisible			= 0x00000400,
+				umNotInvisible		= 0x00000800,
+				umNotices			= 0x00001000,
+				umNoNotices			= 0x00002000,
+				umWallops			= 0x00004000,
+				umNoWallops			= 0x00008000
+		} enumUserMode;
+
+
+		typedef enum
+		{
+				mmNone				= 0x00000000,
+				mmClientIgnored		= 0x00000001,
+				mmNotClientIgnored	= 0x00000002,
+				mmAuthMember		= 0x00000004,
+				mmNotAuthMember		= 0x00000008,
+				mmAway				= 0x00000010,
+				mmNotAway			= 0x00000020,
+				mmSysop				= 0x00000040,
+				mmNotSysop			= 0x00000080,
+				mmOwner				= 0x00000100,
+				mmNotOwner			= 0x00000200,
+				mmHost				= 0x00000400,
+				mmNotHost			= 0x00000800,
+				mmVoice				= 0x00001000,
+				mmNoVoice			= 0x00002000
+		} enumMemberMode;
+
+
+		typedef enum
+		{
+				cmNone				= 0x00000000,
+				cmPublic			= 0x00000000,
+				cmPrivate			= 0x00000001,
+				cmHidden			= 0x00000002,
+				cmSecret			= 0x00000004,
+				cmModerated			= 0x00000008,
+				cmNoExtern			= 0x00000010,
+				cmTopicop			= 0x00000020,
+				cmInvite			= 0x00000040,
+				cmKnock				= 0x00000080,
+				cmNoWhisper			= 0x00000100,
+				cmRegistered		= 0x00000200,
+				cmService			= 0x00000400,
+				cmAuthOnly			= 0x00000800,
+				cmCloneable			= 0x00001000,
+				cmClone				= 0x00002000,
+				cmAuditorium		= 0x00004000,
+				cmNoFormat			= 0x00008000,
+				cmCreateOnly		= 0x10000000
+		} enumChannelMode;
+	
+
+	[
+		object,
+        uuid(011eee45-46df-11d0-99cb-00c04fd64497),
+		dual,
+		helpstring("IChatItems Interface"),
+		pointer_default(unique)
+	]
+	interface IChatItems : IDispatch
+	{
+		[propget, id(1)] HRESULT AssociatedType([out, retval] BSTR *pVal);
+		[propput, id(1)] HRESULT AssociatedType([in] BSTR newVal);
+		[propget, id(2)] HRESULT ValidItems([out, retval] VARIANT *pVal);
+		[propget, id(3)] HRESULT ItemValid([in] BSTR ItemName, [out, retval] BOOL *pVal);
+		[propget, id(4)] HRESULT Item([in] BSTR ItemName, [out, retval] VARIANT *pVal);
+		[propput, id(4)] HRESULT Item([in] BSTR ItemName, [in] VARIANT newVal);
+		[id(55)] HRESULT InvalidateItem([in] BSTR ItemName);
+	};
+
+	[
+        uuid(011EEE46-46DF-11D0-99CB-00C04FD64497),
+		helpstring("Microsoft ChatItems Object")
+	]
+	coclass ChatItems
+	{
+		[default] interface IChatItems;
+	};
+
+
+	[
+		object,
+        uuid(011eee43-46df-11d0-99cb-00c04fd64497),
+		dual,
+		helpstring("IChannelObject Interface"),
+		pointer_default(unique)
+	]
+	interface IChannelObject : IDispatch
+	{
+		[propget, id(10)] HRESULT Index([out, retval] long *pVal);
+		[propget, id(11)] HRESULT ChannelState([out, retval] enumChannelState *pVal);
+		[propget, id(12)] HRESULT ChannelName([out, retval] BSTR *pVal);
+		[propput, id(12)] HRESULT ChannelName([in] BSTR newVal);
+		[propget, id(13)] HRESULT ChannelTopic([out, retval] BSTR *pVal);
+		[propget, id(14)] HRESULT MemberCount([out, retval] long *pVal);
+		[propget, id(15)] HRESULT MemberIdentity([in,optional] VARIANT vMemberNickname, [out, retval] BSTR *pVal);
+		[propget, id(16)] HRESULT MemberModes([in,optional] VARIANT vMemberNickname, [out, retval] long *pVal);
+		[propget, id(17)] HRESULT ChannelProperty([in] BSTR ChannelPropertyName, [out, retval] IChatItems* *pVal);
+		[propget, id(18)] HRESULT MemberProperty([in] BSTR MemberPropertyName, [in,optional] VARIANT vMemberNickname, [out, retval] IChatItems* *pVal);
+		[id(60)] HRESULT CreateChannel([in,optional] VARIANT ChannelName, [in,optional] VARIANT ChannelKeyword, [in,optional] VARIANT ChannelModes, [in,optional] VARIANT MaxMemberCount);
+		[id(61)] HRESULT JoinChannel([in,optional] VARIANT ChannelName, [in,optional] VARIANT ChannelKeyword);
+		[id(62)] HRESULT LeaveChannel();
+		[id(63)] HRESULT SendMessage([in] long MessageType, [in] VARIANT Message, [in,optional] VARIANT RecipientNicknames, [in,optional] VARIANT DataMessageTag);
+		[id(64)] HRESULT SendInvitation([in] BSTR Nickname);
+		[id(65)] HRESULT ListMembers([in] ChatItems* MemberQueryItems);
+		[id(66)] HRESULT QueryMemberProperty([in] BSTR MemberPropertyName, [in,optional] VARIANT MemberNickname);
+		[id(67)] HRESULT ChangeMemberProperty([in] BSTR MemberPropertyName, [in] VARIANT NewMemberProperty, [in,optional] VARIANT MemberNickname);
+		[id(68)] HRESULT BanMembers([in] ChatItems* MemberItems, [in] BOOL Set);
+		[id(69)] HRESULT KickMember([in] BSTR MemberNickname, [in,optional] VARIANT Reason);
+		[id(70)] HRESULT QueryChannelProperty([in] BSTR ChannelPropertyName);
+		[id(71)] HRESULT ChangeChannelProperty([in] BSTR ChannelPropertyName, [in] VARIANT NewChannelProperty);
+	};
+
+	[
+        uuid(011EEE44-46DF-11D0-99CB-00C04FD64497),
+		helpstring("Microsoft Channel Object")
+	]
+	coclass Channel
+	{
+		[default] interface IChannelObject;
+	};
+
+
+	[
+		object,
+        uuid(011eee41-46df-11d0-99cb-00c04fd64497),
+		dual,
+		helpstring("IChannelsCollection Interface"),
+		pointer_default(unique)
+	]
+	interface IChannelsCollection : IDispatch
+	{
+		[propget, id(DISPID_VALUE)] HRESULT Item([in,optional] VARIANT vIndex, [out, retval] IChannelObject* *pVal);
+		[propget, id(DISPID_NEWENUM)] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+		[propget, id(30)] HRESULT Count([out, retval] long *pVal);
+		[id(80)] HRESULT Add([in,optional] VARIANT vIndex, [in,optional] VARIANT vKey, [out, retval] IChannelObject** ppChannelObject);
+		[id(81)] HRESULT Remove([in] VARIANT vIndex);
+	};
+
+	[
+        uuid(011EEE42-46DF-11D0-99CB-00C04FD64497),
+		helpstring("Microsoft Channels Collection Object")
+	]
+	coclass Channels
+	{
+		[default] interface IChannelsCollection;
+	};
+
+
+	[
+		object,
+        uuid(011eee40-46df-11d0-99cb-00c04fd64497),
+		dual,
+		helpstring("IMsChatPr Interface"),
+		pointer_default(unique)
+	]
+	interface IMsChatPr : IDispatch
+	{
+		[propget, id(40)] HRESULT ConnectionState([out, retval] enumConnectionState *pVal);
+		[propget, id(41)] HRESULT ConnectionType([out, retval] enumConnectionType *pVal);
+		[propget, id(42)] HRESULT OpeningChannels([out, retval] long *pVal);
+		[propget, id(43)] HRESULT PropertyAccessTimeOut([out, retval] long *pVal);
+		[propput, id(43)] HRESULT PropertyAccessTimeOut([in] long newVal);
+		[propget, id(44)] HRESULT ProcessProtocolMessages([out, retval] BOOL *pVal);
+		[propput, id(44)] HRESULT ProcessProtocolMessages([in] BOOL newVal);
+		[propget, id(45)] HRESULT ConvertedString([in] enumConversionType ConversionType, [in] enumConversionSource ConversionSource, [in] BSTR Source, [in] BOOL PostProcess, [out, retval] BSTR *pVal);
+		[propget, id(46)] HRESULT Channels([out, retval] IDispatch* *pVal);
+		[propget, id(47)] HRESULT NewChatItems([out, retval] IChatItems* *pVal);
+		[propget, id(48)] HRESULT MaxStringLength([in] enumStringType StringType, [out, retval] long *pVal);
+		[propget, id(49)] HRESULT ServerName([out, retval] BSTR *pVal);
+		[propget, id(50)] HRESULT Nickname([out, retval] BSTR *pVal);
+		[propget, id(51)] HRESULT UserProperty([in] BSTR UserPropertyName, [in,optional] VARIANT Nickname, [out, retval] IChatItems* *pVal);
+		[propget, id(52)] HRESULT ChannelProperty([in] BSTR ChannelPropertyName, [in,optional] VARIANT ChannelName, [out, retval] IChatItems* *pVal);
+		[propget, id(53)] HRESULT ServerProperty([in] BSTR ServerPropertyName, [out, retval] IChatItems* *pVal);
+		[id(90)] HRESULT AboutBox();
+		[id(91)] HRESULT Connect([in] BSTR ServerName);
+		[id(92)] HRESULT Login([in] BSTR ServerName, [in] BSTR Nickname, [in,optional] VARIANT UserName, [in,optional] VARIANT RealName, [in,optional] VARIANT Password, [in,optional] VARIANT SecurityPackages);
+		[id(93)] HRESULT Disconnect();
+		[id(94)] HRESULT CancelConnectLogin();
+		[id(95)] HRESULT ListChannels([in] ChatItems* ChannelQueryItems);
+		[id(96)] HRESULT QueryChannelProperty([in] BSTR ChannelPropertyName, [in,optional] VARIANT ChannelName);
+		[id(97)] HRESULT KillChannel([in] BSTR ChannelName, [in,optional] VARIANT Reason);
+		[id(98)] HRESULT ListUsers([in] ChatItems* UserQueryItems);
+		[id(99)] HRESULT QueryUserProperty([in] BSTR UserPropertyName, [in,optional] VARIANT Nickname);
+		[id(100)] HRESULT ChangeUserProperty([in] BSTR UserPropertyName, [in] VARIANT NewUserProperty, [in,optional] VARIANT Nickname);
+		[id(101)] HRESULT IgnoreUsers([in] ChatItems* UserItems, [in] BOOL Set);
+		[id(102)] HRESULT BanUsers([in] ChatItems* UserItems, [in] BOOL Set, [in,optional] VARIANT Reason, [in,optional] VARIANT Duration);
+		[id(103)] HRESULT KickUser([in] BSTR Nickname, [in,optional] VARIANT Reason);
+		[id(104)] HRESULT ChangeNickname([in] BSTR NewNickname);
+		[id(105)] HRESULT SetAway([in] BOOL Away, [in,optional] VARIANT TextMessage);
+		[id(106)] HRESULT QueryServerProperty([in] BSTR ServerPropertyName);
+		[id(107)] HRESULT SendInvitation([in] BSTR Nickname, [in,optional] VARIANT ChannelName);
+		[id(108)] HRESULT SendPrivateMessage([in] long PrivateMessageType, [in] VARIANT Message, [in] VARIANT RecipientNicknames, [in,optional] VARIANT DataMessageTag);
+		[id(109)] HRESULT SendProtocolMessage([in] BSTR TextMessage);
+	};
+
+	[
+        uuid(0254af20-46df-11d0-99cb-00c04fd64497),
+		helpstring("IMsChatPrEvent Interface")
+	]
+	dispinterface _IMsChatPrEvent
+	{
+		properties:
+		//  Event interface has no properties
+		methods:
+		[id(110)]
+			void OnConnectionState(enumConnectionState NewConnectionState);
+
+		[id(111)]
+			void OnConnectionError(long ErrorCode, 
+								   BSTR Description, 
+								   VARIANT ChannelName);
+
+		[id(112)]
+			void OnChannelState(Channel* Channel, 
+								enumChannelState NewChannelState);
+
+		[id(113)]
+			void OnChannelError(Channel* Channel, 
+								long ErrorCode, 
+								BSTR Description);
+
+		[id(114)]
+			void OnBeginEnumeration(Channel* Channel, 
+									enumEnumType EnumType);
+
+		[id(115)]
+			void OnEndEnumeration(Channel* Channel, 
+								  enumEnumType EnumType);
+
+		[id(116)]
+			void OnAddMember(Channel* Channel, 
+							 BSTR Nickname, 
+							 ChatItems* MemberItems);
+
+		[id(117)]
+			void OnDelMember(Channel* Channel, 
+							 BSTR Nickname);
+
+		[id(118)]
+			void OnUserProperty(ChatItems* UserItems);
+
+		[id(119)]
+			void OnUserPropertyChanged(BSTR ModifiedNickname, 
+									   BSTR ModifierNickname, 
+									   BSTR UserPropertyName,
+									   VARIANT OldUserProperty, 
+									   VARIANT NewUserProperty);
+
+		[id(120)]
+			void OnMemberProperty(Channel* Channel, ChatItems* MemberItems);
+
+		[id(121)]
+			void OnMemberPropertyChanged(Channel* Channel, 
+										 BSTR ModifiedNickname, 
+										 BSTR ModifierNickname, 
+										 BSTR MemberPropertyName,
+										 VARIANT OldMemberProperty, 
+										 VARIANT NewMemberProperty);
+
+		[id(122)]
+			void OnMemberKicked(Channel* Channel, 
+								BSTR KickedNickname, 
+								BSTR KickerNickname, 
+								BSTR Reason);
+
+		[id(123)]
+			void OnChannelProperty(Channel* Channel, 
+								   ChatItems* ChannelItems);
+
+		[id(124)]
+			void OnChannelPropertyChanged(Channel* Channel, 
+										  BSTR ModifierNickname, 
+										  BSTR ChannelPropertyName,
+										  VARIANT OldChannelProperty, 
+										  VARIANT NewChannelProperty);
+										  
+		[id(125)]
+			void OnServerProperty(ChatItems* ServerItems);
+
+		[id(126)]
+			void OnInvitation(BSTR ChannelName, 
+							  ChatItems* InviterItems);
+
+		[id(127)]
+			void OnKnock(Channel* Channel, 
+						 ChatItems* KnockerItems,
+						 long ErrorCode);
+
+		[id(128)]
+			void OnPrivateMessage(BSTR SenderNickname,
+								  long PrivateMessageType,
+								  VARIANT Message,
+								  VARIANT DataMessageTag);
+
+		[id(129)]
+			void OnServerTextMessage(enumServerMessageType ServerMessageType,
+									 BSTR Text);
+
+		[id(130)]
+			void OnMessage(Channel* Channel, 
+						   BSTR SenderNickname, 
+						   long MessageType,
+						   VARIANT Message,
+						   VARIANT RecipientNicknames,
+						   VARIANT DataMessageTag);
+
+		[id(131)]
+			void OnProtocolMessage(BSTR MessagePrefix, 
+								   BSTR MessageCommand, 
+								   VARIANT MessageParameters,
+								   OLE_ENABLEDEFAULTBOOL* EnableDefault);
+	};
+	
+	[
+        uuid(039397C0-46DF-11D0-99CB-00C04FD64497),
+		helpstring("Microsoft Chat Protocol Control")
+	]
+	coclass MsChatPr
+	{
+		[default] interface IMsChatPr;
+		[default, source] interface _IMsChatPrEvent;
+	};
+};

@@ -1,0 +1,116 @@
+			        README
+			
+		    Java Performance Pack for Win32
+		  Version 1.1.4 (Early-access release)
+		    
+-----------------------------------------------------------------------
+CONTENTS
+
+   Overview of the Performance Pack
+   System requirements
+   Installing the Performance Pack
+   Using the JIT compiler
+    - Using the JIT compiler in conjunction with the JDK
+    - Using the JIT compiler in conjunction with the JRE
+   Uninstalling the JIT compiler
+     
+     
+-----------------------------------------------------------------------
+OVERVIEW OF THE JAVA PERFORMANCE PACK
+-----------------------------------------------------------------------
+
+The Java Performance Pack for Win32, version 1.1.4, contains an early-
+access version of a JIT compiler. When installed, the Performance 
+Pack's JIT compiler should provide an increase in the speed with which 
+your Java applications and applets run. In some cases, up to 10X 
+improvement in performance can be realized.
+
+BECAUSE THIS IS A TECHNOLOGY PREVIEW RELEASE ONLY, THE PERFORMANCE 
+PACK'S JIT COMPILER SHOULD NOT BE USED FOR MISSION-CRITICAL 
+APPLICATIONS.
+
+If you encounter any problems or bugs with the Performance Pack, 
+please report them via the JavaSoft bug submission web page at 
+http://java.sun.com/cgi-bin/bugreport.cgi 
+
+
+-----------------------------------------------------------------------
+SYSTEM REQUIREMENTS
+-----------------------------------------------------------------------
+
+The Performance Pack JIT compiler is available only for Win32 
+platforms. It has not been tested on Windows NT 3.5.1. The Performance 
+Pack JIT compiler requires that JDK 1.1.4 or JRE 1.1.4 be installed on 
+your machine.
+
+
+----------------------------------------------------------------------
+INSTALLING THE PERFORMANCE PACK
+-----------------------------------------------------------------------
+
+To install the Performance Pack, double click on the Performance Pack 
+file that you downloaded from the JavaSoft web site. This will open an 
+InstallShield script that will step you through the installation 
+process.
+
+Note that some browsers give you the option of executing the download 
+file directly from the JavaSoft web site without saving a copy of the 
+download file to your disk.
+
+
+-----------------------------------------------------------------------
+USING THE JIT COMPILER
+-----------------------------------------------------------------------
+
+USING THE JIT COMPILER IN CONJUNCTION WITH THE JDK --------------------
+
+To use the JIT compiler in conjuction with the JDK's java, javac or 
+appletviewer command-line tools, you must set the JAVA_COMPILER 
+environment variable to the value "symcjit". Use the following command 
+from the DOS prompt:
+
+	set JAVA_COMPILER=symcjit
+
+When the JAVA_COMPILER environment variable is set, the JIT compiler 
+will be the default compiler invoked by the command-line tools.
+
+An alternative way of invoking the JIT compiler is to set the value of 
+the java.compiler property to "symcjit". With the javac and 
+appletviewer tools, you can do this as follows:
+
+	appletviewer -J-Djava.compiler=symcjit MyApplet.html
+	javac -J-Djava.compiler=symcjit MyApp.java
+
+When using the java command-line tool, you can set java.compiler as 
+follows:
+
+	java -Djava.compiler=symcjit MyApp
+	
+If you don't want the JIT compiler to be invoked by default, unset 
+the JAVA_COMPILER environment variable. You do this by setting 
+JAVA_COMPILER to no value:
+
+	set JAVA_COMPILER=
+
+
+USING THE JIT COMPILER IN CONJUNCTION WITH THE JRE --------------------
+
+If JRE 1.1.4 and the JIT compiler are both installed, the JIT compiler 
+is the default compiler invoked by the jre command-line tool. If you 
+want to run an application using only the default interpreter, without 
+invoking the JIT compiler, you can use the jre command with the -nojit 
+option.
+
+
+-----------------------------------------------------------------------
+UNINSTALLING THE JIT COMPILER
+-----------------------------------------------------------------------
+
+If for any reason you wish to uninstall the JIT compiler, you may do 
+so from the Add/Remove Programs control panel of Windows 95/NT. 
+
+
+-----------------------------------------------------------------------
+Copyright © 1997 Sun Microsystems, Inc.
+2550 Garcia Ave., Mountain View, CA 94043-1100. USA
+All rights reserved.

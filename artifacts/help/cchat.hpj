@@ -1,0 +1,19 @@
+; This file is maintained by HCW. Do not modify this file directly.
+
+#include ..\windef.hpj
+
+[OPTIONS]
+HCW=0
+COMPRESS=12 Hall Zeck
+LCID=0x409 0x0 0x0 ;English (United States)
+REPORT=Yes
+TITLE=Comic Chat Help
+CNT=cchat.cnt
+PREFIX=cc_,
+HLP=cchat.hlp
+
+[FILES]
+cchat_pr.rtf
+
+[MAP]
+cc_connecting=200

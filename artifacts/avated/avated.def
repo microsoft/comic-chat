@@ -1,0 +1,7 @@
+LIBRARY   CCEDIT.DLL
+
+VERSION   1.0
+
+EXPORTS
+    ClipAvatar
+    GetAura
