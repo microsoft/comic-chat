@@ -1,0 +1,404 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>Enumerations</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headcoma.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="Enumerations"><BR CLEAR=ALL>
+<A NAME="mschatpr_vb_ref_0504020202000000"></A><H3>Enumerations<BR CLEAR=ALL>
+<HR></H3><P>This section describes the enumerations supported by the Chat Protocol Control 2.0.
+
+<P><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000100" TARGET="TEXT">enumChannelMode</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000200" TARGET="TEXT">enumChannelState</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000300" TARGET="TEXT">enumConnectionState</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000400" TARGET="TEXT">enumConnectionType</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000500" TARGET="TEXT">enumConversionSource</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000600" TARGET="TEXT">enumConversionType</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000700" TARGET="TEXT">enumEnumType</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000800" TARGET="TEXT">enumMemberMode</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000900" TARGET="TEXT">enumMessageType</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a00" TARGET="TEXT">enumPrivateMessageType</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000b00" TARGET="TEXT">enumServerMessageType</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000c00" TARGET="TEXT">enumStringType</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000d00" TARGET="TEXT">enumUserMode</A>
+
+<P><B>Note</B>  Microsoft Visual Basic 4.0 does not support the use of enumerations as variable types.
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000100"></A><H3>enumChannelMode Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Used in <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040400" TARGET="TEXT">OnChannelProperty</A> and <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040500" TARGET="TEXT">OnChannelPropertyChanged</A> events, <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A>, <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070200" TARGET="TEXT">ChangeChannelProperty</A>, and <A HREF="inet0538.htm#mschatpr_vb_ref_0504020201030e00" TARGET="TEXT">QueryChannelProperty</A> methods, and <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060200" TARGET="TEXT">ChannelProperty</A> property to contain the channel mode.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000101">cmNone</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Value = &amp;H0. No particular mode is set.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000102">cmPublic</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Value = &amp;H0. The channel is public and all information about the channel (except for text messages) can be queried by nonmembers. The cmPublic mode is mutually exclusive with the cmPrivate, cmHidden, and cmSecret modes.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000103">cmPrivate</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1. The channel is private and only the name, number of members, and PICS rating property can be queried by nonmembers. The cmPrivate mode is mutually exclusive with the cmPublic, cmHidden, and cmSecret modes.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000104">cmHidden</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H2. The channel is hidden and cannot be located through enumeration queries by nonmembers. The cmHidden mode is mutually exclusive with the cmPublic, cmPrivate, and cmSecret modes. The purpose of the new cmHidden channel mode is to permit the existence of channels that cannot be found using the standard LIST IRC command, but whose properties can be queried if the exact channel name is known. Thus a hidden channel is like a public channel except that it cannot be enumerated by using a <A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030b00" TARGET="TEXT">ListChannels</A> method call.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000105">cmSecret</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H4. The channel is secret and cannot be located by any query from nonmembers. The cmSecret mode is mutually exclusive with the cmPublic, cmPrivate, and cmHidden modes.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000106">cmModerated</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H8. Normally, new channel members may speak. In cmModerated mode, however, by default, new channel members may not speak. This is achieved by designating the no voice mode to all new members for that channel. Although the no voice mode usually has no effect, it does affect a moderated channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000107">cmNoExtern</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H10. Blocks messages from nonmembers to the channel. An administrator can still send a message to the channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000108">cmTopicop</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H20. Permits only channel owners and hosts to change the channel topic property.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000109">cmInvite</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H40. Permits only invited users to enter the channel. Only owners and hosts can issue an invitation when this mode is on.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200010a">cmKnock</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H80. The cmKnock extended mode causes an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040c00" TARGET="TEXT">OnKnock</A> event to be fired for owners and hosts of the channel if a user attempts to join a channel and is denied entrance by the server.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200010b">cmNoWhisper</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H100. Prevents whisper messages from being sent to the channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200010c">cmRegistered</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H200. The channel is registered by the administrator of the chat network. The registration procedure is not defined here and is implementation-dependent. Only the server or administrator can set this mode.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200010d">cmService</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H400. A service is monitoring/controlling the channel. This is an indication to the client that message traffic sent to the channel is being monitored by a chat service that does not appear as a member in the channel. The cmService flag can be set only by the chat server.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200010e">cmAuthOnly</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H800. Permits channel access only to users who have been authenticated by the server. Note that an authenticated user is any user who was successfully authenticated by the Password parameter or <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010c" TARGET="TEXT">SecurityPackages</A> parameter during the <A HREF="inet0538.htm#mschatpr_vb_ref_0504020201030d00" TARGET="TEXT">Login</A> method. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200010f">cmCloneable</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1000. Defines a channel that creates new clone channels if the parent channel is full. A clone channel is created with the same name as the parent cloneable channel with a numeric suffix starting at 1 and ranging to 99. It is not valid to set the cmCloneable channel mode of a parent channel that ends with a numeric character. The clone channel inherits modes and properties from the parent channel when it is set up. When a clone channel is created, any channel that has the same name is removed. This prevents channel takeover of a clone channel. It is advised that only administrators be allowed to set cmCloneable mode on a channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000110">cmClone</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H2000. Defines a channel that was created by the server when a parent cloneable channel becomes full. Users should usually join the parent channel, although a user can join a clone channel that is not full. Only the server can set up a clone channel and set this mode. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000111">cmAuditorium</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H4000. Restricts visibility and messaging within a channel. Members will only see themselves and the hosts/owners in the channel. Any message sent by a member will be received only by the hosts and owners. Hosts and owners will see all members in the channel. Messages from a host or owner are seen by all channel members. Ordinary members will not receive <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040100" TARGET="TEXT">OnAddMember</A> and <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040900" TARGET="TEXT">OnDelMember</A> events for other members. This mode is designed for channels with such a large membership that the members do not want to see each other.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000112">cmNoFormat</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H8000. Indicates to the client application not to format text received from the channel. Normally, clients will prefix text messages with "x said y" or "x whispers to y and x". If the cmNoFormat mode is set, just the raw text is displayed, wrapping to the next line at the end of the message. The client should not echo text sent by the client. This is to permit custom applications to control the formatting to clients. 
+<P>Because cmNoFormat is a channel mode and could be abused by the channel host, clients may want to inform users that messages can be spoofed or imitated with this mode. With MIC 2.0, only the administrator can enable this mode on persistent channels. This is the IRCX +f channel mode. The concept does not exist on other IRC servers. Clients can choose to ignore the flag.
+
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000113">cmCreateOnly</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H10000000. Only used in a <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A> call. If set, the channel is opened only if it does not yet exist.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000200"></A><H3>enumChannelState Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040600" TARGET="TEXT">OnChannelState</A> event and <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060300" TARGET="TEXT">ChannelState</A> property values.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000201">chsClosed</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 0. The state of a channel when created. It becomes chsClosed again when the user leaves the channel or is kicked from the channel, or when a server disconnection occurs.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000202">chsOpening</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 1. When calling its <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A> or <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A> method, the state becomes asynchronously chsOpening and chsOpen.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000203">chsOpen</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 2. When calling its <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A> or <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A> method, the state becomes asynchronously chsOpening and chsOpen.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000300"></A><H3>enumConnectionState Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040800" TARGET="TEXT">OnConnectionState</A> event and <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020300" TARGET="TEXT">ConnectionState</A> property values.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000301">csDisconnected</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 0. Used to indicate that the connection state of the channel is currently disconnected.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000302">csConnecting</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 1. Used to indicate that the connection state of the channel is currently in the process of connecting.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000303">csConnected</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 2. Used to indicate that the connection state of the channel is currently connected.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000304">csLogging</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 3. Used to indicate that the connection state of the channel is currently in the process of logging.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000305">csLogged</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 4. Used to indicate that the connection state of the channel is currently logged.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000306">csDisconnecting</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 5. Used to indicate that the connection state of the channel is currently in the process of disconnecting.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000400"></A><H3>enumConnectionType Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P><A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020400" TARGET="TEXT">ConnectionType</A> property value.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000401">ctIRC</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 0. For IRC connections.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000402">ctIRCX</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 1. For IRCX connections.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000500"></A><H3>enumConversionSource Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P><A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020500" TARGET="TEXT">ConvertedString</A> property access.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000501">cvsNormal</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 0. For regular text.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000502">cvsNickname</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 1. For user nicknames.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000503">cvsChannelName</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 2. For channel names.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000600"></A><H3>enumConversionType Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P><A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020500" TARGET="TEXT">ConvertedString</A> property access.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000601">cvtToUTF8</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 0. Used to convert to UTF8 format.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000602">cvtToUnicode</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 1. Used to convert to Unicode format.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000700"></A><H3>enumEnumType Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040200" TARGET="TEXT">OnBeginEnumeration</A> and <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040a00" TARGET="TEXT">OnEndEnumeration</A> events parameter.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000701">etMessageOfTheDay</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 0. Used when exposing the message of the day at login.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000702">etUsers</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 1. Used when listing users with the <A HREF="inet0538.htm#mschatpr_vb_ref_0504020201030c00" TARGET="TEXT">ListUsers</A> method.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000703">etChannels</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 2. Used when listing channels with the <A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030b00" TARGET="TEXT">ListChannels</A> method.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000704">etChannelsTruncated</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 3. Used when channel listing is truncated during a <A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030b00" TARGET="TEXT">ListChannels</A> call.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000705">etMembers</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 4. Used when listing members with the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070800" TARGET="TEXT">ListMembers</A> method.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000706">etInitialMembers</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 5. Used when initial channel members are exposed when joining a channel.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000800"></A><H3>enumMemberMode Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Used in <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040e00" TARGET="TEXT">OnMemberProperty</A> and <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040f00" TARGET="TEXT">OnMemberPropertyChanged</A> events, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070a00" TARGET="TEXT">QueryMemberProperty</A> and <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070300" TARGET="TEXT">ChangeMemberProperty</A> methods, and <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060900" TARGET="TEXT">MemberProperty</A> and <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060800" TARGET="TEXT">MemberModes</A> properties.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000801">mmNone</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H0. No specific member mode is set.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000802">mmClientIgnored</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1. At the client level, incoming messages from specific members will be ignored and not exposed by an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041000" TARGET="TEXT">OnMessage</A> event. This is ignoring at the client level, not the server level. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000803">mmNotClientIgnored</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H2. At the client level, incoming messages from specific members will not be ignored and will be exposed by an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041000" TARGET="TEXT">OnMessage</A> event.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000804">mmAuthMember</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H4. The member was authenticated by the server by the use of a password or authentication package.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000805">mmNotAuthMember</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H8. The member was not authenticated by the server.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000806">mmAway</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H10. The member has an away text message, and the away flag is set.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000807">mmNotAway</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H20. The member does not have an away text message, and the away flag is not set.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000808">mmSysop</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H40. The member is a system operator.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000809">mmNotSysop</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H80. The member is not a system operator.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200080a">mmOwner</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H100. The member is an owner of the channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200080b">mmNotOwner</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H200. The member is not an owner of the channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200080c">mmHost</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H400. The member is a host of the channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200080d">mmNotHost</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H800. The member is not a host of the channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200080e">mmVoice</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1000. The member is able to speak even if the channel is moderated. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200080f">mmNoVoice</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H2000. The member cannot speak if the channel is moderated.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000900"></A><H3>enumMessageType Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Used in <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041000" TARGET="TEXT">OnMessage</A> event and <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070c00" TARGET="TEXT">SendMessage</A> method parameters.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000901">msgtNormal</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H0. Sends a regular text message to the channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000902">msgtNotice</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1. Similar to msgtNormal, but the client does not expect an answer from the recipient(s).
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000903">msgtData</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H2. IRCX servers only. Sends data instead of text.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000904">msgtDataRequest</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H4. IRCX servers only. Similar to msgtData except the sender expects a msgtDataReply response from the recipient(s).
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000905">msgtDataReply</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H8. IRCX servers only. Similar to msgtData except the sender does not expect a reply.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000906">msgtDataRaw</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H10. IRCX servers only. Sends raw bytes to the server without using an internal message header. This flag must be combined with msgtData, msgtDataRequest, or msgtDataReply.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000907">msgtWhisper</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H20. Used to whisper to some channel members instead of sending out to the entire channel. The recipients receive the whole list of recipients.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000908">msgtThought</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H40. Incoming messages only. Indicates that the message is a thought.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000909">msgtAction</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H80. Sends an action CTCP.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200090a">msgtSound</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H100. Sends a sound CTCP.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200090b">msgtCTCP</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H200. Sends a regular CTCP.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_050402020200090c">msgtInfo</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H400. Incoming messages from Microsoft Chat Control 1.1 only. Used to indicate what kind of visual character and what type of gesture to display. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000a00"></A><H3>enumPrivateMessageType Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Used in the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041100" TARGET="TEXT">OnPrivateMessage</A> event and the <A HREF="inet0538.htm#mschatpr_vb_ref_0504020201031200" TARGET="TEXT">SendPrivateMessage</A> method parameters.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a01">pmtNormal</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H0. Used in the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041100" TARGET="TEXT">OnPrivateMessage</A> event and the <A HREF="inet0538.htm#mschatpr_vb_ref_0504020201031200" TARGET="TEXT">SendPrivateMessage</A> method to send a regular text message.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a02">pmtNotice</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1. Sends a regular text message to the users, like pmtNormal, but the client does not expect an answer from the recipients.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a03">pmtData</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H2. Can be used only on IRCX servers. Sends data instead of text.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a04">pmtDataRequest</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H4. Can be used only on IRCX servers. Sends data instead of text, like pmtData, but the sender expects a pmtDataReply reply from the recipient(s).
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a05">pmtDataReply</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H8. Can be used only on IRCX servers. Similar to pmtData, but the sender does not want a reply from the recipient(s).
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a06">pmtDataRaw</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H10. Can be used only on IRCX servers. Sends raw bytes to the server without using an internal message header. This flag must be combined with pmtData, pmtDataRequest, or pmtDataReply.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a07">pmtAway</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H20. For incoming away messages.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a08">pmtVersion</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H40. Requests or sends version information.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a09">pmtLagTime</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H80. Requests or gets the lag time with a user or users.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a0a">pmtLocalTime</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H100. Requests or gets the local time of a user or users.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a0b">pmtAction</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H200. Sends or receives an action CTCP (Client to Client Protocol) to a user or users.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a0c">pmtSound</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H400. Sends or receives a sound CTCP to a user or users.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a0d">pmtCTCP</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H800. Sends or receives a regular CTCP to a user or users.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000a0e">pmtInfo</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1000. Same as msgtInfo, used to indicate what kind of avatar and what type of gesture to display.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000b00"></A><H3>enumServerMessageType Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041400" TARGET="TEXT">OnServerTextMessage</A> event parameter.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000b01">smtNormal</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H0. Used for regular incoming server messages.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000b02">smtNotice</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1. Used for incoming NOTICE message from the server.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000b03">smtMessageOfTheDay</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H2. Used for the message of the day incoming text at login time.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000b04">smtServerInfo</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H3. Used for server information messages.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000b05">smtError</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H4. Used for incoming server error messages.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000c00"></A><H3>enumStringType Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P><A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020600" TARGET="TEXT">MaxStringLength</A> property access.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c01">stServerMessage</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 1. Used when querying the maximum length of the incoming and outgoing server messages.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c02">stChannelAccount</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 2. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000202" TARGET="TEXT">Account</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c03">stChannelClientData</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 3. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000206" TARGET="TEXT">ClientData</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c04">stChannelHostKey</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 4. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020a" TARGET="TEXT">HostKey</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c05">stChannelKeyword</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 5. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020b" TARGET="TEXT">Keyword</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c06">stChannelLanguage</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 6. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020d" TARGET="TEXT">Language</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c07">stChannelName</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 7. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c08">stChannelOnJoin</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 8. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000218" TARGET="TEXT">OnJoin</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c09">stChannelOnPart</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 9. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000219" TARGET="TEXT">OnPart</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c0a">stChannelOwnerKey</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 10. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021a" TARGET="TEXT">OwnerKey</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c0b">stChannelRating</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 11. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021b" TARGET="TEXT">Rating</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c0c">stChannelSubject</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 12. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021e" TARGET="TEXT">Subject</A> properties.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000c0d">stChannelTopic</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = 13. Used when querying the maximum length of the incoming and outgoing channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A> properties.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020202000d00"></A><H3>enumUserMode Enumeration<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Used in the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041500" TARGET="TEXT">OnUserProperty</A>, <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041600" TARGET="TEXT">OnUserPropertyChanged</A>, <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040b00" TARGET="TEXT">OnInvitation</A>, and <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040c00" TARGET="TEXT">OnKnock</A> events, the <A HREF="inet0538.htm#mschatpr_vb_ref_0504020201031000" TARGET="TEXT">QueryUserProperty</A> and <A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030500" TARGET="TEXT">ChangeUserProperty</A> methods, and the <A HREF="inet0537.htm#mschatpr_vb_ref_0504020201020e00" TARGET="TEXT">UserProperty</A> property.
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Value</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d01">umNone</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H0.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d02">umClientIgnored</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1. The user is ignored by the caller.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d03">umNotClientIgnored</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H2. The user is not ignored by the caller.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d04">umAuthUser</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H4. The user is authenticated.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d05">umNotAuthUser</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H8. The user is not authenticated.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d06">umAway</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H10. The user is currently away.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d07">umNotAway</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H20. The user is not currently away.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d08">umSysop</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H40. The user is a system operator.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d09">umNotSysop</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H80. The user is not a system operator.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d0a">umAdmin</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H100. The user is an administrator.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d0b">umNotAdmin</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H200. The user is not an administrator.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d0c">umInvisible</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H400. The user is invisible.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d0d">umNotInvisible</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H800. The user is not invisible.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d0e">umNotices</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H1000. The user accepts server notices.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d0f">umNoNotices</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H2000. The user does not receive server notices.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d10">umWallops</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H4000. The user receives wallops. A wallops is an IRC feature that will send a message to all operators online that have +w set on their user mode. Different IRC servers have various restrictions on who can send and read wallops. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B><A NAME="mschatpr_vb_ref_0504020202000d11">umNoWallops</A></B>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Value = &amp;H8000. The user does not receive wallops.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

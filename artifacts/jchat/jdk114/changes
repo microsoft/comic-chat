@@ -1,0 +1,2444 @@
+                         
+                            CHANGES
+ 
+                    Java(tm) Development Kit
+                         JDK(tm) 1.1.4
+                         
+-----------------------------------------------------------------------
+CONTENTS
+-----------------------------------------------------------------------
+This document describes the changes between the various JDK 
+releases of the Java Platform 1.1.  It is divided into several 
+sections:
+
+    - Changes from JDK 1.1.3 to JDK 1.1.4
+    - Changes from JDK 1.1.2 to JDK 1.1.3
+    - Changes from JDK 1.1.1 to JDK 1.1.2
+    - Changes from JDK 1.1_Final to JDK 1.1.1_Final
+    - Changes from JDK 1.1beta3  to JDK 1.1_Final
+    - Changes from JDK 1.1beta2  to JDK 1.1beta3
+    - Changes from the original JDK 1.1beta to JDK 1.1beta2
+
+Changes within a section are in this order:
+    - VERSION NUMBER
+    - BUG FIXES
+    - TEXT CHANGES
+    - AWT CHANGES
+    - BEANS CHANGES
+    - SECURITY CHANGES
+    - JAR CHANGES
+    - LANG CHANGES
+    - IO CHANGES
+    - JAVA NATIVE INTERFACE CHANGES
+    - TOOL CHANGES
+
+    ---------------------------------------------------------
+    NOTE: To find the Java version number, execute:
+          java -version
+    ---------------------------------------------------------
+    NOTE: Another significant list of changes is our
+          important bug fixes, available from our JavaSoft 
+          website:
+          http://java.sun.com/products/jdk/1.1/fixedbugs/
+    ---------------------------------------------------------
+    NOTE: Known bugs are listed at:
+          http://java.sun.com/products/jdk/1.1/knownbugs/
+    ---------------------------------------------------------
+
+=======================================================================
+Changes from JDK 1.1.3 to JDK 1.1.4
+-----------------------------------------------------------------------
+
+JDK 1.1.4 is a bug-fix release. The following list summarizes changes 
+in JDK 1.1.4.
+______________
+VERSION NUMBER - The version number for this release is "JDK1.1.4".
+
+____________________
+JAVA TEXT BOUNDS BUG - The DateFormat.parse() unexpectedly threw a 
+StringIndexOutOfBoundsException rather than the expected 
+FormatException.  This bug has been fixed in JDK 1.1.4.  [Bug 4031620]
+
+_________________
+AWT COMPONENT BUG - In the windows version of JDK 1.1.3, incorrect 
+character codes from non-101 keyboards where being received, causing 
+the incorrect generation of a KeyPressed/Release event.  This bug has 
+been fixed in JDK 1.1.4.  [Bugs 4051910, 4053800]
+
+__________________
+AWT POPUP MENU BUG - Removing menus from PopupMenus on Solaris versions 
+of JDK 1.1.2 and JDK 1.1.3 caused a core dump. This problem has been 
+corrected in JDK 1.1.4.  [Bug 4054479]
+
+__________
+AWT IM BUG - In the Solaris version on the JDK 1.1.1, the IM status 
+region was created inside of the AWT window and broke the layout of the 
+window.  This bug has been fixed in JDK 1.1.4.  [Bug 4041569]
+
+____________
+AWT MENU BUG - In the Solaris version of the JDK 1.1.2 & JDK 1.1.3 a 
+core dump would result when removing MenuItems from submenus on 
+PopuMenus.  This bug has been fixed in JDK 1.1.4.  [Bug 4054479]
+
+____________________
+AWT MODAL DIALOG BUG - Calls to the hide() method in the Win32 version 
+of JDK 1.1.3 does not always hide the modal dialog.  This is a 
+regression of JDK 1.1.1.  This bug has been fixed in JDK 1.1.4 
+[Bug 4068651]
+
+______________
+AWT CURSOR BUG - In JDK 1.1.3, Frame.setCursor sometimes didn't update 
+the cursor until the user moved the mouse. This bug has been fixed 
+in JDK 1.1.4.  [Bug 4040388]
+
+___________________
+AWT KEYBOARD EVENTS - Caps lock and Shift keyboard events did not 
+work properly on Win32 versions of JDK 1.1.3. This problem has been 
+fixed in JDK 1.1.4. [Bug 4067542]
+
+___________________
+AWT KEYBOARD EVENTS - In JDK 1.1.3, incorrect KeyPressed/Released 
+events were generated when using non-101 keyboards. This problems has 
+been fixed in JDK 1.1.4.  [Bug 4051910]
+
+_________________________
+AWT WINDOW ACTIVATION BUG - In JDK 1.1.3, invisible windows could not 
+be activated, which caused applets to hang. This bug has been fixed 
+in JDK 1.1.4.  [Bug 4068536]
+
+_____________________
+AWT COLOR SUPPORT BUG - Previous versions of JDK 1.1 did not correctly 
+handle 8-bit TrueColor. This problem has been corrected in JDK 1.1.4.
+[Bug 4061285]
+
+_______
+JNI BUG - In JDK 1.1.4, the JNI_GetDefaultJavaVMInitArgs function has 
+been corrected to properly set the default system class path. In 
+previous versions of the JDK, the default system class path was set to 
+NULL.
+
+________________
+LOCALIZATION BUG - In the zh_TW.BIG5 locale, users could not input 
+Chinese characters into the text area. This problem has been fixed 
+in JDK 1.1.4.  [Bug 4053637]
+
+____________________
+java INTERPRETER BUG - In previous releases of JDK 1.1, the java 
+interpreter would allow a class file at /a/b/c.class to be invoked 
+from within the /a/b directory by the command "java c". This 
+behavior is incorrect and has been fixed in JDK 1.1.4. In JDK 1.1.4, 
+the fully qualified class name must be specified. For example, to 
+invoke the class /a/b/c.class, the command "java a.b.c" could be issued 
+from the parent directory of directory /a.
+
+_________________
+jdb DEBUGGER BUGS - Several Java debugger problems are fixed in JDK 
+1.1.4. In previous JDKs, the debugger could not print a static member 
+whose type was a string. Setting a breakpoint in a native method would 
+cause the debugger to crash. These debugger problems have been fixed 
+in JDK 1.1.4.  [Bugs 4064129, 4062582]
+
+
+=======================================================================
+Changes from JDK 1.1.2 to JDK 1.1.3
+-----------------------------------------------------------------------
+
+JDK 1.1.3 is a bug-fix release to correct a localization problem in 
+the Solaris JDK 1.1.2. The following list summarizes changes in 
+JDK 1.1.3.
+______________
+VERSION NUMBER - The version number for this release is "JDK1.1.3".
+
+________________
+LOCALIZATION BUG - In Solaris versions of JDK 1.1.2, the mechanism 
+for loading the ByteToCharConverter classes for non-8859_1 encodings 
+was broken. Characters in text areas of windows did not display 
+properly for non-English-language locales and non-Western European 
+locales. This problem did not exist in JDK 1.1.1. This bug has been 
+fixed in JDK 1.1.3.  [Bugs 4049223, 4055084]
+
+___________________________
+VERIFIER IMPLEMENTATION BUG - A bug in the JDK 1.1.2 verifier would 
+allow a type-unsafe applet to search and locate strings stored in the 
+browser's address space. This bug is not known to be present in 
+JDK 1.0.x. This bug has been fixed in JDK 1.1.3. [Bug 4059597]
+
+______________ 
+JAVA BEANS BUG - The method java.beans.BeanInfo.getMethodDescriptors() 
+did not return MethodDescriptors for all externally visible methods 
+in some situations. getMethodDescriptors() did not report methods 
+having no arguments when those methods were defined later in a class 
+than similarly named methods having arguments. This problem did not 
+exist in JDK 1.1.1. This bug has been fixed in JDK 1.1.3. [Bug 4056837]
+
+_______________
+AWT REPAINT BUG - Synchronization problems with graphics in the 
+Win32 version of JDK 1.1.2 would cause graphics deadlocks or 
+crashes of the Java virtual machine in some situations. This problem 
+did not exist in JDK 1.1.1. This bug has been fixed in JDK 1.1.3.
+[Bugs 4049421, 4051303]
+
+________________
+java_g -prof BUG - The profiling option of the Java interpreter 
+did not work in the Win32 version of JDK 1.1.2. Using a command
+such as    C:\> java_g -prof MyClass     would cause the Java 
+virtual machine to crash. This problem did not exist in JDK 1.1.1. 
+This bug has been fixed in JDK 1.1.3. [Bug 4056944]
+
+_______________________
+AWT FONTMETRICS SPEEDUP - Improvements have been made to AWT font 
+metrics in JDK 1.1.3, resulting in significant speedups for programs 
+such as HotJava that rely heavily on text rendering. 
+[Bug 4046795]
+
+_________________
+AWT COMPONENT BUG - In the Windows version of JDK 1.1.2, a race 
+condition sometimes caused the HotJava browser to crash when disposing 
+components that were in the process of being shown. This bug has 
+been fixed in JDK 1.1.3.  [Bug 4051487]
+
+________________
+AWT GRAPHICS BUG - In the Windows version of JDK 1.1.2, multi-
+threaded access to Graphics objects sometimes resulted in dangling 
+pointers due to a race condition in awt_Graphics.cpp. This bug has 
+been fixed in JDK 1.1.3. [Bug 4049421]
+
+________________
+INPUT STREAM BUG - An InputStreamReader using the UTF8 encoding 
+produced an erroneous character stream with missing characters. 
+This bug has been fixed in JDK 1.1.3  [Bug 4059684]
+
+
+=======================================================================
+Changes from JDK 1.1.1 to JDK 1.1.2
+-----------------------------------------------------------------------
+
+JDK 1.1.2 is a bug-fix release. The following is a list of important 
+bug fixes and other changes in JDK 1.1.2.
+______________
+VERSION NUMBER - The version number for this release is "JDK1.1.2".
+
+____________
+VERIFIER BUG - The JDK 1.1.1 bytecode verifier did not check to 
+determine whether the number of arguments passed into a method is less 
+than the amount of memory allocated to local variables for that 
+method. There was no known security attack based on this bug. This bug 
+has been corrected in JDK 1.1.2.
+
+___________
+SIGNING BUG - In JDK 1.1.1, digitally signed code could be 
+manipulated to impersonate another digital signature from the list of 
+signers that are recorded in the Java runtime. This bug has been 
+fixed in JDK 1.1.2. [Bug 4048143]
+
+_______
+DSA BUG - In JDK 1.1.1, the same default seed was used for every 
+invocation of DSA. This bug has been fixed in JDK 1.1.2. 
+[Bug 4050406]
+
+________________
+AWT MENU BUG FIX - Trying to add a pull-right cascade menu to a 
+PopupMenu in JDK 1.1.1 led to an exception. This problem did not 
+exist in JDK 1.1. This bug has been corrected in JDK 1.1.2.
+[Bug 4039089]
+
+_________________________________
+AWT LIGHTWEIGHT COMPONENT BUG FIX - Mouse tracking events for 
+lightweight components were not being delivered in some situations. 
+This bug has been fixed in JDK 1.1.2.  [Bug 4038897]
+
+___________________
+AWT REPAINT BUG FIX - Some components were not being repainted 
+properly in some situations in JDK 1.1.1. This problem did not 
+exist in JDK 1.1. This bug has been fixed in JDK 1.1.2.
+[Bug 4040638]
+
+__________________
+AWT DIALOG BUG FIX - Closing nested modal dialogs out of order would 
+cause parent to remain disabled in some cases. This bug has been fixed 
+in JDK1.1.2.  [Bug 4045610]
+
+_________________
+AWT FOCUS BUG FIX - Setting default focus caused applets to hang in 
+some situations. This problem did not exist in JDK 1.1. This bug 
+has been fixed in JDK 1.1.2.  [Bug 4038896]
+
+____________________
+APPLETVIEWER BUG FIX - Trying to save an applet from the Appletviewer 
+led to an exception. This bug has been fixed in JDK 1.1.2.
+[Bug 4036537]
+
+________________
+DEBUGGER BUG FIX - The debugger "dump" command converted double 
+values to float values before displaying them. This bug has been fixed 
+in JDK 1.1.2.  [Bug 4046775]
+
+_______________
+JAVADOC BUG FIX - The javadoc html output for interfaces repeated 
+the word "interface" in the signature. This bug has been fixed in 
+JDK 1.1.2.  [Bug 4041579]
+
+__________________________
+JNI INVOCATION API CHANGES - To better support the JRE, the 
+Invocation API is extended in JDK 1.1.2 in a few minor ways. 
+The changes do not break any existing code. The JNI Native 
+Method Interface has not been changed. 
+
+1. The reserved0 field in the JDK1_1InitArgs structure has been
+renamed to "version." The JDK1_1InitArgs structure holds the
+initialization arguments to JNI_CreateJavaVM. Callers of 
+JNI_CreateJavaVM must set the version field to 0x00010001. 
+JNI_GetDefaultJavaVMInitArgs has been changed to return a "jint" 
+indicating whether the requested version is supported.
+
+2. The reserved1 field in the JDK1_1InitArgs structure has been
+renamed to "properties." This is a NULL-terminated array of 
+strings. Each string has the format:
+
+			name=value
+
+indicating a system property. (This facility corresponds to the -D
+option in the java command line.)
+ 
+3. In JDK 1.1.1, the thread calling DestroyJavaVM must be the only
+user thread in the VM. JDK 1.1.2 has lifted this restriction. If
+DestroyJavaVM is called when there is more than one user thread,
+the VM waits until the current thread is the only user thread, and
+then tries to destroy itself.
+
+_________________________
+NEW jre COMMAND-LINE TOOL - The jre command-line tool is similar to 
+the java command-line tool, but is intended primarily for end users 
+who do not require the development-related options available with 
+the java tool. For more information on the jre tool, see 
+http://java.sun.com/products/jdk/1.1/docs/tooldocs/solaris/jre.html
+or http://java.sun.com/products/jdk/1.1/docs/tooldocs/win32/jre.html. 
+Source code for the jre tool can be found in the Windows JDK 1.1.2 
+directory tree in the jdk1.1.2\demo\jre\win32 folder. In the 
+Solaris JDK 1.1.2, jre source files can be found in the 
+jdk1.1.2/demo/jre/solaris directory.
+
+
+=======================================================================
+Changes from JDK 1.1_Final to JDK 1.1.1
+-----------------------------------------------------------------------
+
+The following changes and bug fixes are in the JDK 1.1.1 final release.
+This is a bug fix release.
+______________
+VERSION NUMBER - The version number for this release is "JDK1.1.1". 
+
+_________
+BUG FIXES - This version contains the bug fixes listed at the 
+    web page mentioned above. 
+
+____________
+UTIL BUG FIX - Removed getMenu and getMenuBar methods from 
+    util.ResourceBundle class. [Bug 4036076]
+
+    This bug fix is mentioned here because it fixes an API bug
+    in JDK 1.1.
+
+    These two "convenience" methods were part of the beta release
+    and were mistakenly left in the final JDK 1.1 after we
+    discovered the design weakness they presented and decided to
+    remove them.  It is a bug that they were included in the 1.1
+    release, and you should not call these methods.   We have 
+    removed them in 1.1.1.  Being convenience methods, they are not 
+    essential, and alternate coding is simple.   
+
+    To be more specific, the ResourceBundle class in JDK 1.1 
+    included the two methods:
+
+    public final Menu getMenu(String key) 
+        throws MissingResourceException {
+             return (Menu) getObject(key);
+         }
+ 
+     public final MenuBar getMenuBar(String key) 
+        throws MissingResourceException {
+             return (MenuBar) getObject(key);
+     }
+
+    These "convenience" methods saved the user from having to
+    explicitly cast objects in a ResourceBundle that happened to 
+    be of type Menu or MenuBar, such as:
+    
+       (Menu)rb.getObject(key)
+    
+    The side effect was that by returning types Menu and MenuBar, this 
+    class referred to the awt package.  ResourceBundle is a relatively 
+    low level piece of the core however while AWT is a relatively high 
+    level piece. This dependency caused a number of problems.  Most 
+    notably it did not allow a Java runtime environment to be created 
+    that omitted the AWT package (such as in a server).
+    
+    Removing this dependency on AWT required removing these APIs 
+    completely from ResourceBundle.  This change, of course, breaks 
+    code that calls these methods.  The upside is that these two APIs 
+    were of very little marginal value.  They simply saved the user 
+    the effort of typing an explicit cast. Furthermore, since these
+    two methods were new at 1.1, they have not been available for
+    very long. 
+
+_____________________
+AWT COMPONENT BUG FIX - Changed the field java.awt.Component.locale
+    from protected to private.  
+
+    The locale field is accessible through getLocale() and 
+    setLocale() methods, and all code should be using those.  
+    This change is necessary to support future development of 
+    the lightweight framework.
+ 
+________________________
+AWT DATATRANSFER BUG FIX - Corrected the MIME type for DataFlavor.
+    [Bug 4037854]
+
+    In JDK 1.1, java.awt.datatransfer.DataFlavor used the wrong MIME
+    type.  DataFlavor claimed that the MIME type for a java 
+    serialized object was: 
+
+       application/x-javaserializedobject 
+
+    This name is inconsistent with other existing names and common
+    conventions. The name has been corrected by adding hypens to it, 
+    as follows:
+
+       application/x-java-serialized-object 
+
+    This makes it consistent with: 
+
+       application/java-vm 
+       application/x-java-vm 
+       application/x-java-archive 
+
+____________
+FONT CHANGES - Times, Helvetica, and Courier are now mapped to
+    Latin1 characters.
+
+    Times, Helvetica, and Courier fonts are no longer mapped to 
+    non-Latin1 classes of fonts, such as Symbol or ZapfDingabats.
+    These three fonts are now mapped to Latin1 characters, just like
+    they were in version 1.0.
+
+    If you want to have non-Latin1 characters, you must map fonts
+    such as Symbol and ZapfDingabats to the Java virtual fonts.  These
+    virtual font classes are Serif, Sans-serif, Monospaced, Dialog, 
+    and DialogInput.
+	
+
+===================================================================
+Changes from JDK 1.1beta3 to JDK 1.1_Final
+-------------------------------------------------------------------
+
+The following changes and bug fixes are in the JDK 1.1 final release.
+
+______________
+VERSION NUMBER - The version number for this release is "JDK1.1_Final". 
+    Throughout the documentation we call it simply "JDK1.1"
+
+____________
+TEXT CHANGES - Extensive surface changes to Text package
+
+    The following extensive changes in the Text package are the
+    result of a design review recently carried out to
+    simplify, rationalize and properly abstract the 
+    internationalization API.  We realized this would 
+    make a significant improvement in learning and using 
+    internationalization in Java.  
+ 
+    The changes involve mostly surface changes, such as 
+    renaming and moving API, and changing the order of arguments,
+    to better conform with conventions established with the rest
+    of Java.
+
+____________
+TEXT CHANGES - CharacterIterator
+
+    Removed getText method. CharacterIterators are intended to allow 
+character
+    at a time access to text without exposing how the text is actually 
+stored.
+    It is expected that some CharacterIterators will operate on text 
+that can
+    not easily or efficiently be stored as a String. Accessing the text 
+as a
+    whole should be the responsibility of the text object.
+
+    Rename startIndex to getBeginIndex and rename endIndex to
+    getEndIndex. This is to follow established naming patterns for 
+getters and
+    setters as well as java.lang.String's convention for identifying 
+ranges in
+    text.
+
+____________
+TEXT CHANGES - ChoiceFormat
+
+    Changed the constructor to take an array of Strings rather than an 
+array
+    of Objects.  String were the only type that made sense in this 
+context.
+
+    Changed the setChoices method to take an array of Strings rather 
+than an
+    array of Objects.  String were the only type that made sense in 
+this
+    context.  
+
+    Added applyPattern and toPattern methods similar to the methods on 
+other 
+    Format classes.
+
+    Changed the format methods to take a FieldPosition rather than a
+    FormatStatus argument. See the change description for FormatStatus.
+    
+    Changed the parse method to take a ParsePosition rather than a 
+ParseStatus
+    argument. See the change description for ParseStatus.
+    
+    Added clone, hashCode and equals methods.  These are standard 
+overrides
+    and do not change the semantics.
+
+____________
+TEXT CHANGES - Collation
+
+    Renamed class "Collator".  It was not clear from the old name 
+whether this
+    class actually did collation or simply represented a set of 
+collation
+    rules.  The new name makes it clear that the class performs string
+    comparisons.
+    
+    Removed the constants LESS, EQUAL and GREATER. Changed the compare 
+methods
+    to return the int value -1, 0 or 1 instead of LESS, EQUAL or 
+GREATER. This
+    follows the pattern used by the java.lang.String.compareTo method.
+    
+    Removed the greater and greaterOrEqual methods.  The same 
+information is
+    provided by the compare method.  Having only a compare and and 
+equals 
+    method mimics the comparison API provided by java.lang.String.
+    
+    Removed the compare(String, int, int, String, int, int) version of 
+the
+    compare method and the getSortKey(String, int, int) version of the
+    getSortKey method. A recent change to String.substring makes the 
+substring
+    operation efficient. Users can use String.substring to specify a 
+substring
+    rather than requiring methods to provide substring variants. 
+Slimming the
+    API makes it easier to learn.
+    
+    Changed the type of public constants from byte to int.  Changed the
+    getStrength and getDecomposition methods to return int instead of 
+byte.
+    Changed the setStrength and setDecomposition methods to accept int
+    arguments instead of byte.  Although the byte type provides a small 
+amount
+    of type safety, using ints for constants is more in keeping with 
+the rest
+    of the JDK.  The affected constants are:
+    
+     byte PRIMARY = 0;                 ==>    int PRIMARY = 0;                
+     byte SECONDARY = 1;               ==>    int SECONDARY = 1;              
+     byte TERTIARY = 2;                ==>    int TERTIARY = 2;               
+     byte IDENTICAL = 3;               ==>    int IDENTICAL = 3;              
+     byte NO_DECOMPOSITION = 0;        ==>    int NO_DECOMPOSITION = 0;       
+     byte CANONICAL_DECOMPOSITION = 1; ==>    int 
+CANONICAL_DECOMPOSITION = 1;
+     byte FULL_DECOMPOSITION = 2;      ==>    int FULL_DECOMPOSITION = 
+2;     
+    
+    Removed the getDisplayName methods.  These returned the same result 
+as
+    the corresponding Locale.getDisplayName method calls.  Until we 
+have more
+    useful data, its better not to have these methods in the API.
+    
+    Provided a concrete equals method.  This allows sub-classes to 
+correctly
+    implement the equals method.
+    
+    Renamed getSortKey method to getCollationKey.  See the change 
+description
+    for getSortKey.
+    
+    Renamed getDefault methods to getInstance.  This follows new naming 
+pattern
+    for factory methods.
+
+____________
+TEXT CHANGES - CollatedString
+
+    Removed this class.  Its purpose was to associate a String with its
+    CollationKey. CollationKey has been changed retain a reference to 
+the 
+    String it was generated from.  This allows us to reduce the size of 
+the 
+    API.
+
+____________
+TEXT CHANGES - CollationElementIterator
+
+    Removed the public constructor. CollationElementIterators are 
+created by
+    RuleBasedCollator objects.  This was expressed by handing a
+    RuleBasedCollator object to the constructor.  This connection is 
+more
+    obvious if the CollationElementIterator can only be created by a 
+factory
+    method on RuleBasedCollator.
+
+    Made the values returned by the next method directly comparable.  
+This is
+    not an API change but a semantic change for the next method.
+    
+____________
+TEXT CHANGES - DateFormat
+
+    Made the constructor protected.  DateFormat is an abstract class so 
+it
+    doesn't need a public constructor.
+    
+    Removed the getDisplayName methods.  These returned the same result 
+as
+    the corresponding Locale.getDisplayName method calls.  Until we 
+have more
+    useful data, its better not to have these methods in the API.
+    
+    Added a style called MEDIUM that does what DEFAULT does now. For 
+this
+    release, MEDIUM and DEFAULT have the same effect.  In future, the 
+meaning 
+    of DEFAULT will be determined from the locale data. This is a more 
+    logical organization of the style choices.
+    
+    Changed the format methods to take a FieldPosition rather than a
+    FormatStatus argument. See the change description for FormatStatus.
+    
+    Changed the parse and parseObject methods to take a ParsePosition 
+rather
+    than a ParseStatus argument. See the change description for 
+ParseStatus.
+    
+    Renamed the getTimeFormat methods to getTimeInstance.  Renamed the
+    getDateFormat methods to getDateInstance.  Renamed the 
+getDateTimeFormat
+    methods to getDateTimeInstance.  This follows new naming pattern
+    for factory methods.
+    
+    Added a getInstance() factory method that does the same thing as
+    getDateTimeFormat(SHORT,SHORT) previously did. This follows the 
+pattern 
+    for factories which provides for a getInstance() that returns a 
+default 
+    value to be always available.
+    
+    Renamed getValidationMode to isLenient.  Renamed setValidationMode 
+to
+    setLenient. These names are more descriptive.
+    
+    Change the type of public constants from byte to int.  Although the 
+byte
+    type provides a small amount of type safety, using ints for 
+constants is
+    more in keeping with the rest of the JDK. Also rename constants to 
+follow
+    the naming convention uses by JDK.  The results are:
+    
+     byte ERA_FIELD = 0;               ==> int ERA_FIELD = 0;
+     byte YEAR_FIELD = 1;              ==> int YEAR_FIELD = 1;
+     byte MONTH_FIELD = 2;             ==> int MONTH_FIELD = 2;
+     byte DATE_FIELD = 3;              ==> int DATE_FIELD = 3;
+     byte HOUROFDAY1_FIELD = 4;        ==> int HOUR_OF_DAY1_FIELD = 4;
+     byte HOUROFDAY0_FIELD = 5;        ==> int HOUR_OF_DAY0_FIELD = 5;
+     byte MINUTE_FIELD = 6;            ==> int MINUTE_FIELD = 6;
+     byte SECOND_FIELD = 7;            ==> int SECOND_FIELD = 7;
+     byte MILLISECOND_FIELD = 8;       ==> int MILLISECOND_FIELD = 8;
+     byte DAYOFWEEK_FIELD = 9;         ==> int DAY_OF_WEEK_FIELD = 9;
+     byte DAYOFYEAR_FIELD = 10;        ==> int DAY_OF_YEAR_FIELD = 10;
+     byte DAYOFWEEKINMONTH_FIELD = 11; ==> int 
+DAY_OF_WEEK_IN_MONTH_FIELD = 11;
+     byte WEEKOFYEAR_FIELD = 12;       ==> int WEEK_OF_YEAR_FIELD = 12;
+     byte WEEKOFMONTH_FIELD = 13;      ==> int WEEK_OF_MONTH_FIELD = 
+13;
+     byte AMPM_FIELD = 14;             ==> int AM_PM_FIELD = 14;
+     byte HOUR1_FIELD = 15;            ==> int HOUR1_FIELD = 15;
+     byte HOUR0_FIELD = 16;            ==> int HOUR0_FIELD = 16;
+     byte TIMEZONE_FIELD = 17;         ==> int TIMEZONE_FIELD = 17;
+    
+____________
+TEXT CHANGES - DateFormatData
+
+    Renamed class to DateFormatSymbols.  This makes its purpose as a 
+set of
+    strings and symbols to be used in formatting clearer.
+    
+    Removed the millisPerHour protected field.  This was not an 
+appropriate
+    field in a collection of formatting symbols.
+    
+    Renamed getAmpms to getAmPmStrings.  Renamed setAmpms to 
+setAmPmStrings. 
+    The new names follow the capitalization standard and are clearer.
+    
+    Removed methods useLocalizedPattern and setPatternLocalized.  This
+    functionality can be obtained through the toLocalizedPattern and
+    applyLocalizedPattern methods of SimpleDateFormat. These methods 
+were not
+    appropriate in a collection of formatting symbols.
+    
+____________
+TEXT CHANGES - DecimalFormat
+
+    Renamed getThousandsInterval and setThousandsInterval methods to
+    getGroupingSize and setGroupingSize.  The new names are clearer.
+    
+    Renamed getFactor and setFactor methods to getMultiplier and 
+setMultiplier.
+    The new names are clearer.
+    
+    Changed the constructor that takes a NumberFormatData to use a
+    DecimalFormatSymbols object instead. See the change description for
+    NumberFormatData. 
+    
+    Added a constructor that takes just a String and figures out the 
+correct
+    DecimalFormatSymbols for the default locale.  This fills in the 
+telescope
+    pattern for constructors.
+    
+    Renamed getPattern method to toPattern. Also removed the boolean 
+argument
+    and instead added a toLocalizedPattern method. The new name better
+    reflects the fact that there is no "pattern" property, but rather a
+    pattern string is constructed that matches the current state of the
+    DecimalFormat object. Splitting the method into two allows many 
+users to
+    ignore the existence of toLocalizedPattern.
+    
+    Renamed setPattern method to applyPattern. Also removed the boolean 
+    argument and instead added an applyLocalizedPattern method. The new 
+    name better reflects the fact that there is no "pattern" property, 
+    but rather a pattern string is used to set the state of the 
+DecimalFormat 
+    object. Splitting the method into two allows many users to ignore 
+the 
+    existence of applyLocalizedPattern.
+    
+    Removed the "*" and "_" characters from the pattern syntax.  This 
+is not
+    strictly an api change but it is a semantic change.  These 
+characters were
+    of limited use the way they were implemented.
+    
+    Changed the format methods to take a FieldPosition rather than a
+    FormatStatus argument. See the change description for FormatStatus.
+    
+    Changed the parse method to take a ParsePosition rather than a
+    ParseStatus argument. See the change description for ParseStatus.
+    
+    Renamed getNumberFormatData to getDecimalFormatSymbols and changed 
+its
+    return type to DecimalFormatSymbols.  Renamed setNumberFormatData 
+to
+    setDecimalFormatSymbols and changed its argument type to
+    DecimalFormatSymbols.  See the change description for 
+NumberFormatData.
+    
+____________
+TEXT CHANGES - Format
+    
+    Changed the format method to take a FieldPosition rather than a 
+    FormatStatus argument. See the change description for FormatStatus.
+    
+    Changed the parseObject method to take a ParsePosition rather than 
+a
+    ParseStatus argument. See the change description for ParseStatus.
+
+____________
+TEXT CHANGES - FormatException
+
+    Renamed class to ParseException.  This better reflects its purpose.
+    
+    Removed the no argument constructor.  This constructor was not 
+useful.
+
+____________
+TEXT CHANGES - FormatStatus
+
+    Renamed class to FieldPosition.  This better reflects its purpose 
+as an
+    object which describes where sub-fields are located in a formatted 
+string.
+    
+    Replaced public integer fields with getter methods.  Adjusted names 
+to
+    match pattern for indicating ranges in text.  The result:
+    
+     int alignField   ==> int getField()
+     int alignStart   ==> int getBeginIndex()
+     int alignEnd     ==> int getEndIndex()
+    
+    Replaced no argument constructor with a constructor that sets the 
+field.
+    A field value must always be set so this prevents invalid objects.  
+    It is also more convenient than doing it in two steps.
+    
+____________
+TEXT CHANGES - MessageFormat
+
+    Redesigned the syntax for message patterns to allow inlining of 
+other
+    pattern strings, such as date patterns, number patterns, choice 
+patterns
+    etc. This is not itself an API change but is a big semantic 
+difference.
+    This change allows complete message formats to be created in fewer 
+steps.
+
+    Removed the constructor that took a String and a Format array.  
+This was
+    not needed with the new inline pattern syntax.
+
+    Added a setFormat method which allows a single format to be set at 
+a time
+    rather than requiring all formats to be specified like the 
+setFormats
+    method. This is more convenient given the inline pattern syntax.
+
+    Removed the format method that took a String, a Format array and an 
+Object
+    array.  It was not necessary with the new inline pattern syntax.
+
+    Changed the parse method that takes a single String argument to 
+return an
+    array of Objects rather than a single Object.  This makes more 
+sense given
+    the fact that a message may have many objects embedded in it.
+    
+    Changed the format methods to take a FieldPosition rather than a
+    FormatStatus argument. See the change description for FormatStatus.
+    
+    Changed the parse method to take a ParsePosition rather than a 
+ParseStatus
+    argument. See the change description for ParseStatus.
+    
+    Renamed getPattern method to toPattern. The new name better 
+reflects the
+    fact that there is no "pattern" property. Rather a pattern string 
+is
+    constructed that matches the current state of the MessageFormat 
+object.
+    
+    Renamed setPattern method to applyPattern. The new name better 
+reflects
+    the fact that there is no "pattern" property. Rather a pattern 
+string is
+    used to set the state of the MessageFormat object.
+
+    Added setLocale and getLocale methods.
+
+____________
+TEXT CHANGES - NumberFormat
+
+    Renamed getDefaultCurrency to getCurrencyInstance.  Renamed
+    getDefaultPercent to getPercentInstance.  Added a getNumberInstance
+    factory.  Rename getDefault to getInstance.  This follows the 
+naming
+    pattern for factories.
+    
+    Removed getCurrencySymbol and getIntlCurrencySymbol methods. These 
+will be
+    added to a more appropriate class in a future release.
+    
+    In the methods called 
+{get|set}{Minimum|Maximum}{Integer|Decimal}Count,
+    rename the word Count to Digits and the word Decimal to Fraction.  
+These
+    names are clearer.
+    
+    Remove the methods isDecimalUsedWithInteger and
+    setDecimalUsedWithInteger. These methods are now found in 
+DecimalFormat
+    under the names isDecimalSeparatorAlwaysShown
+    setDecimalSeparatorAlwaysShown.
+    
+    Renamed setIntegerOnly to setParseIntegerOnly. Renamed 
+isIntegerOnly to
+    isParseIntegerOnly.
+    
+    Renamed {is|set}ThousandsUsed to {is|set}GroupingUsed.
+    
+    Removed the getDisplayName methods.  These returned the same result 
+as
+    the corresponding Locale.getDisplayName method calls.  Until we 
+have more
+    useful data, its better not to have these methods in the API.
+    
+    Renamed DECIMAL_FIELD to FRACTION_FIELD. Also changed its type from 
+byte
+    to int. This name is more general. Use of ints as constants is 
+standard
+    practice.
+    
+    Removed NUMERATOR_FIELD, DENOMINATOR_FIELD and EXPONENT_FIELD. This
+    functionality was not supported in this release.
+
+____________
+TEXT CHANGES - NumberFormatData
+
+    Renamed class DecimalFormatSymbols. This makes its purpose as a set 
+of
+    strings and symbols to be used in formatting clearer.
+    
+    Added a default constructor which constructs an object suitable for 
+the
+    default locale.  Added a constructor which takes a locale.  These 
+follow 
+    the pattern set by DateFormatSymbols.
+    
+    Removed starDigit, spaceDigit and exponential fields.  This 
+functionality 
+    is not being supported by DecimalFormat.
+    
+    Changed public fields to getter/setter methods.  Adjusted the names 
+of the
+    methods for clarity.  The results are:
+    
+     char zeroDigit;         ==> getZeroDigit(), setZeroDigit()        
+     char thousandsSign;     ==> getGroupingSeparator(), 
+setGroupingSeparator()
+     char decimalSign;       ==> getDecimalSeparator(), 
+setDecimalSeparator()
+     char millePercent;      ==> getPerMill(), setPerMill()               
+     char percent;           ==> getPercent(), setPercent()               
+     char digit;             ==> getDigit(), setDigit()               
+     char separator;         ==> getPatternSeparator(), 
+setPatternSeparator() 
+     java.lang.String infinity; ==> getInfinity(), setInfinity()    
+     java.lang.String nan;   ==> getNaN(), setNaN()
+     char minusSign;         ==> getMinusSign(), setMinusSign()    
+    
+    Removed the static final char fields.  These were not appropriate 
+for a
+    collection of locale specific number formatting fields.  They were 
+also 
+    of little use outside the implementation of DecimalFormat. The 
+removed 
+    fields are:
+    
+     static final char patternZeroDigit = 48;
+     static final char patternThousandsSign =
+     static final char patternDecimalSign = 4
+     static final char patternMillePercent = 
+     static final char patternPercent = 37;  
+     static final char patternDigit = 35;    
+     static final char patternStarDigit = 42;
+     static final char patternSpaceDigit = 95
+     static final char patternSeparator = 59;
+
+____________
+TEXT CHANGES - ParseStatus
+
+    Renamed class ParsePosition.  This better reflects its purpose as 
+an object
+    which shows where parsing starts and stops.
+    
+    Removed no argument constructor. This was redundant and of no real
+    convenience.
+    
+    Changed public field startAt to a getter/setter method pair.  Also
+    adjusted names of the methods to suit the naming pattern for 
+indicating
+    characters in a String.  The results:
+    
+      startAt   ==> getIndex(), setIndex()
+
+____________
+TEXT CHANGES - SimpleDateFormat
+
+    Changed the format method to take a FieldPosition rather than a 
+    FormatStatus argument. See the change description for FormatStatus.
+    
+    Changed the parse method to take a ParsePosition rather than a 
+ParseStatus
+    argument. See the change description for ParseStatus.
+    
+    Changed the constructor which took a DateFormatData object to use a
+    DateFormatSymbols object instead.  See the change description for
+    DateFormatData.
+    
+    Renamed getDateFormatData and setDateFormatData to 
+getDateFormatSymbols 
+    and setDateFormatSymbols. See the change description for 
+DateFormatData.
+    
+    Renamed getPattern method to toPattern. Also removed the boolean 
+argument 
+    and instead added a toLocalizedPattern method. The new name better 
+    reflects the fact that there is no "pattern" property, but rather a 
+    pattern string is constructed that matches the current state of the 
+    DecimalFormat object. Splitting the method into two allows many 
+users 
+    to ignore the existence of toLocalizedPattern.
+    
+    Renamed setPattern method to applyPattern. Also removed the boolean 
+    argument and instead added an applyLocalizedPattern method. The new 
+    name better reflects the fact that there is no "pattern" property, 
+but 
+    rather a pattern string is used to set the state of the 
+DecimalFormat 
+    object. Splitting the method into two allows many users to ignore 
+the 
+    existence of applyLocalizedPattern.
+
+    Added a convenience no argument constructor.
+
+____________
+TEXT CHANGES - SortKey
+
+    Renamed class CollationKey.  This keeps the terminology consistent 
+with
+    the other collation classes.
+    
+    Added getSourceString method.  This returns the string that this 
+    CollationKey represents. This allows the removal of the 
+CollatedString 
+    class.
+    
+    Added a toByteArray method that returns a byte[] containing the 
+key. 
+    
+    Changed compareTo method to return int rather than byte.  This 
+follows the
+    pattern set by java.lang.String.compareTo.
+    
+____________
+TEXT CHANGES - StringCharacterIterator
+
+    Added the following convenience constructor:
+    
+      public StringCharacterIterator(String text, int begin, int end, 
+int pos) 
+    
+    Renamed startIndex method to getBeginIndex.  Renamed endIndex 
+method to
+    getEndIndex. These names are consistent with the pattern for 
+indicating 
+    ranges in strings.
+    
+    Removed the getText method.  See the change description for 
+    CharacterIterator.
+
+____________
+TEXT CHANGES - TableCollation
+
+    Renamed class RuleBasedCollator.  It was not clear from the old 
+name 
+    whether this class actually did collation or simply represented a 
+set 
+    of collation rules.  The new name makes it clear that the class 
+performs 
+    string comparisons. It also avoids the impression that this class 
+    collates tables.
+    
+    Renamed getSortKey method to getCollationKey.  See the change 
+description 
+    for SortKey. 
+    
+    Removed the getSortKey method that operated on a substring of a 
+given 
+    String.  A recent change to String.substring makes the substring 
+    operation efficient. Users can use String.substring to specify a 
+    substring rather than requiring methods to provide substring 
+variants. 
+    Slimming the API makes it easier to learn.
+    
+    Removed the compare method that operated on a substring of a given 
+String. 
+    A recent change to String.substring makes the substring operation
+    efficient. Users can use String.substring to specify a substring 
+rather 
+    than requiring methods to provide substring variants. Slimming the 
+API 
+    makes it easier to learn.
+    
+    Changed compare to return an int value instead of a byte value.  
+See 
+    the change description for Collation.
+    
+____________
+TEXT CHANGES - TextBoundary
+
+    Renamed class to BreakIterator.  This more clearly reflects its 
+purpose.
+    
+    Renamed method nthFromCurrent to next(int). This is a less awkward 
+name.
+    
+    Renamed method nextAfter to following.  This is a less awkward 
+name.
+    
+    Changed the return type of getText to CharacterIterator.  Since
+    BreakIterator works in terms of a CharacterIterator it didn't make 
+sense
+    to return a String.
+    
+    Renamed getWorkBreak methods to getWordInstance.  Renamed 
+getLineBreak
+    methods to getLineInstance. Renamed getCharacterBreak methods to
+    getCharacterInstance. Renamed getSentenceBreak methods to
+    getSentenceInstance.  This follows the naming pattern for factory 
+methods.
+
+____________
+UTIL CHANGES - Calendar
+
+    Changed the type of the public constants from byte to int.  Changed 
+the
+    corresponding methods to accept and return ints instead of bytes.  
+and
+    getDecomposition methods to return int instead of byte.  Although 
+the byte
+    type provides a small amount of type safety, using ints for 
+constants is 
+    more in keeping with the rest of the JDK.  The results are:
+  
+     byte ERA = 0;                  ==>   int ERA = 0;                  
+     byte YEAR = 1;                 ==>   int YEAR = 1;                 
+     byte MONTH = 2;                ==>   int MONTH = 2;                
+     byte WEEKOFYEAR = 3;           ==>   int WEEK_OF_YEAR = 3;         
+     byte WEEKOFMONTH = 4;          ==>   int WEEK_OF_MONTH = 4;        
+     byte DATE = 5;                 ==>   int DATE = 5;                 
+     byte DAYOFMONTH = 5;           ==>   int DAY_OF_MONTH = 5;         
+     byte DAYOFYEAR = 6;            ==>   int DAY_OF_YEAR = 6;          
+     byte DAYOFWEEK = 7;            ==>   int DAY_OF_WEEK = 7;          
+     byte DAYOFWEEKINMONTH = 8;     ==>   int DAY_OF_WEEK_IN_MONTH = 8; 
+     byte AMPM = 9;                 ==>   int AM_PM = 9;                
+     byte HOUR = 10;                ==>   int HOUR = 10;                
+     byte HOUROFDAY = 11;           ==>   int HOUR_OF_DAY = 11;         
+     byte MINUTE = 12;              ==>   int MINUTE = 12;              
+     byte SECOND = 13;              ==>   int SECOND = 13;              
+     byte MILLISECOND = 14;         ==>   int MILLISECOND = 14;         
+     byte ZONEOFFSET = 15;          ==>   int ZONE_OFFSET = 15;         
+     byte DSTOFFSET = 16;           ==>   int DST_OFFSET = 16;          
+     byte FIELDCOUNT = 17;          ==>   int FIELD_COUNT = 17;         
+                                           
+     int get(byte);                 ==>   int get(int);
+     set(byte,int);                 ==>   void set(int,int);
+     void clear(byte);              ==>   void clear(int);
+     void add(byte,int);            ==>   void add(int,int);     
+     void roll(byte,boolean);       ==>   void roll(int,boolean);
+     void setFirstDayOfWeek(byte);  ==>   void setFirstDayOfWeek(int);
+     void setMinimalDaysInFirstWeek(byte);
+                                    ==>   void 
+setMinimalDaysInFirstWeek(int);
+     int getMinimum(byte);          ==>   int getMinimum(int);         
+     int getMaximum(byte);          ==>   int getMaximum(int);         
+     int getGreatestMinimum(byte);  ==>   int getGreatestMinimum(int); 
+     int getLeastMaximum(byte);     ==>   int getLeastMaximum(int);    
+                                               
+    
+    Renamed getValidationMode to isLenient.  Renamed setValidationMode 
+to
+    setLenient. These names are more descriptive.
+    
+    Renamed the getDefault methods to getInstance.  This is in keeping 
+with the
+    pattern for naming factory methods.
+
+____________
+UTIL CHANGES - GregorianCalendar
+
+    Changed the type of the public constants from byte to int.  Changed 
+the
+    corresponding methods to accept and return ints instead of bytes.  
+and
+    getDecomposition methods to return int instead of byte.  Although 
+the byte
+    type provides a small amount of type safety, using ints for 
+constants 
+    is more in keeping with the rest of the JDK.  The results are:
+     
+     final byte AD = 0;           ==>      final int AD = 0; 
+     final byte BC = 1;           ==>      final int BC = 1; 
+    
+     void add(byte,int);          ==>      void add(int,int);          
+     void roll(byte,boolean);     ==>      void roll(int,boolean);       
+     int getMinimum(byte);        ==>      int getMinimum(int);          
+     int getMaximum(byte);        ==>      int getMaximum(int);          
+     int getGreatestMinimum(byte);==>      int getGreatestMinimum(int);  
+     int getLeastMaximum(byte);   ==>      int getLeastMaximum(int);     
+                                     
+____________
+UTIL CHANGES - ResourceBundle
+
+    Renamed getResourceBundle methods to getBundle.  The name
+    getResourceBundle was too long and overly redundant.  The new name 
+is not
+    in keeping with the naming pattern for factory methods.  This is 
+because
+    the name "getInstance" is being reserved for a future addition to 
+the
+    resource bundle classes.
+    
+__________
+AWT CHANGE -  Compiling programs that use old AWT API now produces
+              deprecation warnings
+
+    In the beta versions of 1.1, the deprecated methods in the AWT were
+    marked with simple "DEPRECATED" strings in the method's javadoc
+    comment.  For the final release we have added the appropriate
+    "@deprecated" tags to those methods so that you can use the
+    appropriate compiler option to generate warnings that make it
+    easier for you to convert your programs when you desire to do so.
+
+    The document at the following URL describes how to convert to the
+    1.1 AWT API.  It also links to a document that lists every 
+deprecated
+    method and its 1.1 substitute.
+
+    
+http://java.sun.com/products/JDK/1.1/docs/guide/awt/HowToUpgrade.html
+
+    RATIONALE:
+
+    The bulk of the AWT deprecations are a result of migrating the AWT
+    towards JavaBeans compliance.  In particular, the two areas which
+    required a significant number of deprecations were:
+
+    - Properties (location, size, visibility, etc.)
+      In order for introspection to be able to programmatically extract
+      properties from AWT components, it was necessary to change the
+      names of various methods to the JavaBeans getFoo/setFoo pattern.
+	
+    - New event model
+      JavaBeans and the AWT have defined a new delegation-based event
+      model for 1.1 which required significant changes to the event
+      handling API.
+	
+    Finally, a small set of deprecated methods were changed to enhance
+    the learnability and consistency of the toolkit API.
+
+__________
+AWT CHANGE -  Z-ordering changed back to 1.0.2 order
+ 
+    For beta3, the Z-ordering for children in Container instances was
+    defined in the documentation to be "back to front".  Because this
+    was contrary to the default Z-ordering which existed in 1.0.2 (and
+    the beta implementation), for FCS we have corrected the Z-ordering
+    specification in containers to be "front to back".
+
+__________
+AWT CHANGE -  Changed names of newly-added APIs:
+
+    The following APIs have been renamed ( from old name => to new name 
+):
+
+ 	AverageScaleFilter	=>	AreaAveragingScaleFilter
+ 	createScaledImage(...)	=>	getScaledInstance(...)
+ 	SCALE_AVERAGE		=>	SCALE_AREA_AVERAGING
+
+    RATIONALE:
+    The method name was changed to "getScaledInstance(...)" to be
+    consistent with the overall philosophy within the Java API where
+    factories and derivative constructors should follow the naming
+    convention of
+
+		get<Flavor>Instance(...arguments...)
+
+    The term "Average" was not descriptive of the algorithm applied by
+    the default smooth scaling filter, so the name of this filter and
+    its algorithm were changed to "AreaAveraging" to indicate what
+    quantity was being averaged.
+
+__________
+AWT CHANGE - Changed dispatchEvent() method and added new method
+             dispatchEventImpl()
+
+    The codepath in dispatchEvent() really must be executed for event
+    mechanics to work properly in the AWT (hence we made it 
+    package-private).  We moved the implementation to a new
+    package-private method (dispatchEventImpl()) and then 
+    changed dispatchEvent() to be "public final" and have it
+    call dispatchEventImpl() internally.
+
+    RATIONALE:
+    We have deprecated the 1.0 postEvent()/deliverEvent() methods,
+    however the method that replaces those (dispatchEvent()) is
+    currently package-private.  This left no options for folks
+    porting to the new event model.
+
+__________
+AWT CHANGE - Changed capitalization of getId() to getID() in
+    java.awt.AWTEvent
+
+    Changed the method name to getID() and provided a deprecated 
+version
+    for compatibility with the beta versions.
+
+    RATIONALE:
+    java.awt.AWTEvent.getID() is named in a manner inconsistent with 
+    the equivalent methods in other classes:
+	java.awt.MediaTracker.getID()
+	java.util.TimeZone.getID()
+	sun.rmi.registry.RegistryImpl.getID()
+	sun.rmi.transport.DGCImpl.getID()
+
+    Developers have had trouble because they expected the naming to 
+    be consistent.  This fixes bug 4027793.
+
+__________
+AWT CHANGE - Changed EventQueue to be non-system-specific
+
+  The following changes were made to EventQueue:
+  
+  1)  Moved the static getEventQueue() method out of EventQueue
+      and instead put it in Toolkit with the name 
+"getSystemEventQueue()".
+      Left the security check in that method, so that applets 
+      cannot get access to the system queue instance (see also #3).
+  
+  2)  Added a public constructor to the EventQueue class such that
+      multiple instances of it can be created.  This will allow 
+programs
+      to create and use the queue generically, as well as enable 
+browser
+      vendors to implement a queue/dispatch-thread-per-applet model.
+  
+  3)  Removed the overriding checkAwtEventQueueAccess() method in the 
+      AppletSecurityManager such that it will always default to
+      invoking lang.SecurityManager.checkAwtEventQueueAccess()
+      and will *always* throw a security exception if an applet tries
+      to get a handle on the system event queue.
+  
+  4)  Modified the EventQueue documentation so that it's clear that
+      the class is very generic.  All references to a "system
+      EventQueue" have been eliminated.
+
+    RATIONALE:
+    This allows the implementation of one dispatch thread per applet.
+    It also provides design flexibility for the future.
+
+__________
+AWT CHANGE - Removed EventSource class
+
+    Removed this class because it has no relation to the new event 
+model. 
+
+__________
+AWT CHANGE - Changed API for delivery of window-open and 
+             window-closed events
+
+    Moved the window event API (addWindowListener,removeWindowListener,
+    etc.) from Dialog and Frame to Window (their superclass) so
+    that the code is there in one place.  
+
+    RATIONALE:
+    Centralizing the code eliminates duplication and makes it easier 
+    to maintain.
+
+__________
+AWT CHANGE - Changed return type from Transferable.getTransferData
+
+    Transferable.getTransferData returns class BufferedInputStream.
+
+__________
+AWT CHANGE - MenuShortcut class no longer extends java.awt.Event.
+
+__________
+AWT CHANGE - Changed button modifier mask values in InputEvent:
+		BUTTON2_MASK is now equivalent to ALT_MASK 
+    		BUTTON3_MASK is now equivalent to META_MASK
+
+    RATIONALE:
+    A couple of mask constants were incorrectly defined in the
+    InputEvent class.  These event masks are new in JDK1.1.
+    
+    This change will ensure that programs that depend on seeing the
+    BUTTON1_MASK and BUTTON2_MASK will continue to work properly on
+    platforms that have 1 and 2 button mice (because Alt/Meta can be
+    used to generate these masks on those systems).
+
+    This fixes bug 4029159: Button2/Button3 masks should have same 
+    value as Alt/Meta in InputEvent
+    
+__________
+AWT CHANGE - Change to serialization of AWT components
+
+    Made a systematic change to the way JDK1.1 AWT does serialization.
+
+    RATIONALE:
+    This change corrects bug #4027305, and provides more carefully 
+    thought-out and rational behaviour for AWT serialization in 
+general. 
+
+    These changes enable customers to use serialization to store
+    Java Beans (in general) and to enable AWT implementations 
+    to correctly interoperate between vendors.
+
+    Implications for developers:
+  
+      - Saving graphs of AWT objects will now work, even if an object
+        has more than one listener.
+  
+      - If an AWT object has listeners that are marked serializable, 
+they
+        will be saved and restored automatically, such as beans 
+        interconnected with and saved to a file with the BeanBox. 
+        Note that the BeanBox always code-generates serializable 
+        listener implementations.
+  	
+      - If an AWT object has listeners that aren't marked serializable
+        they will be dropped at writeObject() time.
+  
+      - Developers will need, as always, to consider the implications 
+of
+        making an object serializable.  One idiom to watch out for is 
+        this:
+  
+        import java.awt.*;
+        import java.awt.event.*;
+        import java.io.Serializable;
+  
+        class MyApp implements ActionListener, Serializable
+        {
+          BigObjectThatShouldNotBeSeralizedWithAButton bigOne;
+          Button aButton = new Button();
+  
+          MyApp()
+          {
+             // Oops, now aButton has a listener with a 
+             // reference to bigOne!
+             aButton.addActionListener(this);	
+          }
+  
+          public void actionPerformed(ActionEvent e)
+          {
+            System.out.println("Hello There");
+          }
+        }
+  
+    In this example, serializing aButton by itself will cause MyApp and
+    everything it refers to to be serialized as well.  The problem
+    is that the listener is serializable by coincidence, not by design.
+    To separate the decisions about MyApp and the ActionListener being 
+    serializable one can use an inner (nested) class, for example:
+  
+    import java.awt.*;
+    import java.awt.event.*;
+    import java.io.Serializable;
+  
+    class MyApp java.io.Serializable
+    {
+      BigObjectThatShouldNotBeSeralizedWithAButton bigOne;
+      Button aButton = new Button();
+  
+      class MyActionListener implements ActionListener
+      {
+        public void actionPerformed(ActionEvent e)
+        {
+  	System.out.println("Hello There");
+        }
+      }
+  
+      MyApp()
+      {
+         aButton.addActionListener(new MyActionListener());
+      }
+    }
+
+__________
+AWT CHANGE - Added setKeyChar() method to KeyEvent
+
+    KeyEvent had a setKeyCode() already. This new method was needed
+    to copy any changes a 1.0 style program may have made
+    to an Event "key".  This fix ensures that all chars work
+    properly in TextFields, like hitting <return> in HotJava's URL 
+field.
+
+__________
+AWT CHANGE - Changed PaintEvent class to use a rectangle for damaged 
+area
+
+    Replaced PaintEvent's "Graphics" property with a Rectangle 
+    representing a damaged area instead.  
+
+    RATIONALE:
+    Although the PaintEvent class is public, its use in AWT 
+    is completely private -- it is used to trigger calls to paint(), 
+    but programs never explicitly see the event object at all.
+ 
+__________
+AWT CHANGE - Defined a new constant in AWTEvent:
+		RESERVED_ID_MAX
+
+    This new constant is the maximum value of any AWT-defined event ID.
+    Programs that need to create their own event types should use
+    an ID greater than this max ID, so that the event will be properly
+    passed through the system.
+
+    RATIONALE:
+    This is part of the fix for a problem that prevented anyone from
+    being able to create their own event type and send it to a
+    component. 
+
+    This fixes bug 4028353: eventEnabled returns false for all but 
+    AWT events; can't send custom event types.
+
+____________
+BEANS CHANGE - Improved handling of beans that are applets
+
+    Changed Beans.instantiate to check if a newly created or 
+deserialized
+    bean is an Applet.  If so, it is given a minimal AppletStub and
+    AppletContext and its init method is called.
+ 
+    After developers have added a newly instantiated bean to an AWT
+    container, they should check if it is an Applet and if so call
+    Applet.start.
+
+    Also, developers need to test "wanna-be" applet/beans against
+    Beans.instantiate.
+
+____________
+BEANS CHANGE - Serializable listener fix for Beans classes
+
+    The java.beans package contains two utility classes, 
+    PropertyChangeSupport and VetoableChangeSupport, that manage
+    a list of event listeners.  The change was to make the way 
+    these classes are serialized consistent with the AWT.
+
+    RATIONALE
+    In beta3 these two classes were inconsistent with the AWT,
+    which meant there was no support for selectively saving and 
+    restoring listeners marked serializable.  The changes are 
+    all class private. 
+
+_______________
+SECURITY CHANGE - Key is now an interface
+
+    Made Key an interface and updated relevant clients.  Removed all 
+    implementation from Key to make it an interface. Moved its 
+    implementation into sun.security.
+
+    RATIONALE:
+    Key as an interface is more flexible and easier to implement than 
+    a mix of interfaces and classes.
+
+_______________
+SECURITY CHANGE - Changed names of factory methods
+
+    Changed factory names from <Engine>.get<Engine> to get<Engine>.
+
+    RATIONALE:
+    Factory method names were MessageDigest.getMessageDigest, 
+    Signature.getSignature, etc. A better naming scheme is 
+Signature.get, 
+    MessageDigest.get, etc. This is important when you start casting 
+the 
+    results to some fairly long interface names, for example:  
+	DSAKeyGen keyGen = 
+(DSAKeyGen)KeyGenerator.getKeyGenerator("DSA");
+
+_______________
+SECURITY CHANGE - Changed Provider SPI for java.security.Signature
+    Initialization 
+
+    The SPI is the Service Provider Interface, which Providers write 
+to. 
+    There currently are two providers: SUN and JSAFE.
+
+    a) Changed the arguments to two initialization method in Signature
+       from (byte[], String) to (Key)
+    b) Made one method in key public.
+    c) Added a small interface (no implementation): DSAPrivateKey
+
+    Changed java.security.Signature and sun.security.provider.DSA.
+
+_______________
+SECURITY CHANGE- API changes to Signature, MessageDigest, and 
+    KeyPairGenerator
+
+    Signature
+      public Signature get(String algorithm) 	->
+      public Signature getInstance(String algorithm)
+	
+      public Signature get(String algorithm, String provider) ->
+      public Signature getInstance(String algorithm, String provider)
+
+    MessageDigest
+      public MessageDigest get(String algorithm) ->
+      public MessageDigest getInstance(String algorithm)
+
+      public MessageDigest get(String algorithm, String provider) ->
+      public MessageDigest getInstance(String algorithm, String 
+provider)
+
+    KeyPairGenerator
+      public KeyPairGenerator get(String algorithm) ->
+      public KeyPairGenerator getInstance(String algorithm)
+	
+      public KeyPairGenerator get(String algorithm, String provider) ->
+      public KeyPairGenerator getInstance(String algorithm, String 
+provider)
+
+_______________
+SECURITY CHANGE - Changed key generation API
+
+    The change consisted of moving a set of existing methods from 
+    Signature to a new KeyPairGenerator class.
+
+    API change:
+    a) Moved key generation calls from signature to a new
+       KeyPairGenerator class
+    b) Added a small DSAKeyPairGenerator interface, which specializes
+       behavior for DSA key generation. 
+
+    The change  consisted of moving 3 abstract API methods to a new 
+class.
+	- defined a KeyGenerator factory method (identical to
+	  Signature's).
+	- added one line to ths sun.security.provider.DSA class.
+	- added one line to ths sun.security.provider.Sun class.
+	- updated API clients in JDK (there are two of them).
+
+
+    RATIONALE:
+    Customer feedback makes a strong case for moving the
+    Signature class key generation calls into its own class. Key
+    generation is currently implemented as part of the Signature
+    class. While it provides a uniform, algorithm-independent
+    key-generation semantics, it is hard to understand (and therefore 
+to
+    use). It has confused users both internally and externally.
+  
+__________
+JAR CHANGE - Can now handle compressed JAR files in the CLASSPATH
+
+    java.util.zip.ZipFile was enhanced so that it can now handle 
+    compressed ZIP/JAR file entries. No changes to the API were made. 
+    With this change, compressed JAR/ZIP files can now be handled
+    by javac.
+
+    Additionally, the runtime has also changed so that it can now
+    handle compressed ZIP/JAR files that are specified in the 
+CLASSPATH.
+
+___________
+LANG CHANGE - Removed a constructor and two methods from 
+java.lang.Throwable
+
+    - Removed the Throwable(String, Object[]) constructor 
+    - Removed the setArguments() method 
+    - Removed the getArguments() method 
+
+    RATIONALE:
+    The arguments property was originally added to java.lang.Throwable 
+for 
+    use in the generation of localized messages.  This was deemed 
+premature, 
+    and so the property was removed in order to avoid tempting 
+programmers 
+    to use it for some other purpose.
+
+_________
+IO CHANGE - Deprecated constructor StreamTokenizer(InputStream)
+
+    This fixed bug 4025998.
+
+    RATIONALE:
+    The StreamTokenizer(InputStream) constructor was not 
+binary-compatible 
+    with JDK 1.0.2.  This constructor was changed in JDK1.1 to convert 
+    automatically from bytes to characters using the platform's default
+    character encoding, but that change required buffering input data, 
+    which breaks binary compatibility.  This change has been removed.
+
+____________________________
+JAVA NATIVE INTERFACE CHANGE - Changed the names of VM initialization
+and thread-attach structures
+
+    Changed the JDK initialization structure name from JavaVMInitArgs 
+to 
+    JDK1_1InitArgs to make it clear that it is JDK1.1 specific.
+
+    Similarly, ThreadAttachArgs has changed its name to 
+JDK1_1AttachArgs.
+
+    RATIONALE:
+    When a native application uses the invocation API to start up
+    the VM, it passes the VM an initialization structure. Since in
+    general different VM implementations require different 
+    initialization information (min/max heap size, native stack size,
+    enable debugging, etc.), the JNI spec explicitly says
+    that the contents of the structure vary among VM implementations.
+    However, the JDK initialization structure, JavaVMInitArgs, gives 
+    the wrong impression that it should work with other VMs. This has
+    caused confusion on how to implement the JNI without conflicting
+    with JDK's naming scheme.
+
+____________________________
+JAVA NATIVE INTERFACE CHANGE - Changed NewStringUTF parameters
+
+    Removed the length argument, strlen(s, from NewStringUTF().  The
+    signature for this method is now:
+
+	jstring NewStringUTF(JNIEnv *env, const char *s);
+
+    RATIONALE:
+    NewStringUTF constructs a Java string from a UTF string. Although 
+    UTF strings are already 0-terminated, the function required an
+    unnecessary length argument, forcing the programmer to write:
+
+	NewStringUTF(env, s, strlen(s))
+
+    instead of just:
+
+	NewStringUTF(env, s) 
+
+____________________________
+JAVA NATIVE INTERFACE CHANGE - Changed DeleteLocalRef and 
+DeleteGlobalRef
+
+    Now programmers can pass local or global references to 
+DeleteLocalRef 
+    and DeleteGlobalRef directly, instead of having to pass the address 
+    of these references.
+
+    RATIONALE:
+    DeleteLocalRef and DeleteGlobalRef delete local or global 
+references
+    created by the JNI. They used to take the address of the reference,
+    forcing programmers to write:
+
+	DeleteLocalRef(&ref)
+
+    now references are passed as follows:
+
+	DeleteLocalRef(ref)
+
+____________________________
+JAVA NATIVE INTERFACE CHANGE - Changed the "IsSubclassOf" function name
+    to "IsAssignableFrom."
+
+    RATIONALE:
+    The following JNI (Java Native Interface) function was misnamed:
+
+        jboolean IsSubclassOf(JNIEnv *env, jclass clazz1, 
+                                           jclass clazz2);
+
+    It did not match the Java Language Specification's definition 
+    of the "subclass" relationship.
+
+    The Reflection API has a similar method in java.lang.Class:
+	
+        boolean isAssignableFrom(Class class);
+		
+    This is a much more suitable name. The JNI function therefore 
+changed 
+    its name to:
+	
+        jboolean IsAssignableFrom(JNIEnv *env, jclass clazz1, 
+                                               jclass clazz2);
+
+____________________________
+JAVA NATIVE INTERFACE CHANGE - Change RegisterNatives so that it
+    takes all the information in one array.
+
+    RATIONALE:
+    In beta3, the RegisterNatives function took three arrays
+    containing native method names, signatures and function entry 
+    pointers, respectively:
+	
+        jint RegisterNatives(JNIEnv env, jclass clazz, 
+               const char *names[],
+               const char *signatures[];
+               void *nativeProcs[]);
+		 
+    These arrays had to be of the same length, and had to be NULL-
+    terminated. It's better to put all the info in a single array,
+    and pass the length of the array as another argument:
+	
+        struct JNINativeMethod {
+            char* name;
+            char* signature;
+            void* fnPtr;
+        };
+        typedef struct JNINativeMethod JNINativeMethod;
+
+        void RegisterNatives(JNIEnv* env, jclass classID, 
+                  const JNINativeMethod methods[], jsize count);
+
+    Here's how code that uses this looks in FCS:
+
+        JNINativeMethodSpec methods[] = {
+            { "sin", "(D)D", &::sin },
+            { "cos", "(D)D", &::cos },
+            { "tan", "(D)D", &::tan }
+        };
+        env->RegisterNatives(env->FindClass("java/lang/Math"), methods, 
+3);
+
+    Here's how the same code used to look in beta3:
+
+        const char* names[] = { "sin", "cos", "tan", NULL };
+        const char* signatures[] = { "(D)D", "(D)D", "(D)D", NULL };
+        void* procs[] = { &::sin, &::cos, &::tan, NULL };
+        env->RegisterNatives(env->FindClass("java/lang/Math"), 
+                             names, signatures, proc);
+	
+    The former approach is clearer.
+
+____________________________
+JAVA NATIVE INTERFACE CHANGE - Changed the typing scheme of references
+    to Java objects.
+
+    In JDK Beta 3, reference types are defined as follows:
+
+    typedef void *jref;    /* generic type for references */
+    typedef jref jobject;  /* Java objects */
+    typedef jref jclass;   /* Java class objects */
+    typedef jref jstring;  /* Java strings */
+    typedef jref jarray;   /* Java arrays */
+
+    The distinction between jref and jobject was not clear. In 1.1 FCS,
+    we got rid of jref, and introduced additional reference types to 
+more
+    accurately convey the subtyping information. We introduced dummy 
+C++
+    classes to enforce the subtyping relationships:
+
+    #ifdef __cplusplus
+
+    class _jobject {};
+    class _jclass : public _jobject {};
+    class _jthrowable : public _jobject {};
+    class _jstring : public _jobject {};
+    class _jarray : public _jobject {};
+    class _jbooleanArray : public _jarray {};
+    class _jbyteArray : public _jarray {};
+    class _jcharArray : public _jarray {};
+    class _jshortArray : public _jarray {};
+    class _jintArray : public _jarray {};
+    class _jlongArray : public _jarray {};
+    class _jfloatArray : public _jarray {};
+    class _jdoubleArray : public _jarray {};
+    class _jobjectArray : public _jarray {};
+
+    typedef _jobject *jobject;
+    typedef _jclass *jclass;
+    typedef _jthrowable *jthrowable;
+    typedef _jstring *jstring;
+    typedef _jarray *jarray;
+    typedef _jbooleanArray *jbooleanArray;
+    typedef _jbyteArray *jbyteArray;
+    typedef _jcharArray *jcharArray;
+    typedef _jshortArray *jshortArray;
+    typedef _jintArray *jintArray;
+    typedef _jlongArray *jlongArray;
+    typedef _jfloatArray *jfloatArray;
+    typedef _jdoubleArray *jdoubleArray;
+    typedef _jobjectArray *jobjectArray;
+
+    #else
+
+    struct _jobject;
+
+    typedef struct _jobject *jobject;
+    typedef jobject jclass;
+    typedef jobject jthrowable;
+    typedef jobject jstring;
+    typedef jobject jarray;
+    typedef jarray jbooleanArray;
+    typedef jarray jbyteArray;
+    typedef jarray jcharArray;
+    typedef jarray jshortArray;
+    typedef jarray jintArray;
+    typedef jarray jlongArray;
+    typedef jarray jfloatArray;
+    typedef jarray jdoubleArray;
+    typedef jarray jobjectArray;
+
+    #endif
+
+    JNI function types have been modified accordingly to accept or 
+return
+    the newly introduced reference types.
+
+____________________________
+JAVA NATIVE INTERFACE CHANGE - Changed the typing of certain primitive
+    types:
+
+    The following types in earlier versions of JDK:
+
+    typedef char jboolean;
+    typedef char jbyte;
+    typedef unsigned long jsize;
+
+    have been changed to:
+
+    typedef unsigned char jboolean;
+    typedef signed char jbyte;
+    typedef jint jsize;
+
+    in JDK 1.1 FCS.
+
+    Earlier, jsize was defined to be an unsigned integer type that has
+    the same number of bits as a native pointer. The idea was to use
+    jsize to represent array length and size, etc. However, there has
+    been a great deal of confusion on what operations are available 
+    on jsize, whether it is safe to convert jsize to int, etc. We
+    changed jsize to be the same as jint because Java arrays and
+    strings cannot be longer than 2^31 anyway. All standard Java
+    methods that operate on arrays and strings use "int" as the
+    length and size types.
+
+___________
+TOOL CHANGE - New argument -s added to javap
+
+    -s: Print method and field type signature information in the 
+internal
+        form used by the Java Virtual Machine.  This is the form 
+through
+        which a user of the Java Native Interface (JNI) refers to 
+methods
+        and fields. Using javap with the -s flag to print method and 
+field
+        information for a class to be accessed with the JNI avoids the 
+        difficulty of constructing signatures in the obscure internal 
+        format manually.
+    
+    Examples of use:
+
+    % cat foo.java
+    class foo {
+        Thread thread;
+        int i;
+        public static void main(String args[]) {
+        }
+        private void foo() {}
+    }
+
+    % javap -p foo
+    Compiled from foo.java
+    class foo extends java.lang.Object 
+        /* ACC_SUPER bit set */ 
+    {
+        java.lang.Thread thread;
+        int i;
+        public static void main(java.lang.String []);
+        private void foo();
+        foo();
+    }
+
+    % javap -p -s foo
+    Compiled from foo.java
+    class foo extends java.lang.Object 
+        /* ACC_SUPER bit set */
+    {
+        thread Ljava/lang/Thread;
+        i I
+        public static main ([Ljava/lang/String;)V
+        private foo ()V
+        <init> ()V
+    }
+
+___________
+TOOL CHANGE - Added -deprecation flag to javac
+
+    By default, when compiling a class that contains deprecated APIs, 
+    javac now displays only a brief note, rather than immediately
+    listing all of the deprecated APIs.  For example:
+
+    % javac MyClass.java
+    Note: MyClass.java uses deprecated APIs.  Recompile with 
+"-deprecation" 
+    for details.
+
+    Then, you can re-compile using the -deprecation flag to get the
+    name of the deprecated constructor, field, method, class or 
+    interface.
+
+    % javac -deprecation MyClass.java
+    MyClass.java:3: Note: The constructor java.lang.String(byte[],int)
+    has been deprecated.
+        new String(new byte[0], 0);
+        ^
+    Note: wombat.java uses deprecated APIs.  Please consult the 
+    documentation for a better alternative.
+
+    At this point, please refer to the JDK API Reference documentation
+    (the javadoc-generated web pages) jdk1.1/docs/api/packages.html.
+    If you look up the deprecated API, it should give you more details
+    such as which API replaces it.    
+
+    To summarize the compiler options:
+        javac -nowarn       => complete silence
+        javac               => a one-line comment about deprecations
+        javac -deprecation  => a full report
+
+    RATIONALE:
+    This can greatly reduce the amount of warning by default, allowing 
+    developers to concentrate on the errors, and to have a graceful
+    migration towards updating their deprecated code.
+
+ 
+===================================================================
+Changes from JDK 1.1beta2 to JDK 1.1beta3
+-------------------------------------------------------------------
+
+The following changes and bug fixes are in the JDK 1.1beta3 release.
+
+______________
+VERSION NUMBER - The version number for this release is 
+"JDK1.1beta3.3". 
+
+    Versions beta3.1 and beta3.2 were internal candidates that were 
+    never released.
+    You can get the version number of your particular release by 
+executing:
+
+        java -version
+
+_______________
+PACKAGE CHANGES - Two new packages in java.*: java.beans and java.math
+    Changes in these packages are described in more detail below.
+
+________________
+JAVABEANS CHANGE - JavaBeans1.0 is now part of JDK1.1
+    The classes that define the JavaBeans 1.0 API specification
+    are now part of JDK1.1.  These classes are part of BDK1.0
+    beta1 and beta2; there will be a BDK1.0beta3 that synchronizes
+    with JDK1.1beta3.
+
+  - There has been one change in the JavaBeans APIs: the string
+    argument to Beans.instantiate() has changed. The argument
+    used to be the path to a serialized bean, it is now the
+    name of a bean, which may be serialized, or just a class name.
+
+______________
+GENERAL CHANGE - Extended the core API methods that take a PrintStream 
+    argument so they can also take a PrintWriter argument.
+
+    Several constructors and methods have been added to make the 
+    new PrintWriter class easier to use.  
+
+_________
+IO CHANGE - Merged the functionality of the ByteToCharConverter 
+    and CharToByteConverter classes into the InputStreamReader and
+    OutputStreamWriter classes.
+
+    The ByteToCharConverter and CharToByteConverter classes 
+    are no longer public, so various constructors and methods
+    that previously took converter arguments now accept names
+    of character encodings.  The InputStreamReader and 
+    OutputStreamWriter classes no longer commit to buffering
+    the underlying byte stream.  Details on these and other
+    changes may be found at:
+
+    http://java.sun.com/products/JDK/1.1/docs/guide/io/b3-changes.html
+
+___________
+LANG CHANGE - New method: identityHashCode in java.lang.System
+
+    Its signature is:
+
+    public static native int identityHashCode(Object x);
+
+    It returns the same hashcode for the given object as
+    would be returned by the default method hashCode(),
+    whether or not the given object's class overrides hashCode().
+    The hashcode for the null reference is zero.
+
+    RATIONALE:  
+    In previous releases, Java lacked a constant-time
+    identity hash function.  This meant there was no way to build
+    a hash table which keyed on object identity, and for which
+    access would be a constant-time operation.
+
+    Java supplied a constant-time identity comparison operation 
+    (the built-in operator ==) but did not supply a corresponding
+    constant-time identity hash operation.
+
+    This new method is very useful when the object in question does
+    override equals and hashCode, but the guts of some abstraction
+    is working with canonicalized instances, such as interned 
+    strings, and needs to use them as keys for fast lookups.
+
+    Although this is sometimes done by wrapping the string-like
+    object inside another object which does not override equals 
+    and hashCode, it's desirable to allow such objects to be used
+    directly as keys in identity tables, to avoid the overhead 
+    of allocating the wrappers.
+
+    When performance is not an issue, the method Object.hashCode() 
+    suffices, even if it is slow (as with strings), but when
+    performance must be maximized, neither the wrapper technique 
+    nor the slow hashCode() method is workable, and only a fast
+    identityHashCode() method will be suitable.
+
+___________
+LANG CHANGE - getResourceAsName(String) changed to getResource(String)
+
+    java.lang.Class and java.lang.ClassLoader used to have methods 
+    with signature:
+
+       String getResourceAsName(String)
+
+    which would return an external representation to a URL to
+    the desired resource file.  These methods have been replaced
+    by methods with signature
+
+       java.net.URL getResource(String)
+
+    which return the actual URL (or null if the resource is not found).
+
+___________
+AWT CHANGES - New type of event: ContainerEvent
+
+  This change provides the hooks for containers to easily register 
+event 
+  listeners on descendents.
+ 
+  - Added new ContainerEvent class and equivalent ContainerListener 
+    interface to enable notification when components are added/removed
+    from containers.  This makes it relatively easy for containers 
+    to register themselves as listeners for events on all of their 
+    descendents.
+
+  - Added the addContainerListener/removeContainerListener methods
+    to Container.
+
+  RATIONALE:
+  In beta2 the event model provided no reasonable mechanism
+  to allow containers to get input events which occurred in their
+  descendents, which turns out to be a fairly common need.
+  The 1.0 event model allowed this by automatically propagating
+  events up the containment hierarchy until some component returned
+  "true" to absorb the event and stop the propagation.  While this
+  seems powerful (and it's easy), the 1.0 propagation model is error
+  prone and results in poor performance. 
+     
+___________
+AWT CHANGES - Further Fine-Tuning of AWT Input Event Related API
+
+  Responding to customer feedback and testing, we made the following
+  changes to the API in the java.awt and java.awt.event packages:
+
+  - Added a TextEvent class and TextListener interface to enable
+    programs to track all changes to a text component, including
+    paste and programmatic modifications.  (Bug #4014945)
+
+  - Added new windowActivated/windowDeactivated event types to 
+WindowEvent 
+    to enable programs to determine when a window gets/loses focus.
+  
+  - Added isTemporary method to FocusEvent to enable determining the
+    difference between when focus is explicitly moved between 
+components
+    and when focus temporarily changes (such as when a window is
+    de-activated).
+  
+  - Added a consume method to the InputEvent class, enabling any object
+    to consume input events.  Previously, only the Component associated
+    with the input event could consume it.
+
+  - Made the AWTEventMulticaster class public, enabling component
+    subclasses to serve as multicast sources for AWT-defined events.
+  
+  - Made the java.awt.event Adapter classes abstract so that it's clear
+    that they need to be extended.
+
+  - Removed constructors in java.awt.event Event classes that took
+    an old 1.0 event as a parameter.
+  
+  - Changed the event id values of the ComponentEvent types to prevent 
+them
+    from clashing with the WindowEvent ids.
+  
+  - Added virtual keycode identifiers to KeyEvent to properly represent
+    all standard keys on the keyboard.  The keyCode property of the key
+    event now contains one of those identifiers (instead of the ASCII
+    integer equivalent).
+
+  - Added a method called isPopupTrigger to the MouseEvent class,
+    providing a platform-independent way to determine whether a mouse
+    event should result in a popup menu being shown. (Bug #4017794)
+
+__________
+AWT CHANGE - New method: getTreeLock() to java.awt.Component:
+
+    The public field Component.LOCK will NOT be changed for beta3,
+    to minimize the risk of the change for beta3, but it will be made
+    non-public (package private) between beta3 and final release.
+
+    RATIONALE:
+    The AWT exposes a public static final field, called Component.LOCK, 
+    for synchronizing operations that affect or depend on
+    component-tree structure.  
+
+    Exposing this field for public use unnecessarily constricts future
+    AWT implementations to providing a single toolkit-wide lock.
+
+    It is much better to provide access to the lock object by an
+    instance method on class Component, such that future
+    implementations can return a context-sensitive locking object if
+    they need to.
+
+__________
+AWT CHANGE - New Component method: getLocationOnScreen
+
+    Added one new method to the Component class:
+
+      Point getLocationOnScreen()
+
+    RATIONALE:
+    This method returns the current location of the component in
+    the screen's coordinate space.
+
+__________
+AWT CHANGE - New Choice method: insert
+
+    Added one new method to the Choice class:
+
+      void insert(String item, int index) 
+
+    RATIONALE:
+    This method lets you insert items into a Choice control at the 
+index
+    you specify.  (In Beta2, items were always added at the end.)
+
+__________
+AWT CHANGE - ItemSelectable interface change 
+
+    Removed the following two methods from the ItemSelectable 
+interface:
+       public int[] getSelectedIndexes();
+       public String[] getSelectedItems();
+
+    They have been replaced by the following method:
+       public Object[] getSelectedObjects();
+
+    RATIONALE:
+    This change removes the restriction that an item must be 
+representable
+    by a String.  The AWT classes that implement ItemSelectable (List,
+    Choice, Checkbox, and CheckboxMenuItem) have changed accordingly.
+
+__________
+AWT CHANGE - Allow Container and Component classes to be extended 
+    directly to create lightweight components.
+
+  1) Added the following method to java.awt.Component
+
+	Dimension getMaximumSize();
+
+     In beta2 components could specify only their minimum and preferred
+     sizes and assume that the component was infinitely stretchable.  
+     This assumption is invalid with lightweight components where 
+components
+     tend to be written at a finer granularity and some components 
+don't
+     want to be flexible.
+
+     The default implementation of this method specifies infinite
+     size to reflect the current behavior.
+
+  2) Added two alignment functions to java.awt.Component.
+
+        float getAlignmentX();
+	float getAlignmentY();
+
+     that return a number between 0.0 and 1.0.  These values specify 
+how 
+     to align the component relative to other components.  0.0 would be
+     aligned at the origin, 1.0 the furthest away from the origin, 
+     0.5 is centered, etc.  As examples, a text component would have a
+     y alignment to the baseline, and an icon component would have 
+     an alignment to its hotspot, if defined.
+
+    RATIONALE:
+    Before beta3 the only way of creating new components in the AWT was
+    to extend Canvas, Panel, and their subclasses.  Component and
+    Container could not be directly extended.  All components were
+    automatically "heavyweight" in that each had an opaque native
+    window associated with them.  The problem with this is that 
+heavyweight
+    components are expensive (you can't afford to have too many) and
+    they cannot have any transparent pixels.  The new changes create
+    standard support for lightweight components.
+
+____________
+MATH CHANGES - New package: java.math, which initially contains two 
+    classes:  BigInteger and BigDecimal.
+
+    BigNum class has been removed and replaced by BigInteger and 
+BigDecimal.
+
+    BigIntegers are immutable arbitrary-precision integers, which 
+provide
+    analogs to all of Java's primitive integer operators, and all 
+relevant
+    static methods from java.lang.Math.  Additionally, BigIntegers 
+provide
+    operations for modular arithmetic, GCD calculation, primality 
+testing, 
+    prime generation, single-bit manipulation, and a few other odds and 
+ends.
+
+    BigDecimals are immutable, arbitrary-precision signed decimal 
+numbers,
+    suitable for monetary calculations.  BigDecimals provide operations 
+for 
+    basic arithmetic, scale manipulation, comparison, format conversion 
+    and hashing.  The BigDecimal class gives its user complete control 
+    over rounding behavior, forcing the user to explicitly specify a 
+    rounding behavior for operations capable of discarding precision.
+
+________________
+SECURITY CHANGES -  New method: getProviders(), which provides 
+    a way to query which crypto providers are installed.
+ 
+    This method is added to the Security class and has the form:
+ 
+	public static String[] getProviders();
+
+___________
+TOOL CHANGE - javakey is now able to export keys and certs
+    to files.
+
+    This is a change to the javakey tool, a reciprocal to
+    the existing import facility.
+
+___________
+TOOL CHANGE - javac -nowarn flag now suppresses @deprecated messages  
+
+    This can greatly reduce the amount of messages, allowing you
+    to see only the errors.
+
+____________
+TOOL CHANGES - jar tool is incompatible with earlier JAR files
+
+    The beta3 jar tool (more specifically, ZipInputStream and
+    ZipOutputStream) is incompatible with JAR files created with
+    the beta2 jar tool.  The JAR tool won't understand those files.
+    There was a bug in beta2 ZipInputStream and ZipOutputStream 
+    such that those classes didn't generate files properly according
+    to the zip specification (one bit out of place means a lot...)
+    The bug was fixed and now it generates proper zip files that 
+    other tools will understand.
+
+____________
+TOOL CHANGES - Removed ability to generate MIF from javadoc
+
+    Removed "-doctype MIF" option from javadoc.  This was necessary
+    in order to remove the HTML parser dependency that HotJava had
+    on the JDK.
+
+===================================================================
+Changes from the original JDK 1.1beta to JDK 1.1beta2
+-------------------------------------------------------------------
+
+The following fixes and improvements are in the JDK 1.1beta2 release.
+
+______________
+VERSION NUMBER - The version number for this release is "JDK1.1beta2". 
+
+    You can get the version number of your particular release by 
+executing:
+
+        java -version
+
+_______
+CHANGE - Source code for public classes included
+
+    The source code for the public classes in the java.* package are 
+    now included in this release in the file src.zip.  These correspond
+    to the public classes contained in classes.zip.  This src.zip
+    is equivalent to that shipped previously with JDK 1.0.2
+    but also includes sources to the new public classes added in JDK 
+1.1. 
+
+_______
+BUG FIX - Jar tool manifest-build limitation on number of files on 
+Solaris
+
+    DESCRIPTION OF BUG
+    In some configurations of Solaris, trying to create a JAR file 
+    that has more than 64 entries in it would fail.  The command 
+    that would cause this to happen is:
+
+    % jar cvf test.jar <somedir>
+  
+    where <somedir> is a directory containing more than 64 files.
+
+    SOLUTION - This bug has been fixed.
+
+_______
+BUG FIX - Javakey tool signs jar files with invalid signatures
+
+    DESCRIPTION OF BUG
+    An implementation inconsistency in the javakey security tool causes
+    jar files to be signed with invalid signatures. This means that 
+    signature checking will always fail, thus all applets will run as 
+    untrusted, with minimal permissions enabled.  This makes code 
+signing
+    feature unusable but it is not a security hole.  
+
+    SOLUTION - This bug has been fixed. 
+
+_______
+BUG FIX - 4017054 - Limit to numeric range of case statements
+ 
+    DESCRIPTION OF BUG
+    If a Java switch statement includes case statements that cover a 
+wide
+    range of numerical values (although not necessarily a large number 
+of 
+    cases themselves), the Java compiler can run out of memory 
+attempting 
+    to compile that statement.  For instance, a switch statement 
+    containing the two cases 0 and 99999999 will cause the compiler to 
+    run out of memory.
+ 
+    SOLUTION - This bug has been fixed.
+
+_______
+BUG FIX - 4018832 - Missing class java.io.LineNumberReader
+
+    DESCRIPTION OF BUG
+    In the Win32 release, the class java.io.LineNumberReader is
+    documented but the class file is absent from classes.zip
+
+    SOLUTION - java.io.LineNumberReader has been added to classes.zip
+
+_______
+BUG FIX - 4018252 - DecimalNumberFormat methods throw exceptions
+
+    DESCRIPTION OF BUG
+    The class java.text.DecimalNumberFormat throws an exception when 
+any 
+    of its format or parse methods are called.  A typical stack trace 
+    looks something like the following:
+
+    java.lang.NumberFormatException: 451.0D
+        at java.lang.Double.<init>(Double.java)
+        at java.text.DigitList.getRealDouble(DigitList.java)
+        at java.text.DigitList.set(DigitList.java)
+        at java.text.DecimalFormat.format(DecimalFormat.java)
+        at java.text.NumberFormat.format(NumberFormat.java)
+
+    Although DecimalNumberFormats are generally not used directly, they 
+    are returned by calls to NumberFormat.getDefault(), 
+    NumberFormat.getDefaultCurrency() and 
+NumberFormat.getDefaultPercent().
+
+    SOLUTION - This bug has been fixed.
+

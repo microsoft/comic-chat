@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>Microsoft Chat Control Demo Page</title>
+<STYLE TYPE="text/css">
+<!--
+  BODY {font-family: verdana; font-size: 10pt}
+-->
+</STYLE>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF"
+vlink="#663300" alink="#FF0000" topmargin="10" leftmargin="10">
+<script language="VBScript"></script>
+
+<form name="WEBChat">
+    <p align="center">Enter the room path:</p>
+    <p align="center"><input type="text" size="38" maxlength="64"
+    name="Room" value="//ComicSrv.microsoft.com/#SampleRoom"></p>
+    <p align="center"><br>
+    Enter your nickname: <br>
+    <br>
+    <input type="text" size="36" maxlength="64" name="Alias"
+    value="Nickname"> <br>
+    <br>
+    <input type="button" name="TopicBtn"
+    value="Set Room Topic to:" onclick="SetTopic" Language="VBScript"> <input
+    type="text" size="48" maxlength="64" name="TopicW"> <br>
+    <br>
+    Chat Room Topic: <input type="text" size="64" maxlength="64"
+    name="TopicR"> Participant Count: <input type="text" size="6"
+    maxlength="6" name="MemberCountR"> <br>
+    <br>
+    <input type="button" name="FluxBtn"
+    value="   Join the chat   " onclick="Flux" Language="VBScript"><input
+    type="button" name="IgnoreBtn" value="Ignore Member"
+    onclick="Ignore" Language="VBScript"><input type="button" name="DontIgnoreBtn"
+    value="Don't Ignore Member" onclick="DontIgnore" Language="VBScript"><input
+    type="button" name="SwitchWhispersBtn"
+    value=" Ignore Whispers " onclick="SwitchWhispers" Language="VBScript"><input
+    type="button" name="ClearHistoryBtn" value="Clear History"
+    onclick="ClearHistory" Language="VBScript"><input type="button"
+    name="SwitchViewBtn" value="Spectator View"
+    onclick="SwitchView" Language="VBScript"> <br>
+    <br>
+    <input type="button" name="KickParticipantBtn"
+    value="Kick Participant" onclick="KickParticipant" Language="VBScript"><input
+    type="text" size="36" maxlength="64" name="KickComment"
+    value="Put your kick comment here"> <br>
+    <br>
+    <input type="button" name="GetRealNameBtn"
+    value="Get Member Real Name" onclick="GetRealName" Language="VBScript"><input
+    type="text" size="52" maxlength="64" name="RealName"> </p>
+</form>
+
+<p align="center"><object id="Chat"
+classid="clsid:D6526FE0-E651-11CF-99CB-00C04FD64497"
+codebase="MSChatOCX.Cab#Version=4,71,730,0"
+align="baseline" border="0" width="600" height="200"
+standby="Downloading the Microsoft Chat Control"
+codetype="application/x-oleobject"><param name="UIOption"
+value="4095"><param name="Appearance" value="1"><param
+name="BorderStyle" value="0"><param name="BackColor" value="255"></object></p>
+
+<p align="center"><br>
+<i>To resize a pane in the chat window, drag the frame border <script
+language="VBScript"><!--
+
+SUB KickParticipant
+	On Error Resume Next
+	Chat.KickParticipant -1, Document.WEBChat.KickComment.Value
+END SUB
+
+SUB SwitchView
+	On Error Resume Next
+	If (Document.WEBChat.SwitchViewBtn.Value = "Spectator View") Then
+		Chat.UIOption = 4076
+		Document.WEBChat.SwitchViewBtn.Value = "Speaker View"
+	Else
+		Chat.UIOption = 4095
+		Document.WEBChat.SwitchViewBtn.Value = "Spectator View"
+	End If
+END SUB
+
+SUB GetRealName
+	On Error Resume Next
+	Chat.GetParticipantRealName -1, "", FALSE, ""
+END SUB
+
+SUB Ignore
+	On Error Resume Next
+	Chat.SetParticipantStatus -1, 4, 16
+END SUB
+
+SUB DontIgnore
+	On Error Resume Next
+	Chat.SetParticipantStatus -1, 4, 0
+END SUB
+
+SUB SwitchWhispers
+	On Error Resume Next
+	If (Document.WEBChat.SwitchWhispersBtn.Value = " Ignore Whispers ") Then 
+		Chat.SetParticipantStatus Chat.ThisParticipantID, 2, 8
+		Document.WEBChat.SwitchWhispersBtn.Value = "Accept Whispers"
+	Else
+		Chat.SetParticipantStatus Chat.ThisParticipantID, 2, 0
+		Document.WEBChat.SwitchWhispersBtn.Value = " Ignore Whispers "
+	End If
+END SUB
+
+SUB ClearHistory
+	On Error Resume Next
+	Chat.ClearHistory
+END SUB
+
+SUB SetTopic
+	On Error Resume Next
+	Chat.RoomTopic = Document.WEBChat.TopicW.Value
+END SUB
+
+SUB Flux
+	Dim Form
+   	Set Form = Document.WEBChat
+
+	On Error Resume Next
+
+	If (Form.FluxBtn.Value =    "   Join the chat   "   ) Then
+		Chat.EnterRoom Form.Room.Value, "", Form.Alias.Value, "ALL", 1, 0
+	Else 
+		If (Form.FluxBtn.Value = "Cancel Entering") Then
+			Chat.CancelEntering
+			Chat.ClearHistory
+		Else 
+			If (Form.FluxBtn.Value = "Leave the chat") Then
+				Chat.ExitRoom
+				Chat.ClearHistory
+			End If
+		End If
+	End If
+END SUB
+
+SUB Chat_OnStateChanged(ByVal NewState)
+	On Error Resume Next
+
+	If (NewState = 1) Then
+		Document.WEBChat.FluxBtn.Value = "   Join the chat   "
+		Chat.BackColor = 255
+	Else
+		If (NewState = 2) Then
+			Document.WEBChat.FluxBtn.Value = "Cancel Entering"
+			Chat.BackColor = 33023
+		Else
+			If (NewState = 3) Then
+				Document.WEBChat.FluxBtn.Value = "Leave the chat"
+				Document.WEBChat.TopicR.Value = Chat.RoomTopic
+				Chat.BackColor = 49152
+			End If
+		End If
+	End If
+END SUB
+
+SUB Chat_OnBeginEnumeration()
+	On Error Resume Next
+	Document.WEBChat.TopicR.Value = Chat.RoomTopic
+END SUB
+
+SUB Chat_OnEnterParticipant(ByVal ParticipantID, ByVal Alias, ByVal Status)
+	On Error Resume Next
+	Document.WEBChat.MemberCountR.Value = Chat.MemberCount
+END SUB
+
+SUB Chat_OnExitParticipant(ByVal ParticipantID)
+	On Error Resume Next
+	Document.WEBChat.MemberCountR.Value = Chat.MemberCount
+END SUB
+
+SUB Chat_OnRoomTopicChanged(ByVal NewRoomTopic)
+	On Error Resume Next
+	Document.WEBChat.TopicR.Value = NewRoomTopic
+END SUB
+
+SUB Chat_OnParticipantRealName(ByVal Alias, ByVal RealName)
+	On Error Resume Next
+	Document.WEBChat.RealName.Value = RealName
+END SUB
+
+--></script></i> </p>
+</body>
+</html>

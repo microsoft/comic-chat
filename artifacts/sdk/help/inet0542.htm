@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>Properties</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+<SCRIPT>
+//<!--
+function ShowButtons() {
+    if (window.top.frames.length!=0 && window.top.frames[0].ShowButtons!=null)
+	window.top.frames[0].ShowButtons('/inet0541.htm','/inet0000.htm','/inet0535.htm','/index.htm','/inet0543.htm');
+}
+ShowButtons();
+//-->
+</SCRIPT>
+<SCRIPT>
+//<!--
+function ALink(d,u,a,t)
+{
+var f = window.top.frames;var force = false;var target = f['TEXT'];if (window.top.frames.length<2 || f[1].comp==null || f['TEXT']==null) {
+if (!confirm("The file " + u + " may not be available. Continue anyway?")) {return false;}force = true;if (target==null) target = self;}
+var x = window.top.location.href;i=x.lastIndexOf("/"); if (i<x.lastIndexOf("\\")) i=x.lastIndexOf("\\");var p=x.substring(0,i);
+if (force || f[1].comp[d]=='y') { if (t==null || t!="_top") {p=p+'/'+u;if (a!=null){p=p+'#'+a;target.location.href=p}else{if(target.location.href!=p) target.location.href=p}} else {window.top.location.href=p+'/'+u;} } else { target.location.href=p+'/comp'+d+'.htm';}
+return false;
+}
+//-->
+</SCRIPT>
+<SCRIPT>
+//<!--
+function CheckCAB(d)
+{
+var f = window.top.frames;
+if (window.top.frames.length<2 || f[1].comp==null || f['TEXT']==null || f[1].comp[d]!='y') 
+if (!confirm("This link may not be available. Continue anyway?")) {return false;}
+return true;
+}
+//-->
+</SCRIPT>
+</HEAD>
+<BODY onLoad='ShowButtons()' TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headcoma.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="Properties"><BR CLEAR=ALL>
+<H5><FONT COLOR="#000000">Objects</FONT></H5><A NAME="mschatpr_vb_ref_05040202010c0000"></A><H3>Properties<BR CLEAR=ALL>
+<HR></H3><P>This section describes the properties associated with the <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_05040202010c0100"></A><H3>AssociatedType Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Defines whether the object is used to describe a query, server, user, member, or channel.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.AssociatedType=</B><I>value</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string containing one of these valid values:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Query
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Server
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">User
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Member
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Channel
+</FONT></TD></TABLE>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read/write.
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0542.htm#mschatpr_vb_ref_05040202010c0200" TARGET="TEXT">Item</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_05040202010c0200"></A><H3>Item Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Reads or writes an item in the object.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.Item(</B><I>ItemName</I><B>)=</B><I>value</I> <BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ItemName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A variant that can be a string, number, or array of variants.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read/write.
+<P>The number of items set in a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object is unlimited. Items with a given name are unique in the object. An <B>Item</B> that was previously set can be overwritten by setting a new <B>Item</B> with the same <I>ItemName</I>.
+</BLOCKQUOTE><P>
+<H5>Example</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj as ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("Name") = "#Room"
+chatitemobj.Item("Name") = "#Rhum"  'the last assignment is kept
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0542.htm#mschatpr_vb_ref_05040202010c0100" TARGET="TEXT">AssociatedType</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_05040202010c0300"></A><H3>ItemValid Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Determines if a specific ItemName is valid in the object.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.ItemValid(</B><I>ItemName</I><B>)<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A Boolean variable that determines if an <I>ItemName</I> is valid.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ItemName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>The <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041300" TARGET="TEXT">OnServerProperty</A> event has a <I>ServerItems</I> parameter that is a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object. This event occurs in the following example:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.QueryServerProperty "Info"
+</FONT></PRE>
+<P>To extract the data attached to the "Info" <I>ItemName</I>, the following example is valid, given that the "Info" property is an array of strings.
+
+
+<PRE><FONT FACE="Courier" SIZE="2">If(ServerItems.ItemValid("Info")) Then
+    Dim vInfo As Variant
+    Dim strInfo As String
+    Dim iIndex As Integer
+
+    vInfo = ServerItems.Item("Info")
+    strInfo = " "
+
+    If(Not IsEmpty(vInfo)) Then
+        For iIndex = LBound(vInfo) To UBound(vInfo)
+            strInfo = strInfo + "&lt;" + CStr(vInfo(iIndex)) + "&gt;"
+        Next iIndex
+    End If
+End If
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0542.htm#mschatpr_vb_ref_05040202010c0200" TARGET="TEXT">Item</A>, <A HREF="inet0542.htm#mschatpr_vb_ref_05040202010c0400" TARGET="TEXT">ValidItems</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_05040202010c0400"></A><H3>ValidItems Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Defines the valid item names of the object.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ValidItems=</B><I>value</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A variant that is an array of variants that are strings. When the <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object has no valid items set, the <I>Empty</I> keyword as a variant is valid. (The Empty keyword is used as a variant subtype. It indicates an uninitialized variable value.)
+
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0542.htm#mschatpr_vb_ref_05040202010c0200" TARGET="TEXT">Item</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_05040202010d0000"></A><H3>Method<HR></H3><P>This section describes the method associated with the <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+
+
+
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_05040202010d0100"></A><H3>InvalidateItem<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Removes an item previously set in the object with the <A HREF="inet0542.htm#mschatpr_vb_ref_05040202010c0200" TARGET="TEXT">Item</A> property.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.InvalidateItem(</B><I>ItemName</I><B>)<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ItemName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

@@ -1,0 +1,365 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>Internet Ratings</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headint1.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="Internet Ratings"><BR CLEAR=ALL>
+<H2><A NAME="ratings_040f000100000000">Internet Ratings</A></H2>
+<BR CLEAR=ALL>
+<P>The Platform for Internet Content Selection (PICS) is a W3C group chartered to define a standard for the creation of rating systems and rating information. PICS is the open W3C standard for solving the problems with minors accessing adult content on the Internet; Microsoft views PICS as the best direction for solving these problems. This document describes how to support ratings on the Microsoft&#174; Internet Explorer platform. It is intended for HTML authors who wish to support PICS ratings on their site, and also for programmers who are developing Web authoring or viewing tools and applications.
+<P><P><A CLASS=tctop HREF="inet0257.htm#ratings_040f000101000000" TARGET=TEXT><IMG SRC="art/arrowy.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowy.gif">The PICS Standard</A><BR>
+<P><P><A CLASS=tctop HREF="inet0257.htm#ratings_040f000102000000" TARGET=TEXT><IMG SRC="art/arrowy.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowy.gif">Internet Ratings API</A><BR>
+<P><P><A CLASS=tctop HREF="inet0257.htm#ratings_040f000103000000" TARGET=TEXT><IMG SRC="art/arrowy.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowy.gif">Internet Ratings API Reference</A><BR>
+<H3><A NAME="ratings_040f000101000000">The PICS Standard</A></H3>
+<P>This section describes how the PICS system works, shows an example of rating information within an HTML page, and briefly describes the PICS specification.
+
+<H4><A NAME="ratings_040f000101010000">How the PICS System Works</A></H4>
+<P>The PICS system has two types of components: rating systems and rating labels. A <I>rating system</I> defines the criteria for how content is rated. PICS has created a meta-language for defining the different categories and the different values for rating content. For example, the Motion Picture Association of America (MPAA) rating system has one category with five values: G, PG, PG-13, R, and NC-17. Using the PICS specification, rating systems with multiple categories can be defined.
+
+<P>The <I>rating label</I> is the actual rating information. The label can appear on a Web page as part of the HTML content, on a third-party Web site, or anywhere else that a particular client application "knows" to look for them. Each item of content that is rated would have its own label. PICS has defined the syntax for these rating labels, as well as extensions to many Internet protocols to support labels.
+
+<P>The PICS system works by matching labels to their associated systems. The client software, either part of the Web browser or a separate application, allows parents to decide what levels of content they want to allow their children to see for each rating system. Then, as the child uses the PICS-aware Web browser or application, the Web browser finds the rating labels for the content and checks against the values the parent has set by calling a function in the Internet Ratings API. If the content is rated higher than the child is allowed, the content is not displayed.
+
+<H4><A NAME="ratings_040f000101020000">Example of HTML Tagged Ratings</A></H4>
+<P>Ratings are specified by using an additional tag within the HTML header (&lt;HEAD&gt; rating information &lt;/HEAD&gt;). The rating is in English text, as defined by the PICS specification. More details are provided in the full PICS documentation found on the PICS Web site: <A HREF="http://www.w3.org/PICS/" TARGET="_top">http://www.w3.org/PICS/</A><IMG SRC="art/external.gif" WIDTH="19" HEIGHT="8" ALT="External Link" >.
+
+<P>The following example shows the general format of rating information within an HTML page.
+
+<PRE><FONT FACE="Courier" SIZE="2">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META http-equiv="PICS-Label" content='(PICS-1.0 "http://www.rsac.org"
+labels on "1996.11.05T08:15-0500"
+until "1996.12.31T23:59-0000"
+for "http://www.rsac.org/index.html"
+by "RSAC "
+rating (language 2 nudity 0 violence 1))'&gt;
+&lt;/HEAD&gt;
+</FONT></PRE>
+<P>The core of the rating label is the <I>rating</I> string, which provides a list of category/value pairs. For each category, the name and the associated value are listed.
+
+
+<H4><A NAME="ratings_040f000101030000">What PICS Has Defined</A></H4>
+<P>PICS has defined two specifications&#151;one for creating rating systems and one for creating rating labels. A rating system defines the criteria for how content is rated. Based on the PICS specification for rating systems, any group or individual could define a system for rating content. Using the PICS specification, you could take the MPAA rating system and define it as a PICS-compliant rating system.
+
+<P>The PICS specification is quite extensive, and it allows for a system to contain multiple categories. The MPAA system has only one category with five values: G, PG, PG-13, R, and NC-17. It has been criticized for being too simplistic and not offering granularity on multiple dimensions. PICS solves this problem by allowing the creator of the rating system to have great flexibility in how the system is defined.
+
+<P>PICS has not defined an actual rating system or an actual scheme for rating Internet content. PICS is a framework and a language that allows any group or organization to rate content on their own criteria. PICS has not created a replacement for the movie rating system, nor does it intend to.
+
+<P>For more information about rating systems, see the PICS specification on their Web site: <A HREF="http://www.w3.org/PICS/" TARGET="_top">http://www.w3.org</A><IMG SRC="art/external.gif" WIDTH="19" HEIGHT="8" ALT="External Link" >.
+
+<H4><A NAME="ratings_040f000101040000">Amendments to the PICS Specification</A></H4>
+<P>The PICS specification makes no provisions for storing information on rating systems locally. On the Microsoft Windows&#174; platform, the text description for PICS rating systems is contained in a text file with an .rat extension. This file would contain all the category and value information that PICS has defined as necessary. Microsoft may define fields for information about a given rating system, including its PICS rating server URL if it has one.
+
+<H4><A NAME="ratings_040f000101050000">What Internet Content Providers Should Know About PICS</A></H4>
+<P>Internet Content Providers (ICPs) need to be aware that they must take the initiative in getting their content rated by a PICS-compliant rating system. For a rating system to be useful, the browser application must deny access to sites that are unrated. ICPs should contact the PICS committee for a listing of rating groups that are based on PICS.
+
+<P>Microsoft is committed to supporting the PICS standard and providing API and reference information for other products that want to support PICS. In addition, Microsoft is assisting several third-party groups to create PICS-based rating systems. In particular, the Recreation Software Advisory Council (RSAC) has created a rating system called RSACi. Their Web site, <A HREF="http://www.rsac.org/" TARGET="_top">http://www.rsac.org</A><IMG SRC="art/external.gif" WIDTH="19" HEIGHT="8" ALT="External Link" >, provides a simple online mechanism for getting content rated through their system.
+
+<H4><A NAME="ratings_040f000101060000">What Developers of Web Authoring Tools Should Know About PICS</A></H4>
+<P>Developers of Web authoring tools need to be PICS-aware so that their tools support the ability to easily enter META tags into Web pages. Web authoring tools can help promote the PICS technology by providing templates or wizards for adding PICS ratings to documents.
+
+<P>Of significant importance is the ability to maintain ratings for groups or "virtual trees" of pages. Some PICS-compliant rating systems might offer ratings for groups of content. This will allow larger sites to section adult content from general audience content. Web authoring and management tools need to provide the ability to propagate rating information across user-defined groups of pages.
+
+<P>Microsoft intends to provide support for the easy addition of PICS-compliant rating information into appropriate Internet content tools.
+
+<H3><A NAME="ratings_040f000102000000">Internet Ratings API</A></H3>
+<P>The Microsoft Internet Ratings API provides Win32&#174;-based applications with easy access to PICS-based Internet ratings support and related services. These functions provide any application with access to a PICS rating parsing engine, as well as a mechanism for comparing ratings against the user information settings in Internet Explorer 4.0. This API will be available as part of Internet Explorer 4.0.
+
+<P>The functions in the Internet Ratings API set facilitate access to the ratings support in the following ways:
+
+<UL><LI><B>Provide a common interface for parsing and obtaining PICS-compliant rating information.</B> A browser or other application can support ratings with the addition of only a few function calls. By providing task-oriented functions, applications need only make a few function calls to support ratings.
+
+<LI><B>Eliminate the need for individual applications to define their own control systems.</B> With this API, applications need only find the rating information for a given piece of content. Additional APIs for retrieving some types of Internet ratings are provided.
+</UL>
+<H4><A NAME="ratings_040f000102010000">Overview of Internet Ratings Functions</A></H4>
+<P>The PICS specification allows for rating information to appear in HTML tags, in HTTP headers, and on a third-party URL. For performance reasons, each individual browser is responsible for obtaining HTML- and HTTP-based rating information (for details on obtaining these mechanisms, consult the PICS specification).
+
+<P>The following table summarizes the PICS-support API functions. This table lists all the functions for finding, pairing, and comparing rating information.
+
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Function
+</B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0257.htm#ratings_040f000103000100" TARGET="TEXT">RatingAccessDeniedDialog</A>,<A HREF="inet0257.htm#ratings_040f000103000200" TARGET="TEXT">RatingAccessDeniedDialog2</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Displays a system dialog box informing the user that access has been denied.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Takes in a PICS rating, parses it, and compares it against what a specified user can see.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0257.htm#ratings_040f000103000400" TARGET="TEXT">RatingEnable</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Enables and disables ratings.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0257.htm#ratings_040f000103000500" TARGET="TEXT">RatingEnabledQuery</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Specifies whether ratings are on or off.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0257.htm#ratings_040f000103000600" TARGET="TEXT">RatingFreeDetails</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Frees a pointer to denial information.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0257.htm#ratings_040f000103000700" TARGET="TEXT">RatingObtainCancel</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Cancels a call to <A HREF="inet0257.htm#ratings_040f000103000800" TARGET="TEXT">RatingObtainQuery</A>.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0257.htm#ratings_040f000103000800" TARGET="TEXT">RatingObtainQuery</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Obtains ratings from certain locations and compares them.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0257.htm#ratings_040f000103000900" TARGET="TEXT">RatingSetupUI</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> Displays a modal dialog box that allows a supervising parent to set levels of restrictions.
+</FONT></TD></TR></TABLE>
+<H4><A NAME="ratings_040f000102020000">Using the Internet Ratings Functions</A></H4>
+<P>A browser or other application would typically use the rating functions in the following fashion:
+
+<OL><LI>The browser starts, and the user connects to the Internet.
+<LI>The user enters a URL.
+<LI>The browser calls the <A HREF="inet0257.htm#ratings_040f000103000500" TARGET="TEXT">RatingEnabledQuery</A> function. If the function returns S_FALSE, the browser allows access to the content.
+<LI>The browser calls the <A HREF="inet0257.htm#ratings_040f000103000800" TARGET="TEXT">RatingObtainQuery</A> function and passes the URL. The function checks the local list, and then the third-party list or any third-party add-on is activated. If the function finds a rating for the URL, it calls <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A> with the rating. If <B>RatingObtainQuery</B> does not return an error immediately, eventually the browser's callback function will be called.
+<LI>Meanwhile, the browser searches for a rating label within the content being downloaded from the site. If it finds an HTML/HTTP rating, it calls the <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A> function.
+<LI>If no rating label is found within the document, the browser calls <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A> with a NULL rating label, to determine whether the user can access unrated content.
+<LI>When both <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A> and <A HREF="inet0257.htm#ratings_040f000103000800" TARGET="TEXT">RatingObtainQuery</A> have been called, the browser has received at least one explicit access-allowed or access-denied report. If <B>RatingObtainQuery</B> explicitly allowed or denied access, that result should override any rating found in the document and the user's ability to see unrated content.
+<LI>If access is denied, the browser calls the <A HREF="inet0257.htm#ratings_040f000103000100" TARGET="TEXT">RatingAccessDeniedDialog</A> function. Depending on the supervisor's response to the dialog box, this function can indicate that access should be allowed after all.
+<LI>If access is allowed, the browser displays the content.
+</OL>
+<H4><A NAME="ratings_040f000102030000">Finding HTML/HTTP Rating Labels</A></H4>
+<P>The PICS specification defines the Backus-Naur Form (BNF) syntax for rating information, or rating nuggets. PICS specifies that rating nuggets can appear as part of HTML documents, within the header tags. The PICS specification also allows for rating information to appear as part of the HTTP headers.
+
+<P>For performance and logistic reasons, it is the responsibility of the browser to obtain HTML- and HTTP-level ratings. Details on how to find HTML-based ratings are part of the PICS specification.
+
+Details on HTTP ratings and the associated HTTP header are specified by PICS.
+
+<P>The PICS committee might eventually provide reference code for applications that want to find HTML/HTTP-based ratings.
+
+
+<H3><A NAME="ratings_040f000103000000">Internet Ratings API Reference</A></H3>
+<P>This section contains detailed reference information about the functions in the Microsoft Internet Ratings API.
+<UL><LI><A HREF="inet0257.htm#ratings_040f000103000100" TARGET="TEXT">RatingAccessDeniedDialog</A>
+<LI><A HREF="inet0257.htm#ratings_040f000103000200" TARGET="TEXT">RatingAccessDeniedDialog2</A>
+<LI><A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A>
+<LI><A HREF="inet0257.htm#ratings_040f000103000400" TARGET="TEXT">RatingEnable</A>
+<LI><A HREF="inet0257.htm#ratings_040f000103000500" TARGET="TEXT">RatingEnabledQuery</A>
+<LI><A HREF="inet0257.htm#ratings_040f000103000600" TARGET="TEXT">RatingFreeDetails</A>
+<LI><A HREF="inet0257.htm#ratings_040f000103000700" TARGET="TEXT">RatingObtainCancel</A>
+<LI><A HREF="inet0257.htm#ratings_040f000103000800" TARGET="TEXT">RatingObtainQuery</A>
+<LI><A HREF="inet0257.htm#ratings_040f000103000900" TARGET="TEXT">RatingSetupUI</A>
+</UL>
+<H4><A NAME="ratings_040f000103000100">RatingAccessDeniedDialog</A></H4>
+<PRE><FONT FACE="Courier" SIZE="2">HRESULT RatingAccessDeniedDialog(
+    HWND hwndParent,
+    LPCTSTR pszUsername,
+    LPCTSTR pszContentDescription,
+    LPVOID pRatingDetails
+);
+</FONT></PRE>
+<P>Displays a modal dialog box telling the user that access to the requested content is denied. The supervisor can set an option that adds controls to the dialog box; these controls would allow a supervisor to enter a user name and password to override the rating and allow access.
+
+<UL><LI>Returns one of the following values:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_OK
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">The supervisor entered the password. Access should be allowed.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_FALSE
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">The user is still denied access to the content.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Error values
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">An error occurred.
+</FONT></TD></TR></TABLE>
+</UL>
+<DL><DT><I>hwndParent</I>
+</DT><DD>Handle to the parent window for the modal dialog box.
+</DD><DT><I>pszUsername</I>
+</DT><DD>Address of a string that contains the name of the user who was denied access. If this parameter is NULL, the user name is extracted from the structure specified by <I>pRatingDetails</I>, or the current user name is used.
+</DD><DT><I>pszContentDescription</I>
+</DT><DD>Address of a string that describes the content to which access was denied.
+</DD><DT><I>pRatingDetails</I>
+</DT><DD>Opaque pointer returned by the <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A> function. This parameter can provide the dialog box with additional information about why access was denied, such as whether the site is considered rated, which ratings exceeded limits, and where the rating was obtained.
+</DD></DL>
+<P>See also <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A>
+
+<H4><A NAME="ratings_040f000103000200">RatingAccessDeniedDialog2</A></H4>
+<PRE><FONT FACE="Courier" SIZE="2">HRESULT RatingAccessDeniedDialog2(
+     HWND hwndParent, 
+     LPCSTR pszUsername, 
+     LPVOID pRatingDetails);
+</FONT></PRE>
+<P>This function is identical in functionality to <A HREF="inet0257.htm#ratings_040f000103000100" TARGET="TEXT">RatingAccessDeniedDialog</A> except that if a ratings dialog box is already being displayed modal to the specified parent window, the details from the second call are inserted into the existing dialog box.
+<UL><LI>Returns one of the following values:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_OK
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">The supervisor entered the password. Access should be allowed.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_FALSE
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">The user is still denied access to the content.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Error values
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">An error occurred.
+</FONT></TD></TR></TABLE>
+</UL>
+<DL><DT><I>hwndParent</I>
+</DT><DD>Handle to the parent window for the modal dialog box. 
+</DD><DT><I>pszUsername</I>
+</DT><DD>Address of a string that contains the name of the user who was denied access. If this parameter is NULL, the user name is extracted from the structure specified by <I>pRatingDetails</I>, or the current user name is used.
+</DD><DT><I>pRatingDetails</I>
+</DT><DD>Opaque pointer returned by the <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A> function. This parameter can provide the dialog box with additional information about why access was denied, such as whether the site is considered rated, which ratings exceeded limits, and where the rating was obtained.
+</DD></DL>
+<P>See also <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A>
+
+<H4><A NAME="ratings_040f000103000300">RatingCheckUserAccess</A></H4>
+<PRE><FONT FACE="Courier" SIZE="2">HRESULT RatingCheckUserAccess(
+    LPCTSTR pszUsername,
+    LPCTSTR pszURL,
+    LPCTSTR pszRatingInfo,
+    LPBYTE pData,
+    DWORD cbData,
+    LPVOID *ppRatingDetails
+);
+</FONT></PRE>
+<P>Determines whether the user is allowed to view the given content based on the associated rating label. An application calls this function when it finds a rating label.
+
+<UL><LI>Returns one of the following values:
+
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_OK
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Access is allowed.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_FALSE
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Access is denied.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Error values
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Content should be considered unrated.
+</FONT></TD></TR></TABLE>
+</UL>
+<DL><DT><I>pszUsername</I>
+</DT><DD>Address of a string that contains the name of the user whose access to the content should be validated. A NULL value indicates the currently logged on user. For Internet Explorer version 3.0, NULL is the only valid value for this parameter.
+</DD><DT><I>pszURL</I>
+</DT><DD>Address of the URL to which the rating label is to apply. The function uses this parameter to validate the corresponding field in the rating label, to verify that the rating label actually belongs to the URL for which the label was obtained. This parameter can be NULL if a URL is not applicable.
+</DD><DT><I>pszRatingInfo</I>
+</DT><DD>Address of the PICS label to parse and verify (for example, the text between the "content" single quotation marks in the example in <A HREF="inet0257.htm#ratings_040f000101020000" TARGET="TEXT">Example of HTML Tagged Ratings</A>). This parameter can be NULL if the application cannot find a rating in the content itself; in this case, the function returns a value that indicates whether the user is allowed to see unrated content.
+</DD><DT><I>pData</I> and <I>cbData</I>
+</DT><DD>Address of the content being rated and the length, in bytes, of the content data stream. These parameters may be necessary if the rating itself contains a hash of the data for security reasons. If <I>pData</I> is NULL, the <I>cbData</I> parameter is ignored, and the hash cannot be validated.
+</DD><DT><I>ppRatingDetails</I>
+</DT><DD>Address of a variable that contains a pointer to an opaque data structure that describes in more detail why access to the content is denied. This parameter has meaning only to the <A HREF="inet0257.htm#ratings_040f000103000100" TARGET="TEXT">RatingAccessDeniedDialog</A> function. This parameter can be NULL, in which case the dialog box created by <B>RatingAccessDeniedDialog</B> cannot report detailed information to the user. If this parameter is not NULL, the application must call the <A HREF="inet0257.htm#ratings_040f000103000600" TARGET="TEXT">RatingFreeDetails</A> function to free the data, no matter what value the <B>RatingCheckUserAccess</B> function returns or what value is stored in <I>ppRatingDetails</I>.
+</DD></DL>
+<P>This function allows ratings of any content type, including CD-ROMs, news groups, Web sites, and so on, provided the client application can find the rating information. The <A HREF="inet0257.htm#ratings_040f000103000800" TARGET="TEXT">RatingObtainQuery</A> function makes an internal call to the <B>RatingCheckUserAccess</B> function before calling the application's callback function.
+
+<P>See also <A HREF="inet0257.htm#ratings_040f000103000100" TARGET="TEXT">RatingAccessDeniedDialog</A>, <A HREF="inet0257.htm#ratings_040f000103000600" TARGET="TEXT">RatingFreeDetails</A>, <A HREF="inet0257.htm#ratings_040f000103000800" TARGET="TEXT">RatingObtainQuery</A>
+
+<H4><A NAME="ratings_040f000103000400">RatingEnable</A></H4>
+<PRE><FONT FACE="Courier" SIZE="2">HRESULT RatingEnable(
+     HWND hwndParent, 
+     LPCSTR pszUsername, 
+     BOOL fEnable);
+</FONT></PRE>
+<P>Enables or disables ratings.
+
+<UL><LI>Returns one of the following values:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_OK
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">If <I>fEnable</I> was TRUE, ratings have been enabled. Otherwise, ratings were disabled.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_FALSE
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Ratings were not successfully enabled or disabled.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">E_ACCESSDENIED
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Ratings were enabled, and the user specified a bad password.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">HRESULT_FROM_WIN32(ERROR_BAD_USERNAME)
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">The specified username was invalid.
+</FONT></TD></TR></TABLE>
+</UL>
+<DL><DT><I>hwndParent</I>
+</DT><DD>Handle of a parent window used for any dialog boxes that might be presented.
+</DD><DT><I>pszUsername</I>
+</DT><DD>Address of a string that contains the name of the user requesting that ratings should be enabled or disabled.
+</DD><DT><I>fEnable</I>
+</DT><DD>Boolean value indicating whether ratings should be enabled or disabled. TRUE indicates that ratings should be enabled. FALSE indicates the contrary.
+</DD></DL>
+<H4><A NAME="ratings_040f000103000500">RatingEnabledQuery</A></H4>
+<PRE><FONT FACE="Courier" SIZE="2">HRESULT RatingEnabledQuery(void)
+</FONT></PRE>
+<P>Reports whether ratings should be enforced or not. If the supervisor has not configured any restrictions or has temporarily disabled them, the application may allow access to all content and need not call any other rating functions.
+
+<UL><LI>Returns one of the following values:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_OK
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Ratings are enabled and should be enforced.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_FALSE
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Ratings are disabled and should be ignored.
+</FONT></TD></TR></TABLE>
+</UL>
+<H4><A NAME="ratings_040f000103000600">RatingFreeDetails</A></H4>
+<PRE><FONT FACE="Courier" SIZE="2">HRESULT RatingFreeDetails(
+    LPVOID pRatingDetails
+);
+</FONT></PRE>
+<P>Frees the detail information returned by the <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A> function.
+
+<DL><DT><I>pRatingDetails</I>
+</DT><DD>Opaque pointer returned by <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A>.
+</DD></DL>
+<P>See also <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A>
+<H4><A NAME="ratings_040f000103000700">RatingObtainCancel</A></H4>
+<PRE><FONT FACE="Courier" SIZE="2">HRESULT RatingObtainCancel(
+    HANDLE hRatingObtainQuery
+);
+</FONT></PRE>
+<P>Allows a browser to cancel its request to obtain the rating for a URL.
+
+<DL><DT><I>hRatingObtainQuery</I>
+</DT><DD>Handle obtained by a previous call to the <A HREF="inet0257.htm#ratings_040f000103000800" TARGET="TEXT">RatingObtainQuery</A> function.
+</DD></DL>
+<P>See also <A HREF="inet0257.htm#ratings_040f000103000800" TARGET="TEXT">RatingObtainQuery</A>
+<H4><A NAME="ratings_040f000103000800">RatingObtainQuery</A></H4>
+<PRE><FONT FACE="Courier" SIZE="2">HRESULT RatingObtainQuery(
+    LPCTSTR pszTargetUrl,
+    DWORD dwUserData,
+    void (*fCallback)(
+        DWORD dwUserData,
+        HRESULT hres,
+        LPCTSTR pszRating,
+        LPVOID lpvRatingDetails
+    ),
+    HANDLE *phRatingObtainQuery
+);
+</FONT></PRE>
+<P>Encapsulates the process of checking ratings that appear on a local list, third-party PICS server, or future third-party add-on rating services.
+
+<DL><DT><I>pszTargetUrl</I>
+</DT><DD>URL whose ratings are to be queried.
+</DD><DT><I>dwUserData </I>
+</DT><DD>Data to be passed to the callback function specified by <I>fCallback</I>.
+</DD><DT><I>fCallback</I>
+</DT><DD>Application-defined function that is called upon completion. This function is called in the context of a different thread than the one that called <B>RatingObtainQuery</B>.
+<P>The callback function has the following parameters:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><I>dwUserData</I>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Data supplied in the initial call to <B>RatingObtainQuery</B>.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><I>hres</I>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Result of the query. Can be one of the following values:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_OK
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Rating found and access allowed.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">S_FALSE
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Rating found and access denied.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Any error values
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Rating or service unavailable; look for ratings from other sources if possible.
+</FONT></TD></TR></TABLE>
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><I>pszRating</I>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Rating information for the document if it is available. (Note that the application can choose to ignore this parameter because <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A> has already been called to generate the <I>hres</I> parameter).
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><I>lpvRatingDetails</I>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Token that can be used in the <A HREF="inet0257.htm#ratings_040f000103000100" TARGET="TEXT">RatingAccessDeniedDialog</A> dialog box. This must be freed with a call to <A HREF="inet0257.htm#ratings_040f000103000600" TARGET="TEXT">RatingFreeDetails</A>.
+</FONT></TD></TR></TABLE>
+</DD><DT><I>phRatingObtainQuery</I>
+</DT><DD>Address of a handle that can be used to cancel this operation. This parameter can be NULL if the handle is not needed.
+</DD></DL>
+<P>A browser obtains the URL from the user and calls this function. Asynchronously, this function searches for a rating for the specified document. When the search ends, the function calls the application's callback function, on a different thread than the one that called <B>RatingObtainQuery</B>. While waiting for the callback to be called, browsers may choose to download the content but prevent the user from accessing it until the query is resolved.
+
+<P>If <B>RatingObtainQuery</B> returns an error, the application should assume the site is unrated by local and third-party ratings, and look for the HTML/HTTP-level ratings itself.
+
+<H4><A NAME="ratings_040f000103000900">RatingSetupUI</A></H4>
+<PRE><FONT FACE="Courier" SIZE="2">HRESULT RatingSetupUI(
+    HWND hwndParent,
+    LPCSTR pszUsername
+);
+</FONT></PRE>
+<P>Displays a modal dialog box that allows a supervising parent to set levels of restrictions. The <A HREF="inet0257.htm#ratings_040f000103000300" TARGET="TEXT">RatingCheckUserAccess</A> function uses these settings to compare against rating labels.
+
+<DL><DT><I>hwndParent</I>
+</DT><DD>Handle to the parent window for the modal dialog box.
+</DD><DT><I>pszUsername</I>
+</DT><DD>Address of a string that contains the name of the user whose settings should be configured. If this parameter is NULL, settings for all users are set. This parameter must be NULL in Internet Explorer version 3.0.
+</DD></DL>
+<P>This function ensures that the current user is a supervisor before allowing access to the configuration user interface.
+
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

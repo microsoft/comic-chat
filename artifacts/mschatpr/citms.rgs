@@ -1,0 +1,24 @@
+HKCR
+{
+	ChatItems.ChatItems.1 = s 'ChatItems Class'
+	{
+		CLSID = s '{011EEE46-46DF-11D0-99CB-00C04FD64497}'
+	}
+	ChatItems.ChatItems = s 'ChatItems Class'
+	{
+		CurVer = s 'ChatItems.ChatItems.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {011EEE46-46DF-11D0-99CB-00C04FD64497} = s 'ChatItems Class'
+		{
+			ProgID = s 'ChatItems.ChatItems.1'
+			VersionIndependentProgID = s 'ChatItems.ChatItems'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+/////////////////////////////////////////////////////////////////////////////
+// MemView.Rc
+/////////////////////////////////////////////////////////////////////////////
+// Copyright 1995-1996  Microsoft Corporation.  All Rights Reserved.
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF 
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A 
+// PARTICULAR PURPOSE.
+/////////////////////////////////////////////////////////////////////////////
+//
+// contains the resources for our DLL, including the TypeLib, error strings,
+// and versioning information.
+//
+
+#include "MVRes.H"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap and Icons that are not localized
+//
+IDB_HOSTSMALLICON       ICON    DISCARDABLE     "HOST.ICO"
+IDB_PARTSMALLICON       ICON    DISCARDABLE     "PART.ICO"
+IDB_SPECSMALLICON       ICON    DISCARDABLE     "SPEC.ICO"
+IDB_MEICON				ICON    DISCARDABLE     "ME.ICO"
