@@ -1,0 +1,121 @@
+#
+# Cross-compiler macros for unique naming
+#
+
+MAJORCOMP       = shell
+MINORCOMP       = MsChatPr
+
+
+ATL21_DIR	= $(DEVROOT)\inc
+#MFC42_DIR	= $(BASEDIR)\public\sdk\inc\mfc42
+COMMONINC_DIR	= ..\..
+
+NOT_UNICODE     = 1
+PRECOMPILED_CXX = 1
+
+#
+# Common settings required by build.exe and makefile.def
+#
+
+TARGETNAME      = MsChatPr
+TARGETPATH      = obj
+TARGETTYPE      = DYNLINK
+TARGETEXT	= ocx
+!IF "$(NTDEBUG)" == "ntsdnodbg"
+DLLENTRY	= DllMain
+!ELSE
+DLLENTRY	= _DllMainCRTStartup
+!ENDIF
+DLLDEF		= ..\MsChatPr.def
+DLLBASE 	= 0x370000000 
+
+
+#
+# Include our common Sources
+#
+
+!include $(COMMONINC_DIR)\chatsrc.inc
+
+!UNDEF USE_MSVCRT
+USE_LIBCMT=1
+
+LINKER_FLAGS	= -MERGE:.CRT=.data
+!IF "$(NTDEBUG)" == "ntsdnodbg"
+C_DEFINES	= $(C_DEFINES) -D_USRDLL -D_ATL_MIN_CRT -D_ATL_STATIC_REGISTRY
+!ELSE
+C_DEFINES	= $(C_DEFINES) -D_USRDLL -D_ATL_STATIC_REGISTRY
+!ENDIF
+UMTYPE		= windows
+
+
+# Precompiled specs
+#
+
+PRECOMPILED_INCLUDE = ..\stdafx.h
+PRECOMPILED_SOURCEFILE = ..\stdafx.cpp
+
+TARGETLIBS	=  \
+		  $(LIBRARY_PATH)\gdi32.lib		\
+                  $(LIBRARY_PATH)\kernel32.lib		\
+                  $(LIBRARY_PATH)\user32.lib		\
+                  $(LIBRARY_PATH)\advapi32.lib		\
+                  $(LIBRARY_PATH)\comctl32.lib		\
+                  $(LIBRARY_PATH)\shell32.lib		\
+                  $(LIBRARY_PATH)\uuid.lib		\
+                  $(LIBRARY_PATH)\ole32.lib		\
+		  $(LIBRARY_PATH)\uuid2.lib		\
+		  $(LIBRARY_PATH)\oleaut32.lib		\
+		  $(LIBRARY_PATH)\wsock32.lib
+
+
+INCLUDES=$(O);$(INCLUDES);$(ATL21_DIR);$(MFC42_DIR)
+
+CONDITIONAL_INCLUDES = \
+        macocidl.h
+
+MKTYPLIB_FLAGS=/h $(O)\$(TARGETNAME).h
+
+IDL_TYPE=ole
+PASS0_HEADERDIR = $(ROOT)\chat\mschatpr
+MIDL_UUIDDIR = $(ROOT)\chat\mschatpr
+MIDL_FLAGS=$(MIDL_FLAGS) /out $(ROOT)\chat\mschatpr
+
+
+#
+# List of sources
+#
+
+SOURCES= \
+   mschatpr.idl \
+	..\MsChatPr.rc	\
+	..\cchan.cpp	\
+	..\cchash.cpp	\
+	..\ccommon.cpp	\
+	..\cutil.cpp	\
+	..\ccomp.cpp	\
+	..\cconn.cpp	\
+	..\ccsock.cpp	\
+	..\chash.cpp	\
+	..\ChatPrEv.cpp	\
+	..\ChatPrMe.cpp	\
+	..\ChatPrPr.cpp	\
+	..\ChCol.cpp	\
+	..\ChMe.cpp	\
+	..\ChObj.cpp	\
+	..\ChPr.cpp	\
+	..\cidentd.cpp	\
+	..\citems.cpp	\
+	..\CItmsMe.cpp	\
+	..\CItmsObj.cpp	\
+	..\CItmsPr.cpp	\
+	..\cllist.cpp	\
+	..\connect.cpp	\
+	..\crating.cpp	\
+	..\ircmsg.cpp	\
+	..\llist.cpp	\
+	..\ChatPr.cpp	\
+	..\MsChatPr.cpp	\
+	..\jis2sjis.cpp \
+	..\sjis2jis.cpp \
+	..\dlylddll.c
+      

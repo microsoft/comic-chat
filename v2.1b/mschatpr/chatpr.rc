@@ -1,0 +1,201 @@
+/////////////////////////////////////////////////////////////////////////////
+// ChatPr.Rc
+/////////////////////////////////////////////////////////////////////////////
+// Copyright 1995-1996  Microsoft Corporation.  All Rights Reserved.
+/////////////////////////////////////////////////////////////////////////////
+//
+
+#include "PrRes.H"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String table
+//
+STRINGTABLE DISCARDABLE
+BEGIN
+	IDS_PR_OCXNAME,						"About MsChatPr Control"
+	IDS_PR_ABOUTMESS,					"Microsoft® Chat Protocol Control, Version 2.0 (%1)\n\nCopyright © 1996-1997 Microsoft Corporation"
+
+	IDS_VERSION,						"VERSION"
+	IDS_SOUND,							"SOUND"
+	IDS_LAGTIME,						"PING"
+	IDS_LOCALTIME,						"TIME"
+	IDS_APPEARSAS,						"# Appears as "
+	IDS_GETINFO,						"# GetInfo"
+	IDS_BACKGROUND,						"# Background "
+	IDS_CCPREFIX,						"(#"
+	IDS_CCSUFFIX1,						") <Chr>"
+	IDS_CCSUFFIX2,						") "
+	IDS_ACTION,							"ACTION"
+	IDS_M3,								"M3"
+	IDS_M5,								"M5"
+	
+	IDS_UNKNOWN,						"Unknown"
+END
+
+// Error Strings
+STRINGTABLE DISCARDABLE
+BEGIN
+//
+// Generic OLE control errors
+//
+    IDS_CTL_E_SETNOTSUPPORTEDATRUNTIME	"Property is read-only at runtime."
+    IDS_CTL_E_SETNOTSUPPORTED			"Property is read-only."
+    IDS_CTL_E_GETNOTSUPPORTED			"Property is write-only."
+    IDS_CTL_E_OUTOFMEMORY				"Out of Memory. Please close some applications and try again."
+    IDS_CTL_E_INVALIDPROPERTYVALUE		"Invalid property value."
+    IDS_CTL_E_PERMISSIONDENIED			"You don't have the right privileges to perform this command."
+    IDS_CTL_E_OVERFLOW					"Overflow error."
+    IDS_CTL_E_ILLEGALFUNCTIONCALL		"Illegal function call."
+
+//
+// General errors
+//
+	IDS_CPR_E_FAILURE					"An error occurred. Please leave the application and try again."
+	IDS_CPR_E_INVALIDARG				"You specified an invalid argument."
+
+//
+// Connection errors
+//
+	IDS_CPR_E_ALREADYCONNECTING			"You are already connecting to a server."
+	IDS_CPR_E_ALREADYCONNECTED			"You are already connected to a server."
+	IDS_CPR_E_ALREADYDISCONNECTING		"You are already disconnecting from the server."
+	IDS_CPR_E_NOOPINPROGRESS			"There is no operation in progress to be canceled."
+	IDS_CPR_E_DISCONNECTFIRST			"You must disconnect first before logging to that server."
+	IDS_CPR_E_NOTCONNECTED				"You are not connected to a server."
+	IDS_CPR_E_HOSTNOTFOUND				"The server could not be found."
+	IDS_CPR_E_SOCKETCREATE				"Could not connect to the server."
+	IDS_CPR_E_CANTCONNECT				"Could not connect to the server."
+	IDS_CPR_E_SOCKETERROR				"A connection error occurred."
+	IDS_CPR_E_LOSTCONNECTION			"The connection to the server was lost."
+	IDS_CPR_E_SOCKETCLOSED				"The connection to the server was lost."
+	IDS_CPR_E_NETWORKDOWN				"The server network is down."
+	IDS_CPR_E_HOSTDROPPEDCONNECTION		"The server dropped the connection."
+
+//
+// Login errors
+//
+	IDS_CPR_E_ALREADYLOGGING			"You are already logging to a server."
+	IDS_CPR_E_ALREADYLOGGED				"You are already logged on to the server."
+	IDS_CPR_E_NOTLOGGED					"You are not logged on to a server."
+	IDS_CPR_E_ALREADYREGISTERED			"You are already registered on the server."
+	IDS_CPR_E_NOTREGISTERED				"You are not registered on the server."
+	IDS_CPR_E_BADSECUPACK				"The SecurityPackages parameter is invalid."
+	IDS_CPR_E_LOGINFAILED				"The login failed."
+	IDS_CPR_E_AUTHFAILED				"The authentication failed."
+	IDS_CPR_E_AUTHNOTAVAIL				"The authentication is not available."
+	IDS_CPR_E_AUTHENTICATEDONLY			"Only authenticated users can login."
+
+//
+// Channel Errors
+//
+	IDS_CPR_E_ALREADYOPEN				"The channel is already open."
+	IDS_CPR_E_ALREADYOPENING			"The channel is already opening."
+	IDS_CPR_E_NOTOPEN					"The channel is not open."
+	IDS_CPR_E_NOTCLOSED					"The channel is not closed."
+	IDS_CPR_E_OPENNOTUNIQUE				"There is not exactly one open channel."
+	IDS_CPR_E_CHANNELBADNAME			"The channel name is invalid."
+	IDS_CPR_E_CHANNELBADTOPIC			"The channel topic is invalid."
+	IDS_CPR_E_CHANNELBADKEY				"The keyword is invalid for channel '%1'."
+	IDS_CPR_E_CHANNELBADHOSTKEY			"The channel hostkey is invalid."
+	IDS_CPR_E_CHANNELBADOWNERKEY		"The channel ownerkey is invalid."
+	IDS_CPR_E_CHANNELBADMODES			"The channel modes parameter is invalid."
+	IDS_CPR_E_BADMAXMEMBERCOUNT			"The channel maxmembercount parameter is invalid."
+	IDS_CPR_E_CHANNELFULL				"The channel '%1' is full."
+	IDS_CPR_E_TOOMANYCHANNELS			"You cannot join channel '%1' because too many channels are already open."
+	IDS_CPR_E_NOTONCHANNEL				"You are not in the channel '%1'."
+	IDS_CPR_E_ALREADYONCHANNEL			"The member '%2' is already in the channel '%1'."
+	IDS_CPR_E_NOSUCHCHANNEL				"The channel '%1' does not exist."
+	IDS_CPR_E_INVITEONLYCHANNEL			"You need an invitation to join this channel '%1'."
+	IDS_CPR_E_CHANNELKEYALREADYSET		"The key for this channel '%1' has already been set."
+
+//
+// Property Errors
+// 
+	IDS_CPR_E_BADPROPERTY				"The property name you specified for the object '%1' is invalid."
+	IDS_CPR_E_BADVALUE					"The property value you specified for the object '%1' is invalid."
+	IDS_CPR_E_PROPNOTREADABLE			"This property is not readable."
+	IDS_CPR_E_PROPREADONLY				"This property is read-only."
+	IDS_CPR_E_PROPNOTWRITEABLE			"This property is not writeable."
+
+//
+// Member Errors
+// 
+	IDS_CPR_E_NOSUCHMEMBER				"The member '%2' does not exist in channel '%1'."
+	IDS_CPR_E_MEMBERBADMODES			"The member modes parameter is invalid."
+
+//
+// User Errors
+//
+	IDS_CPR_E_BADNICKNAME				"The nickname parameter is invalid."
+	IDS_CPR_E_BADUSERNAME				"The user name parameter is invalid."
+	IDS_CPR_E_BADREALNAME				"The real name parameter is invalid."
+	IDS_CPR_E_BADPASSWORD				"The password parameter is invalid or wrong."
+	IDS_CPR_E_NICKNAMEINUSE				"The nickname '%2' is already in use."
+	IDS_CPR_E_NICKCOLLISION				"There was a nickname collision for '%2'."
+	IDS_CPR_E_NOSUCHNICK				"There is no user with the nickname '%2'."
+	IDS_CPR_E_USERBADMODES				"The usermodes parameter is invalid."
+	IDS_CPR_E_NICKTOOFAST				"You are trying to change your nickname too quickly."
+	IDS_CPR_E_NICKNOCHANGE				"Nickname changes are not permitted at this time, try again later."
+
+//
+// Sending
+//
+	IDS_CPR_E_TOOMUCHDATA				"The message you are trying to send is too large."
+	IDS_CPR_E_CANTSEND					"Couldn't send the message to the channel '%1'."
+	IDS_CPR_E_INVALIDRECIPIENTLIST		"The recipient list is invalid."
+	IDS_CPR_E_BADREASON					"The reason parameter is invalid."
+	IDS_CPR_E_INVALIDAWAYMESSAGE		"The away message parameter is invalid."
+	IDS_CPR_E_NULLMSG					"You cannot send an empty message."
+	IDS_CPR_E_BADMSGTYPE				"The message type is invalid."
+	IDS_CPR_E_NOWHISPER					"You are not allowed to whisper in the channel '%1'."
+	IDS_CPR_E_BADTAG					"The data tag is invalid."
+
+//
+// Protocol Errors
+//
+	IDS_CPR_E_SERVER					"A server error occurred."
+	IDS_CPR_E_NOTIRCX					"This operation can only be performed when connected to a IRCX server."
+	IDS_CPR_E_PROPMODE					"The mode specified is unknown."
+	IDS_CPR_E_NOMOTD					"The server could not open the MOTD file."
+	IDS_CPR_E_UNKNOWNCOMMAND			"This feature is not implemented on this chat server."
+
+//
+// Access Rights errors
+//
+	IDS_CPR_E_NOTSYSOP					"Only a system operator can perform this operation."
+	IDS_CPR_E_NOTOWNER					"You are not an owner of the channel '%1'."
+	IDS_CPR_E_NOTHOST					"You are not a host in the channel '%1'."
+	IDS_CPR_E_RATINGBLOCK				"You don't have the rights to view this content."
+	IDS_CPR_E_BANNEDFROMCHANNEL			"You are banned from this channel '%1'."
+	IDS_CPR_E_BANNEDFROMSERVER			"You are banned from this server."
+	IDS_CPR_E_WILLBEBANNED				"You will be banned."
+	IDS_CPR_E_CANTIGNORE				"You cannot ignore a system operator or your channel host, or owner."
+	IDS_CPR_E_NOJOINMICONLY				"You cannot join a MIC only channel with this IRCX client."
+	IDS_CPR_E_NOJOINREMOTE				"You cannot join this channel from a remote server."
+	IDS_CPR_E_NOJOINDYNAMIC				"You cannot join dynamic channels due to admin restriction."
+	IDS_CPR_E_NODYNAMICCHANNELS			"You cannot create dynamic channels due to admin restriction."
+	IDS_CPR_E_AUTHONLY					"Only authenticated users may join this channel '%1'."
+	IDS_CPR_E_OVERFLOWABORT				"The listing is too large and is aborted."
+	IDS_CPR_E_CANTCHANGEUSERMODE		"You cannot change this user's mode."
+
+//
+// ChatItems related errors
+//
+	IDS_CPR_E_ITEMNOTAVAILABLE			"This property is not available."
+	IDS_CPR_E_ITEMNAMENA				"This property cannot be used in this context."
+	IDS_CPR_E_INVALIDASSOCIATEDTYPE		"The associated type is invalid."
+	IDS_CPR_E_INVALIDITEMNAME			"This property name is invalid."
+	IDS_CPR_E_INVALIDITEMVALUE			"A property value is invalid."
+	IDS_CPR_E_NOTOPERATOR				"Unknown query operator."
+	IDS_CPR_E_TIMEOUT					"A timeout condition occurred."
+
+//
+// Channel Collection Errors
+//
+	IDS_CPR_E_CHANOBJ_BADINDEX			"The channel index specified is invalid."
+	IDS_CPR_E_CHANOBJ_INDEXOOB			"The channel index specified is out of bound."
+	IDS_CPR_E_CHANOBJ_DELETED			"The channel is no more part of the collection."
+	IDS_CPR_E_CHANOBJ_BADKEY			"The channel key specified is invalid."
+	IDS_CPR_E_CHANOBJ_KEYNOTUNIQUE		"The channel key specified is not unique."
+END

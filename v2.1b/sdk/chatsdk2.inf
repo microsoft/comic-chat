@@ -1,0 +1,691 @@
+; chatsdk.INF
+;
+; This is the Setup information file to install 
+; Microsoft Chat SDK 2 Beta
+;
+; Copyright (c) 1993-1997 Microsoft Corporation
+;
+
+[Version]
+Signature       ="$CHICAGO$"
+Provider        =%MSFT%
+AdvancedINF     =2.5, "You need a newer version of Advpack.dll."  
+
+[DefaultInstall]
+SmartReboot	    = A
+CopyFiles     	= InfFiles, TextFiles, SysFiles, SampleFiles, WebDemoFiles, TrnscrptFiles, ExecChatFiles, CheckrsFiles, ChatAdFiles, Chat2000Files, Res2000Files, Chat1jFiles, Chappy, ChappyRes, HtmlHelp, HtmlHelpArt, NmStart, PrChckrs, PrChckrsHtml, PrChckrsPlayBd, ProcX, Include
+AddReg        	= ChatSdkReg95
+OptionDesc   	= %ChatSdkDesc%
+Tip            	= %ChatSdkTop%
+Parent       	= AccessTop
+InstallType   	= 10
+IconIndex     	= 39  ;Windows Logo mini-icon for dialogs
+Uninstall    	= ChatSdkUninstall
+CustomDestination	= MyCustomDestination
+UpdateInis	    = AddLinks.95
+RegisterOCXs	= MsChat.OCX
+
+
+[DefaultInstall.NT]
+SmartReboot     = A
+CopyFiles       = InfFiles, TextFiles, SysFiles, SampleFiles, WebDemoFiles, TrnscrptFiles, ExecChatFiles, CheckrsFiles, ChatAdFiles, Chat2000Files, Res2000Files, Chat1jFilesNT, Chappy, ChappyRes, HtmlHelp, HtmlHelpArt, NmStart, PrChckrs, PrChckrsHtml, PrChckrsPlayBd, ProcX, Include
+AddReg          = ChatSdkRegNT
+OptionDesc      = %ChatSdkDesc%
+Tip             = %ChatSdkTop%
+Parent          = AccessTop
+InstallType     = 10
+IconIndex       = 39  ;Windows Logo mini-icon for dialogs
+Uninstall       = ChatSdkUninstallNT
+CustomDestination = MyCustomDestination
+UpdateInis	    = AddLinks.NT
+RegisterOCXs	= MsChat.OCX
+
+
+[ChatSdkUninstall]
+SmartReboot     = A
+BeginPrompt     = Remove.BeginPrompt
+EndPrompt       = Remove.EndPrompt
+DelFiles		= TextFiles, SampleFiles, WebDemoFiles, TrnscrptFiles, ExecChatFiles, CheckrsFiles, ChatAdFiles, Chat2000Files, Res2000Files, Chat1jFiles, Chappy, ChappyRes, HtmlHelp, HtmlHelpArt, NmStart, PrChckrs, PrChckrsHtml, PrChckrsPlayBd, ProcX, Include
+DelReg			= ChatSdkDelReg
+CustomDestination	= MyCustomDestinationUninstall
+UpdateInis		= DelLinks
+DelDirs	        = AppDelDir
+Cleanup	        = 1
+
+[ChatSdkUninstallNT]
+SmartReboot     = I
+BeginPrompt     = Remove.BeginPrompt
+EndPrompt       = Remove.EndPrompt
+DelFiles		= TextFiles, SampleFiles, WebDemoFiles, TrnscrptFiles, ExecChatFiles, CheckrsFiles, ChatAdFiles, Chat2000Files, Res2000Files, Chat1jFilesNT, Chappy, ChappyRes, HtmlHelp, HtmlHelpArt, NmStart, PrChckrs, PrChckrsHtml, PrChckrsPlayBd, ProcX, Include
+DelReg			= ChatSdkDelRegNT
+CustomDestination	= MyCustomDestinationUninstall
+UpdateInis		= DelLinks
+DelDirs	        = AppDelDir
+Cleanup	        = 1
+
+[MyCustomDestination]
+49000,49005=DestA,5
+49010,49015,49016=DestB,1
+
+[MyCustomDestinationUninstall]
+49000,49005=DestA,5
+49010,49015=DestB,5
+
+[DestA]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion,ProgramFilesDir,'%PromptA%',"%24%\%Program_Files%"
+
+[DestB]
+HKLM,SOFTWARE\Microsoft\%ChatKey%,SdkInstallDirectory,'%PromptB%',"%49005%\%ChatSdkDir%"
+
+[DestinationDirs]
+InfFiles        = 17	; LDID_INF 
+SysFiles		= 11	; LDID_SYS
+TextFiles     	= 49010
+Include         = 49010,Include     ;v-renef
+HtmlHelp		= 49010,Help        ;v-renef
+HtmlHelpArt	    = 49010,Help\Art    ;v-renef
+SampleFiles	    = 49010,Samples 
+Chat1jFiles 	= 49010,Chat1j
+Chat1jFilesNT	= 49010,Chat1j
+WebDemoFiles	= 49010,Samples\WebDemo
+TrnscrptFiles	= 49010,Samples\Trnscrpt 
+ExecChatFiles	= 49010,Samples\ExecChat 
+CheckrsFiles	= 49010,Samples\Checkrs
+ChatAdFiles	    = 49010,Samples\ChatAd
+Chat2000Files	= 49010,Samples\Chat2000
+Res2000Files	= 49010,Samples\Chat2000\Res
+Chappy      	= 49010,Samples\Chappy          ;v-renef          
+ChappyRes      	= 49010,Samples\Chappy\Res      ;v-renef
+NmStart      	= 49010,Samples\NmStart         ;v-renef
+PrChckrs      	= 49010,Samples\PrChkrs         ;v-renef
+PrChckrsHtml    = 49010,Samples\PrChkrs\Html    ;v-renef
+PrChckrsPlayBd  = 49010,Samples\PrChkrs\PlayBd  ;v-renef
+ProcX           = 49010,Samples\ProcX           ;v-renef
+
+[AppDelDir]
+%49010%\Include                                 ;v-renef
+%49010%\Samples\Chat2000\Res
+%49010%\Samples\Chat2000
+%49010%\Samples\WebDemo
+%49010%\Samples\Trnscrpt
+%49010%\Samples\ExecChat
+%49010%\Samples\Checkrs
+%49010%\Samples\ChatAd
+%49010%\Chat1j
+%49010%\Samples
+%49010%\Help                                    ;v-renef
+%49010%\Help\Art                                ;v-renef
+%49010%\Samples\Chappy                          ;v-renef
+%49010%\Samples\Chappy\Res                      ;v-renef
+%49010%\Samples\NmStart                         ;v-renef
+%49010%\Samples\PrChkrs                         ;v-renef
+%49010%\Samples\PrChkrs\Html                    ;v-renef
+%49010%\Samples\PrChkrs\PlayBd                  ;v-renef
+%49010%\Samples\ProcX                           ;v-renef
+%49010%
+
+[InfFiles]
+ChatSdk2.INF
+
+[Include]
+mschatpr.idl
+
+[TextFiles]
+license.txt
+readme.txt
+samples.txt
+
+[HtmlHelp]
+default.htm
+inet0257.htm
+inet0524.htm
+inet0525.htm
+inet0526.htm
+inet0527.htm
+inet0528.htm
+inet0529.htm
+inet0530.htm
+inet0531.htm
+inet0532.htm
+inet0533.htm
+inet0534.htm
+inet0535.htm
+inet0536.htm
+inet0537.htm
+inet0538.htm
+inet0539.htm
+inet0540.htm
+inet0541.htm
+inet0542.htm
+inet0543.htm
+inet0544.htm
+inet0545.htm
+inet0546.htm
+legal.htm
+
+[HtmlHelpArt]
+arrowb.gif
+chatflow.gif
+chathtml.gif
+chatui.gif
+external.gif
+headcoma.gif
+headhtm2.gif
+
+[SysFiles]
+; Silently don't install if newer versions exist
+chatsock.dll,,,32
+mschat.ocx,,,32
+mschatpr.ocx,,,32
+
+[BinFiles]
+chatsock.dll
+mschat.ocx
+mschatpr.ocx
+
+[SampleFiles]
+ReadMe.txt,ReadMe3.txt
+
+[WebDemoFiles]
+ReadMe.txt,ReadMe4.txt
+sample1.htm
+sample2.htm
+sample3.htm
+sample4.htm
+sample5.htm
+
+[TrnscrptFiles]
+ReadMe.txt,ReadMe5.txt
+Form2.frm
+Form2.frx
+trnscrpt.frm
+trnscrpt.vbp
+
+[ExecChatFiles]
+ReadMe.txt,ReadMe6.txt
+ecenter.frm
+eckicban.frm
+ecuiset.frm
+execc.frm
+execc.frx
+execc.vbp
+execchat.ini
+globals.bas
+hostpan.frm
+sendtor.frm
+sendtor.frx
+whisptog.frm
+whisptog.frx
+whisptoh.frm
+whisptom.frm
+whisptom.frx
+
+[CheckrsFiles]
+ReadMe.txt,ReadMe7.txt
+backgrnd.bmp
+black.bmp
+checker.frm
+checker.frx
+checker.vbp
+chkenter.frm
+white.bmp
+
+[ChatAdFiles]
+ReadMe.txt,ReadMe8.txt
+admin.frm
+admin.vbp
+enteropt.frm
+kickban.frm
+uiset.frm
+
+[Chat2000Files]
+bandlg.cpp
+bandlg.h
+c2doc.cpp
+c2doc.h
+c2view.cpp
+c2view.h
+chat2000.cpp
+chat2000.h
+chat2000.mak
+chat2000.rc
+childfrm.cpp
+childfrm.h
+enterdlg.cpp
+enterdlg.h
+globals.h
+infodlg.cpp
+infodlg.h
+kickban.cpp
+kickban.h
+mainfrm.cpp
+mainfrm.h
+makefile
+mschat.cpp
+mschat.h
+partic.cpp
+partic.h
+readme.txt,readme9.txt
+resource.h
+stdafx.cpp
+stdafx.h
+topicdlg.cpp
+topicdlg.h
+
+[Res2000Files]
+toolbar.bmp
+c2doc.ico
+chat2000.ico
+chat2000.rc2
+
+[Chat1jFiles]
+mschat1j.exe
+protocol.exe
+
+[Chat1jFilesNT]
+mschat1j.exe 
+protocol.exe
+
+[NmStart]
+nmstart.htm
+
+[PrChckrs]
+
+[PrChckrsHtml]
+playbd.ocx
+prchckrs.htm
+
+[PrChckrsPlayBd]
+playbd.ctl
+playbd.frm
+playbd.vbp
+playbd.vbw
+
+[ProcX]
+ocx10.htm
+ocx20.htm
+
+[Chappy]
+bandlg.cpp,bandlg2.cpp  
+bandlg.h,bandlg2.h    
+chappy.cpp  
+chappy.dsp  
+chappy.dsw  
+chappy.h    
+chappy.mak  
+chappy.rc   
+chppydoc.cpp
+chppydoc.h  
+chppyvw.cpp 
+chppyvw.h   
+chtitems.cpp
+chtitems.h  
+enterdlg.cpp,entrdlg.cpp
+enterdlg.h,entrdlg.h  
+flattb.cpp  
+flattb.h    
+globals.h,globals2.h   
+history.cpp 
+history.h   
+inputre.cpp 
+inputre.h   
+kickdlg.cpp 
+kickdlg.h   
+logindlg.cpp
+logindlg.h
+makefile,makefile.2  
+mainfrm.cpp,mainfrm2.cpp
+mainfrm.h,mainfrm2.h   
+mschatpr.cpp
+mschatpr.h  
+mschatx.cpp 
+mschatx.h   
+pltree.cpp  
+pltree.h    
+pworddlg.cpp
+pworddlg.h  
+readme.txt,readme14.txt  
+redit.cpp   
+redit.h     
+resource.h,resource.h2    
+rlistctr.cpp
+rlistctr.h  
+room.cpp    
+room.h      
+roomhstr.cpp
+roomhstr.h  
+rtab.cpp    
+rtab.h      
+stdafx.cpp,stdafx2.cpp  
+stdafx.h,stdafx2.h   
+tb.cpp    
+tb.h        
+utility.cpp 
+utility.h
+
+[ChappyRes]
+cbapp.ico   
+chappy.ico  
+chappy.rc2  
+chppydoc.ico
+earth.ico   
+host.ico    
+ico00002.ico
+ico00003.ico
+ico00004.ico
+icon1.ico   
+part.ico    
+room_lis.ico
+toolbar.bmp,toolbar2.bmp
+toolbar1.bmp
+whisper.ico 
+
+[SourceDisksNames]            
+1 = %DiskName%,ChatSdk2.CAB,0 
+                              
+[SourceDisksFiles]            
+ChatSdk2.INF=1                
+
+mschat1j.exe=1
+protocol.exe=1
+
+license.txt=1
+readme.txt=1
+samples.txt=1
+
+chatsock.dll=1
+mschat.ocx=1
+mschatpr.ocx=1
+
+ReadMe3.txt=1
+
+ReadMe4.txt=1
+sample1.htm=1
+sample2.htm=1
+sample3.htm=1
+sample4.htm=1
+
+ReadMe5.txt=1
+Form2.frm=1
+Form2.frx=1
+trnscrpt.frm=1
+trnscrpt.vbp=1
+
+ReadMe6.txt=1
+ecenter.frm=1
+eckicban.frm=1
+ecuiset.frm=1
+execc.frm=1
+execc.frx=1
+execc.vbp=1
+execchat.ini=1
+globals.bas=1
+hostpan.frm=1
+sendtor.frm=1
+sendtor.frx=1
+whisptog.frm=1
+whisptog.frx=1
+whisptoh.frm=1
+whisptom.frm=1
+whisptom.frx=1
+
+ReadMe7.txt=1
+backgrnd.bmp=1
+black.bmp=1
+checker.frm=1
+checker.frx=1
+checker.vbp=1
+chkenter.frm=1
+white.bmp=1
+
+ReadMe8.txt=1
+admin.frm=1
+admin.vbp=1
+enteropt.frm=1
+kickban.frm=1
+uiset.frm=1
+
+bandlg.cpp=1
+bandlg.h=1
+c2doc.cpp=1
+c2doc.h=1
+c2view.cpp=1
+c2view.h=1
+chat2000.cpp=1
+chat2000.h=1
+chat2000.mak=1
+chat2000.rc=1
+childfrm.cpp=1
+childfrm.h=1
+enterdlg.cpp=1
+enterdlg.h=1
+globals.h=1
+infodlg.cpp=1
+infodlg.h=1
+kickban.cpp=1
+kickban.h=1
+mainfrm.cpp=1
+mainfrm.h=1
+makefile=1
+mschat.cpp=1
+mschat.h=1
+partic.cpp=1
+partic.h=1
+readme9.txt=1
+resource.h=1
+stdafx.cpp=1
+stdafx.h=1
+topicdlg.cpp=1
+topicdlg.h=1
+
+toolbar.bmp=1
+c2doc.ico=1
+chat2000.ico=1
+chat2000.rc2=1
+
+mschatpr.idl=1
+
+cbapp.ico=1   
+chappy.ico=1  
+chappy.rc2=1  
+chppydoc.ico=1
+earth.ico=1   
+host.ico=1    
+ico00002.ico=1
+ico00003.ico=1
+ico00004.ico=1
+icon1.ico=1   
+part.ico=1    
+room_lis.ico=1
+toolbar.bmp=1 
+toolbar1.bmp=1
+whisper.ico=1
+
+bandlg.cpp=1  
+bandlg.h=1    
+chappy.cpp=1  
+chappy.dsp=1  
+chappy.dsw=1  
+chappy.h=1    
+chappy.mak=1 
+chappy.rc=1   
+chppydoc.cpp=1
+chppydoc.h=1  
+chppyvw.cpp=1 
+chppyvw.h=1   
+chtitems.cpp=1
+chtitems.h=1  
+enterdlg.cpp=1
+enterdlg.h=1  
+flattb.cpp=1  
+flattb.h=1    
+globals.h=1   
+history.cpp=1 
+history.h=1   
+inputre.cpp=1 
+inputre.h=1   
+kickdlg.cpp=1 
+kickdlg.h=1   
+logindlg.cpp=1
+logindlg.h=1  
+mainfrm.cpp=1 
+mainfrm.h=1   
+mschatpr.cpp=1
+mschatpr.h=1  
+mschatx.cpp=1 
+mschatx.h=1   
+pltree.cpp=1  
+pltree.h=1    
+pworddlg.cpp=1
+pworddlg.h=1
+readme.txt=1  
+redit.cpp=1   
+redit.h=1     
+resource.h=1   
+rlistctr.cpp=1
+rlistctr.h=1  
+room.cpp=1    
+room.h=1      
+roomhstr.cpp=1
+roomhstr.h=1  
+rtab.cpp=1    
+rtab.h=1      
+stdafx.cpp=1  
+stdafx.h=1    
+tb.cpp=1      
+tb.h=1        
+utility.cpp=1 
+utility.h=1   
+
+ocx10.htm=1
+ocx20.htm=1
+
+playbd.ctl=1
+playbd.frm=1
+playbd.vbp=1
+playbd.vbw=1
+
+nmstart.htm=1
+
+playbd.ocx=1  
+prchckrs.htm=1
+
+default.htm=1 
+inet0257.htm=1
+inet0524.htm=1
+inet0525.htm=1
+inet0526.htm=1
+inet0527.htm=1
+inet0528.htm=1
+inet0529.htm=1
+inet0530.htm=1
+inet0531.htm=1
+inet0532.htm=1
+inet0533.htm=1
+inet0534.htm=1
+inet0535.htm=1
+inet0536.htm=1
+inet0537.htm=1
+inet0538.htm=1
+inet0539.htm=1
+inet0540.htm=1
+inet0541.htm=1
+inet0542.htm=1
+inet0543.htm=1
+inet0544.htm=1
+inet0545.htm=1
+inet0546.htm=1
+legal.htm=1
+
+arrowb.gif=1
+chatflow.gif=1
+chathtml.gif=1
+chatui.gif=1
+external.gif=1
+headcoma.gif=1
+headhtm2.gif=1
+
+[ChatSdkReg95]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ChatSdkKey%,"DisplayName",,"%ChatSdkDesc%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ChatSdkKey%,"UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %InfName%, ChatSdkUninstall"
+
+HKLM,"SOFTWARE\Microsoft\%ChatKey%",,,""
+HKLM,"SOFTWARE\Microsoft\%ChatKey%","SdkInstallDirectory",,"%49015%"
+
+[ChatSdkDelReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ChatSdkKey%
+HKLM,"SOFTWARE\Microsoft\%ChatKey%\SdkInstallDirectory"
+
+[ChatSdkRegNT]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ChatSdkKey%,"DisplayName",,"%ChatSdkDesc%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ChatSdkKey%,"UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %InfName%, ChatSdkUninstallNT"
+
+HKLM,"SOFTWARE\Microsoft\%ChatKey%",,,""
+HKLM,"SOFTWARE\Microsoft\%ChatKey%","SdkInstallDirectory",,"%49015%"
+
+[ChatSdkDelRegNT]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%ChatSdkKey%
+HKLM,"SOFTWARE\Microsoft\%ChatKey%\SdkInstallDirectory"
+
+[AddLinks.95]
+;Adds shortcut to SDK files 
+setup.ini, progman.groups,, "Sdk=%ChatSdkDir%" ;creates folder 
+setup.ini, Sdk,, """%ChatSdkDesc%"", ""%49016%""" ;creates link
+setup.ini, Sdk,, """%ChatSdkReadMe%"", ""%49016%\readme.txt""" ;creates link
+setup.ini, Sdk,, """%ChatSdkSamples%"", ""%49016%\samples.txt""" ;creates link
+setup.ini, Sdk,, """%ChatSdkDoc%"", ""%49016%\Help\default.htm""" ;creates link
+;setup.ini, Sdk,, """%ChatSdkReadMe2%"", ""%49016%\chat1j\readme.txt""" ;creates link
+
+[AddLinks.NT]
+;Adds shortcut to SDK files 
+setup.ini, progman.groups,, "Sdk=%ChatSdkDir%" ;creates folder 
+setup.ini, Sdk,, """%ChatSdkDesc%"", """"""%49016%""""""" ;creates link
+setup.ini, Sdk,, """%ChatSdkReadMe%"", """"""%49016%\readme.txt""""""" ;creates link
+setup.ini, Sdk,, """%ChatSdkSamples%"", """"""%49016%\samples.txt""""""" ;creates link
+setup.ini, Sdk,, """%ChatSdkDoc%"", """"""%49016%\Help\default.htm""""""" ;creates link
+;setup.ini, Sdk,, """%ChatSdkReadMe2%"", """"""%49016%\chat1j\readme.txt""""""" ;creates link
+
+[DelLinks]
+;Removes shortcut to SDK files during Uninstall: 
+setup.ini, progman.groups,, "Sdk=%ChatSdkDir%" ;deletes folder 
+setup.ini, Sdk,, """%ChatSdkDesc%""" ;deletes link
+setup.ini, Sdk,, """%ChatSdkReadMe%""" ;deletes link 
+setup.ini, Sdk,, """%ChatSdkSamples%""" ;deletes link
+setup.ini, Sdk,, """%ChatSdkDoc%""" ;deletes link
+;setup.ini, Sdk,, """%ChatSdkReadMe2%""" ;deletes link
+
+[MsChat.OCX]
+%11%\MsChat.OCX
+%11%\MsChatpr.OCX
+
+[Remove.BeginPrompt]
+Prompt="%REMOVE_CONFIRMATION_PROMPT%"
+ButtonType=YESNO
+Title="%ChatSdkDesc%"
+
+[Remove.EndPrompt]
+Prompt="%REMOVE_COMPLETION_PROMPT%"
+ButtonType=YES
+Title="%ChatSdkDesc%"
+
+[Strings]
+ChatSdkDesc		= "Microsoft Chat SDK 2.0 Beta"
+ChatSdkTop		= "Microsoft Chat SDK 2.0 Beta"
+ChatSdkDir		= "Microsoft Chat SDK 2.0"
+ChatKey			= "Microsoft Chat"
+ChatSdkKey		= "MsChat SDK 2.0 Beta"
+Program_Files		= "Program Files"   
+ChatSdkReadMe		= "ReadMe.txt"
+;ChatSdkReadMe2		= "Microsoft Chat 1.0 j Readme.txt"
+ChatSdkSamples		= "Samples.txt"
+ChatSdkDoc		= "Microsoft Chat SDK 2.0 Beta Documentation"         
+DiskName		= "Microsoft Chat SDK 2.0 Beta Installation Disk"
+
+;Remember to change in SourceFiles and InfFiles also
+InfName			= "ChatSdk2.INF"
+
+PromptA="Choose your Program Files directory."
+PromptB="Choose your Chat SDK directory."
+
+REMOVE_CONFIRMATION_PROMPT = "This will remove Microsoft Chat SDK 2.0 Beta. Do you wish to continue?"
+REMOVE_COMPLETION_PROMPT = "Microsoft Chat SDK 2.0 Beta has been removed successfully."

@@ -1,0 +1,766 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>ListUsers Method</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headcoma.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="ListUsers Method"><BR CLEAR=ALL>
+<H5><FONT COLOR="#000000">Objects</FONT></H5><A NAME="mschatpr_vb_ref_0504020201030c00"></A><H3>ListUsers Method<BR CLEAR=ALL>
+<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Lists users on the server.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ListUsers</B> <I>UserQueryItems</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>UserQueryItems</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object. Restricts the user listing to a subset of users. The following table lists the item names that can be used to construct the <B>ChatItems</B> object.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>IRC/IRCX </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>IRCX 
+</B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>protocols&nbsp;&nbsp;&nbsp; </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>protocol only
+ </B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000302" TARGET="TEXT">Channels</A>&nbsp;&nbsp; </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000306" TARGET="TEXT">IPAddress</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000308" TARGET="TEXT">Mask</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000307" TARGET="TEXT">IPAddressOp</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000309" TARGET="TEXT">MaskOp</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030c" TARGET="TEXT">NicknameOp</A>
+</FONT></TD>
+</TR>
+</TABLE>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The caller can set criteria on the user's nickname, IP address, or channel. Also, when using the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000308" TARGET="TEXT">Mask</A> and optionally the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000309" TARGET="TEXT">MaskOp</A> item names, the user can list the users for which the nickname, IP address, server name, real name, or channel name matches the mask given.
+<P>When using the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000308" TARGET="TEXT">Mask</A> and optionally the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000309" TARGET="TEXT">MaskOp</A> item names, the call maps to a <B>WHO</B> command; otherwise, it maps to a <B>WHOIS</B> command.
+
+<P>A successful <B>ListUsers</B> call results in a suite of events. First, an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040200" TARGET="TEXT">OnBeginEnumeration</A> event is fired to mark the beginning of the user listing. Next, one <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041500" TARGET="TEXT">OnUserProperty</A> event occurs for each user listed, where UserItems exposes all the known user properties. Finally, an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040a00" TARGET="TEXT">OnEndEnumeration</A> event is fired to mark the end of the user listing.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. List all users on the server:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+MsChatPr1.ListUsers chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>(On an IRC server this call maps to a <B>WHO</B> command. On an IRCX server it maps to a <B>WHOIS</B> command.)
+
+<P>2. On an IRCX server, list all users with an IP address that finishes with ".edu":
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("IPAddressOp") = "EndsWith"
+chatitemobj.Item("IPAddress") = ".edu"
+MsChatPr1.ListUsers chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>3. On an IRCX server, list all users with an IP address that contains "microsoft":
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("IPAddressOp") = "Contains"
+chatitemobj.Item("IPAddress") = "microsoft"
+MsChatPr1.ListUsers chatitemobj
+Set chatitemobj = Nothing 
+</FONT></PRE>
+<P>4. On an IRCX server, list all users with a nickname that contains "joe":
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("NicknameOp") = "Contains"
+chatitemobj.Item("Nickname") = "joe"
+MsChatPr1.ListUsers chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>5. On an IRCX server, list all users in the channel "#newbies":
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("Channels") = "#newbies"
+MsChatPr1.ListUsers chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>6. On an IRCX server, list all users for which the nickname, IP address, server name, or real name contains "nath":
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("MaskOp") = "Contains"
+chatitemobj.Item("Mask") = "nath"
+MsChatPr1.ListUsers chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>7. On an IRCX server, list all users for which the nickname, IP address, server name, or real name starts with "R&#-23;":
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("MaskOp") = "StartsWith"
+chatitemobj.Item("Mask") = "R&#-23;"
+MsChatPr1.ListUsers chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030d00"></A><H3>Login Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Logs a user onto the chat server.
+
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.Login</B> <I>ServerName</I><B>,</B> <I>Nickname</I>[<B>,</B> <I>UserName</I>][<B>,</B> <I>RealName</I>][<B>,</B> <I>Password</I>][<B>,</B> <I>SecurityPackages</I>] <BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ServerName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression that contains the server <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000106" TARGET="TEXT">Name</A>. Can optionally include the port number.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Nickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression containing the user <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A>. Must be a valid IRC/IRCX user <B>Nickname</B>. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>UserName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A string expression that contains the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000312" TARGET="TEXT">UserName</A>. If empty or missing, the control uses the Microsoft&#174; Windows&#174; login name as the <B>UserName</B>.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>RealName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A string expression containing the user's <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030e" TARGET="TEXT">RealName</A>. Can be empty or missing, in which case the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000312" TARGET="TEXT">Username</A> is used as the <B>RealName</B>.
+
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Password</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A string expression containing the user's password. If empty or missing, no password is used to log in to the server.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>SecurityPackages</I>
+</FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A string expression that contains the name of the security package. 
+<P>If empty or missing, the first authentication package provided by the server is used. If the server doesn't provide an authentication package, an anonymous login is tried. 
+<P>The <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010c" TARGET="TEXT">SecurityPackages</A> parameter is a list of authentication packages that are successively tried during login. The packages must be separated by a semicolon and can include the ANON (not case sensitive) keyword for anonymous logins. 
+<P>IRC servers do not implement user authentication; all logins are anonymous.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The <B>Login</B> method can be called at two different stages&#151;when the control is in the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000301" TARGET="TEXT">csDisconnected</A> state, or after calling the <A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030600" TARGET="TEXT">Connect</A> method and the control is in the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000303" TARGET="TEXT">csConnected</A> state.
+<P>In this last case the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000310" TARGET="TEXT">ServerName</A> and optional port number given in <B>Login</B> have to be the same as in the <A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030600" TARGET="TEXT">Connect</A> call. After reaching the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000303" TARGET="TEXT">csConnected</A> state, the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000304" TARGET="TEXT">csLogging</A> and <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000305" TARGET="TEXT">csLogged</A> states are achieved. 
+
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. Use Connect and Login:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.Connect "comicsrv1.microsoft.com"
+MsChatPr1.Login "comicsrv1.microsoft.com", "JB",_
+"JamesB", ,MsChatPr1.SecurityPackages 
+</FONT></PRE>
+<P>2. Use Login alone:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.Login "irc.mtv.com", "JB007", "JamesB", "James Bond", ,"ANON"
+
+MsChatPr1.Login "irc.univ-lyon1.fr", "Arthur"
+
+MsChatPr1.Login "chat.msn.com", "Norbert", , , ,"DPA;NTLM;ANON"
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030600" TARGET="TEXT">Connect</A>, <A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030700" TARGET="TEXT">Disconnect</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030e00"></A><H3>QueryChannelProperty Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Asynchronously accesses a channel property.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.QueryChannelProperty</B> <I>ChannelPropertyName</I>[<B>,</B> <I>ChannelName</I>] <BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string that contains one of the valid values shown in the following table.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>IRCX </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>IRC/IRCX 
+</B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>protocol only&nbsp;&nbsp;&nbsp; </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>protocols
+ </B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000202" TARGET="TEXT">Account</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000203" TARGET="TEXT">BannedList</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000206" TARGET="TEXT">ClientData</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020b" TARGET="TEXT">Keyword</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000207" TARGET="TEXT">ClientGuid</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000210" TARGET="TEXT">MaxMemberCount</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000209" TARGET="TEXT">CreationTime</A>&nbsp;&nbsp; </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060600" TARGET="TEXT">MemberCount</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020a" TARGET="TEXT">HostKey</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000214" TARGET="TEXT">Modes</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020c" TARGET="TEXT">Lag</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020d" TARGET="TEXT">Language</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000217" TARGET="TEXT">ObjectId</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000218" TARGET="TEXT">OnJoin</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000219" TARGET="TEXT">OnPart</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021a" TARGET="TEXT">OwnerKey</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021b" TARGET="TEXT">Rating</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021d" TARGET="TEXT">ServicePath</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021e" TARGET="TEXT">Subject</A> 
+</FONT></TD>
+</TR>
+</TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A string that contains the channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A>. This parameter can be omitted or empty if there is exactly one open channel in the collection. In this case the call concerns that uniquely open channel. Otherwise, <I>ChannelName</I> must be the <B>Name</B> of an existing channel on the server.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>A successful <B>QueryChannelProperty</B> call results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040400" TARGET="TEXT">OnChannelProperty</A> event in which the ChannelItems parameter exposes all the known channel properties. 
+
+
+</BLOCKQUOTE><P>
+<H5>Example</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">'Specifies the name of an existing server channel
+MsChatPr1.QueryChannelProperty "Rating", "#MyRoom" 
+
+'There is exactly one channel open
+MsChatPr1.QueryChannelProperty "Modes" 
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030f00"></A><H3>QueryServerProperty Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Asynchronously accesses a server property.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.QueryServerProperty</B> <I>ServerPropertyName</I> <BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ServerPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string containing one of the following valid server property name values. 
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000101" TARGET="TEXT">AnonymousAllowed</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000102" TARGET="TEXT">ChannelCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000103" TARGET="TEXT">IgnoredUsers</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000104" TARGET="TEXT">Info</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000105" TARGET="TEXT">MaxMessageLength</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000106" TARGET="TEXT">Name</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000107" TARGET="TEXT">NetInvisibleCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000108" TARGET="TEXT">NetServerCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000109" TARGET="TEXT">NetUserCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010a" TARGET="TEXT">NodeServerCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010b" TARGET="TEXT">NodeUserCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010c" TARGET="TEXT">SecurityPackages</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010d" TARGET="TEXT">SysopCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010e" TARGET="TEXT">UnknownConnectionCount</A>
+</FONT></TD></TABLE>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>A successful <B>QueryServerProperty</B> call results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041300" TARGET="TEXT">OnServerProperty</A> event, in which <I>ServerItems</I> exposes the known server properties.
+<P> The connection state must be at least <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000303" TARGET="TEXT">csConnected</A> to access the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000101" TARGET="TEXT">AnonymousAllowed</A>, <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000103" TARGET="TEXT">IgnoredUsers</A>, <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000105" TARGET="TEXT">MaxMessageLength</A>, and <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000106" TARGET="TEXT">Name</A> properties. The state must be at least <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000305" TARGET="TEXT">csLogged</A> to access all other server properties.
+</BLOCKQUOTE><P>
+<H5>Example</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.QueryServerProperty "Info"
+MsChatPr1.QueryServerProperty "SysopCount"
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0542.htm#mschatpr_vb_ref_05040202010c0300" TARGET="TEXT">ItemValid</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201031000"></A><H3>QueryUserProperty Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Asynchronously accesses a user property.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.QueryUserProperty</B> <I>UserPropertyName</I>[<B>,</B> <I>Nickname</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>UserPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression. Must be one of the following valid user property name values. 
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000301" TARGET="TEXT">Away</A> 
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000302" TARGET="TEXT">Channels</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000303" TARGET="TEXT">HostInChannels</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000304" TARGET="TEXT">Identity</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000305" TARGET="TEXT">IdleTime</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000306" TARGET="TEXT">IPAddress</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030a" TARGET="TEXT">Modes</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030d" TARGET="TEXT">OwnerOfChannels</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030e" TARGET="TEXT">RealName</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030f" TARGET="TEXT">ServerInfo</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000310" TARGET="TEXT">ServerName</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000311" TARGET="TEXT">SignOnTime</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000312" TARGET="TEXT">UserName</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000314" TARGET="TEXT">VoiceInChannel</A>
+</FONT></TD></TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Nickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A string expression. Can be omitted or empty, in which case the call concerns the control user. If used, the <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A> must be a current server user. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>A successful <B>QueryUserProperty</B> call results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041500" TARGET="TEXT">OnUserProperty</A> event where <I>UserItems</I> exposes all the known user properties.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">'UserPropertyName and Nickname
+MsChatPr1.QueryUserProperty "Away", "Mila" 
+
+'UserPropertyName only
+MsChatPr1.QueryUserProperty "SignOnTime"    
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201031100"></A><H3>SendInvitation Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Invites a user to a channel.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.SendInvitation</B> <I>Nickname</I>[<B>,</B> <I>ChannelName</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Nickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression containing the <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A> of an existing user on the server. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant that does not need to be an existing channel on the server. If the <I>ChannelName</I> parameter is not specified or is empty, there must be exactly one open channel in the collection, and the user is invited to that channel. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The invited user will get an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040b00" TARGET="TEXT">OnInvitation</A> event as notification of the invitation.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">'ChannelName is specified
+MsChatPr1.SendInvitation "Momo", "#MyRoom"
+
+'There is exactly one open channel in the collection
+MsChatPr1.SendInvitation "Mila"
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201031200"></A><H3>SendPrivateMessage Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Sends a private text or data message to one or several users.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.SendPrivateMessage</B> <I>PrivateMessageType</I><B>,</B> <I>Message</I><B>,</B> <I>RecipientNicknames</I>[<B>,</B> <I>DataMessageTag</I>] <BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>PrivateMessageType</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A long value that is a combination of some of the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a00" TARGET="TEXT">enumPrivateMessageType</A> enumeration values. The values that can be used are:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a01" TARGET="TEXT">pmtNormal</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H0.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a02" TARGET="TEXT">pmtNotice</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H1.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a03" TARGET="TEXT">pmtData</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H2.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a04" TARGET="TEXT">pmtDataRequest</A>&nbsp;&nbsp;&nbsp;
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H4.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a05" TARGET="TEXT">pmtDataReply</A> 
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H8.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a06" TARGET="TEXT">pmtDataRaw</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H10.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a08" TARGET="TEXT">pmtVersion</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H40.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a09" TARGET="TEXT">pmtLagTime</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H80.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a0a" TARGET="TEXT">pmtLocalTime</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H100.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a0b" TARGET="TEXT">pmtAction</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H200.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a0c" TARGET="TEXT">pmtSound</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H400.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a0d" TARGET="TEXT">pmtCTCP</A>
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H800.
+</FONT></TD></TR></TABLE>
+<P>Except for <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a01" TARGET="TEXT">pmtNormal</A>, all the above values are mutually exclusive.
+ 
+
+<P>The valid <I>PrivateMessageType</I> values are:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtNormal
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtNotice
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtData
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtDataRequest
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtDataReply
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtData + pmtDataRaw
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtDataRequest + pmtDataRaw
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtDataReply + pmtDataRaw
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtVersion + pmtNormal
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtLagTime + pmtNormal
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtLocalTime + pmtNormal
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtAction + pmtNormal
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtSound + pmtNormal
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtCTCP + pmtNormal
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtVersion + pmtNotice
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtLagTime + pmtNotice
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtLocalTime + pmtNotice
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtAction + pmtNotice
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtSound + pmtNotice
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">pmtCTCP + pmtNotice
+</FONT></TD></TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Message</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A variant that can be a string, a number, an array of strings, an array of numbers, or an array of variants that can be strings and numbers. The variant types allowed for these numbers are:
+
+
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">VT_UI1
+ </FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">VT_I2
+ </FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">VT_I4
+ </FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">VT_R4
+ </FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">VT_R8
+ </FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">VT_BOOL
+ </FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">VT_ERROR
+ </FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">VT_CY
+ </FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">VT_DATE 
+</FONT></TD></TABLE>
+<P><I>Message</I> is the actual message to send.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>RecipientNicknames</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A variant that can be a string, an array of strings, or an array of variants that are strings that represent the recipients' nicknames.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>DataMessageTag</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. This variant will be a non-empty string when sending data (that is, the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a03" TARGET="TEXT">pmtData</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a04" TARGET="TEXT">pmtDataRequest</A>, or <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a05" TARGET="TEXT">pmtDataReply</A> flag is set). This parameter must be empty or missing in all other cases.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>When sending data and the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000a06" TARGET="TEXT">pmtDataRaw</A> flag is not set, the control packages the <I>Message</I> parameter into an array of bytes and uses an internal header to tell the recipients that the message comes from an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control. However, when the <B>pmtDataRaw</B> flag is also set, the <I>Message</I> parameter can only be a postprocessed string, a byte, an array of bytes, or an array of variants that are bytes. A postprocessed string is a string that was modified using the regular conversion scheme.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Character&nbsp;&nbsp;&nbsp; </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Becomes string
+ </B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">'\0' </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">"\0"
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">'\' </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">"\\"
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">'\n' </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">"\n"
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">'\r' </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">"\r"
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">'\t' </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">"\t"
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">' ' </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">"\b"
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">',' </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">"\c"
+</FONT></TD>
+</TR>
+</TABLE>
+<P>When sending raw data, the control simply converts the <I>Message</I> parameter into a 
+postprocessed string without using an internal header. This way all clients can handle the data message.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. Send a regular string to a user:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtNormal, "Hi there!", "Mila"
+</FONT></PRE>
+<P>2. Send a notice to a user:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtNotice, "Bye now!", "Zorg"
+</FONT></PRE>
+<P>3. Request version information:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtVersion, " ", "Mila"
+</FONT></PRE>
+<P>4. Send version information:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtVersion,"MsChatPr ActiveX Control V2.0 
+    used in VB 5.0 Application Chat-oh", "Mila"
+</FONT></PRE>
+<P>5. Request lag time:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtLagTime, CStr(Timer), "Mila"
+</FONT></PRE>
+<P>6. Request local time:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtLocalTime, " ", "Mila"
+</FONT></PRE>
+<P>7. Send an action to a user (CTCP action):
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtAction, "is eating couscous....", "Kimmy"
+</FONT></PRE>
+<P>8. Send a sound to a user (CTCP sound):
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtSound, "couscous.wav Isn't that cool?", "Kimmy"
+</FONT></PRE>
+<P>9. Send a CTCP message to a user:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtCTCP, "FINGER", "Mila"
+</FONT></PRE>
+<P>10. Send text to several users:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim strRecipients(1 To 3) As String
+
+strRecipients(1) = "Charlotte"
+strRecipients(2) = "Zorg"
+strRecipients(3) = "Arthur"
+MsChatPr1.SendPrivateMessage pmtNormal, "I'm a cook too...", strRecipients&#009;
+'or
+Dim vRecipients(1 To 3) As Variant
+
+vRecipients(1) = "Charlotte"
+vRecipients(2) = "Zorg"
+vRecipients(3) = "Arthur"
+MsChatPr1.SendPrivateMessage pmtNormal, "I'm a cook too...", vRecipients
+</FONT></PRE>
+<P>11. Send a string as data to a user:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtData, "And a painter as well.", "Mila", "_FOO_"
+</FONT></PRE>
+<P>12. Send a number to a user:
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendPrivateMessage pmtData, 1156, "Charlotte", "X"
+</FONT></PRE>
+<P>13. Send an array of numbers to users:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim iValues(1 To 4) As Integer
+
+iValues(1) = 10
+iValues(2) = -22
+iValues(3) = 123
+iValues(4) = 0
+
+Dim strRecipients(1 To 3) As String
+
+strRecipients(1) = "Charlotte"
+strRecipients(2) = "Zorg"
+strRecipients(3) = "Arthur"
+
+MsChatPr1.SendPrivateMessage pmtData, iValues, strRecipients, "COORD"
+'or 
+Dim vValues(1 To 4) As Variant
+
+vValues(1) = 10
+vValues(2) = -22
+vValues(3) = 123
+vValues(4) = 0
+
+Dim vRecipients(1 To 3) As Variant
+
+vRecipients(1) = "Charlotte"
+vRecipients(2) = "Zorg"
+vRecipients(3) = "Arthur"
+
+MsChatPr1.SendPrivateMessage pmtData, vValues, vRecipients, "COORD"
+</FONT></PRE>
+<P>14. Send an array of strings to a user:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim strValues(1 To 4) As String
+
+strValues(1) = "Blue"
+strValues(2) = "Green"
+strValues(3) = "Red"
+strValues(4) = "White"
+
+MsChatPr1.SendPrivateMessage pmtData, strValues, "Prout", "COLORS"
+'or 
+Dim vValues(1 To 4) As Variant
+
+vValues(1) = "Blue"
+vValues(2) = "Green"
+vValues(3) = "Red"
+vValues(4) = "White"
+
+MsChatPr1.SendPrivateMessage pmtData, vValues, "Prout", "COLORS"
+</FONT></PRE>
+<P>15. Send an array of variants to a user:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim vValues(5 To 10) As Variant
+
+vVariant(5) = Now
+vVariant(6) = "Your turn to play...."
+vVariant(7) = -10
+vVariant(8) = 5
+vVariant(9) = -12.689
+vVariant(10) = 9876582146
+
+MsChatPr1.SendPrivateMessage pmtData, vValues, "Zoulou", "TheHugeOne"
+</FONT></PRE>
+<P>16. Send raw data to a user:
+
+<PRE><FONT FACE="Courier" SIZE="2">'A postprocessed string
+
+MsChatPr1.SendPrivateMessage pmtData + pmtDataRaw, "dhe\rotk\\nsk\0k45v\0zxa\\v", 
+    "Arthur", "ProcessedString"
+
+'One byte
+
+Dim byt As Byte
+byt = 56
+MsChatPr1.SendPrivateMessage pmtData + pmtDataRaw,byt, "Arthur", "OneByte"
+
+'An array of bytes
+
+Dim rgBytes(1 To 3) As Byte
+rgBytes(1) = 15
+rgBytes(2) = 98
+rgBytes(3) = 2
+MsChatPr1.SendPrivateMessage pmtData + pmtDataRaw,
+    rgBytes, "Arthur", "ArrayOfBytes"
+
+'An array of Variants that are bytes
+
+Dim vByt(1 To 3) As Variant
+vByt(1) = CByte(15)
+vByt(2) = CByte(98)
+vByt(3) = CByte(2)
+MsChatPr1.SendPrivateMessage pmtData + pmtDataRaw, vByt, "Arthur", 
+    "ArrayOfVariants"
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201031300"></A><H3>SendProtocolMessage Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Sends a text message directly to the server. 
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.SendProtocolMessage</B> <I>TextMessage</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>TextMessage</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string containing the text message.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method enables the user to use an IRC/IRCX command even if the command is not exposed by the <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control. The returned messages from the server might not be understood by the control and therefore be exposed to the user through the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041200" TARGET="TEXT">OnProtocolMessage</A> event.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. The user wants to become a system operator. This operation is not exposed by the protocol control:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendProtocolMessage "OPER " + MsChatPr1.Nickname + " " + strPassword + vbCrLf
+</FONT></PRE>
+<P>2. List servers linked to the server:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.SendProtocolMessage "LINKS" + vbCrLf
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201031400"></A><H3>SetAway Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Sets and resets the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000301" TARGET="TEXT">Away</A> flag and away message.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.SetAway</B> <I>Away</I>[<B>,</B> <I>TextMessage</I>] <BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Away</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A Boolean value used to indicate if the user is away. When a user is marked as being away, the away message is sent to any caller sending a private message to the away user. This automatic replay stops when the user resets the away flag. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>TextMessage</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. If the away flag is set to TRUE, this parameter is used to set the away text message. If the away flag is set to FALSE, this parameter is useless.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">'Setting the Away flag
+MsChatPr1.SetAway True, "Out with the dog, back at 4:00 p.m. local time."
+
+'Resetting the Away flag
+MsChatPr1.SetAway False
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

@@ -1,0 +1,5 @@
+DIRS=   MsChatPr CChat NMStart setup
+
+OPTIONAL_DIRS=
+
+

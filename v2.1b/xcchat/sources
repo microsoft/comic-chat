@@ -1,0 +1,75 @@
+!include $(DEVROOT)\common.inc
+
+MAJORCOMP=chat
+MINORCOMP=xcchat
+
+TARGETNAME=xcchat
+TARGETEXT=ocx
+TARGETPATH=$(_OBJ_DIR)
+TARGETTYPE=DYNLINK
+
+DLLDEF=xcchat.def
+
+!if "$(FREEBUILD)" == "0"
+DLLENTRY=_DllMainCRTStartup
+USER_C_FLAGS=/D_USRDLL
+!else
+DLLENTRY=DllMain
+USER_C_FLAGS=/D_ATL_STATIC_REGISTRY /D_ATL_MIN_CRT /D_USRDLL
+!undef USE_MSVCRT
+#!if $(386)
+#USE_SYSDLL=1
+#!endif
+!endif
+
+# This component is now a bbt comp
+#BBTCOMP= 1
+
+386_STDCALL=1
+
+TARGETLIBS= \
+           $(SDK_LIB_PATH)\kernel32.lib    \
+           $(SDK_LIB_PATH)\advapi32.lib    \
+           $(SDK_LIB_PATH)\user32.lib      \
+           $(SDK_LIB_PATH)\gdi32.lib       \
+           $(SDK_LIB_PATH)\comdlg32.lib    \
+           $(SDK_LIB_PATH)\ole32.lib       \
+           $(SDK_LIB_PATH)\oleaut32.lib    \
+           $(SDK_LIB_PATH)\uuid.lib        \
+           $(SDK_LIB_PATH)\shell32.lib     \
+           $(ROOT)\nmutil\nmutila\$(_OBJ_DIR)\*\nmutila.lib
+
+INCLUDES=$(INCLUDES)
+
+IDL_TYPE=ole
+PASS0_HEADERDIR = $(ROOT)\chat\xcchat
+MIDL_UUIDDIR = $(ROOT)\chat\xcchat
+
+#
+# List of sources
+#
+
+SOURCES= \
+	xcchat.idl		\
+	xcchat_i.c		\
+	blort.cpp		\
+	framer.cpp		\
+	iadvsink.cpp	\
+	iclisite.cpp	\
+	idocsite.cpp	\
+	iipsite.cpp		\
+	site.cpp		\
+	xcontrol.cpp	\
+	xcchat.cpp		\
+	xcchat.rc
+
+#
+# Precompiled specs
+#
+PRECOMPILED_INCLUDE = stdafx.h
+PRECOMPILED_PCH = stdafx.pch
+#PRECOMPILED_OBJ = stdafx.obj
+PRECOMPILED_CXX = 1
+
+CONDITIONAL_INCLUDES =
+

@@ -1,0 +1,2221 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "winver.h"
+#include "dlgs.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""winver.h""\r\n"
+    "#include ""dlgs.h""\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\chat.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#include ""afxolesv.rc""       // OLE server resources\r\n"
+    "#endif\r\n"
+    "\r\n"
+    "#include ""cchat.rcv""\r\n"
+    "#include ""..\\inc\\textview.rc"" // Text view resources\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\chat.ico"
+IDI_CHAT_DOC            ICON    DISCARDABLE     "res\\chatdoc.ico"
+IDI_CHAT_ROOM           ICON    DISCARDABLE     "res\\room.ico"
+IDI_RATINGS             ICON    DISCARDABLE     "res\\ratings.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_SAY_BAR             BITMAP  DISCARDABLE     "res\\balloons.bmp"
+IDB_TIKI                BITMAP  DISCARDABLE     "res\\tiki2.bmp"
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\toolbar.bmp"
+IDB_WHISPER_BAR         BITMAP  DISCARDABLE     "res\\whsprbar.bmp"
+IDB_TABS                BITMAP  DISCARDABLE     "res\\tabbar.bmp"
+IDB_MEMBER              BITMAP  DISCARDABLE     "res\\member.bmp"
+IDR_NM_MAIN             BITMAP  MOVEABLE PURE   "res\\nm_main.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 16
+BEGIN
+    BUTTON      ID_SESSION_CONNECT
+    BUTTON      ID_SESSION_DISCONNECT
+    BUTTON      ID_SESSION_NEWROOM
+    BUTTON      ID_SESSION_LEAVE
+    BUTTON      ID_ROOM_CREATEROOM
+    SEPARATOR
+    BUTTON      ID_VIEW_COMICS
+    BUTTON      ID_VIEW_TEXT
+    SEPARATOR
+    BUTTON      ID_CHATROOM_LIST
+    BUTTON      ID_USER_LIST
+    SEPARATOR
+    BUTTON      ID_AWAY_TOGGLE
+    BUTTON      ID_GETIDENTITY
+    BUTTON      ID_MEMBER_IGNORE
+    BUTTON      ID_WHISPERBOX_MLIST
+    SEPARATOR
+    BUTTON      ID_SEND_EMAIL
+    BUTTON      ID_VISIT_HOMEPAGE
+    BUTTON      ID_START_NETMEETING
+    SEPARATOR
+    BUTTON      ID_SETFONT
+    BUTTON      ID_SETCOLOR
+    BUTTON      ID_SWITCHBOLD
+    BUTTON      ID_SWITCHITALIC
+    BUTTON      ID_SWITCHUNDERLINED
+    BUTTON      ID_SWITCHFIXEDPITCH
+    BUTTON      ID_SWITCHSYMBOL
+    SEPARATOR
+    BUTTON      ID_FAVORITES_OPENFAVORITES
+END
+
+IDR_NM_MAIN TOOLBAR DISCARDABLE  16, 16
+BEGIN
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_VIEW_COMICS
+    BUTTON      ID_VIEW_TEXT
+    SEPARATOR
+    BUTTON      ID_AWAY_TOGGLE
+    BUTTON      ID_MEMBER_IGNORE
+    BUTTON      ID_WHISPERBOX_MLIST
+    SEPARATOR
+    BUTTON      ID_VISIT_HOMEPAGE
+    BUTTON      ID_IRC_CHAT
+    SEPARATOR
+    BUTTON      ID_SETFONT
+    BUTTON      ID_SETCOLOR
+    BUTTON      ID_SWITCHBOLD
+    BUTTON      ID_SWITCHITALIC
+    BUTTON      ID_SWITCHUNDERLINED
+    BUTTON      ID_SWITCHFIXEDPITCH
+    BUTTON      ID_SWITCHSYMBOL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New Connection...\tCtrl+N",  ID_SESSION_CONNECT
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM "Creat&e Shortcut",            ID_FILE_CREATESHORTCUT
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "C&lear\tDel",                 ID_EDIT_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECTALL
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "Ta&b Bar",                    ID_VIEW_TABBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "&Comic Strip",                ID_VIEW_COMICS
+        MENUITEM "Plain Te&xt",                 ID_VIEW_TEXT
+        MENUITEM SEPARATOR
+        POPUP "&Member List"
+        BEGIN
+            MENUITEM "&List",                       ID_VIEW_LIST
+            MENUITEM "&Icon",                       ID_VIEW_ICON
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Message of the &Day",         ID_MOTD
+        MENUITEM SEPARATOR
+        MENUITEM "&Options...\tCtrl+Q",         ID_VIEW_OPTIONS
+    END
+    POPUP "F&ormat"
+    BEGIN
+        MENUITEM "&Color\tCtrl+K",              ID_SETCOLOR
+        MENUITEM "&Bold\tCtrl+B",               ID_SWITCHBOLD
+        MENUITEM "&Italic\tCtrl+I",             ID_SWITCHITALIC
+        MENUITEM "&Underline\tCtrl+U",          ID_SWITCHUNDERLINED
+        MENUITEM "&Fixed Pitch Font\tCtrl+F",   ID_SWITCHFIXEDPITCH
+        MENUITEM "&Symbol\tCtrl+D",             ID_SWITCHSYMBOL
+    END
+    POPUP "&Room"
+    BEGIN
+        MENUITEM "&Enter Room...",              ID_SESSION_NEWROOM
+        MENUITEM "&Leave Room",                 ID_SESSION_LEAVE
+        MENUITEM "Crea&te Room...",             ID_ROOM_CREATEROOM
+        MENUITEM SEPARATOR
+        MENUITEM "&Room List...",               ID_CHATROOM_LIST
+        MENUITEM "Room &Properties...",         ID_CHANNELPROPS
+        MENUITEM SEPARATOR
+        MENUITEM "&Connect...",                 ID_SESSION_CONNECT
+        MENUITEM "&Disconnect",                 ID_SESSION_DISCONNECT
+    END
+    POPUP "&Member"
+    BEGIN
+        MENUITEM "&User List...",               ID_USER_LIST
+        MENUITEM "I&nvite...",                  ID_INVITE
+        MENUITEM "&Away from Keyboard",         ID_AWAY_TOGGLE
+        MENUITEM SEPARATOR
+        MENUITEM "&Get Profile",                ID_MEMBER_GETINFO
+        MENUITEM "Get I&dentity",               ID_GETIDENTITY
+        MENUITEM "&Whisper Box",                ID_WHISPERBOX_MLIST
+        MENUITEM "&Ignore",                     ID_MEMBER_IGNORE
+        MENUITEM SEPARATOR
+        MENUITEM "Send &Email",                 ID_SEND_EMAIL
+        MENUITEM "Send &File",                  ID_SEND_FILE
+        MENUITEM "Visit H&ome Page",            ID_VISIT_HOMEPAGE
+        MENUITEM "Net&Meeting",                 ID_START_NETMEETING
+        MENUITEM SEPARATOR
+        MENUITEM "&Version",                    ID_GET_VERSION
+        MENUITEM "Lag &Time",                   ID_PING_USER
+        MENUITEM "&Local Time",                 ID_GET_LOCALTIME
+    END
+    POPUP "F&avorites"
+    BEGIN
+        MENUITEM "&Add To Favorites",           ID_FAVORITES_ADDTOFAVORITES
+        MENUITEM "&Open Favorites...",          ID_FAVORITES_OPENFAVORITES
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_TOPICS
+        MENUITEM SEPARATOR
+        POPUP "Microsoft on the &Web"
+        BEGIN
+            MENUITEM "&Free Stuff",                 ID_HELP_FREESTUFF
+            MENUITEM "&Product News",               ID_HELP_PRODUCTNEWS
+            MENUITEM "Frequently Asked &Questions", ID_HELP_FAQ
+            MENUITEM "Online &Support",             ID_HELP_ONLINESUPPORT
+            MENUITEM SEPARATOR
+            MENUITEM "&Best of the Web",            ID_HELP_BESTOFWEB
+            MENUITEM "Search the &Web...",          ID_HELP_SEARCHTHEWEB
+            MENUITEM SEPARATOR
+            MENUITEM "Microsoft &Home Page",        ID_HELP_MSHOMEPAGE
+        END
+        MENUITEM "Online &Support",             ID_HELP_ONLINESUPPORT
+        MENUITEM "&Release Notes",              ID_HELP_RELEASENOTES
+        MENUITEM SEPARATOR
+        MENUITEM "&About Microsoft Chat",       ID_APP_ABOUT
+    END
+END
+
+IDR_SRVR_INPLACE MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "C&lear\tDel",                 ID_EDIT_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECTALL
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM SEPARATOR
+        MENUITEM "&Comic Strip",                ID_VIEW_COMICS
+        MENUITEM "Plain Te&xt",                 ID_VIEW_TEXT
+        MENUITEM SEPARATOR
+        POPUP "&Member List"
+        BEGIN
+            MENUITEM "&List",                       ID_VIEW_LIST
+            MENUITEM "&Icon",                       ID_VIEW_ICON
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Options\tCtrl+Q",            ID_VIEW_OPTIONS
+    END
+    POPUP "F&ormat"
+    BEGIN
+        MENUITEM "&Color\tCtrl+K",              ID_SETCOLOR
+        MENUITEM "&Bold\tCtrl+B",               ID_SWITCHBOLD
+        MENUITEM "&Italic\tCtrl+I",             ID_SWITCHITALIC
+        MENUITEM "&Underline\tCtrl+U",          ID_SWITCHUNDERLINED
+        MENUITEM "&Fixed Pitch Font\tCtrl+F",   ID_SWITCHFIXEDPITCH
+        MENUITEM "&Symbol\tCtrl+D",             ID_SWITCHSYMBOL
+    END
+    POPUP "&Room"
+    BEGIN
+        MENUITEM "&New Room...",                ID_SESSION_NEWROOM
+        MENUITEM "&Leave Room",                 ID_SESSION_LEAVE
+        MENUITEM SEPARATOR
+        MENUITEM "Room &List...",               ID_CHATROOM_LIST
+        MENUITEM "Room &Properties...",         ID_CHANNELPROPS
+        MENUITEM SEPARATOR
+        MENUITEM "&Connect...",                 ID_SESSION_CONNECT
+        MENUITEM "&Disconnect",                 ID_SESSION_DISCONNECT
+    END
+    POPUP "&Member"
+    BEGIN
+        MENUITEM "&User List...",               ID_USER_LIST
+        MENUITEM "I&nvite...",                  ID_INVITE
+        MENUITEM SEPARATOR
+        MENUITEM "&Get Profile",                ID_MEMBER_GETINFO
+        MENUITEM "Get I&dentity",               ID_GETIDENTITY
+        MENUITEM "&Whisper Box",                ID_WHISPERBOX_MLIST
+        MENUITEM "&Ignore",                     ID_MEMBER_IGNORE
+        MENUITEM SEPARATOR
+        MENUITEM "Send &Email",                 ID_SEND_EMAIL
+        MENUITEM "Send &File",                  ID_SEND_FILE
+        MENUITEM "Visit H&ome Page",            ID_VISIT_HOMEPAGE
+        MENUITEM "Net&Meeting",                 ID_START_NETMEETING
+        MENUITEM SEPARATOR
+        MENUITEM "&Version",                    ID_GET_VERSION
+        MENUITEM "Lag &Time",                   ID_PING_USER
+        MENUITEM "&Local Time",                 ID_GET_LOCALTIME
+    END
+    MENUITEM SEPARATOR
+    MENUITEM SEPARATOR
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_TOPICS
+        MENUITEM SEPARATOR
+        POPUP "Microsoft on the &Web"
+        BEGIN
+            MENUITEM "&Free Stuff",                 ID_HELP_FREESTUFF
+            MENUITEM "&Product News",               ID_HELP_PRODUCTNEWS
+            MENUITEM "Frequently Asked &Questions", ID_HELP_FAQ
+            MENUITEM "Online &Support",             ID_HELP_ONLINESUPPORT
+            MENUITEM SEPARATOR
+            MENUITEM "&Best of the Web",            ID_HELP_BESTOFWEB
+            MENUITEM "Search the &Web...",          ID_HELP_SEARCHTHEWEB
+            MENUITEM SEPARATOR
+            MENUITEM "Microsoft &Home Page",        ID_HELP_MSHOMEPAGE
+        END
+        MENUITEM "Online &Support",             ID_HELP_ONLINESUPPORT
+        MENUITEM "&Release Notes",              ID_HELP_RELEASENOTES
+        MENUITEM SEPARATOR
+        MENUITEM "&About Microsoft Chat",       ID_APP_ABOUT
+    END
+END
+
+IDR_BODYCONTEXT MENU DISCARDABLE 
+BEGIN
+    POPUP "&BodyContext"
+    BEGIN
+        MENUITEM "&Frozen",                     ID_BODYCONTEXT_FREEZE
+        MENUITEM "&Send Expression",            ID_BODYCONTEXT_SENDEXPRESSION
+
+    END
+END
+
+IDR_IRC_MEMBER MENU DISCARDABLE 
+BEGIN
+    POPUP "&IRCMember"
+    BEGIN
+        MENUITEM "&Get Profile",                ID_AVATARCONTEXT_GETINFO
+        MENUITEM "Get I&dentity",               ID_GETIDENTITY
+        MENUITEM "&Whisper Box",                ID_WHISPERBOX_MLIST
+        MENUITEM "&Ignore",                     ID_AVATARCONTEXT_IGNORE
+        MENUITEM SEPARATOR
+        MENUITEM "Send &Email",                 ID_SEND_EMAIL
+        MENUITEM "Send &File",                  ID_SEND_FILE
+        MENUITEM "Visit H&ome Page",            ID_VISIT_HOMEPAGE
+        MENUITEM "Net&Meeting",                 ID_START_NETMEETING
+        MENUITEM SEPARATOR
+        MENUITEM "&Version",                    ID_GET_VERSION
+        MENUITEM "Lag &Time",                   ID_PING_USER
+        MENUITEM "&Local Time",                 ID_GET_LOCALTIME
+    END
+END
+
+IDR_MEMBERCONTEXT MENU DISCARDABLE 
+BEGIN
+    POPUP "&MemberlistContext"
+    BEGIN
+        MENUITEM "&List",                       ID_VIEW_LIST
+        MENUITEM "&Icon",                       ID_VIEW_ICON
+    END
+END
+
+IDR_ADMIN MENU DISCARDABLE 
+BEGIN
+    POPUP "Host"
+    BEGIN
+        MENUITEM "&Kick...",                    ID_ADMINISTRATOR_KICK
+        MENUITEM "&Ban / UnBan...",             ID_ADMIN_BAN
+        MENUITEM "Syn&c Backgrounds",           ID_ADMIN_BGRNDSYNC
+        MENUITEM SEPARATOR
+        MENUITEM "&Host",                       ID_MAKEADMIN
+        MENUITEM "&Speaker",                    ID_MAKESPEAKER
+        MENUITEM "Spectato&r",                  ID_MAKESPECTATOR
+    END
+END
+
+IDR_VIEWCONTEXT MENU DISCARDABLE 
+BEGIN
+    POPUP "ViewContext"
+    BEGIN
+        MENUITEM "&Comic Strip",                ID_VIEW_COMICS
+        MENUITEM "Plain Te&xt",                 ID_VIEW_TEXT
+        MENUITEM SEPARATOR
+        MENUITEM "Room &Properties...",         ID_CHANNELPROPS
+    END
+END
+
+IDR_FORMATTING MENU DISCARDABLE 
+BEGIN
+    POPUP "Formatting"
+    BEGIN
+        MENUITEM "&Color\tCtrl+K",              ID_SETCOLOR
+        MENUITEM "&Bold\tCtrl+B",               ID_SWITCHBOLD
+        MENUITEM "&Italic\tCtrl+I",             ID_SWITCHITALIC
+        MENUITEM "&Underline\tCtrl+U",          ID_SWITCHUNDERLINED
+        MENUITEM "&Fixed Pitch Font\tCtrl+F",   ID_SWITCHFIXEDPITCH
+        MENUITEM "&Symbol\tCtrl+D",             ID_SWITCHSYMBOL
+    END
+END
+
+IDR_MEMBERADMIN MENU DISCARDABLE 
+BEGIN
+    POPUP "MemberAdmin"
+    BEGIN
+        MENUITEM "&Get Profile",                ID_AVATARCONTEXT_GETINFO
+        MENUITEM "Get I&dentity",               ID_GETIDENTITY
+        MENUITEM "&Whisper Box",                ID_WHISPERBOX_MLIST
+        MENUITEM "&Ignore",                     ID_AVATARCONTEXT_IGNORE
+        MENUITEM SEPARATOR
+        MENUITEM "Send &Email",                 ID_SEND_EMAIL
+        MENUITEM "Send &File",                  ID_SEND_FILE
+        MENUITEM "Visit H&ome Page",            ID_VISIT_HOMEPAGE
+        MENUITEM "Net&Meeting",                 ID_START_NETMEETING
+        MENUITEM SEPARATOR
+        MENUITEM "&Version",                    ID_GET_VERSION
+        MENUITEM "Lag &Time",                   ID_PING_USER
+        MENUITEM "&Local Time",                 ID_GET_LOCALTIME
+        MENUITEM SEPARATOR
+        MENUITEM "&Kick...",                    ID_ADMINISTRATOR_KICK
+        MENUITEM "&Ban / UnBan...",             ID_ADMIN_BAN
+        MENUITEM SEPARATOR
+        MENUITEM "&Host",                       ID_MAKEADMIN
+        MENUITEM "&Speaker",                    ID_MAKESPEAKER
+        MENUITEM "Spectato&r",                  ID_MAKESPECTATOR
+    END
+END
+
+IDR_NM_MAIN MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "C&lear\tDel",                 ID_EDIT_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECTALL
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "&Comic Strip",                ID_VIEW_COMICS
+        MENUITEM "Plain Te&xt",                 ID_VIEW_TEXT
+        MENUITEM SEPARATOR
+        POPUP "&Member List"
+        BEGIN
+            MENUITEM "&List",                       ID_VIEW_LIST
+            MENUITEM "&Icon",                       ID_VIEW_ICON
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Options...\tCtrl+Q",         ID_VIEW_OPTIONS
+    END
+    POPUP "F&ormat"
+    BEGIN
+        MENUITEM "&Color\tCtrl+K",              ID_SETCOLOR
+        MENUITEM "&Bold\tCtrl+B",               ID_SWITCHBOLD
+        MENUITEM "&Italic\tCtrl+I",             ID_SWITCHITALIC
+        MENUITEM "&Underline\tCtrl+U",          ID_SWITCHUNDERLINED
+        MENUITEM "&Fixed Pitch Font\tCtrl+F",   ID_SWITCHFIXEDPITCH
+        MENUITEM "&Symbol\tCtrl+D",             ID_SWITCHSYMBOL
+    END
+    POPUP "&Member"
+    BEGIN
+        MENUITEM "&Away from Keyboard",         ID_AWAY_TOGGLE
+        MENUITEM SEPARATOR
+        MENUITEM "&Get Profile",                ID_MEMBER_GETINFO
+        MENUITEM "&Whisper Box",                ID_WHISPERBOX_MLIST
+        MENUITEM "&Ignore",                     ID_MEMBER_IGNORE
+        MENUITEM SEPARATOR
+        MENUITEM "Visit H&ome Page",            ID_VISIT_HOMEPAGE
+        MENUITEM SEPARATOR
+        MENUITEM "&Version",                    ID_GET_VERSION
+        MENUITEM "Lag &Time",                   ID_PING_USER
+        MENUITEM "&Local Time",                 ID_GET_LOCALTIME
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_TOPICS
+        MENUITEM SEPARATOR
+        POPUP "Microsoft on the &Web"
+        BEGIN
+            MENUITEM "&Free Stuff",                 ID_HELP_FREESTUFF
+            MENUITEM "&Product News",               ID_HELP_PRODUCTNEWS
+            MENUITEM "Frequently Asked &Questions", ID_HELP_FAQ
+            MENUITEM "Online &Support",             ID_HELP_ONLINESUPPORT
+            MENUITEM SEPARATOR
+            MENUITEM "&Best of the Web",            ID_HELP_BESTOFWEB
+            MENUITEM "Search the &Web...",          ID_HELP_SEARCHTHEWEB
+            MENUITEM SEPARATOR
+            MENUITEM "Microsoft &Home Page",        ID_HELP_MSHOMEPAGE
+        END
+        MENUITEM "Online &Support",             ID_HELP_ONLINESUPPORT
+        MENUITEM "&Release Notes",              ID_HELP_RELEASENOTES
+        MENUITEM SEPARATOR
+        MENUITEM "&About Microsoft Chat",       ID_APP_ABOUT
+    END
+END
+
+IDR_NM_MEMBER MENU DISCARDABLE 
+BEGIN
+    POPUP "&NmMember"
+    BEGIN
+        MENUITEM "&Get Profile",                ID_AVATARCONTEXT_GETINFO
+        MENUITEM "&Whisper Box",                ID_WHISPERBOX_MLIST
+        MENUITEM "&Ignore",                     ID_AVATARCONTEXT_IGNORE
+        MENUITEM SEPARATOR
+        MENUITEM "Visit H&ome Page",            ID_VISIT_HOMEPAGE
+        MENUITEM SEPARATOR
+        MENUITEM "&Version",                    ID_GET_VERSION
+        MENUITEM "Lag &Time",                   ID_PING_USER
+        MENUITEM "&Local Time",                 ID_GET_LOCALTIME
+    END
+END
+
+IDR_VIEWCONTEXT_NM MENU DISCARDABLE 
+BEGIN
+    POPUP "ViewContext"
+    BEGIN
+        MENUITEM "&Comic Strip",                ID_VIEW_COMICS
+        MENUITEM "Plain Te&xt",                 ID_VIEW_TEXT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "0",            ID_MACRO_A0,            VIRTKEY, ALT, NOINVERT
+    "1",            ID_MACRO_A1,            VIRTKEY, ALT, NOINVERT
+    "2",            ID_MACRO_A2,            VIRTKEY, ALT, NOINVERT
+    "3",            ID_MACRO_A3,            VIRTKEY, ALT, NOINVERT
+    "4",            ID_MACRO_A4,            VIRTKEY, ALT, NOINVERT
+    "5",            ID_MACRO_A5,            VIRTKEY, ALT, NOINVERT
+    "6",            ID_MACRO_A6,            VIRTKEY, ALT, NOINVERT
+    "7",            ID_MACRO_A7,            VIRTKEY, ALT, NOINVERT
+    "8",            ID_MACRO_A8,            VIRTKEY, ALT, NOINVERT
+    "9",            ID_MACRO_A9,            VIRTKEY, ALT, NOINVERT
+    "A",            ID_EDIT_SELECTALL,      VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "H",            ID_PLAY_SOUND,          VIRTKEY, CONTROL, NOINVERT
+    "J",            ID_SEND_ACTION,         VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_VIEW_MACROS,         VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_SESSION_CONNECT,     VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_VIEW_OPTIONS,        VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_ACTIONS_THINK,       VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "W",            ID_ACTIONS_WHISPER,     VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_ACTIONS_SAY,         VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+IDR_SRVR_INPLACE ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "0",            ID_MACRO_A0,            VIRTKEY, ALT, NOINVERT
+    "1",            ID_MACRO_A1,            VIRTKEY, ALT, NOINVERT
+    "2",            ID_MACRO_A2,            VIRTKEY, ALT, NOINVERT
+    "3",            ID_MACRO_A3,            VIRTKEY, ALT, NOINVERT
+    "4",            ID_MACRO_A4,            VIRTKEY, ALT, NOINVERT
+    "5",            ID_MACRO_A5,            VIRTKEY, ALT, NOINVERT
+    "6",            ID_MACRO_A6,            VIRTKEY, ALT, NOINVERT
+    "7",            ID_MACRO_A7,            VIRTKEY, ALT, NOINVERT
+    "8",            ID_MACRO_A8,            VIRTKEY, ALT, NOINVERT
+    "9",            ID_MACRO_A9,            VIRTKEY, ALT, NOINVERT
+    "A",            ID_EDIT_SELECTALL,      VIRTKEY, CONTROL, NOINVERT
+    "H",            ID_PLAY_SOUND,          VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "J",            ID_SEND_ACTION,         VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_VIEW_MACROS,         VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_VIEW_OPTIONS,        VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_ACTIONS_THINK,       VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "W",            ID_ACTIONS_WHISPER,     VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_ACTIONS_SAY,         VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  34, 22, 279, 137
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Microsoft Chat"
+FONT 8, "Comic Sans MS"
+BEGIN
+    CONTROL         "%1 %2 (%3)",IDC_VERSION,"Static",SS_LEFTNOWORDWRAP | 
+                    WS_GROUP,7,4,146,8
+    DEFPUSHBUTTON   "OK",IDOK,8,115,47,14,WS_GROUP
+    LTEXT           "To be replaced by IDS_WARNING_TEXT",IDC_WARNING,7,32,
+                    131,68,NOT WS_GROUP
+    LTEXT           "Microsoft Corporation",IDC_CORP,159,20,103,8
+    LTEXT           "User",IDC_USER,159,12,103,8
+    LTEXT           "Copyright © 1996-1998 Microsoft Corporation",IDC_COPY,7,
+                    12,144,16
+    GROUPBOX        "This product is licensed to",IDC_LICENSE,153,4,120,28
+    CONTROL         203,IDC_TIKI,"Static",SS_BITMAP | SS_CENTERIMAGE | 
+                    SS_REALSIZEIMAGE,0,0,280,137
+END
+
+IDD_ROOMLIST DIALOG DISCARDABLE  0, 0, 400, 255
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Chat Room List"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Dis&play chat rooms that contain:",IDC_STATIC,7,7,101,8
+    EDITTEXT        IDC_TOPIC_EDIT,110,5,132,12,ES_AUTOHSCROLL
+    CONTROL         "Also search in room &topics",IDC_SEARCH_DESCRS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,267,6,98,10
+    CONTROL         "Show only &registered rooms",IDC_REGISTERED_ONLY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,24,102,10
+    LTEXT           "Members:",IDC_STATIC,204,25,30,8
+    LTEXT           "Mi&n:",IDC_STATIC,243,25,14,8
+    EDITTEXT        IDC_MIN_MEMBERS,260,23,34,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_MIN,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,294,23,11,14
+    LTEXT           "Ma&x:",IDC_STATIC,305,25,16,8
+    EDITTEXT        IDC_MAX_MEMBERS,325,23,34,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_MAX,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,357,23,11,14
+    CONTROL         "List2",IDC_ROOMLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,40,386,182
+    PUSHBUTTON      "&Update List",IDC_RESET_LIST,7,227,50,14
+    DEFPUSHBUTTON   "&Go To",IDC_GOTO,63,227,50,14
+    PUSHBUTTON      "&Create Room...",IDC_NEWROOM,119,227,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,179,227,50,14
+    LTEXT           "",IDC_ROOM_CAPTION,7,244,157,8
+    RTEXT           "",IDC_SEARCH_TIME,211,244,182,8
+    EDITTEXT        IDC_USER_KEY,179,242,132,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    LTEXT           "Containing &user nickname:",IDC_STATIC,76,244,83,8,NOT 
+                    WS_VISIBLE
+END
+
+IDD_SETTINGSPAGE DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Connection",IDC_GROUP0,7,7,236,45
+    LTEXT           "If you are speaking mostly to people who are not using Microsoft Chat, check the box below:",
+                    IDC_STATIC,15,18,222,17
+    CONTROL         "Don't send &Microsoft Chat specific information",
+                    IDC_COMICSDATA,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,
+                    37,172,10
+    GROUPBOX        "Content Advisor",IDC_ADVANCED_RATINGS_GROUPBOX,7,58,236,
+                    56
+    ICON            IDI_RATINGS,IDC_RATINGS_ICON,14,70,20,20
+    LTEXT           "Ratings help you control what kind of Internet content the users of your computer are allowed to view.",
+                    IDC_RATINGS_TEXT,42,68,194,19
+    PUSHBUTTON      "Enable &Ratings...",IDC_RATINGS_TURN_ON,103,93,66,14
+    PUSHBUTTON      "S&ettings...",IDC_ADVANCED_RATINGS_BUTTON,178,93,54,14
+    CONTROL         "Allow &whispers",IDC_ACCEPTWHISPERS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,122,115,10
+    CONTROL         "Pla&y sounds",IDC_PLAYSOUNDS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,134,54,10
+    CONTROL         "S&how arrivals/departures",IDC_SHOWARRIVALS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,146,93,10
+    CONTROL         "Get i&dentity on arrival",IDC_SHOWIDENTITY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,158,82,10
+    CONTROL         "Receive chat &invitations",IDC_ALLOWINVITES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,139,122,93,10
+    CONTROL         "Receive &file transfer requests",IDC_ALLOW_FILETX,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,139,134,106,10
+    CONTROL         "Receive &NetMeeting calls",IDC_NETMEETING_AUTOSTART,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,139,146,97,10
+    CONTROL         "Prompt to &save on exit",IDC_SAVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,139,158,86,10
+    LTEXT           "Sound search &path:",IDC_STATIC,7,184,63,8
+    EDITTEXT        IDC_SOUNDPATH,7,195,238,13,ES_AUTOHSCROLL
+END
+
+IDD_PERSONALPAGE_IRC DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Personal Info"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Real name:",IDC_STATIC,7,7,37,8
+    EDITTEXT        IDC_REALNAME,7,21,119,14,ES_AUTOHSCROLL
+    LTEXT           "&Nickname:",IDC_STATIC,7,42,35,8
+    EDITTEXT        IDC_NICKNAME,7,55,119,14,ES_AUTOHSCROLL
+    LTEXT           "&Email address:",IDC_STATIC,7,78,63,8
+    EDITTEXT        IDC_EMAIL,7,91,119,14,ES_AUTOHSCROLL
+    LTEXT           "&WWW Home Page:",IDC_STATIC,7,115,99,8
+    EDITTEXT        IDC_HOMEPAGE,7,128,238,14,ES_AUTOHSCROLL
+    LTEXT           "&Brief description of yourself:",IDC_STATIC,7,152,87,8
+    CONTROL         "",IDC_PROFILE_RICHEDIT,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,
+                    166,237,42
+    CONTROL         "unused",IDC_ACCEPTWHISPERS,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_TABSTOP,206,7,43,10
+    CONTROL         "unused",IDC_SHOWARRIVALS,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,206,23,42,10
+    CONTROL         "unused",IDC_SAVE,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,206,39,39,10
+END
+
+IDD_CHARACTERPAGE DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Character"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_AVLIST,7,21,119,189,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Character:",IDC_STATIC,7,7,34,8
+    LTEXT           "Preview:",IDC_STATIC,141,7,28,8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | NOT WS_VISIBLE,
+                    141,21,100,188
+END
+
+IDD_BACKGROUNDPAGE DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Background"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_BACKLIST,7,21,85,189,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_BACKPREV,98,21,19,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    LTEXT           "Static",IDC_PREVX,224,21,19,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    LTEXT           "Static",IDC_PREVY,98,202,19,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    LTEXT           "Background:",IDC_STATIC,7,7,42,8
+    LTEXT           "Preview:",IDC_STATIC,98,7,28,8
+END
+
+IDD_KICK DIALOG DISCARDABLE  0, 0, 186, 89
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Kick"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "",IDC_KICKMSG,7,7,170,8
+    EDITTEXT        IDC_REASON,7,18,172,27,ES_MULTILINE | ES_AUTOVSCROLL
+    CONTROL         "&Also ban:",IDC_BANTOO,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,51,45,10
+    EDITTEXT        IDC_BANTOO_NAME,58,49,121,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,68,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,63,68,50,14
+END
+
+IDD_NICKNAME DIALOG DISCARDABLE  0, 0, 188, 71
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter New Nickname"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Static",IDC_STATICNICKNAME,7,7,115,35
+    LTEXT           "&Nickname:",IDC_STATIC,7,51,40,10
+    EDITTEXT        IDC_NEWNICK,56,49,126,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,133,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,133,24,50,14
+END
+
+IDD_CHANNEL DIALOG DISCARDABLE  0, 0, 144, 110
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter Room"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Enter the name of a new or existing chat &room:",
+                    IDC_STATIC,7,6,122,17
+    EDITTEXT        IDC_NEWCHANNEL,7,26,128,14,ES_AUTOHSCROLL
+    LTEXT           "Optional &password:",IDC_STATIC,7,50,61,8
+    EDITTEXT        IDC_PASSWORD,7,62,128,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,90,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,63,90,50,14
+END
+
+IDD_CHANNELPROP DIALOGEX 0, 0, 186, 196
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "Room Properties"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Static",IDC_CHANPROP_MESG,7,7,172,19
+    LTEXT           "Chat room &topic:",IDC_STATIC,7,31,107,8
+    CONTROL         "&Auditorium",IDC_AUDITORIUM,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_TABSTOP,130,31,49,10
+    CONTROL         "",IDC_TOPIC_RICHEDIT,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | WS_CLIPSIBLINGS | WS_BORDER | 
+                    WS_VSCROLL | WS_TABSTOP,7,42,172,37,WS_EX_CLIENTEDGE
+    CONTROL         "&Moderated",IDC_MODERATED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,83,50,10
+    CONTROL         "&SetTopic anyone",IDC_TOPICANYONE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,97,70,10
+    CONTROL         "&Invite only",IDC_INVITEONLY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,111,48,10
+    CONTROL         "&Hidden",IDC_HIDDEN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,98,83,39,10
+    CONTROL         "&Private",IDC_PRIVATE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,98,97,38,10
+    CONTROL         "&No whispers",IDC_NOWHISPERS,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_TABSTOP,98,111,55,10
+    CONTROL         "Set Maximum &Users:",IDC_SETMAX,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,137,80,10
+    EDITTEXT        IDC_MAXPARTICIPANTS,98,135,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "&Optional password:",IDC_PASSWORD_GIVEN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,153,83,10
+    EDITTEXT        IDC_PASSWORD,98,151,81,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,175,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,63,175,50,14
+END
+
+IDD_BAN DIALOG DISCARDABLE  0, 0, 186, 170
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Ban / UnBan"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Ban",IDBAN,7,149,50,14
+    PUSHBUTTON      "OK",IDOK,119,149,50,14
+    LTEXT           "Banned &people",IDC_BANMESG,7,7,172,18
+    PUSHBUTTON      "&UnBan",IDUNBAN,63,149,50,14
+    COMBOBOX        IDC_BANNED_USERS,7,26,172,120,CBS_SIMPLE | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_INVITE DIALOG DISCARDABLE  0, 0, 186, 89
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Invite"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Nicknames of people to invite to this room:",IDC_STATIC,
+                    7,7,170,8
+    EDITTEXT        IDC_INVITEES,7,18,172,44,ES_MULTILINE | WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,68,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,63,68,50,14
+END
+
+IDD_SOUND_DLG DIALOGEX 0, 0, 180, 226
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Play Sound"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "&Sound file to play:",IDC_STATIC,7,7,57,8
+    LISTBOX         IDC_SOUNDLIST,7,18,166,145,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Accompanying message:",IDC_STATIC,7,169,112,8
+    CONTROL         "",IDC_SND_MESSAGE,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_CLIPSIBLINGS | 
+                    WS_BORDER | WS_TABSTOP,7,180,166,16,WS_EX_CLIENTEDGE
+    DEFPUSHBUTTON   "OK",IDOK,7,204,50,14,WS_DISABLED
+    PUSHBUTTON      "&Test",IDC_TEST,65,204,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,123,204,50,14
+END
+
+IDD_TEXTFONTPAGE_NM DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Text View"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Line Spacing",IDC_SPACE_GROUP,7,9,238,83,WS_GROUP
+    LTEXT           "Place blank lines between:",IDC_STATIC,16,20,90,8
+    CONTROL         "all &messages",IDC_LINESPACE_ALL,"Button",
+                    BS_AUTORADIOBUTTON,17,31,56,10
+    CONTROL         "&different message types",IDC_LINESPACE_DIFFERENT,
+                    "Button",BS_AUTORADIOBUTTON,17,43,90,10
+    CONTROL         "&no blank lines",IDC_LINESPACE_NONE,"Button",
+                    BS_AUTORADIOBUTTON,17,55,59,10
+    GROUPBOX        "Text Fonts",IDC_GROUP1,7,109,238,51
+    LTEXT           "Click on the buttons below to customize the fonts for various message types, or reset the defaults.",
+                    IDC_STATIC,16,119,222,17
+    PUSHBUTTON      "&Change Font...",ID_SETFONT,81,142,66,14
+    PUSHBUTTON      "&Reset Defaults",ID_RESET_TEXTFONTS,155,142,66,14
+    CONTROL         "unused",IDC_HOST_HDRS_BOLD,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_TABSTOP,206,201,39,10
+    CONTROL         "unused",IDC_HOST_MSGS_BOLD,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_TABSTOP,171,201,39,10
+    CONTROL         "Header&s and messages on different lines",
+                    IDC_CHKHEADERSEPARATE,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,18,73,222,11
+END
+
+IDD_SETTEXTFONT DIALOG DISCARDABLE  13, 54, 264, 261
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set Text Font"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Choose a &message type to change its font:",IDC_STATIC,
+                    7,6,135,8
+    COMBOBOX        IDC_MESSAGETYPE,159,4,97,68,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Font:",1088,6,151,40,9
+    COMBOBOX        1136,6,161,94,54,CBS_SIMPLE | CBS_OWNERDRAWFIXED | 
+                    CBS_AUTOHSCROLL | CBS_SORT | CBS_HASSTRINGS | 
+                    CBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Font St&yle:",1089,108,151,44,9
+    COMBOBOX        1137,108,161,64,54,CBS_SIMPLE | CBS_DISABLENOSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Size:",1090,179,151,30,9
+    COMBOBOX        1138,179,161,32,54,CBS_SIMPLE | CBS_OWNERDRAWFIXED | 
+                    CBS_SORT | CBS_HASSTRINGS | CBS_DISABLENOSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Effects",1072,6,219,58,34,WS_GROUP
+    CONTROL         "Stri&keout",1040,"Button",BS_3STATE | WS_TABSTOP,10,229,
+                    49,10
+    CONTROL         "&Underline",1041,"Button",BS_3STATE | WS_TABSTOP,10,241,
+                    51,10
+    LTEXT           "&Color:",1091,73,219,30,9
+    COMBOBOX        1139,73,229,71,100,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | 
+                    CBS_AUTOHSCROLL | CBS_HASSTRINGS | WS_BORDER | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Sc&ript:",1094,160,219,30,9
+    COMBOBOX        1140,160,229,94,65,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | 
+                    CBS_AUTOHSCROLL | CBS_HASSTRINGS | WS_BORDER | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Sample",1073,143,68,20,11,NOT WS_VISIBLE | WS_GROUP
+    CTEXT           "",1093,169,49,29,20,SS_NOPREFIX | NOT WS_VISIBLE | NOT 
+                    WS_GROUP
+    CTEXT           "",IDR_ANGRY,180,62,8,8,SS_NOPREFIX | NOT WS_VISIBLE
+    DEFPUSHBUTTON   "OK",IDOK,218,154,40,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,218,171,40,14,WS_GROUP
+    PUSHBUTTON      "&Apply",1026,218,188,40,14,WS_GROUP
+    PUSHBUTTON      "&Help",1038,218,205,40,14,WS_GROUP
+END
+
+IDD_USERLIST DIALOG DISCARDABLE  0, 0, 395, 263
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "User List"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "&Search for",-1,7,3,172,24,WS_GROUP
+    CONTROL         "&All users",IDC_USERSEARCH_ALL,"Button",
+                    BS_AUTORADIOBUTTON,14,13,42,10
+    CONTROL         "Ni&ckname",IDC_USERSEARCH_NICK,"Button",
+                    BS_AUTORADIOBUTTON,72,13,48,10
+    CONTROL         "I&dentity",IDC_USERSEARCH_IDENTITY,"Button",
+                    BS_AUTORADIOBUTTON,135,13,39,10
+    LTEXT           "&Names containing:",IDC_SEARCH_LABEL,7,36,61,8
+    EDITTEXT        IDC_SEARCH_EDIT,71,34,107,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Update List",IDC_RESET_LIST,338,11,50,14
+    CONTROL         "List2",IDC_USERLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,51,381,178
+    PUSHBUTTON      "&Invite",IDC_INVITE_FROM_LIST,7,234,50,14
+    PUSHBUTTON      "&Whisper Box...",IDC_MESSAGE_FROM_LIST,64,234,61,14
+    PUSHBUTTON      "&Join User",IDC_JOINROOM,132,234,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,189,234,48,14
+    LTEXT           "",IDC_ROOM_CAPTION,7,252,93,8
+    RTEXT           "",IDC_SEARCH_TIME,260,252,128,8
+END
+
+IDD_WHISPERBOX DIALOG DISCARDABLE  0, 0, 334, 196
+STYLE DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Whisper Box"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tab1",IDC_TAB1,"SysTabControl32",TCS_BUTTONS | 
+                    TCS_MULTILINE | WS_TABSTOP,7,7,320,147
+    LTEXT           "",IDC_SAYPOSITION,7,155,320,18,NOT WS_VISIBLE
+    PUSHBUTTON      "&Delete Tab",IDC_DELETE_TAB,277,178,50,14
+    CONTROL         "&Ignore user",IDC_IGNORE_WBOX,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,216,180,51,10
+END
+
+IDD_COMICS_VIEW DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Comics View"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Comic Fonts",IDC_GROUP0,7,16,238,80
+    LTEXT           "Click on the buttons below to customize the fonts for various message types, or reset the defaults.",
+                    IDC_STATIC,16,26,222,17
+    PUSHBUTTON      "&Change Font...",ID_SETFONT,81,49,66,14
+    PUSHBUTTON      "&Reset Defaults",ID_RESET_TEXTFONTS,155,49,66,14
+    CONTROL         "&Show rich text formatting",IDC_SHOWCOMICRTF,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,80,206,9
+    GROUPBOX        "&Page Layout",IDC_GROUP1,7,116,236,60
+    LTEXT           "You may change how many panels Microsoft Chat uses horizontally to display the comic strip.  On some computers this may cause the window to scroll horizontally.",
+                    IDC_STATIC,15,128,214,25
+    COMBOBOX        IDC_PANELS,13,157,91,60,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_AUTOMATION_PAGE DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Automation"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Automatic Greeting",IDC_GROUP0,7,7,238,70,WS_GROUP
+    LTEXT           "You may choose to send a message to any user that enters the room after you, if you are a host in the current room.",
+                    IDC_STATIC,21,17,207,18
+    CONTROL         "&None",IDC_NOGREETING,"Button",BS_AUTORADIOBUTTON,107,
+                    36,33,10
+    CONTROL         "&Whispered",IDC_WHISPERGREETING,"Button",
+                    BS_AUTORADIOBUTTON,149,36,50,10
+    CONTROL         "&Said",IDC_SAYGREETING,"Button",BS_AUTORADIOBUTTON,208,
+                    36,30,10
+    CONTROL         "",IDC_GREETINGMESG,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | WS_BORDER | WS_VSCROLL | WS_TABSTOP,14,
+                    48,223,25
+    GROUPBOX        "Auto Ignore Flooders",IDC_GROUP1,7,82,238,37
+    CONTROL         "A&uto ignore enabled",IDC_AUTOIGNORE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,97,85,9
+    LTEXT           "Message &Count:",IDC_STATIC,123,90,52,9
+    EDITTEXT        IDC_MESGCOUNT,181,88,31,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_MESGCOUNTSPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,215,89,11,11
+    LTEXT           "&Interval (sec.):",IDC_STATIC,123,104,45,11
+    EDITTEXT        IDC_INTERVAL,181,103,31,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",IDC_INTERVALSPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,215,104,11,11
+    GROUPBOX        "Macros",IDC_GROUP2,7,125,238,86
+    LTEXT           "You may choose to send a message whenever you press a key combination.",
+                    IDC_STATIC,24,138,205,16
+    LTEXT           "&Key combination:",IDC_STATIC,14,160,57,8
+    COMBOBOX        IDC_KEY,73,159,40,71,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Nam&e:",IDC_STATIC,121,160,22,8
+    EDITTEXT        IDC_MACRONAME,145,158,91,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_MACRORICHEDIT,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | WS_BORDER | WS_VSCROLL | WS_TABSTOP,15,
+                    177,163,28
+    PUSHBUTTON      "Add &Macro",IDC_ADD_MACRO,186,176,50,14
+    PUSHBUTTON      "&Delete Macro",IDC_DELETE_MACRO,186,192,50,14
+END
+
+IDD_CHANNELCREATE DIALOGEX 0, 0, 186, 194
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "Create Chat Room"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Chat &room name:",IDC_STATIC,7,9,54,8
+    EDITTEXT        IDC_CHANNELNAME,68,7,111,14,ES_AUTOHSCROLL
+    LTEXT           "&Topic:",IDC_STATIC,7,23,107,8
+    CONTROL         "",IDC_TOPIC_RICHEDIT,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | WS_CLIPSIBLINGS | WS_BORDER | 
+                    WS_VSCROLL | WS_TABSTOP,7,34,172,37,WS_EX_CLIENTEDGE
+    CONTROL         "&Auditorium",IDC_AUDITORIUM,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_TABSTOP,130,28,49,10
+    CONTROL         "&Moderated",IDC_MODERATED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,77,50,10
+    CONTROL         "&SetTopic anyone",IDC_TOPICANYONE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,91,70,10
+    CONTROL         "&Invite only",IDC_INVITEONLY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,105,48,10
+    CONTROL         "&Hidden",IDC_HIDDEN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,98,77,39,10
+    CONTROL         "&Private",IDC_PRIVATE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,98,91,38,10
+    CONTROL         "&No whispers",IDC_NOWHISPERS,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_TABSTOP,98,105,55,10
+    CONTROL         "Set Maximum &Users:",IDC_SETMAX,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,134,80,10
+    EDITTEXT        IDC_MAXPARTICIPANTS,98,132,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "&Optional password:",IDC_PASSWORD_GIVEN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,151,83,10
+    EDITTEXT        IDC_PASSWORD,98,149,81,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,173,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,63,173,50,14
+END
+
+IDD_CHANPASSWORD DIALOG DISCARDABLE  0, 0, 144, 85
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Room Password"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "",IDC_PASSWORD_MESG,7,6,122,28
+    EDITTEXT        IDC_PASSWORD,7,42,128,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,65,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,63,65,50,14
+END
+
+IDD_FILE_TRANSFER DIALOG DISCARDABLE  0, 0, 186, 93
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "File Send"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,72,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,63,72,50,14
+    CONTROL         "Progress1",IDC_FILEPROGRESS,"msctls_progress32",
+                    WS_BORDER,7,8,172,9
+    LTEXT           "?:",IDC_STATIC_NXFERRED,7,26,50,8
+    LTEXT           "Bytes total:",IDC_STATIC,7,40,36,8
+    LTEXT           "0",IDC_BYTES_SENT,60,26,61,8
+    LTEXT           "0",IDC_BYTES_TOTAL,60,40,61,8
+    LTEXT           "Status:",IDC_STATIC,7,53,23,8
+    LTEXT           "Waiting for connection",IDC_CX_STATUS,60,53,119,16
+END
+
+IDD_MOTD DIALOG DISCARDABLE  0, 0, 298, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Message of the Day"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,241,125,50,14
+    CONTROL         "&Show this whenever connecting",IDC_SHOW_MOTD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,127,123,10
+    GROUPBOX        "Static",IDC_EDITPOS,7,7,284,115,NOT WS_VISIBLE
+END
+
+IDD_SETUPDIALOG DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Connect"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Favorites:",IDC_STATIC,40,67,32,8
+    COMBOBOX        IDC_CHATROOMS,40,81,161,63,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Server:",IDC_STATIC,40,102,24,9
+    COMBOBOX        IDC_SERVER,40,116,162,84,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,40,141,162,1
+    CONTROL         "&Go to chat room:",IDC_CONCHAN,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,40,154,69,10
+    CONTROL         "S&how all available chat rooms.",IDC_LISTCHAN,"Button",
+                    BS_AUTORADIOBUTTON,40,168,111,10
+    EDITTEXT        IDC_CHANNEL,110,152,91,14,ES_AUTOHSCROLL
+    LTEXT           "Welcome to Microsoft Chat.  You can specify chat server connection information here, and optionally adjust your Personal Information from the next tab.  ",
+                    IDC_STATIC,7,7,238,26
+    LTEXT           "Users of comics mode can choose a character and background from two additional tabs.",
+                    IDC_COMICSWELCOME,7,35,238,18,NOT WS_VISIBLE
+END
+
+IDD_AWAYDLG DIALOG DISCARDABLE  0, 0, 186, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Away From Keyboard"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Away message:",IDC_STATIC,7,7,50,8
+    CONTROL         "",IDC_AWAYMSG,"RICHEDIT",ES_MULTILINE | ES_AUTOVSCROLL | 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,19,172,39
+    DEFPUSHBUTTON   "OK",IDOK,7,66,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,63,66,50,14
+END
+
+IDD_TEXTFONTPAGE_IRC DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Text View"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Line Spacing",IDC_SPACE_GROUP,7,8,238,78,WS_GROUP
+    LTEXT           "Place blank lines between:",IDC_STATIC,16,19,90,8
+    CONTROL         "all &messages",IDC_LINESPACE_ALL,"Button",
+                    BS_AUTORADIOBUTTON,17,30,56,10
+    CONTROL         "&different message types",IDC_LINESPACE_DIFFERENT,
+                    "Button",BS_AUTORADIOBUTTON,17,42,90,10
+    CONTROL         "&no blank lines",IDC_LINESPACE_NONE,"Button",
+                    BS_AUTORADIOBUTTON,17,54,59,10
+    CONTROL         "Header&s and messages on different lines",
+                    IDC_CHKHEADERSEPARATE,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,18,71,222,11
+    GROUPBOX        "Text Fonts",IDC_GROUP1,7,95,238,51
+    LTEXT           "Click on the buttons below to customize the fonts for various message types, or reset the defaults.",
+                    IDC_STATIC,16,105,222,17
+    PUSHBUTTON      "&Change Font...",ID_SETFONT,81,128,66,14
+    PUSHBUTTON      "&Reset Defaults",ID_RESET_TEXTFONTS,155,128,66,14
+    GROUPBOX        "Host Messages",IDC_GROUP2,7,155,238,48
+    LTEXT           "Highlight host messages:",IDC_STATIC,16,166,83,8
+    CONTROL         "make host message &headers bold",IDC_HOST_HDRS_BOLD,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,178,121,10
+    CONTROL         "make host m&essages bold",IDC_HOST_MSGS_BOLD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,18,190,97,10
+END
+
+IDD_PERSONALPAGE_NM DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Personal Settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Name:",-1,7,7,22,8
+    EDITTEXT        IDC_REALNAME,7,21,119,14,ES_AUTOHSCROLL
+    LTEXT           "&WWW Home Page:",-1,7,50,99,8
+    EDITTEXT        IDC_HOMEPAGE,7,63,238,14,ES_AUTOHSCROLL
+    LTEXT           "&Brief description of yourself:",-1,7,95,87,8
+    CONTROL         "",IDC_PROFILE_RICHEDIT,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,
+                    109,237,42
+    CONTROL         "Allow &whispers",IDC_ACCEPTWHISPERS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,166,115,10
+    CONTROL         "S&how arrivals/departures",IDC_SHOWARRIVALS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,182,93,10
+    CONTROL         "Prompt to &save on exit",IDC_SAVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,198,86,10
+    EDITTEXT        IDC_NICKNAME,159,7,23,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EMAIL,204,7,21,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+END
+
+IDD_CHOOSECOLOR DIALOGEX 0, 0, 118, 38
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Choose Color"
+FONT 6, "MS Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_SECURITYPAGE DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Advanced"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "MS Chat allows users to specify a number of properties for each server.  These settings should be changed by advanced users only.",
+                    IDC_STATIC,7,7,238,18
+    LTEXT           "&Server:",IDC_STATIC,7,29,24,8
+    COMBOBOX        IDC_SERVERLIST,7,40,164,103,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Port:",IDC_STATIC,194,29,16,8
+    EDITTEXT        IDC_PORTNUM,193,40,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "A&dd",IDC_ADD,7,58,50,14
+    PUSHBUTTON      "&Remove",IDC_REMOVE,63,58,50,14
+    GROUPBOX        "Security",IDC_STATIC,7,89,238,122
+    CONTROL         "Connect &without a password if possible (default)",
+                    IDC_SEC_ANON,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,22,101,165,10
+    CONTROL         "Connect with the &IRC username and password below:",
+                    IDC_SEC_IRC,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,22,
+                    115,185,10
+    LTEXT           "&Username:",IDC_USERNAME_LABEL,54,129,35,8,NOT WS_GROUP
+    EDITTEXT        IDC_IRC_USERNAME,114,126,78,14,ES_AUTOHSCROLL
+    LTEXT           "Pass&word:",IDC_PASSWORD_LABEL,54,146,34,8,NOT WS_GROUP
+    EDITTEXT        IDC_IRC_PASSWORD,114,144,78,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    CONTROL         "R&emember password",IDC_REM_PASSWD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,114,161,81,10
+    CONTROL         "Connect using the se&curity packages provided by the server",
+                    IDC_SEC_SRVRPKGS,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,22,173,217,10
+    CONTROL         "Connect using these security pac&kages:",
+                    IDC_SEC_USERPKGS,"Button",BS_AUTORADIOBUTTON | 
+                    BS_MULTILINE | WS_TABSTOP,22,182,85,26
+    EDITTEXT        IDC_EDIT_PKGS,114,189,78,14,ES_AUTOHSCROLL
+END
+
+IDD_INVITATION DIALOG DISCARDABLE  0, 0, 186, 93
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Invitation"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Reject",IDNO,129,72,50,14
+    CONTROL         "&Ignore user",IDC_IGNORE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,8,61,51,10
+    LTEXT           "Static",IDC_MESSAGE,7,7,172,19
+    PUSHBUTTON      "&Accept",IDYES,74,72,50,14
+    LTEXT           "Choose to accept or reject the invitation by using the buttons below.  You may also choose to ignore future invitations and messages from this user.",
+                    IDC_STATIC,7,29,172,26
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        RIGHTMARGIN, 278
+    END
+
+    IDD_ROOMLIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 393
+        VERTGUIDE, 287
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 252
+        HORZGUIDE, 29
+        HORZGUIDE, 40
+        HORZGUIDE, 241
+    END
+
+    IDD_SETTINGSPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_PERSONALPAGE_IRC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_CHARACTERPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_BACKGROUNDPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_KICK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_NICKNAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_CHANNEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 137
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_CHANNELPROP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 98
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
+    END
+
+    IDD_BAN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+        HORZGUIDE, 46
+    END
+
+    IDD_INVITE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_SOUND_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 215
+        HORZGUIDE, 18
+        HORZGUIDE, 125
+        HORZGUIDE, 163
+    END
+
+    IDD_TEXTFONTPAGE_NM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_USERLIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 388
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 260
+        HORZGUIDE, 51
+        HORZGUIDE, 248
+    END
+
+    IDD_WHISPERBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 327
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
+    END
+
+    IDD_COMICS_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_AUTOMATION_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        VERTGUIDE, 88
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_CHANNELCREATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 98
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
+
+    IDD_CHANPASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 137
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_FILE_TRANSFER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_MOTD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_SETUPDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_AWAYDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_TEXTFONTPAGE_IRC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_PERSONALPAGE_NM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_CHOOSECOLOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 111
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 31
+    END
+
+    IDD_SECURITYPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_INVITATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DIB
+//
+
+IDR_HAPPY               DIB     DISCARDABLE     "res\\fc_hap_l.bmp"
+IDR_LAUGH               DIB     DISCARDABLE     "res\\fc_laf_l.bmp"
+IDR_SHOUT               DIB     DISCARDABLE     "res\\fc_sho_l.bmp"
+IDR_ANGRY               DIB     DISCARDABLE     "res\\fc_ang_l.bmp"
+IDR_SAD                 DIB     DISCARDABLE     "res\\fc_sad_l.bmp"
+IDR_SCARED              DIB     DISCARDABLE     "res\\fc_sca_l.bmp"
+IDR_BORED               DIB     DISCARDABLE     "res\\fc_bor_l.bmp"
+IDR_COY                 DIB     DISCARDABLE     "res\\fc_coy_l.bmp"
+IDR_PALETTE             DIB     DISCARDABLE     "res\\palette.dib"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_AUTOMATION_PAGE DLGINIT
+BEGIN
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0030, 
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0031, 
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0032, 
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0033, 
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0034, 
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0035, 
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0036, 
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0037, 
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0038, 
+    IDC_KEY, 0x403, 6, 0
+0x6c41, 0x2b74, 0x0039, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed. Make sure that the OLE libraries are the correct version."
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Microsoft Chat\nRoom\nRoom\nMicrosoft Chat Room (*.ccr)\n.ccr\nComicChat.Room.1\nMicrosoft Chat Room\nCCHI\ncchi Files"
+    IDS_PART_SYNTAX         "/PART <room>"
+    IDS_NOTINROOM           "You are not in room: %1."
+    IDS_NICK_SYNTAX         "/NICK nickname"
+    IDS_ERR_TOOMANYCHANNELS "You cannot enter any more rooms without exiting a current room."
+    IDS_BANMESG             "&People banned from %1.\n(Format: nick!user@host)"
+    IDS_CONNECTION          "Chat Connection"
+    IDS_MICONLY             "To use this server, you need to install MS Chat 2.0 from http://www.microsoft.com/msdownload/ieplatform/chat/chat20.htm."
+    IDS_DFLTAWAYMSG         "Gone fishing."
+    IDS_CANTMAKECORE        "Cannot create cb32 object."
+    IDS_CANTINITCORE        "Cannot initialize cb32 object."
+    IDS_CANTMAKENOTIFY      "Can't make cbcore notify."
+    IDS_CANTCONNECT         "Can't do cb32 chat connection."
+    IDS_CANTCHAT            "Can't do cb32 chat."
+    IDS_NMCONNECTED         "In NetMeeting conversation."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Microsoft Chat"
+    AFX_IDS_IDLEMESSAGE     " "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Creates or connects to a Microsoft Chat room.\nNew"
+    ID_FILE_OPEN            "Opens a previously saved Microsoft Chat conversation.\nOpen"
+    ID_FILE_CLOSE           "Closes the active document.\nClose"
+    ID_FILE_SAVE            "Saves the current chat conversation.\nSave"
+    ID_FILE_SAVE_AS         "Saves the current chat conversation with a new name.\nSave As"
+    ID_FILE_PAGE_SETUP      "Changes the printing options.\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Changes the printer and printing options.\nPrint Setup"
+    ID_FILE_PRINT           "Prints the chat transcript.\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Displays full pages.\nPrint Preview"
+    ID_FILE_UPDATE          "Updates the container to show any changes.\nUpdate"
+    ID_FILE_SAVE_COPY_AS    "Saves a copy of the active document with a new name.\nSave Copy"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Displays the program information and copyright.\nAbout"
+    ID_APP_EXIT             "Quits Microsoft Chat.\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document."
+    ID_FILE_MRU_FILE2       "Open this document."
+    ID_FILE_MRU_FILE3       "Open this document."
+    ID_FILE_MRU_FILE4       "Open this document."
+    ID_FILE_MRU_FILE5       "Open this document."
+    ID_FILE_MRU_FILE6       "Open this document."
+    ID_FILE_MRU_FILE7       "Open this document."
+    ID_FILE_MRU_FILE8       "Open this document."
+    ID_FILE_MRU_FILE9       "Open this document."
+    ID_FILE_MRU_FILE10      "Open this document."
+    ID_FILE_MRU_FILE11      "Open this document."
+    ID_FILE_MRU_FILE12      "Open this document."
+    ID_FILE_MRU_FILE13      "Open this document."
+    ID_FILE_MRU_FILE14      "Open this document."
+    ID_FILE_MRU_FILE15      "Open this document."
+    ID_FILE_MRU_FILE16      "Open this document."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switches to the next window pane.\nNext Pane"
+    ID_PREV_PANE            "Switches to the previous window pane.\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Splits the active window into separate panes.\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erases the selection.\nErase"
+    ID_EDIT_CLEAR_ALL       "Erases everything.\nErase All"
+    ID_EDIT_COPY            "Copies the selection to the Clipboard.\nCopy"
+    ID_EDIT_CUT             "Cuts the selection and puts it on the Clipboard.\nCut"
+    ID_EDIT_FIND            "Finds the specified text.\nFind"
+    ID_EDIT_PASTE           "Inserts the Clipboard contents at the insertion point.\nPaste"
+    ID_EDIT_REPEAT          "Repeats the last action.\nRepeat"
+    ID_EDIT_REPLACE         "Replaces the specific text with different text.\nReplace"
+    ID_EDIT_SELECT_ALL      "Selects the entire document.\nSelect All"
+    ID_EDIT_UNDO            "Undoes the last action.\nUndo"
+    ID_EDIT_REDO            "Redoes the previously undone action.\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Shows or hides the toolbar.\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Shows or hides the status bar.\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Changes the window size."
+    AFX_IDS_SCMOVE          "Changes the window position."
+    AFX_IDS_SCMINIMIZE      "Reduces the window to an icon."
+    AFX_IDS_SCMAXIMIZE      "Enlarges the window to full size."
+    AFX_IDS_SCNEXTWINDOW    "Switches to the next document window."
+    AFX_IDS_SCPREVWINDOW    "Switches to the previous document window."
+    AFX_IDS_SCCLOSE         "Closes the active window and prompts to save the documents."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restores the window to normal size."
+    AFX_IDS_SCTASKLIST      "Activates the task list."
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Closes print preview mode.\nCancel Preview"
+    ID_EM_HAPPY             "Happy"
+    ID_EM_COY               "Coy"
+    ID_EM_BORED             "Bored"
+    ID_EM_SCARED            "Scared"
+    ID_EM_SAD               "Sad"
+    ID_EM_ANGRY             "Angry"
+    ID_EM_SHOUT             "Shout"
+    ID_EM_LAUGH             "Laugh"
+    ID_EM_NEUTRAL           "Neutral"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_AVATARCONTEXT_GETINFO 
+                            "Retrieve member profile information.\nGet Profile"
+    ID_AVATARCONTEXT_IGNORE "Ignores member messages.\nIgnore"
+    ID_AVATARCONTEXT_KICK   "Kicks member out of the room.\nKick"
+    IDS_AUTOFLOOD_IGNORE    "%1 has been sending messages to you too rapidly, and is now being ignored."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SEND_SAY             "Say.\nSay"
+    ID_SEND_THINK           "Think.\nThink"
+    ID_SEND_WHISPER         "Whispers to selected person.\nWhisper "
+    ID_ACTIONS_WHISPER      "Whispers to someone.\nWhisper (CTRL+W)"
+    IDS_FAVORITES_NAME      "Favorites"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_HELP_TOPICS          "Displays help for Microsoft Chat."
+    ID_VIEW_LIST            "Views the Members window as a list."
+    ID_VIEW_ICON            "Views the Members window as icons."
+    ID_VIEW_STATUSBAR       "Shows or hides the status bar.\nToggle StatusBar"
+    ID_EDIT_DELETE          "Deletes text.\nDelete"
+    ID_EDIT_SELECTALL       "Selects text.\nSelect"
+    ID_FAVORITES_ADDTOFAVORITES 
+                            "Adds a shortcut to this chat room to the Favorites folder."
+    ID_FAVORITES_OPENFAVORITES "Opens Favorites folder.\nOpen Favorites"
+    ID_FILE_CREATESHORTCUT  "Creates a shortcut to this chat room and places it on the Desktop."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_ACTIONS_SAY          "Speaks out loud.\nSay (CTRL+Y)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_ACTIONS_THINK        "Everyone views what you think.\nThink (CTRL+T)"
+    IDS_NO_EMAIL_ADDRESS    "This user has not provided an email address."
+    IDS_NO_HOMEPAGE         "This user has not specified a Web home page."
+    IDS_RTF_FILTER          "Rich Text Format (*.rtf)|*.rtf|"
+    ID_RTF_NO_COMICS        ".RTF files can be saved only in text mode."
+    IDS_NETMEETING_URL      "prd=chat&sbp=&plcid=0x0409&pver=2.0&os=win&over=4&olcid=0x0409&clcid=0x0409&ar=netmtg&sba=&o1=&o2=&o3="
+    IDS_INSTALL_NETMEETING  "From Microsoft Chat you can send voice, video, and share applications over the network using Microsoft NetMeeting simply by selecting a user and clicking on the NetMeeting toolbar icon. Do you wish to learn how to install NetMeeting?"
+    IDS_ACCEPT_FILE_MESG    "%1 would like to send you file ""%2"" (%3).\n\nSome files can contain viruses or otherwise be harmful to your computer.\nIt is important to be certain that this file is from a trustworthy source.\n\nDo you accept this file?"
+    IDS_FILESIZE_FORMAT     "%1 bytes"
+    IDS_FILESIZE_UNKNOWN    "File size unknown"
+    IDS_FILE_CONNECT        "Connected"
+    IDS_FILE_SENT           "File sent successfully"
+    IDS_FILESEND_TITLE      "%1% - Sending %2 to %3"
+    IDS_FILEGET_TITLE       "%1% - Getting %2 from %3"
+    IDS_AWAITING_ACCEPT     "Waiting for %1 to accept"
+    IDS_FILE_CONNECTING     "Connecting to %1's computer..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_HELP_FILE           "CChat"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EMOTION_IS           "Emotion is %1"
+    ID_ERR_BAD_ARGS         "Bad command-line arguments"
+    ID_ERR_NOT_CHATLOC      "Not a chat room locator file."
+    ID_ERR_CONNECT          "Could not connect to server: %1."
+    ID_ERR_BAD_NICK         "Your nickname request was refused by the server.  Please choose another."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_ERR_DUPED_NICK       "Your requested nickname is already in use.  Chat nicknames must be unique.  Please choose another."
+    ID_ERR_OPEN             "%1: Unable to open file."
+    ID_ERR_SAVE             "%1: Unable to save file."
+    ID_ERR_NOT_CHATCONV     "Not a Microsoft Chat Conversation file."
+    ID_ERR_BAD_CONV_FIELD   "%1: Unknown conversation file field."
+    ID_ERR_WHERE_SERVER     "Cannot find a server named %1."
+    ID_DEFAULT_PROFILE      "This person is too lazy to create a profile entry."
+    ID_AVATAR_TOOLTIP       "%1 as %2"
+    ID_AVATAR_CREDIT        "%1 as %2"
+    ID_STARRING             "STARRING"
+    ID_DISCONNECTED         "Now working offline."
+    ID_CONNECTED            "Now chatting in room %1 on %2."
+    ID_USER_SINGULAR        "%1 member"
+    ID_USER_PLURAL          "%1 members"
+    ID_MESSAGE_BOX_TITLE    "Microsoft Chat"
+    IDS_SHORTCUT            "A shortcut to this chat room will be placed on your Desktop."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MEMBER_GETINFO       "Retrieves member profile information.\nGet Profile"
+    ID_MEMBER_IGNORE        "Ignores member messages.\nIgnore"
+    ID_SEND_ACTION          "Sends action for self.\nAction (CTRL+J)"
+    ID_FILE_DISCONNECT      "Disconnects from the chat room.\nDisconnect"
+    ID_VIEW_COMICS          "Comic strip view.\nComics View"
+    ID_VIEW_TEXT            "Plain text view.\nText View"
+    ID_CHATROOM_LIST        "Retrieves a list of chat rooms.\nChat Room List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DEFAULT_SERVERLIST  "mschat.msn.com;mschat1.msn.com;mschat2.msn.com;mschat3.msn.com"
+    IDS_FAVORITE            "A shortcut to this chat room will be placed in your Favorites folder."
+    ID_COMP_FONT_NAME       "Comic Sans MS"
+    ID_COMP_FONT_FILE       "COMIC.TTF"
+    ID_COMIC_FONT_NAME      "Comic Sans MS"
+    ID_COMIC_FONT_FILE      "COMIC.TTF"
+    ID_RULE_SHOUT           "AllCaps("""");9\nFindString(""!!!"");9"
+    ID_RULE_LAUGH           "CheckWord*(""ROTFL"");11\nCheckWord*(""LOL"");11\nFindString*(""HEHE"");11"
+    ID_RULE_HAPPY           "FindString("":)"");10\nFindString("":-)"");10"
+    ID_RULE_SAD             "FindString("":("");10\nFindString("":-("");10"
+    ID_RULE_POINTOTHER      "CheckStart(""You"");4\nCheckWord*(""are you"");8\nCheckWord*(""will you"");8\nCheckWord*(""did you"");8\nCheckWord*(""aren't you"");8\nCheckWord*(""don't you"");8"
+    ID_RULE_POINTSELF       "CheckStart(""I"");3\nCheckWord*(""i'm"");7\nCheckWord*(""i will"");7\nCheckWord*(""i'll"");7\nCheckWord*(""i am"");7"
+    ID_RULE_WAVE            "CheckStart*(""Hi"");2\nCheckStart*(""Bye"");3\nCheckStart*(""Hello"");5\nCheckStart*(""Welcome"");5\nCheckStart*(""Howdy"");5"
+    ID_RULE_COY             "FindString("";-)"");10"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_RULE_ANGRY           """"""
+    ID_RULE_SCARED          """"""
+    ID_RULE_BORED           """"""
+    ID_KICK_MESG            "%1 kicked %2 out of the chat room, saying ""%3""."
+    ID_KICK_NO_MESG         "%1 kicked %2 out of the chat room."
+    ID_ERR_BAD_CHANNEL      """"""
+    ID_RL_ROOM_LABEL        "Room"
+    ID_RL_ROOM_WIDTH        "150"
+    ID_RL_NUSERS_LABEL      "Members"
+    ID_RL_NUSERS_WIDTH      "60"
+    ID_RL_DESCR_LABEL       "Topic"
+    ID_RL_DESCR_WIDTH       "500"
+    IDS_SENDENABLED         "You must enter some text before sending a message."
+    IDS_WHISPERENABLED      "Please select someone other than yourself and type some text before you press the whisper button."
+    IDS_OPTIONS             "Microsoft Chat Options"
+    ID_SAY_PREFIX           "%1:   "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_THINK_PREFIX         "%1 thinks:  "
+    ID_WHISPER_PREFIX       "%1 whispers:  "
+    IDS_ONEITEM             "Multiple items selected.  Please select only one item for this operation."
+    IDS_DISCONNECTMESSAGE   "You did not connect to a server and are now working offline."
+    IDS_TOOMUCHTEXT         "The text in the clipboard buffer exceeds the limits of the text entry pane.  Some of the text will be truncated."
+    IDS_DEFAULT_BACKDROP    "FIELD"
+    IDS_NUM_ROOMS           "%1 rooms shown"
+    IDS_SHOWINFO_PREFIX     "%1's profile:  %2"
+    IDS_CANTKICK            "No member selected.  Please select a member to kick."
+    ID_CONNECTING           "Attempting to connect. . ."
+    ID_NOCHANNEL            "Online, but not in room.  Server: %1."
+    ID_ERR_NO_NICK          "Please enter a nickname.  This will be the name that other members of the chat room will use to address you."
+    IDS_KICKREASON          "Why are you kicking %1?"
+    IDS_ILLEGAL_TO_SEND     "To enter text or graphics, you must either be connected to a chat room or working offline."
+    IDS_DFLT_COMICSPNTSIZE  "9"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_OPTIONS         "Brings up the options tabbed dialog \nOptions"
+    ID_ADMINISTRATOR_KICK   "Removes member from chat room.\nKick"
+    ID_ADMINISTRATOR_MAKEOPERATOR "Make this person a host\nMake Host"
+    ID_SESSION_NEWROOM      "Enter a new chat room.\nEnter Room"
+    ID_SESSION_LEAVE        "Leaves the chat room, and continues to stay online.\nLeave Room"
+    ID_SESSION_CONNECT      "Connects to a chat server.\nConnect"
+    ID_SESSION_DISCONNECT   "Disconnects from the current chat server.\nDisconnect"
+    ID_ADMINISTRATOR_SPEAKER "Make this person a speaker\nMake Speaker"
+    ID_CHANNELPROPS         "Adjust room properties\nRoom properties"
+    ID_ADMIN_BGRNDSYNC      "Make others have same background as you.\nSync Backgrounds"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_ADMIN_BAN            "Ban a user from this room.\nBan"
+    ID_ADMINISTRATOR_ROOMPROPERTIES 
+                            "Show and change room properties.\nRoom Properties"
+    ID_MAKEADMIN            "Make this person a host.\nMake Host"
+    ID_MAKESPEAKER          "Make this person a speaker.\nMake Speaker"
+    ID_MAKESPECTATOR        "Make this person a spectator.\nMake Spectator"
+    ID_INVITE               "Invite user to this chat room.\nInvite"
+    ID_MEMBERADMIN_GETIDENTITY "Get member identity.\nGet Identity"
+    ID_GETIDENTITY          "Show member login identity.\nGet Identity"
+    ID_SETFONT              "Set Font\nSet Font"
+    ID_GET_VERSION          "Find other's chat program version.\nVersion"
+    ID_PLAY_SOUND           "Plays a sound.\nPlay sound (CTRL+H)"
+    ID_PING_USER            "Find round-trip lag time to user.\nLag Time"
+    ID_GET_LOCALTIME        "Get user's local time.\nLocal Time"
+    ID_USER_LIST            "Display list of users.\nUser List"
+    ID_WHISPERBOX_MLIST     "Open a whisper box for private messages.\nWhisper Box"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TITLE8              "SIGHTED IN CYBERSPACE"
+    IDS_TITLE9              "THE GANG'S ALL HERE"
+    IDS_TITLE10             "BORN TO CHAT"
+    IDS_TITLE11             "NETWORKED NERDS"
+    IDS_TITLE12             "VIRTUALLY VACUOUS"
+    IDS_TITLE13             "IF I ONLY HAD A BRAIN"
+    IDS_TITLE14             "SLUMBER PARTY"
+    IDS_TITLE15             "MEET MARKET"
+    IDS_TITLE16             "MICROSOFT CHAT"
+    ID_SETCOLOR             "Sets the font color used in the input text box.\nSet Font Color"
+    ID_SWITCHBOLD           "Set/reset the bold attribute of the outgoing text.\nSet/Reset Bold"
+    ID_SWITCHITALIC         "Set/reset the italic attribute of the outgoing text.\nSet/Reset Italic"
+    ID_SWITCHUNDERLINED     "Set/reset the underline attribute of the outgoing text.\nSet/Reset Underline"
+    ID_SWITCHFIXEDPITCH     "Set/reset the fixed pitch attribute of the outgoing text.\nSet/Reset Fixed Pitch Font"
+    ID_SWITCHSYMBOL         "Set/reset the symbol attribute of the outgoing text.\nSet/Reset Symbol Font"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_1_WIDE              "1 Panel Wide"
+    IDS_2_WIDE              "2 Panels Wide"
+    IDS_3_WIDE              "3 Panels Wide"
+    IDS_4_WIDE              "4 Panels Wide"
+    ID_ERR_BANNEDFROMCHAN   "Cannot join %1: You have been banned."
+    ID_ERR_CHANNELISFULL    "Cannot join %1: Channel is full."
+    ID_ERR_INVITEONLY       "Cannot join %1: Only those that have been invited may enter."
+    IDS_DISCONNECTMESSAGE2  "You are now working offline."
+    IDS_NOTCOMICSUSER       "%1 is not a comics user, hence no profile is available."
+    IDS_CONNECTION_DROPPED  "You have become disconnected from the server, and are now working offline."
+    ID_ERR_BADCHANNELNAME   "Bad room name: %1."
+    IDS_RATINGS_TURN_OFF    "Disable &Ratings..."
+    IDS_RATINGS_TURN_ON     "Enable &Ratings..."
+    ID_ERR_NOAUTH           "You were not authorized by the server."
+    ID_PASSWORD_PROMPT      "Room %1 has an entrance password.  You need to type this password below to enter:"
+    ID_ERR_GENERICCHAN      "You could not successfully join the channel %1."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ADMINMENU_LABEL     "&Host"
+    ID_ERR_LOGINFAILED      "You could not successfully log in to the server."
+    ID_ERR_CANTJOIN         "Could not enter room: %1."
+    ID_ERR_SERVER           "An error occurred on the server.  You have been disconnected."
+    ID_ERR_BANNEDFROMSERVER "Either you or your internet address has been banned from this server."
+    ID_ERR_SECURITY         "You do not have sufficient privileges to enter room: %1."
+    ID_ERR_BADUSERINFO      "This login information is incorrect."
+    ID_SIMPLE_VERSION       "Microsoft Chat 2.1a (%1)"
+    IDS_SOUND_DIR           "media"
+    IDS_VERSION_PREFIX      "%1's version: %2"
+    IDS_PING_MESSAGE        "%1's roundtrip delay: %2 seconds"
+    IDS_LOCALTIME_MESSAGE   "%1's local time: %2"
+    IDS_DEFAULT_NICK        "Anonymous"
+    IDS_MESSAGETYPES        "All messages types;Enter messages;Send Headers;Sends;Whisper Headers;Whispers;Thought Headers;Thoughts;Actions;System messages;Leave messages\n"
+    ID_UL_NICK_LABEL        "Nickname"
+    ID_UL_NICK_WIDTH        "90"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_ERR_LOGIN            "Server login error (%1)."
+    ID_ERR_SERVERISFULL     "The server is full and is not accepting additional chatters."
+    ID_JOIN_OFFER           "%1 invites you to join: %2"
+    IDS_WARNING_TEXT        "Warning:  This computer program is protected by copyright law and international treaties.  Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties and will be prosecuted to the maximum extent possible under the law."
+    IDS_SPECTATEONLY        "You are a spectator in this room, and not allowed to communicate."
+    IDS_DEFAULT_CHANNEL     "#Comic_Chat"
+    IDS_DEFAULT_REALNAME    "Your Full Name"
+    IDS_DEFAULT_SERVER      "mschat.msn.com"
+    IDS_CHANPROP_ADMIN      "You are a host, and can change these room properties."
+    IDS_CHANPROP_NOTADMIN   "You are not a host in this room, and you cannot change any properties."
+    IDS_CHANPROP_TOPICONLY  "You are not a host in this room, and can only change the topic."
+    IDS_MUSTBE_CONNECTED    "You must be connected to a server to perform this command."
+    IDS_JOIN_SYNTAX         "/JOIN ROOM <host password>"
+    IDS_NOSLASH_COMMANDS    "Microsoft Chat does not support this ""/"" command yet."
+    IDS_REPORT_IDENT        "The identity of %1 is:\nuser: %2\nsource: %3"
+    IDS_UNAVAILABLE_IDENT   "The identity of %1 is unavailable."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EMPTYMACRO          "You need to specify a key combination, a macro name, and a message before adding a macro."
+    IDS_MACROMENU_LABEL     "M&acros"
+    IDS_CCC_FILTER          "Microsoft Chat Conversation (*.ccc)|*.ccc||"
+    IDS_CCR_FILTER          "Microsoft Chat Room (*.ccr)|*.ccr||"
+    IDS_COMICS_BOLD_DFLT    "700"
+    IDS_REPORT_IDENT2       "%1's identity:  %2@%3"
+    IDS_ROOM_EXISTS         "A room by this name already exists.  Enter this room?"
+    IDS_BAD_PASSWORD        "Bad password."
+    IDS_ROOMTAB_FONTWEIGHT  "700"
+    IDS_IGNORE_FEEDBACK     "You are now ignoring %1."
+    IDS_UNIGNORE_FEEDBACK   "You are no longer ignoring %1."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_UL_REALNAME_LABEL    "Real Name"
+    ID_UL_REALNAME_WIDTH    "120"
+    ID_UL_ROOM_LABEL        "Room"
+    ID_UL_ROOM_WIDTH        "150"
+    ID_AWAY_TOGGLE          "Toggle Away From Keyboard status.\nAway From Keyboard"
+    IDS_TOGGLE_TABBAR       "Toggle tab bar.\nTab bar"
+    ID_VIEW_TABBAR          "Shows or hides the room selection tab bar.\nToggle TabBar"
+    ID_IRC_CHAT             "Start Internet Relay Chat.\nIRC Chat"
+    IDS_NOTITLE             "UNTITLED"
+    IDS_TITLE1              "EVERYONE'S A COMIC"
+    IDS_TITLE2              "DOGGY DOGGY WAH WAH"
+    IDS_TITLE3              "YOU SHOULDA BEEN THERE"
+    IDS_TITLE4              "NO EXIT"
+    IDS_TITLE5              "WISH YOU WERE HERE"
+    IDS_TITLE6              "DEEPEST DARKEST DESIRES"
+    IDS_TITLE7              "JUST US CHUMPS"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_UL_IDENT_LABEL       "Identity"
+    ID_UL_IDENT_WIDTH       "208"
+    IDS_NUM_USERS           "%1 users shown"
+    IDS_OUTCHANNEL_INVITE   "You must be in a room to invite someone in."
+    IDS_INVITE_CONF         "You have invited %1 to room %2."
+    IDS_SEARCH_TIME         "Time of last search: %1"
+    IDS_SAMPLE_SEND         "Sample text message"
+    IDS_SAMPLE_WHISPER      "Sample whisper"
+    IDS_SAMPLE_THOUGHT      "Sample thought"
+    IDS_SAMPLE_NICK         "aardvark"
+    IDS_WHISPERBOXLABEL     "Whisper Box"
+    IDS_DEFAULTGREETING     "Howdy %1!  Welcome to room %2.  Enjoy your stay."
+    IDS_USERVARIABLE        "%name"
+    IDS_ROOMVARIABLE        "%room"
+    IDS_COMICS_MODE         "(comics mode)"
+    IDS_TEXT_MODE           "(text mode)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_MACROS          "Show a list of macros\nMacros"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SESSION_CREATEROOM   "Create a new room.\nCreate room"
+    ID_ROOM_CREATEROOM      "Create a new room.\nCreate Room"
+    ID_MEMBER_SENDEMAIL     "Send this member email.\nSend Email"
+    ID_SEND_EMAIL           "Send email to selected member.\nSend Email"
+    ID_VISIT_HOMEPAGE       "Visit this person's Web Home Page.\n Visit HomePage"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_START_NETMEETING     "Start a NetMeeting connection.\nNetMeeting"
+    IDS_NMPROMPT            "%1 would like to have a NetMeeting conversation with you.  Do you accept?"
+    IDS_NMCALL_REFUSED      "%1 has refused your NetMeeting call."
+    IDS_NMCALL_NOHAVE       "%1 does not have NetMeeting."
+    ID_SEND_FILE            "Send file to another user.\nSend File"
+    ID_HELP_FREESTUFF       "Opens the Microsoft Chat free stuff page.\nFree Stuff"
+    ID_HELP_PRODUCTNEWS     "Opens the Microsoft Chat product news page.\nProduct News"
+    ID_HELP_FAQ             "Opens the Microsoft Chat FAQ page.\nFrequently Asked Questions"
+    ID_HELP_ONLINESUPPORT   "Opens the Microsoft Chat online support page.\nOnline Support"
+    ID_HELP_BESTOFWEB       "Opens the Best of the Web page.\nBest of the Web"
+    ID_HELP_MICROSOFTONTHEWEB_SEARCHTHEWEB 
+                            "Opens the search page.\nSearch the Web"
+    ID_HELP_SEARCHTHEWEB    "Opens the search page.\nSearch the Web"
+    ID_HELP_MSHOMEPAGE      "Opens the Microsoft home page.\nMicrosoft Home Page"
+    IDS_NM_BAD_RATINGS      "The current Content Advisor settings prevent you from starting NetMeeting from Microsoft Chat."
+    ID_HELP_RELEASENOTES    "Opens up the Microsoft Chat Release Notes.\nRelease Notes"
+    IDS_SAMPLE_ACTION       "performs an action"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FILE_RECEIVED       "File received successfully"
+    IDS_BYTES_SENT          "Bytes sent:"
+    IDS_BYTES_RECEIVED      "Bytes received:"
+    IDS_CONNECTION_FAILED   "Connection failed"
+    IDS_FILETIMEOUT         "Transfer timed out.  File transfer failed."
+    IDS_TITLE_FILEDLG_SEND  "Send file to %1"
+    IDS_TITLE_FILEDLG_RCV   "Receive file from %1"
+    IDS_URL_FREESTUFF       "prd=chat&sbp=&plcid=0x0409&pver=2.0&os=win&over=4&olcid=0x0409&clcid=0x0409&ar=free&sba=&o1=&o2=&o3="
+    IDS_URL_PRODUCTNEWS     "prd=chat&sbp=&plcid=0x0409&pver=2.0&os=win&over=4&olcid=0x0409&clcid=0x0409&ar=news&sba=&o1=&o2=&o3="
+    IDS_URL_FAQ             "prd=chat&sbp=&plcid=0x0409&pver=2.0&os=win&over=4&olcid=0x0409&clcid=0x0409&ar=faq&sba=&o1=&o2=&o3="
+    IDS_URL_ONLINESUPPORT   "prd=chat&sbp=&plcid=0x0409&pver=2.0&os=win&over=4&olcid=0x0409&clcid=0x0409&ar=support&sba=&o1=&o2=&o3="
+    IDS_URL_BESTOFWEB       "prd=msft&sbp=&plcid=0x0409&pver=&os=win&over=4&olcid=0x0409&clcid=0x0409&ar=directory&sba=&o1=chat&o2=&o3="
+    IDS_URL_SEARCHTHEWEB    "prd=msft&sbp=&plcid=0x0409&pver=&os=win&over=4&olcid=0x0409&clcid=0x0409&ar=search&sba=&o1=chat&o2=&o3="
+    IDS_URL_MSHOMEPAGE      "prd=msft&sbp=&plcid=0x0409&pver=&os=win&over=4&olcid=0x0409&clcid=0x0409&ar=home&sba=&o1=chat&o2=&o3="
+    IDS_URL_MSPREFIX        "http://www.microsoft.com/isapi/redir.dll?"
+    IDS_ALL_FILES           "All Files (*.*)\n*.*\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_AWAYREPORT          "%1 is away: %2"
+    IDS_BACKREPORT          "%1 has returned."
+    IDS_NOTINANYROOM        "You are not in any room."
+    IDS_DOWNLOAD_NAME       "Download"
+    IDS_TABTITLE            "TabBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDR_NM_MAIN             "Microsoft Chat\nRoom\nRoom\nMicrosoft Chat Room (*.ccr)\n.ccr\nComicChat.Room.1\nMicrosoft Chat Room\nCCHI\ncchi Files"
+    IDS_COMICSTABWELCOME    "Two additional tabs allow you to choose your comics mode character and background."
+    IDS_IRCWELCOME          "IRC Chat allows you to visit many Internet Chat Rooms, populated\nby people that are not in your current NetMeeting conference.\n\nDo you want to start an IRC Chat window?"
+    IDS_NEEDART             "Comics mode adds spice to traditional text chat, by illustrating the conversation.\nHowever, in order to switch to comics mode, you must first download comic art\nto your machine.\n\nDo you wish to do this now?"
+    IDS_ERR_NICKNOTNOW      "Can't change nickname right now.  Try again soon."
+    IDS_PAGEFOOTER          "Page %1"
+    IDS_INVALIDART          "Invalid art file: %1.avb"
+    IDS_CONFIRMAWAY         "The Away from Keyboard setting is currently on.  Would you like to turn it off?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MOTD                 "Show server's Message of the Day\nMessage of the Day"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\chat.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#include "afxolesv.rc"       // OLE server resources
+#endif
+
+#include "cchat.rcv"
+#include "..\inc\textview.rc" // Text view resources
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

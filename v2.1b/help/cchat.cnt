@@ -1,0 +1,60 @@
+:Base cchat.hlp>proc4
+:Title Microsoft Chat Help
+:Index Content Advisor Help=ratings.hlp
+:Link ratings.hlp
+1 Introducing Microsoft Chat=CCHAT_OVERVIEW>medium
+1 Getting started with Microsoft Chat=CCHAT_GETTING_STARTED>medium
+1 Getting Ready to Chat
+2 Provide information about yourself=CCHAT_PROFILE
+2 Choose a character=CCHAT_SPEC_CHAR
+2 Choose a comic background=CCHAT_DEF_BACK
+2 Connect to a chat server=cchat_connect_server
+2 Customize comic strip text=CCHAT_CUSTOMIZE_TEXT
+2 Chat using text only=CCHAT_TEXT_TALK>medium
+2 Change text-only fonts=MSCHAT_FONT_TEXT
+1 Finding and Entering Chat Rooms
+2 Finding a chat room to join=cchat_find_right_room
+2 Enter a chat room=CCHAT_CHANGE_PLACE
+2 Enter a favorite chat room=CCHAT_FAV_ROOM
+1 Hosting Your Own Chat Room
+2 Hosting your own chat room=cchat_host_yourown
+2 Create a new chat room=CCHAT_CREATE_NEW
+2 Customize your chat room=CCHAT_CUSTOMIZE
+2 Send automatic greetings to new room members=mschat_auto_greet
+2 Keep backgrounds in sync=MSCHAT_SYNC_BACKGROUNDS
+2 Kick someone out of a chat room temporarily=CCHAT_KICK_OUT
+2 Ban someone from a chat room permanently=CCHAT_BAN
+2 Remove the ban on someone=mschat_remove_ban
+1 Chatting
+2 Find other people=CCHAT_WHOIS
+2 Get information about other people=CCHAT_GETINFO_CHAR
+2 Chat in a comic strip=CCHAT_COMIC_TALK>medium
+2 Sending and receiving sounds=cchat_ovr_sounds
+2 Whisper to other people=CCHAT_WHISPER_TO
+2 Change a character's emotion=CCHAT_EMOTION_WHEEL
+2 Freeze a character's emotion=mschat_freeze_emotion
+2 Use character gestures=CCHAT_CHAR_GEST>big
+2 Leave a chat room=cchat_exit
+2 Save a conversation=CCHAT_SAVE
+2 Send automatic greetings to new room members=MSCHAT_AUTO_GREET
+1 Limiting Access to Inappropriate Chat Rooms
+:include ratings.cnt
+1 Meeting Beyond the Chat Room
+2 Meeting beyond the chat room=cchat_meet_beyond
+2 Send e-mail to a chat room member=cchat_send_mail
+2 Send a file to a chat room member=cchat_dcc
+2 Place a NetMeeting call to a chat room member=cchat_place_netmeeting_call
+2 View another member's Web pages=cchat_view_web_pages
+2 Send links in messages=cchat_send_hotlinks
+1 Tips and Tricks
+2 Have multiple whispered conversations=MSCHAT_WHISPER_BOX
+2 Create a message macro=MSCHAT_MACRO
+2 Send a cartoon character expression without talking=CCHAT_CHANGE_EXP
+2 Ignore a person=CCHAT_IGNORE_CHAR
+2 Invite others into a chat room=CCHAT_INVITE
+2 Add a chat room to your Favorites list=CCHAT_ADD_FAV
+2 Read conversation files offline=CCHAT_WORK_OFFLINE
+2 Track activity in multiple chat rooms=MSCHAT_TRACK_ACTIVITY
+2 Notify others when you are away=MSCHAT_AWAY_KEYBOARD
+2 Ignore a person sending floods of messages=MSCHAT_AUTO_IGNORE
+2 Use keyboard shortcuts=CCHAT_KEY_SHORT>big

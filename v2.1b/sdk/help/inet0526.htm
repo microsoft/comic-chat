@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>Microsoft Chat Control 1.1 Visual Basic Overview</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headcoma.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="Microsoft Chat Control 1.1 Visual Basic Overview"><BR CLEAR=ALL>
+<H2><A NAME="chatocx_vb_ovr_0504010100000000">Microsoft Chat Control 1.1 Visual Basic Overview</A></H2>
+<BR CLEAR=ALL>
+<P>The Microsoft&#174; Chat control, an ActiveX&#153;-based control, exports most of the ChatSock API features. The control has an optional user interface (UI) that is very flexible. This UI can include a Send button, Whisper button, Participant list box, History text box, and Send text box. This overview covers the use of the Chat control with Visual Basic&#174; Scripting Edition and with a Visual Basic application.
+<P><P><A CLASS=tctop HREF="inet0526.htm#chatocx_vb_ovr_0504010101000000" TARGET=TEXT><IMG SRC="art/arrowb.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowb.gif">Introduction</A><BR>
+<P><P><A CLASS=tctop HREF="inet0526.htm#chatocx_vb_ovr_0504010102000000" TARGET=TEXT><IMG SRC="art/arrowb.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowb.gif">The Chat Control</A><BR>
+<P><P><A CLASS=tctop HREF="inet0526.htm#chatocx_vb_ovr_0504010103000000" TARGET=TEXT><IMG SRC="art/arrowb.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowb.gif">Dependencies</A><BR>
+<P><P><A CLASS=tctop HREF="inet0526.htm#chatocx_vb_ovr_0504010104000000" TARGET=TEXT><IMG SRC="art/arrowb.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowb.gif">Licensing and Distribution</A><BR>
+<P><P><A CLASS=tctop HREF="inet0526.htm#chatocx_vb_ovr_0504010105000000" TARGET=TEXT><IMG SRC="art/arrowb.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowb.gif">Using the Chat Control</A><BR>
+<H3><A NAME="chatocx_vb_ovr_0504010101000000">Introduction</A></H3>
+<P>The Microsoft Chat control allows the user to participate in a chat, or conversation, that can communicate both text and data, including arrays, Booleans, errors, currencies, and dates, between two or more users connected to a chat server. Stand-alone Microsoft Visual Basic applications containing the Chat control or HTML pages that utilize the Chat control are referred to as chat clients. These chat clients communicate with a chat server through either the MIC (Microsoft Internet Chat) or IRC (Internet Relay Chat) protocols. Developers can design and implement their own user interface for a Chat control client, or use the customizable default user interface provided with the Chat control.
+
+
+
+<H3><A NAME="chatocx_vb_ovr_0504010102000000">The Chat Control</A></H3>
+<P>The Chat control is an ActiveX&#153; control that can be hosted by a Microsoft Visual Basic application program to create a chat client. Web authors can also insert the Chat control into an HTML file with the &lt;OBJECT&gt; tag, and use Microsoft Visual Basic Scripting Edition (VBScript) to manipulate the control's properties, methods, and events. Both implementations enable conversations between multiple users on client computers accessing a common chat server over the Internet. 
+
+<P>HTML-based chat pages require the user to view the page with a browser that supports the HTML &lt;SCRIPT&gt; tag and the VBScript scripting engine that is implemented in the Vbscript.dll file. Browser applications, such as Microsoft Internet Explorer, that use the scripting engine are called scripting hosts. 
+
+<P>The architecture that supports conversations on the Web using the Chat control and Chat server is shown below.
+
+<P>
+<P><IMG SRC="art/ChatFlow.gif" WIDTH="240" HEIGHT="395" ALT="Microsoft Chat control data flow diagram" >
+<P>
+
+<P>This diagram shows three users browsing the Web. Two users (on Web Clients 1 and 2) have already found the Chat control on a Web page and have entered a chat room to have a conversation. The user on Web Client 3 has just encountered the Web page with the Chat control. The numbers on the diagram represent the direction of the data flow. Each step in the process is described by the following actions:
+<OL><LI>First-time user on Web Client 3 makes a request to join the conversation, using the Chat control's user interface that is displayed on a Web page.
+<LI>The Web browser downloads the Chat control software to Web Client 3.
+<LI>The user on Web Client 3 types the message "Hello." The Chat control sends the message to the chat room.
+<LI>The chat room sends the message "Hello" to all participants in the chat. They see "Hello" on their Chat History text boxes.
+<LI>Some server and channel information is transmitted from the Web page to the chat room.
+</OL>
+<H4><A NAME="chatocx_vb_ovr_0504010102010000">User Interface Elements</A></H4>
+<P>The Chat control allows a variety of user interface options. You can configure the control's user interface with the <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A> property. The user interface includes a History text box for displaying previously sent messages. You can directly access the text that is displayed in the History text box with the <A HREF="inet0529.htm#chatocx_vb_0504010202000500" TARGET="TEXT">History</A> property. The text appearing in the History text box can be limited to the maximum number of characters specified in the <A HREF="inet0529.htm#chatocx_vb_0504010202000800" TARGET="TEXT">MaxHistoryLength</A> property. The <A HREF="inet0530.htm#chatocx_vb_0504010203000400" TARGET="TEXT">ClearHistory</A> method should be invoked to clear the History text box when the <A HREF="inet0531.htm#chatocx_vb_0504010204000600" TARGET="TEXT">OnHistoryFull</A> event is triggered, indicating the History text box is 90 percent full. 
+
+<P>Another user-interface feature is a Participant list box that allows users to see the alias names of all chat room members. Information about a chat room member, such as alias name, identifier, and Windows&#174; user name, can be obtained by using the <A HREF="inet0529.htm#chatocx_vb_0504010202001000" TARGET="TEXT">ThisParticipantAlias</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001100" TARGET="TEXT">ThisParticipantID</A>, and <A HREF="inet0529.htm#chatocx_vb_0504010202001200" TARGET="TEXT">ThisParticipantName</A> properties, respectively. Using the information obtained from these properties will also allow you to invite a member of another chat room into a different chat room by using the <A HREF="inet0530.htm#chatocx_vb_0504010203000800" TARGET="TEXT">InviteParticipant</A> method, which triggers the <A HREF="inet0531.htm#chatocx_vb_0504010204000900" TARGET="TEXT">OnParticipantInvited</A> event. You can also obtain a chat room member's real name with the <A HREF="inet0530.htm#chatocx_vb_0504010203000700" TARGET="TEXT">GetParticipantRealName</A> method. If the attempt to get the member's real name was successful, this method triggers the <A HREF="inet0531.htm#chatocx_vb_0504010204000b00" TARGET="TEXT">OnParticipantRealName</A> event.
+
+<P>A Send text box is included in the user interface so that the user can type outgoing messages. A Send button for broadcasting messages to all chat room members, and a Whisper button for sending private messages to a specific chat room member, are located at the bottom of the Chat control.
+
+<P>The following picture shows the default user interface provided with the Microsoft Chat control.
+<P>
+<P><IMG SRC="art/ChatUI.gif" WIDTH="553" HEIGHT="354" ALT="Microsoft Chat control user interface" >
+<P>
+
+<P>In addition to the default user interface, you can create a custom user interface using the control's automation interface with the supported properties, methods, and events. 
+
+
+<H4><A NAME="chatocx_vb_ovr_0504010102020000">Chat Rooms</A></H4>
+<P>Users running chat client applications can enter or create chat rooms to communicate with other users. A chat room is entered or created using the <A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A> method with the desired options. Using these options, you can modify existing chat rooms or create a number of different types of new ones. For example, auditorium rooms can be created to prevent chat room members from communicating with any other chat room member who is not a host. If the room type is changed, users can be notified through the <A HREF="inet0531.htm#chatocx_vb_0504010204000e00" TARGET="TEXT">OnRoomTypeChanged</A> event. It is also possible to allow the user to cancel the request to enter a chat room with the <A HREF="inet0530.htm#chatocx_vb_0504010203000300" TARGET="TEXT">CancelEntering</A> method. This may be especially helpful if network problems arise, or if the response from the chat server is slower than the user can tolerate. In any chat client application or Web page, you should include a button that invokes the <A HREF="inet0530.htm#chatocx_vb_0504010203000600" TARGET="TEXT">ExitRoom</A> method to allow a chat room member to leave the chat room at any time. When creating a custom user interface, you should utilize the <A HREF="inet0531.htm#chatocx_vb_0504010204000300" TARGET="TEXT">OnEnterParticipant</A> and <A HREF="inet0531.htm#chatocx_vb_0504010204000500" TARGET="TEXT">OnExitParticipant</A> events to notify all chat room members when someone has joined or left the room. As a precaution, the user's <A HREF="inet0529.htm#chatocx_vb_0504010202000f00" TARGET="TEXT">State</A> property should always be checked before entering, canceling, or exiting a chat room to make sure the desired method will be valid. The example included at the end of this chapter illustrates this concept.
+
+<P>There are several properties associated with chat rooms that you can use to control users' access to a room, or to let them decide which room they want to enter. The current number of members in a chat room can be checked with the <A HREF="inet0529.htm#chatocx_vb_0504010202000b00" TARGET="TEXT">MemberCount</A> property, and the maximum number of members allowed in a chat room can be restricted with the <A HREF="inet0529.htm#chatocx_vb_0504010202000900" TARGET="TEXT">MaxMembers</A> property. Chat rooms are usually labeled with the topic being discussed by setting the <A HREF="inet0529.htm#chatocx_vb_0504010202000e00" TARGET="TEXT">RoomTopic</A> property. The <A HREF="inet0531.htm#chatocx_vb_0504010204000d00" TARGET="TEXT">OnRoomTopicChanged</A> event is triggered when the <B>RoomTopic</B> property has changed, and should be used to notify all chat room members of the new topic. In certain cases, it may also be desirable to use the <A HREF="inet0529.htm#chatocx_vb_0504010202000c00" TARGET="TEXT">Rating</A> property to label chat rooms that contain potentially offensive subject matter. The ratings associated with a chat room must be based on the World Wide Web Consortium (W3C) standard for content ratings, known as PICS (<A HREF="http://www.w3.org/PICS/" TARGET="_top">http://www.w3.org/PICS/</A><IMG SRC="art/external.gif" WIDTH="19" HEIGHT="8" ALT="External link" >), or Platform for Internet Content Selection.
+
+
+
+<H4><A NAME="chatocx_vb_ovr_0504010102030000">Chat Members</A></H4>
+<P>Hosts, participants, and spectators are the three different types of members in a chat room. When a user creates a chat room, that member becomes the host of that room by default. After the <A HREF="inet0531.htm#chatocx_vb_0504010204000200" TARGET="TEXT">OnEndEnumeration</A> event is triggered, indicating that the list of a chat room's members has been retrieved, those members with a host status can perform certain administrative tasks. For example, a host can prevent specific users from entering the chat room with the <A HREF="inet0530.htm#chatocx_vb_0504010203000200" TARGET="TEXT">BanParticipant</A> method or eject members currently in a chat room with the <A HREF="inet0530.htm#chatocx_vb_0504010203000900" TARGET="TEXT">KickParticipant</A> method. When kicking a chat member out of the chat room, the <A HREF="inet0531.htm#chatocx_vb_0504010204000a00" TARGET="TEXT">OnParticipantKicked</A> event can be used as an opportunity to notify or warn other chat room members (with a <A HREF="inet0530.htm#chatocx_vb_0504010203000c00" TARGET="TEXT">SendMessage</A>) about acceptable behaviors within the current chat room. You can implement the <A HREF="inet0530.htm#chatocx_vb_0504010203000d00" TARGET="TEXT">SetParticipantStatus</A> method to allow hosts to change the status of another chat room member. The associated <A HREF="inet0531.htm#chatocx_vb_0504010204000c00" TARGET="TEXT">OnParticipantStatusChanged</A> event is triggered when the chat room member's status changes, and can be used as a mechanism to notify other chat room members. This can be especially useful in moderated rooms where a host wants to select a new host before leaving the chat room. 
+
+<P>Chat room members with a participant status can send and receive messages from other chat room members, including hosts. Chat room spectators can see broadcast messages, but they are not allowed to send any type of message to other members of the chat.
+
+
+
+<H4><A NAME="chatocx_vb_ovr_0504010102040000">Messages</A></H4>
+<P>When a chat room host or participant sends a message, it is broadcast to all other members in the room. A chat room member can also whisper a message to a specific member of the chat with the <A HREF="inet0530.htm#chatocx_vb_0504010203000c00" TARGET="TEXT">SendMessage</A> method. Hosts can disable whisper messages for a specific chat member or the entire chat room with the <A HREF="inet0530.htm#chatocx_vb_0504010203000d00" TARGET="TEXT">SetParticipantStatus</A> and <A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A> methods, respectively. Chat room members can use the <B>SetParticipantStatus</B> method to ignore messages from specific members other than a chat room host.
+
+
+
+<H4><A NAME="chatocx_vb_ovr_0504010102050000">General Chat Control Rules</A></H4>
+<P>The following rules apply to the use of the Chat control:
+<UL><LI>A chat room member will not receive the <A HREF="inet0531.htm#chatocx_vb_0504010204000700" TARGET="TEXT">OnMessage</A> event if the message was sent by that user. However, if the internal user interface is used, the <A HREF="inet0531.htm#chatocx_vb_0504010204001000" TARGET="TEXT">OnTextMessageSent</A> event will be triggered. 
+<LI>If a critical error occurs while in a chat room, the chat room member will automatically be ejected from the chat room. For example, if the network a chat room member was using to access the chat server suddenly became unavailable during a chat session, that user would be dropped from the list of participants. For more information on errors, look at the section on <A HREF="inet0532.htm#chatocx_vb_0504010205000000" TARGET="TEXT">error codes</A>.
+<LI>The <A HREF="inet0529.htm#chatocx_vb_0504010202000300" TARGET="TEXT">BorderStyle</A> and <A HREF="inet0529.htm#chatocx_vb_0504010202000100" TARGET="TEXT">Appearance</A> properties should be set only at startup time. They should not be changed in the middle of a conversation, because the content of the controls (text boxes and list boxes) would be lost.
+<LI>Chat room members cannot ignore themselves or a chat room host. 
+<LI>Only a host can change a member into a spectator, participant, or host.
+<LI>The host cannot change an ignored member into a host (the ignore status must be removed first).
+<LI>Participants and spectators cannot change the no-whisper status of another chat room member.
+<LI>Chat room members cannot change themselves into spectators, participants, or hosts.
+</UL>
+<H3><A NAME="chatocx_vb_ovr_0504010103000000">Dependencies</A></H3>
+<P>The Chat control requires the presence of the Mschat.ocx and Chatsock.dll files on the user's computer. These files can be obtained by installing the Internet Client SDK. To implement Web pages that use the Chat control, the Web server must have access to a chat server. If the Chat control is implemented as a stand-alone client application, the computer running this application must have access to a chat server. The Chat control enables the connection from the user's computer to a chat channel, or chat room, on the chat server. 
+
+
+<H3><A NAME="chatocx_vb_ovr_0504010104000000">Licensing and Distribution</A></H3>
+<P>The Microsoft Chat control is an ActiveX control that can be hosted by any ActiveX control container. This control is available for installation and redistribution on all computers with validly licensed copies of Microsoft operating system products (for example, Windows NT&#174;, Windows&#174; 95, and so on). For further information on licensing issues, refer to the License.txt file distributed with the Internet Client SDK. 
+
+
+
+<H3><A NAME="chatocx_vb_ovr_0504010105000000">Using the Chat Control</A></H3>
+<P>Web pages can be created to automatically download the Chat control with the &lt;OBJECT&gt; tag and allow the browser client to join a chat room using the default user interface with scripting. The following image shows how a sample HTML page looks when it is loaded by the browser. 
+
+<P>
+<P><IMG SRC="art/ChatHTML.gif" WIDTH="489" HEIGHT="384" ALT="Microsoft Chat control in an HTML page" >
+<P>
+
+<P>To use the chat control shown above, the user viewing this HTML page would simply type an alias name in the Nickname field and click the Join The Chat button. Once connected, the frame on the right side of the control would show all chat room members. To broadcast a message, the user clicks in the Send text box, types the text of the message, and clicks the Send button. To whisper to specific members of the chat room, a user can select the names of the members in the Participant list box, click in the Send text box, type the message, and click the Whisper button. Whenever a message is sent in the chat room, the History text box is updated with the message and the chat member who sent it.
+
+<P>To implement this control, create an HTML page similar to the following example that uses VBScript. Detailed explanations of the HTML tags and VBScript code are provided below.
+
+
+<PRE><FONT FACE="Courier" SIZE="2">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;MSChat OCX Simple Demo Page&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+
+&lt;BODY TOPMARGIN=4 BGCOLOR=#003B00 LINK=#FFFFDD VLINK=33FFFF TEXT=#FFFFFF&gt;
+&lt;PRE&gt;
+        - Microsoft Chat Control Demo Page -
+&lt;/PRE&gt;
+
+&lt;P&gt;
+&lt;OBJECT
+    STANDBY="Dowloading the Microsoft MSChat ActiveX Control"
+    CODETYPE="application/x-oleobject"
+    CLASSID="clsid:D6526FE0-E651-11CF-99CB-00C04FD64497"
+    CODEBASE="MSChatOCX.Cab#Version=4,71,413,0"
+    WIDTH=600
+    HEIGHT=350
+    ID=Chat
+    &gt;
+    &lt;PARAM NAME="UIOption"   VALUE="2047"&gt;
+    &lt;PARAM NAME="Appearance" VALUE="3"&gt;
+    &lt;PARAM NAME="BackColor"  VALUE="255"&gt;
+&lt;/OBJECT&gt;
+
+&lt;FORM NAME = "WEBChat"&gt;
+&lt;PRE&gt;
+Room Path    &lt;INPUT TYPE = "TEXT" NAME="Room" VALUE = "mic:\\ChatSvr\#Demo" SIZE = "40"&gt;
+
+    Nickname    &lt;INPUT TYPE = "TEXT" NAME="Alias" VALUE="" SIZE = "40"&gt;
+&lt;P&gt;
+    &lt;INPUT TYPE = "BUTTON" NAME="FluxBtn" VALUE = "   Join the chat   " OnClick = "FluxBtn_OnClick"&gt;
+&lt;/PRE&gt;
+&lt;/FORM&gt;
+
+&lt;SCRIPT LANGUAGE="VBScript"&gt;
+
+SUB FluxBtn_OnClick        'Event triggered when button is pressed
+    Dim ChatForm
+    Set ChatForm = Document.WEBChat
+
+    If (Chat.State = 1) Then
+        Chat.EnterRoom ChatForm.Room.Value, "", ChatForm.Alias.Value, "", 1, 1
+    Else 
+        If (Chat.State = 2) Then
+            Chat.CancelEntering
+            Chat.ClearHistory
+        Else 
+            If (Chat.State = 3) Then
+                Chat.ExitRoom
+                Chat.ClearHistory
+            End If
+        End If
+    End If
+END SUB
+
+SUB Chat_OnStateChanged(ByVal NewState)    'Chat control event triggered when the chat's state is changed
+    Dim ChatForm
+    Set ChatForm = Document.WEBChat
+
+    If (NewState = 1) Then
+        ChatForm.FluxBtn.Value = "   Join the chat   "
+        Chat.BackColor = 255    'UI Frame is red
+    Else
+        If (NewState = 2) Then
+            ChatForm.FluxBtn.Value = "Cancel Entering"
+            Chat.BackColor = 33023    'UI Frame is yellow
+        Else
+            If (NewState = 3) Then
+                ChatForm.FluxBtn.Value = "Leave the chat"
+                Chat.BackColor = 49152    'UI Frame is green
+            End If
+        End If
+    End If
+END SUB
+
+&lt;/SCRIPT&gt;
+
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</FONT></PRE>
+<P><B>Note</B>  The version in the codebase line is subject to change and should be updated to the current version of the control that is available.
+<H4><A NAME="chatocx_vb_ovr_0504010105010000">The &lt;OBJECT&gt; Tag</A></H4>
+<P>The &lt;OBJECT&gt; tag is required to download the Chat control that the unique CLASSID parameter value specifies. If the ActiveX control specified is not already on the computer, it will be downloaded from the URL value in the CODEBASE parameter. The ID parameter indicates the name of the <A HREF="inet0528.htm#chatocx_vb_0504010201000000" TARGET="TEXT">MSChat</A> object that the VBScript code will reference. 
+
+<P>The &lt;PARAM&gt; tags are used within the &lt;OBJECT&gt; tag to specify default values for any property the object supports. In the previous example, the <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A> property bitmask is set to enable all options except History text box hyperlinked URLs (value 2048). The <A HREF="inet0529.htm#chatocx_vb_0504010202000100" TARGET="TEXT">Appearance</A> parameter causes the Chat control to appear as a 3-D object, and the <A HREF="inet0529.htm#chatocx_vb_0504010202000200" TARGET="TEXT">BackColor</A> parameter displays the user interface border in red. For information on other &lt;OBJECT&gt; parameters, see the HTML element reference for <A HREF="inet0081.htm#htmlref_0109020101003d00" TARGET="TEXT">OBJECT</A>.
+
+<H4><A NAME="chatocx_vb_ovr_0504010105020000">The &lt;FORM&gt; Tag</A></H4>
+<P>The &lt;FORM&gt; tag is used to place objects such as buttons and text boxes on the HTML page. This is similar to using a Form in Microsoft Visual Basic or Microsoft Visual Basic for Applications. The example above creates a form with two text boxes and a button. The &lt;INPUT TYPE = "TEXT"&gt; tag is used to allow the user to specify a chat server room path and the user's nickname to be used in the chat room. The &lt;INPUT TYPE = "BUTTON"&gt; tag creates a button that can be clicked to join the chat, cancel entering the chat, and leave the chat.
+
+<P>The "TEXT" and "BUTTON" input types are included in the set of intrinsic HTML controls built into the Internet Explorer browser itself, and therefore do not require the use of the &lt;OBJECT&gt; tag to make them available. For further information on intrinsic HTML controls and their associated properties, methods, and events, refer to <I>Inside Microsoft Visual Basic, Scripting Edition</I> (Scot Hillier, Microsoft Press). 
+
+
+<H4><A NAME="chatocx_vb_ovr_0504010105030000">The &lt;SCRIPT&gt; Tag</A></H4>
+<P>The &lt;SCRIPT&gt; tag selects the scripting language to be used until the browser reaches the &lt;/SCRIPT&gt; tag. In the previous example, VBScript code is used to execute when either of two events occur, including a button click (<B>OnClick</B>) event and a state change (<A HREF="inet0531.htm#chatocx_vb_0504010204000f00" TARGET="TEXT">OnStateChanged</A>) event. The FluxBtn_OnClick subprocedure is executed whenever the button is clicked by the user. When this occurs, the procedure checks the current state of the user's HTML Chat client by retrieving the value of the <A HREF="inet0529.htm#chatocx_vb_0504010202000f00" TARGET="TEXT">State</A> property. Based on the current Chat state, the procedure either connects to the specified Chat room with the <A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A> method, cancels the request to join the Chat with the <A HREF="inet0530.htm#chatocx_vb_0504010203000300" TARGET="TEXT">CancelEntering</A> method, or disconnects from the Chat with the <A HREF="inet0530.htm#chatocx_vb_0504010203000600" TARGET="TEXT">ExitRoom</A> method. After responding to the button click, the Chat_OnStateChanged subprocedure is executed because the Chat control's state has been changed. This procedure simply checks the new state of the Chat control, and sets the appropriate button text with the <B>Value</B> property; the control's background color is changed with the <A HREF="inet0529.htm#chatocx_vb_0504010202000200" TARGET="TEXT">BackColor</A> property.
+
+<P><B>Note</B>  The <B>Value</B> property and <B>OnClick</B> event are associated with the set of intrinsic HTML controls mentioned previously.
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

@@ -1,0 +1,18 @@
+/********************************************************************/
+/*        MsChatPr.rcv                                               */
+/********************************************************************/
+
+#include <afxres.h>
+
+#define VER_FILETYPE			      VFT_DLL
+#define VER_FILESUBTYPE			   VFT_UNKNOWN
+#define VER_DESCRIPTION_STR		"Microsoft Chat Protocol Control\0"
+#define VER_INTERNALNAME_STR		"MsChatPr.Ocx\0"
+#define VER_PRODUCTNAME_STR      "Microsoft\256 Chat"
+#define VER_PRODUCTRELEASE_STR   "Version 2.0\0"
+#ifndef WIN32
+#define VER_LEGALCOPYRIGHT_YEARS "1995-1997"
+#endif
+#define VER_ORIGNAME_STR	      "MsChatPr.Ocx\0"
+
+#include <version.rc>

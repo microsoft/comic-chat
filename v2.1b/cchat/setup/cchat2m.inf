@@ -1,0 +1,225 @@
+; CChat2.INF
+;
+; This is the Setup information file to install 
+; Microsoft Chat 2.0
+;
+; Copyright (c) 1993-1997 Microsoft Corporation
+;
+
+[Version]
+Signature="$CHICAGO$"
+SetupClass = BASE
+LayoutFile = layout.inf, layout1.inf
+
+[BaseWinOptions]
+CChat.Register
+
+[CChat.Register]
+AddReg=CChat.Register.AddReg
+CopyFiles=NfFiles
+
+[CChat.Register.AddReg]
+HKLM,%KEY_OPTIONAL%,"CCHAT",,"CCHAT"
+HKLM,%KEY_OPTIONAL%\CCHAT,INF,,%nfName%
+HKLM,%KEY_OPTIONAL%\CCHAT,Section,,"CCHAT"
+HKLM,%KEY_OPTIONAL%\CCHAT,Installed,,"0"
+
+[Optional Components]
+CCHAT
+
+[CCHAT]
+OptionDesc     = %CChatDesc%
+Tip            = %CChatTip%
+Parent         = CommApps
+InstallType    = 0
+IconIndex      = 35  ;Windows Logo mini-icon for dialogs
+CopyFiles      = ProductFiles, HelpFiles, NfFiles, ArtFiles, SysFiles
+DelFiles       = OldInfFiles
+AddReg         = CChatReg, CChat.OC.Installed
+DelReg         = CChatDelOldReg
+UpdateInis     = CChatDelOldInis, CChatInis
+Uninstall      = CChatUninstall
+
+[CChatUninstall]
+DelFiles       = ProductFiles, HelpFiles, ArtFiles
+AddReg         = CChat.OC.UnInstalled
+DelReg         = CChatDelReg
+UpdateInis     = CChatDelInis
+
+[CChat.OC.Installed]
+HKLM,%KEY_OPTIONAL%\CCHAT,Installed,,"1"
+
+[CChat.OC.UnInstalled]
+HKLM,%KEY_OPTIONAL%\CCHAT,Installed,,"0"
+
+[DestinationDirs]
+ProductFiles    = 29600
+HelpFiles       = 18
+NfFiles         = 17 
+OldInfFiles     = 17    
+SysFiles        = 11
+ArtFiles        = 29600, %ArtDir%
+
+[OldInfFiles]
+CChat11.INF,,,1
+
+[ProductFiles]
+CChat.exe,,,33
+README.TXT,CHAT.TXT,,33
+;README.GIF,,,33
+;LICENSE.TXT,,,33
+	
+[HelpFiles]
+CCHAT.HLP,,,33
+CCHAT.CNT,,,33
+
+[NfFiles]
+CChat2.INF,,,33
+
+[ArtFiles]
+ANNA.AVB,,,33
+ARMANDO.AVB,,,33
+DAN.AVB,,,33
+HUGH.AVB,,,33
+JORDAN.AVB,,,33
+LANCE.AVB,,,33
+MARGARET.AVB,,,33
+MIKE.AVB,,,33
+SUSAN.AVB,,,33
+TIKI.AVB,,,33
+TONGTYED.AVB,,,33
+XENO.AVB,,,33
+
+FIELD.BMP,,,33
+PASTORAL.BMP,,,33
+ROOM.BMP,,,33 
+
+[SysFiles]
+CHATSOCK.DLL,,,33
+
+[CChatInis]
+; Add the Microsoft Chat entries to the Start.Programs folder(s)
+setup.ini, progman.groups,, "groupies="%PGMGRP_IESUITE%""
+setup.ini, groupies,, """%CChat_LINK%"", ""%29602%\%CChatExe%"""
+
+[CChatDelInis]
+; Remove the Microsoft Chat entries from the Start.Programs folder(s)
+setup.ini, progman.groups,, "groupies="%PGMGRP_IESUITE%""
+setup.ini, groupies,, """%CChat_LINK%"""
+
+[CChatDelOldInis]
+setup.ini, progman.groups,, "CChat="
+setup.ini, CChat,, """Microsoft Comic Chat"""
+
+[CChatReg]
+HKCR,.ccr,,,ComicChatRoomShortcut
+HKCR,ComicChatRoomShortcut,,,%CChat_short%
+HKCR,ComicChatRoomShortcut,"IsShortcut",,""
+HKCR,ComicChatRoomShortcut,"EditFlags",1,00,00,01,00
+HKCR,ComicChatRoomShortcut\DefaultIcon,,,"%29601%\%CChatExe%,1"
+HKCR,ComicChatRoomShortcut\shell,,,"open"
+HKCR,ComicChatRoomShortcut\shell\open,,,""
+;HKCR,ComicChatRoomShortcut\shell\open,"EditFlags",1,01,00,00,00
+HKCR,ComicChatRoomShortcut\shell\open\command,,,"%29601%\%CChatExe% ""%%1"""
+
+HKCR,.ccc,,,ComicChatTranscript
+HKCR,ComicChatTranscript,,,%CChat_conv%
+HKCR,ComicChatTranscript,"EditFlags",1,00,00,01,00
+HKCR,ComicChatTranscript\DefaultIcon,,,"%29601%\%CChatExe%,0"
+HKCR,ComicChatTranscript\shell,,,"open"
+HKCR,ComicChatTranscript\shell\open,,,""
+;HKCR,ComicChatTranscript\shell\open,"EditFlags",1,01,00,00,00
+HKCR,ComicChatTranscript\shell\open\command,,,"%29601%\%CChatExe% ""%%1"""
+
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}",,,"Comic Chat Room"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Verb",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Verb\0",,,"&Edit,0,2"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Verb\1",,,"&Open,0,2"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Insertable",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType\2",,,"Room"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType\3",,,"chat"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\MiscStatus",,,"32"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\ProgID",,,"ComicChat.Room.1"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\InprocHandler32",,,"ole32.dll"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\LocalServer32",,,"%29601%\%CChatExe%"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DefaultIcon",,,"%29601%\%CChatExe%,1"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DocObject",,,"0"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Printable",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DefaultExtension",,,".ccr,Comic Chat Room (*.ccr)"
+
+HKCR,"ComicChat.Room.1",,,"Comic Chat Room"
+HKCR,"ComicChat.Room.1\Insertable",,,""
+HKCR,"ComicChat.Room.1","EditFlags",1,00,00,01,00
+HKCR,"ComicChat.Room.1\protocol",,,""
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing",,,""
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing\verb",,,""
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing\verb\0",,,"&Edit"
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing\server",,,"%29601%\%CChatExe%"
+HKCR,"ComicChat.Room.1\CLSID",,,"{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}"
+HKCR,"ComicChat.Room.1\DocObject",,,"0"
+
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\%CChatExe%",,,"%29601%\%CChatExe%"
+
+HKLM,"SOFTWARE\Microsoft\%CChatName%",,,""
+HKLM,"SOFTWARE\Microsoft\%CChatName%","BaseDir",,"%29601%"
+HKLM,"SOFTWARE\Microsoft\%CChatName%","ArtDir",,"%ArtDir%"
+
+HKCR,"mic",,,""
+HKCR,"mic","URL Protocol",,""
+HKCR,"mic\shell",,,""
+HKCR,"mic\shell\open",""
+HKCR,"mic\shell\open\command",,,"%29601%\%CChatExe% ""%%1"""
+
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat",,,""
+
+;HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat,"DisplayName",,"%CChatDesc%"
+;HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat,"UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %nfName%, CChatUninstall"
+
+; Entries for Active Setup
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ActSetup_GUID%",,0,"%CChatDesc%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ActSetup_GUID%","ComponentID",,"comicchat"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ActSetup_GUID%","IsInstalled",1,01,00,00,00
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ActSetup_GUID%","Locale",0,"%LOCALE_ID%"
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ActSetup_GUID%","Version",,"%VERSIONSTR%"
+
+
+[CChatDelReg]
+HKCR,.ccr
+HKCR,.ccc
+HKCR,ComicChatRoomShortcut
+HKCR,ComicChatTranscript
+HKCR,mic
+HKCR,clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat
+HKCR,ComicChat.Room.1
+HKCU,SOFTWARE\Microsoft\%CChatName%
+HKLM,SOFTWARE\Microsoft\%CChatName%
+; Entries for Active Setup
+HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ActSetup_GUID%"
+
+[CChatDelOldReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat
+
+[Strings]
+KEY_OPTIONAL            = "SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents"
+
+CChatDesc		= "Microsoft Chat 2.0"
+CChatTip		= "Enables you to chat with people on a chat server."
+; This is Reg Key entry name
+CChatName		= "Microsoft Comic Chat"
+CChat_LINK		= "Microsoft Chat"
+CChatDir		= "Microsoft Chat"
+CChatExe		= "CChat.exe"
+Program_Files           = "Program Files"         
+CChat_conv              = "Microsoft Chat Conversation"
+CChat_short             = "Microsoft Chat Room Shortcut" 
+ActSetup_GUID           = "{44BBA844-CC51-11CF-AAFA-00AA00B6015C}"
+
+ArtDir			= "ComicArt"
+;Remember to change in SourceFiles and NfFiles also
+nfName			= "CChat2.Inf"
+
+PGMGRP_IESUITE          = "Internet Explorer"
+LOCALE_ID               = "EN"
+VERSIONSTR              = "4,71,0,0706"
