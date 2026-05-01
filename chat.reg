@@ -1,0 +1,36 @@
+REGEDIT
+; Adapted (unabashedly) from the BindScrb MFC Example
+;
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+HKEY_CLASSES_ROOT\.CCR = ComicChat.Room.1
+HKEY_CLASSES_ROOT\ComicChat.Room.1\shell\open\command = CHAT.EXE %1
+HKEY_CLASSES_ROOT\ComicChat.Room.1\shell\open\ddeexec = [open("%1")]
+HKEY_CLASSES_ROOT\ComicChat.Room.1\shell\open\ddeexec\application = Microsoft Comic Chat
+    ; note: the application is optional
+    ;  (it defaults to the app name in "command")
+
+; These lines for OLE server capability are included
+; for information purposes only.  The REG file is optional, since Comic Chat
+; will automatically register itself the first time it is run.
+HKEY_CLASSES_ROOT\ComicChat.Room.1 = Microsoft Comic Chat Room
+HKEY_CLASSES_ROOT\ComicChat.Room.1\protocol\StdFileEditing\server = CHAT.EXE
+HKEY_CLASSES_ROOT\ComicChat.Room.1\protocol\StdFileEditing\verb\0 = &Edit
+HKEY_CLASSES_ROOT\ComicChat.Room.1\Insertable =
+HKEY_CLASSES_ROOT\ComicChat.Room.1\CLSID = {241AF500-8FB6-11CF-ADC5-00AA00BADF6F}
+
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F} = Microsoft Comic Chat Room
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DefaultIcon = CHAT.EXE,0
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\LocalServer32 = CHAT.EXE
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\ProgId = ComicChat.Room.1
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\MiscStatus = 0
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType\3 = Microsoft Comic Chat
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType\2 = CChat
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Insertable = 
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\verb\1 = &Open,0,2
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\verb\0 = &Edit,0,2
+HKEY_CLASSES_ROOT\CLSID\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\InprocHandler32 = ole32.dll
+
