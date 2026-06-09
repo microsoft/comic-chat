@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // spltchat.cpp : implementation of the CSplitChat class
 //
 /////////////////////////////////////////////////////////////////////////////

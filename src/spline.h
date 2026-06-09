@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 typedef double MATRIX[4][4];
 
 class CSpline : public CSeg {

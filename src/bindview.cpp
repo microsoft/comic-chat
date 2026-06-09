@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // bindview.cpp : implementation of the Binder-aware DocObject OLE
 //				server document class IOleDocumentView interface
 //

@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // IpFrame.h : interface of the CInPlaceFrame class
 //
 

@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // PropPage.h : header file
 //
 #define cxPosAvatarPage             141  //162

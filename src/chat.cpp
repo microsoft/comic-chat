@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // chat.cpp : Defines the class behaviors for the application.
 //
 

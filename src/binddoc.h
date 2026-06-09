@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // binddoc.h : interface of the BinderDocObject OLE server document class
 //
 // This is a part of the Microsoft Foundation Classes C++ library.

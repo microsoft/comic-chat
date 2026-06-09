@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #define PE_UNKNOWN	0
 #define PE_BALLOON	1
 #define PE_BOX		2		// technically, also of type balloon

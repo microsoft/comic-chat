@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // print.cpp : implementation of the IPrint interface
 //
 // This is a part of the Microsoft Foundation Classes C++ library.

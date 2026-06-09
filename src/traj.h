@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 class CGraphicalObj {
 public:
 	virtual void Draw(CDC*) = 0;

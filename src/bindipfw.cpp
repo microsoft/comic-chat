@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // bindipfw.cpp : implementation of the Binder-aware DocObject
 //	in-place frame window 
 //

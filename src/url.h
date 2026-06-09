@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 class CLink {
 public:
 	CLink(int start, int length, const char *url) { m_start = start; m_length = length; m_url = strdup(url); }

@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // binditem.cpp : implementation of the DocObject OLE
 //	server item class
 //

@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #define SM_SAY		1
 #define SM_WHISPER	2
 #define SM_THINK	3

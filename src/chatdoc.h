@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // chatDoc.h : interface of the CChatDoc class
 //
 /////////////////////////////////////////////////////////////////////////////

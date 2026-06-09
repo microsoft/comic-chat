@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 typedef struct  { // Same as SMALL_RECT, but want symbols to be visible
     SHORT Left;      
     SHORT Top;       

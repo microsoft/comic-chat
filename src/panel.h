@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #include "stdafx.h"
 
 class CDamage : public CObject {		// Acts as a hint to UpdateAllViews

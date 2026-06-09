@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // mfcbind.h : utility definitions and functions for DocObject
 //		Support for MFC
 //

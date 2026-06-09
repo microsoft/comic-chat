@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // binddcmt.cpp : implementation of the DocObject OLE
 //		server document class IOleDocument interface
 //

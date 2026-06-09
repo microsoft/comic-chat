@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 class CIrcSocket : public CAsyncSocket {
 public:
 	virtual void OnConnect(int nErrorCode);

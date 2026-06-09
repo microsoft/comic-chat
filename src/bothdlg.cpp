@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // BotherDlg.cpp : implementation file
 //
 #include "stdafx.h"

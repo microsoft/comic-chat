@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // bindtarg.cpp : implementation of the DocObject OLE
 // 		server document class IOleCommandTarget interface
 //

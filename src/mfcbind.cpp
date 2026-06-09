@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // mfcbind.cpp : Example of Binder-compatible utility functions
 //
 // This is a part of the Microsoft Foundation Classes C++ library.

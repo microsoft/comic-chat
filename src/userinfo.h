@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #define UF_IGNORED		1
 #define UF_COMICUSER	2
 #define UF_DEPARTED		4

@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #define INT8	UCHAR
 #define	INT16	short
 #define	INT32	int

@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // bindipfw.h : interface of the DocObject in-place frame window class
 //
 // This is a part of the Microsoft Foundation Classes C++ library.

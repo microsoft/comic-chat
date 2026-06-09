@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // chatDoc.cpp : implementation of the CChatDoc class
 //
 

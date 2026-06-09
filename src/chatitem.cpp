@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // ChatItem.cpp : implementation of the CChatItem class
 //
 

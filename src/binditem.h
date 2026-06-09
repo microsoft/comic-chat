@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // binditem.h : interface of the DocObject OLE server item class
 //
 // This is a part of the Microsoft Foundation Classes C++ library.

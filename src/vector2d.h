@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 /* Basic Types */
 
 typedef struct {		/* 2D Point */

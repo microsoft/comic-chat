@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 class HistoryEntry {
 public:
 	virtual void Execute(int mode) = 0;

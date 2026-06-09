@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // *******************************************
 // Comic Font Selection and Instantiation Code
 //	  -- additional methods for CUnitPanelPage

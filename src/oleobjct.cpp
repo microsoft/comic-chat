@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // oleobjct.cpp : implementation of the DocObject OLE server
 //	document class IOleObject interface
 

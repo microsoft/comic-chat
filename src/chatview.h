@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 // chatView.h : interface of the CChatView class
 //
 /////////////////////////////////////////////////////////////////////////////

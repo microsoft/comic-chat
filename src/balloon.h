@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #define FT_LEFT_JUSTIFY	1
 
 class CFormatInfo {
