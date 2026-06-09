@@ -1,6 +1,6 @@
 # Microsoft Comic Chat
 
-Microsoft Comic Chat is a graphical IRC chat client developed at Microsoft in 1996. Unlike traditional text-based chat clients, Comic Chat renders conversations as comic strips in real time — placing participants as cartoon characters with word balloons, expressions, and gestures automatically determined by a built-in expert system.
+Microsoft Comic Chat is a Microsoft-developed internet chat client released in 1996 that transformed traditional text-based conversations into automatically generated comic strips. Instead of plain text, users communicate through cartoon avatars, with messages displayed in speech bubbles inside dynamically created comic panels that conveyed gestures, emotions, and narrative flow. Built as an IRC client and originally a Microsoft Research project, it uses algorithms to mimic comic storytelling techniques, such as panel layout and character expressions, to make online communication more visual and expressive. It was later bundled with Internet Explorer and MSN before being discontinued in the early 2000s.
 
 ![Comic Chat](src/readme.gif)
 
@@ -15,7 +15,7 @@ As users type messages, each Comic Chat client automatically determines:
 - When to advance to a new panel
 - Zoom factor for each panel
 
-The application connects to standard IRC servers and is fully interoperable with text-based IRC clients — non-Comic Chat users are automatically assigned characters so the entire conversation is rendered graphically.
+The application connects to standard IRC servers and is fully interoperable with text-based IRC clients. Non-Comic Chat users are automatically assigned characters so the entire conversation is rendered graphically.
 
 ## Building
 
