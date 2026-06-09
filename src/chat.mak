@@ -289,7 +289,7 @@ BSC32_SBRS= \
 	
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386
-# ADD LINK32 uuid3.lib winmm.lib lhwrap.lib /nologo /subsystem:windows /incremental:no /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 uuid3.lib winmm.lib /nologo /subsystem:windows /incremental:no /debug /machine:I386 /nodefaultlib:"libc"
 LINK32_FLAGS=uuid3.lib winmm.lib /nologo /subsystem:windows\
  /incremental:no /pdb:"$(OUTDIR)/chat.pdb" /debug /machine:I386\
  /nodefaultlib:"libc" /out:"$(OUTDIR)/chat.exe" 
