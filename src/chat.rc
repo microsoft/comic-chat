@@ -365,6 +365,8 @@ BEGIN
     EDITTEXT        IDC_SERVER,7,56,126,14,ES_AUTOHSCROLL
     LTEXT           "&Port:",IDC_STATIC,140,42,22,8
     EDITTEXT        IDC_PORTNUM,140,56,28,14,ES_AUTOHSCROLL
+    CONTROL         "Use SS&L (TLS)",IDC_USESSL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,72,90,9
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,81,162,1
     CONTROL         "Go to chat room:",IDC_CONCHAN,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,7,93,69,10
@@ -388,7 +390,7 @@ BEGIN
                     IDC_WARNING,7,132,131,50,NOT WS_GROUP
     LTEXT           "Microsoft Corporation",IDC_CORP,159,20,103,8
     LTEXT           "Beta user",IDC_USER,159,12,103,8
-    LTEXT           "Copyright © 1996  Microsoft Corporation",IDC_COPY,7,12,
+    LTEXT           "Copyright ï¿½ 1996  Microsoft Corporation",IDC_COPY,7,12,
                     134,8
     GROUPBOX        "This product is licensed to",IDC_LICENSE,153,4,120,28
     CONTROL         203,IDC_TIKI,"Static",SS_BITMAP | SS_CENTERIMAGE | 
@@ -603,7 +605,7 @@ BEGIN
             VALUE "FileDescription", "Microsoft Comic Chat\0"
             VALUE "FileVersion", "1.00\0"
             VALUE "InternalName", "CHAT\0"
-            VALUE "LegalCopyright", "Copyright © Microsoft Corp. 1996\0"
+            VALUE "LegalCopyright", "Copyright ï¿½ Microsoft Corp. 1996\0"
             VALUE "OriginalFilename", "CHAT.EXE\0"
             VALUE "ProductName", "Microsoft Comic Chat\0"
             VALUE "ProductVersion", "1.0\0"

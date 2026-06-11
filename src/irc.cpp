@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <afxsock.h>
 #include "ircsock.h"
+#include "tlssock.h"
 #include "chat.h"
 
 #include "binddoc.h"
@@ -36,6 +37,7 @@ extern void SetMyName(const char *charName);
 extern void ChatSetChannel(const char *chanName);
 extern UINT GetMyPort();
 extern const char *GetMyRealName();
+extern BOOL GetMyUseSSL();
 extern const char *GetMyCharacter();
 extern const char *GetMyChannel();
 extern void ChatSetServer(const char *);
@@ -172,6 +174,7 @@ void InitializeServerConnection() {
 		ChatSetConnectionStatus(CX_CONNECTING);
 		((CFrameWnd*)AfxGetMainWnd())->UpdateWindow();
 		VERIFY(serverConn.Create());
+		serverConn.SetSecure(GetMyUseSSL());
 		if (serverConn.Connect(GetMyServer(), GetMyPort()) || GetLastError() == WSAEWOULDBLOCK) {
 			theApp.m_bNoNetwork = FALSE;
 //			AddAndExecute(new StartHistoryEntry(GetComicsTitle(), GetMyCharacter(), 0));
@@ -929,43 +932,135 @@ void CIrcSocket::ProcessMessage(char *line) {
 	}
 }
 
-#define RECVSIZE	513
+#define RECVSIZE	4096
+
+CIrcSocket::CIrcSocket() {
+	m_bSecure = FALSE;
+	m_tlsState = IRC_TLS_NONE;
+	m_tls = NULL;
+	m_lineLen = 0;
+	m_lineBuf[0] = '\0';
+}
+
+CIrcSocket::~CIrcSocket() {
+	if (m_tls) delete m_tls;
+}
+
+// Split accumulated plaintext into '\n'-terminated lines and dispatch each one.
+// Used by both the plaintext and the (post-decrypt) TLS receive paths.
+void CIrcSocket::FeedPlainBytes(char *data, int len) {
+	for (int i = 0; i < len; i++) {
+		if (m_lineLen < (int)sizeof(m_lineBuf) - 1)
+			m_lineBuf[m_lineLen++] = data[i];
+		if (data[i] == '\n') {
+			m_lineBuf[m_lineLen] = '\0';
+			char message[RECVSIZE];
+			strncpy(message, m_lineBuf, sizeof(message) - 1);
+			message[sizeof(message) - 1] = '\0';
+			m_lineLen = 0;
+			m_lineBuf[0] = '\0';
+			TRACE("Got message: %.100s\n", message);
+			ProcessMessage(message);	// reentrant but single-threaded
+		}
+	}
+}
 
 void CIrcSocket::OnReceive(int nErrorCode) {
 	TRACE("Entering OnReceive (code = %d).\n", nErrorCode);
-	static char recvBuff[RECVSIZE];
+	if (nErrorCode) { TRACE("Leaving OnReceive (error).\n"); return; }
 
-	if (!nErrorCode) {
-		char *startPtr = strchr(recvBuff, '\0');
-		int space = recvBuff + RECVSIZE - startPtr - 1;
-		int nRead = Receive(startPtr, space);
-		startPtr[nRead] = '\0';
-		char *eoc = strchr(recvBuff, '\n');
-		while (eoc) {
-			eoc++;
-			char message[RECVSIZE];
-			int comLen = eoc - recvBuff;
-			strncpy(message, recvBuff, comLen);
-			message[comLen] = '\0';
+	char raw[RECVSIZE];
+	int nRead = CAsyncSocket::Receive(raw, sizeof(raw));
+	if (nRead <= 0) { TRACE("Leaving OnReceive (no data).\n"); return; }
 
-			// now move rest of message forward
-			char *eob = strchr(recvBuff, '\0');
-			int nRest = eob - eoc;
-			strncpy(recvBuff, eoc, nRest);
-			recvBuff[nRest] = '\0';
+	if (!m_bSecure) {
+		FeedPlainBytes(raw, nRead);
+		TRACE("Leaving OnReceive.\n");
+		return;
+	}
 
-			TRACE("Got message: %.100s\n", message);
-			ProcessMessage(message);   // handle the message (*After clearing it from the buffer!!!)
-			eoc = strchr(recvBuff, '\n'); // must do this after process message, since code is reentrant (but single threaded)
+	if (m_tlsState == IRC_TLS_HANDSHAKING) {
+		CByteArray outToken, early;
+		CTlsClient::Result r = m_tls->Continue((BYTE *)raw, nRead, outToken, early);
+		if (outToken.GetSize() > 0)
+			CAsyncSocket::Send(outToken.GetData(), outToken.GetSize());
+		if (r == CTlsClient::TLS_ERROR) {
+			AfxMessageBox("TLS handshake failed.");
+			Close();
+			ChatSetConnectionStatus(CX_DISCONNECTED);
+			return;
 		}
+		if (r == CTlsClient::TLS_DONE) {
+			m_tlsState = IRC_TLS_CONNECTED;
+			SendLogin();					// now safe to send NICK/USER (encrypted)
+			if (early.GetSize() > 0) {		// app data that rode in with the handshake
+				CByteArray plain; BOOL rng;
+				if (m_tls->Decrypt(early.GetData(), early.GetSize(), plain, rng) && plain.GetSize() > 0)
+					FeedPlainBytes((char *)plain.GetData(), plain.GetSize());
+			}
+		}
+		TRACE("Leaving OnReceive (handshake).\n");
+		return;
+	}
+
+	if (m_tlsState == IRC_TLS_CONNECTED) {
+		CByteArray plain; BOOL renegotiate = FALSE;
+		if (!m_tls->Decrypt((BYTE *)raw, nRead, plain, renegotiate)) {
+			TRACE("TLS decrypt failed; closing.\n");
+			Close();
+			ChatSetConnectionStatus(CX_DISCONNECTED);
+			return;
+		}
+		if (plain.GetSize() > 0)
+			FeedPlainBytes((char *)plain.GetData(), plain.GetSize());
 	}
 	TRACE("Leaving OnReceive.\n");
 }
 
+// Encrypting override of CAsyncSocket::Send.  Plaintext sent before the TLS
+// handshake completes is queued and flushed by SendLogin().
+int CIrcSocket::Send(const void *lpBuf, int nBufLen, int nFlags) {
+	if (!m_bSecure)
+		return CAsyncSocket::Send(lpBuf, nBufLen, nFlags);
+
+	if (m_tlsState != IRC_TLS_CONNECTED) {
+		int base = m_pendingPlain.GetSize();
+		m_pendingPlain.SetSize(base + nBufLen);
+		memcpy(m_pendingPlain.GetData() + base, lpBuf, nBufLen);
+		return nBufLen;
+	}
+
+	CByteArray cipher;
+	if (!m_tls->Encrypt((const BYTE *)lpBuf, nBufLen, cipher))
+		return SOCKET_ERROR;
+	if (cipher.GetSize() > 0)
+		CAsyncSocket::Send(cipher.GetData(), cipher.GetSize());
+	return nBufLen;
+}
+
+// Send the IRC registration handshake (NICK / USER) plus anything that was
+// queued while the TLS handshake was in flight.
+void CIrcSocket::SendLogin() {
+	char buff[255];
+	sprintf(buff, "NICK %s\r\n", GetMyName());
+	Send(buff, strlen(buff));
+	CString strRealName = GetMyRealName();
+	if (strRealName.IsEmpty())
+		strRealName = "Anonymous";
+	char user[60], machine[100];
+	unsigned long nChars = sizeof(user);
+	if (!GetUserName(user, &nChars) || nChars <= 1) strcpy(user, "NoUser");
+	if (gethostname(machine, sizeof(machine))) strcpy(machine, "NoMachine");
+	sprintf(buff, "USER %s %s %s :%s\r\n", user, machine, "myServer", strRealName);
+	Send(buff, strlen(buff));
+
+	if (m_pendingPlain.GetSize() > 0) {
+		Send(m_pendingPlain.GetData(), m_pendingPlain.GetSize());
+		m_pendingPlain.RemoveAll();
+	}
+}
 
 void CIrcSocket::OnConnect(int nErrorCode) {
-	char buff[255];
-
 	TRACE("Connecting (code = %d)...\n", nErrorCode);
 	if (nErrorCode) {  // couldn't connect
 		CString mesg;
@@ -979,22 +1074,40 @@ void CIrcSocket::OnConnect(int nErrorCode) {
 		InitializeServerConnection();
 		return;
 	}
-	// got a connection!
-	sprintf(buff, "NICK %s\r\n", GetMyName());
-	Send(buff, strlen(buff));
-	CString strRealName = GetMyRealName();
-	if(strRealName.IsEmpty())
-		strRealName = "Anonymous";
-	char user[60], machine[100];
-	unsigned long nChars = sizeof(user);
-	if (!GetUserName(user, &nChars) || nChars <= 1) strcpy(user, "NoUser");
-	if (gethostname(machine, sizeof(machine))) strcpy(machine, "NoMachine");
-	sprintf(buff, "USER %s %s %s :%s\r\n", user, machine, "myServer", strRealName);
-	Send(buff, strlen(buff));
+
+	// reset per-connection state
+	m_lineLen = 0;
+	m_lineBuf[0] = '\0';
+	m_pendingPlain.RemoveAll();
+
+	if (m_bSecure) {
+		// Start the TLS handshake; the IRC login is deferred until it completes.
+		if (m_tls) delete m_tls;
+		m_tls = new CTlsClient;
+		CByteArray hello;
+		if (!m_tls->Begin(GetMyServer(), hello)) {
+			AfxMessageBox("Could not start TLS (SChannel unavailable?).");
+			Close();
+			ChatSetConnectionStatus(CX_DISCONNECTED);
+			return;
+		}
+		m_tlsState = IRC_TLS_HANDSHAKING;
+		if (hello.GetSize() > 0)
+			CAsyncSocket::Send(hello.GetData(), hello.GetSize());
+		return;
+	}
+
+	m_tlsState = IRC_TLS_NONE;
+	SendLogin();
 }
 
 void CIrcSocket::OnClose(int nErrorCode) {
 	TRACE("Closing socket on error %d.\n", nErrorCode);
+	m_tlsState = IRC_TLS_NONE;
+	if (m_tls) { delete m_tls; m_tls = NULL; }
+	m_lineLen = 0;
+	m_lineBuf[0] = '\0';
+	m_pendingPlain.RemoveAll();
 	ChatSetConnectionStatus(CX_DISCONNECTED);
 }
 

@@ -78,6 +78,7 @@ public:
 	BOOL	m_bGetChannelList;
 	int		m_radioConnect;
 	//}}AFX_DATA
+	BOOL	m_bUseSSL;		// use TLS (SChannel) for the connection
 
 
 // Overrides
@@ -107,6 +108,7 @@ protected:
 	afx_msg void OnChangeChannel();
 	afx_msg void OnChangePortnum();
 	afx_msg void OnChangeServer();
+	afx_msg void OnUseSSL();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
