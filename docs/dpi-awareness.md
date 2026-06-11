@@ -12,6 +12,12 @@ it explains *why* the bugs happened, not just *what* changed.
 > ~12% of every panel was silently clipped. The fix is to size the bitmap from
 > the DC's real `LPtoDP` extent, rebuild it when that extent changes, and blit
 > with `StretchBlt` as a safety net.
+>
+> A second, app-wide issue: only the comic page is drawn in device-independent
+> TWIPs. The *other* surfaces (member-list face icons, the bodycam emotion
+> wheel) use hardcoded 96-DPI pixel sizes, so once the app became DPI-aware they
+> rendered ~33% too small. Those are scaled through a single `DpiScale()` helper
+> (see §10).
 
 ---
 
@@ -262,3 +268,63 @@ does.
 - **Missing TTS wrapper.** `chat.exe` imported `initproc`/`ttsproc`/`exitproc`
   from `lhwrap.dll`, a wrapper around the Lernout & Hauspie text-to-speech
   engine (1996). That DLL is absent, so these are stubbed; speech is a no-op.
+
+---
+
+## 10. App-wide scaling of pixel-based surfaces
+
+Fixing the comic page (§5) is necessary but **not sufficient**. The comic page
+is the only surface drawn in TWIPs; the rest of the UI uses hardcoded device
+pixels tuned for 96 DPI. Once the process became DPI-aware, those surfaces
+stopped being bitmap-stretched by Windows and rendered at their literal pixel
+sizes — i.e. ~33% too small on a 144-DPI (150%) display. The visible symptoms
+were the **member-list face icons** (upper right) and the **bodycam emotion
+wheel** (lower right) looking tiny next to a correctly-sized comic.
+
+### Why not just let Windows scale the whole app?
+We tried the obvious "uniform" answers and rejected them:
+
+- **DPI virtualization (unaware):** bitmap-stretches everything uniformly, but
+  blurry, and it still hit the comic-bitmap clipping bug.
+- **GDI Scaling** (`gdiScaling=true` + `dpiUnaware`): re-renders GDI crisply,
+  but Comic Chat persists its window geometry in raw pixels. Geometry saved
+  during a DPI-*aware* session got re-scaled by the OS, so the **main window
+  opened gigantic**. The OS-scaling model fights the app's custom pixel layout.
+
+So we keep true DPI awareness (comic + window geometry are correct) and scale
+the pixel surfaces ourselves.
+
+### The helper
+`common.h` exposes one tiny helper, initialized once in
+`CChatApp::InitInstance`:
+
+```cpp
+extern int g_screenDpi;                                  // = GetDeviceCaps(LOGPIXELSX)
+inline int DpiScale(int n96) { return ::MulDiv(n96, g_screenDpi, 96); }
+```
+
+At 96 DPI `DpiScale(n) == n`, so **standard-DPI users see no change** — this is
+purely additive for high-DPI displays.
+
+### Where it's applied
+- **Member list (`memblst.cpp`, `irc.cpp`):** the list-view image list is created
+  at `DpiScale(40)` cells, and `AddToImageList` `StretchBlt`s each face bitmap up
+  by the same factor (the source art is fixed ~96-DPI pixel art, so it must be
+  enlarged or it renders tiny in a big cell).
+- **Bodycam emotion wheel (`bodycam.cpp`):** `CacheBullSide` caps the wheel at
+  `DpiScale(MAXBULL)` / `DpiScale(MINBULL)`; the shared icon metrics
+  (`m_iconWidth`, `m_iconHeight`, `m_cursorRadius`) are scaled once in the
+  constructor; and the emotion face icons are drawn with the stretching
+  `CDIB::Draw(dc,x,y,w,h)` overload to fill the scaled slots.
+
+### Gotchas / follow-ups
+- Stretching small pixel art with `COLORONCOLOR` is slightly blocky but matches
+  the in-panel comic avatars (which stretch the same art) and is far better than
+  tiny. `HALFTONE` would be smoother at a small perf cost.
+- The bodycam wheel is still capped by its splitter pane's pixel width; it's wide
+  enough at normal window sizes, but a very narrow right column will clamp it.
+- **Remaining pixel surface:** the gesture/say toolbar bitmaps are not yet
+  DPI-scaled (MFC toolbars need larger bitmap resources or an image-list stretch).
+  Not flagged as a problem in practice, but it's the next surface if pursuing
+  pixel-perfect parity everywhere.
+

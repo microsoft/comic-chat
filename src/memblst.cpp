@@ -7,6 +7,7 @@
 #include "stdafx.h"
 #include "saywnd.h"
 #include "chat.h"
+#include "common.h"
 #include "memblst.h"
 #include "ui.h"
 #include "dib.h"
@@ -65,7 +66,7 @@ BOOL CMemberList::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	m_MemberListBox.Create(dwStyle, CRect(0, 0, 100, 100), this, 1);
 	m_MemberListBox.SetBkColor(COLORREF(RGB(255,255,255)));
 	m_MemberListBox.SetTextBkColor(COLORREF(RGB(255,255,255)));
-	m_ImageList.Create(40,40,FALSE,5,5);
+	m_ImageList.Create(DpiScale(40), DpiScale(40), FALSE, 5, 5);
 	m_MemberListBox.SetImageList(&m_ImageList,LVSIL_NORMAL);
 	return CFrameWnd::OnCreateClient(lpcs, pContext);
 }

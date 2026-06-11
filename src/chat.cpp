@@ -121,6 +121,9 @@ CChatApp::~CChatApp()
 
 CChatApp theApp;
 
+// Per-display DPI used by DpiScale() (see common.h) to size pixel-based UI.
+int g_screenDpi = 96;
+
 // This identifier was generated to be statistically unique for your app.
 // You may change it if you prefer to choose a specific identifier.
 
@@ -140,6 +143,17 @@ BOOL CChatApp::InitInstance()
 		SetProcessDPIAwareFunc setDPIAware = (SetProcessDPIAwareFunc)GetProcAddress(hUser32, "SetProcessDPIAware");
 		if (setDPIAware) setDPIAware();
 		FreeLibrary(hUser32);
+	}
+
+	// Capture the display DPI now (after declaring awareness) so DpiScale() can
+	// size the pixel-based UI surfaces correctly.
+	{
+		HDC hdcScreen = ::GetDC(NULL);
+		if (hdcScreen) {
+			int dpi = ::GetDeviceCaps(hdcScreen, LOGPIXELSX);
+			if (dpi > 0) g_screenDpi = dpi;
+			::ReleaseDC(NULL, hdcScreen);
+		}
 	}
 
 	int iarg;
