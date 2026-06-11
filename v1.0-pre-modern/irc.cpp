@@ -12,6 +12,7 @@
 								// so we can see if we're on the network or not
 #include "userinfo.h"
 #include "dib.h"
+#include "common.h"
 #include "chatprot.h"
 #include "bbox.h"
 #include "pe.h"
@@ -394,14 +395,39 @@ int AddToImageList(CUserInfo* pui)
 									pDIB->GetBitsAddress(),
 									pDIB->GetBitmapInfoAddress(),
 									DIB_RGB_COLORS);
+
+	// The member-list icon art is fixed ~96-DPI pixel art.  On a high-DPI display
+	// the list-view image-list cells were enlarged (DpiScale(40)), so stretch the
+	// face up by the same factor; otherwise the faces render tiny in a big cell.
+	BITMAPINFOHEADER *bih = &(pDIB->GetBitmapInfoAddress()->bmiHeader);
+	int srcW = bih->biWidth;
+	int srcH = (bih->biHeight < 0) ? -bih->biHeight : bih->biHeight;
+	int dstW = DpiScale(srcW);
+	int dstH = DpiScale(srcH);
+
+	HBITMAP hImage = hBmp;
+	if (dstW != srcW || dstH != srcH) {
+		HDC hdc = GetClientDC()->GetSafeHdc();
+		HDC srcDC = CreateCompatibleDC(hdc);
+		HDC dstDC = CreateCompatibleDC(hdc);
+		HBITMAP hScaled = CreateCompatibleBitmap(hdc, dstW, dstH);
+		HBITMAP oldSrc = (HBITMAP)SelectObject(srcDC, hBmp);
+		HBITMAP oldDst = (HBITMAP)SelectObject(dstDC, hScaled);
+		SetStretchBltMode(dstDC, COLORONCOLOR);
+		StretchBlt(dstDC, 0, 0, dstW, dstH, srcDC, 0, 0, srcW, srcH, SRCCOPY);
+		SelectObject(srcDC, oldSrc);
+		SelectObject(dstDC, oldDst);
+		DeleteDC(srcDC);
+		DeleteDC(dstDC);
+		DeleteObject(hBmp);			// no longer needed; the scaled copy replaces it
+		hImage = hScaled;
+	}
+
 	CBitmap temp;
-	CBitmap* pImageBmp = temp.FromHandle(hBmp);
-								
-	
-	// Replace the next two lines with code to get correct avatar head
-//	CBitmap ImageBmp;
-//	ImageBmp.LoadBitmap(IDB_TESTBMP);
-	int imageIndex = GetMembers()->m_ImageList.Add(pImageBmp,pImageBmp);
+	CBitmap* pImageBmp = temp.FromHandle(hImage);
+	int imageIndex = GetMembers()->m_ImageList.Add(pImageBmp, pImageBmp);
+	temp.Detach();					// FromHandle is a temporary; free the HBITMAP ourselves
+	DeleteObject(hImage);
 	return imageIndex;
 }
 
