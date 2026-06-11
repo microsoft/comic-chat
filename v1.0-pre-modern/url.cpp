@@ -1925,7 +1925,7 @@ const char *FindPreceedingWord(const char *start, const char *colon) {
 	return start;
 }
 
-const char *FindWordBreak(const char *start) inline {
+inline const char *FindWordBreak(const char *start) {
 	const char *wordBreak;
 	if (wordBreak = strchr(start, ' ')) return wordBreak;
 	else return strchr(start, '\0');
@@ -1940,7 +1940,7 @@ const char *FindURLEnd(const char *colon) {
 }
 #endif
 
-const char *FindURLEnd(const char *start, const char *end) inline {
+inline const char *FindURLEnd(const char *start, const char *end) {
 	end--; // get to last character of URL (end is exclusive)
 	while (ispunct(*end) && *end != '/' && end > start) end--;
 	return end+1;  // return character after url (url is a min of 1 char long)

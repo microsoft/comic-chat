@@ -70,7 +70,7 @@ CAvatarComplex::~CAvatarComplex() {
 			DeleteAVPose(fRec[i].poseID);
 		free(fRec);
 
-		for (i = 0; i < nTorsos; i++)
+		for (int i = 0; i < nTorsos; i++)
 			DeleteAVPose(bRec[i].poseID);
 		free(bRec);
 	}
@@ -267,7 +267,7 @@ CBody *CAvatarComplex::GetBodyFromEmotion(CEmotion &emotion) {
 
 
 	intensityOfNearest = 2.0;
-	for (i = 0; i < nTorsos; i++) {
+	for (int i = 0; i < nTorsos; i++) {
 		int index = (m_lastTorso + 1 + i) % nTorsos;  // start search from index after last body used
 		if (bRec[index].emotion > 7) continue;
 		double thisAngle = fabs(subtract_angles(bRec[index].emotion, emotion.m_emotion));
@@ -495,7 +495,7 @@ UINT myAvatarID = 0;
 
 static CPtrArray avatars;   // + 1 for NULL
 
-int GetAvatarUpperBound () inline {
+inline int GetAvatarUpperBound () {
 	return avatars.GetUpperBound();
 }
 

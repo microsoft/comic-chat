@@ -51,7 +51,7 @@ public:
 	CEmotion GetEmotionFromPoint(POINT &);
 	POINT GetPointFromEmotion(CEmotion &);
 	void UpdateEmotion(CEmotion &);
-	void GetBodyRect(RECT &) inline;
+	inline void GetBodyRect(RECT &);
 	RECT DrawBody(CDC *, CBody *);
 	void EraseRect(CDC *, RECT *);
 	void GetBodyBox(CPose *pose, int &left, int &top, int &width, int &height);

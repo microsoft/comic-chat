@@ -190,10 +190,17 @@ void CreateRetainedPanel(CDC *pDC, HBITMAP *retSec, CDIB **retDib) {
 											   + 256*sizeof(RGBQUAD));
 	BITMAPINFOHEADER *infoHdr = &(b->bmiHeader);
 	infoHdr->biSize = sizeof(BITMAPINFOHEADER);
-	double inchesWide = (double)CUnitPanelPage::unitWidth / UNITSPERINCH;
-	double inchesHigh = (double)CUnitPanelPage::unitHeight / UNITSPERINCH;
-	infoHdr->biWidth = (int) ceil(inchesWide * pDC->GetDeviceCaps(LOGPIXELSX));
-	infoHdr->biHeight = (int) ceil(inchesHigh * pDC->GetDeviceCaps(LOGPIXELSY));
+	// Size the bitmap by the DC's actual logical->device mapping (LPtoDP) rather than
+	// GetDeviceCaps.  When the view's mapping scale differs from the reported DPI (which
+	// happens under some high-DPI configurations), GetDeviceCaps under-sizes the bitmap and
+	// the right/bottom of every panel gets clipped.  Using LPtoDP guarantees the bitmap is
+	// exactly the device size the same DC will draw/blit the panel at.
+	POINT pOrg = { 0, 0 };
+	POINT pExt = { CUnitPanelPage::unitWidth, CUnitPanelPage::unitHeight };
+	pDC->LPtoDP(&pOrg);
+	pDC->LPtoDP(&pExt);
+	infoHdr->biWidth = abs(pExt.x - pOrg.x);
+	infoHdr->biHeight = abs(pExt.y - pOrg.y);
 	infoHdr->biPlanes = 1;
 	infoHdr->biBitCount = max(8, pDC->GetDeviceCaps(BITSPIXEL)); // dither if necessary, so use at least 8 bits
 	TRACE("DPI = %d, pixels = %d, bits = %d.\n", pDC->GetDeviceCaps(LOGPIXELSX), infoHdr->biWidth, infoHdr->biBitCount);
@@ -247,11 +254,26 @@ void CPageView::OnDraw(CDC* pDC)
 	}
 
 
-	// Make sure a retained section is allocated, if we're drawing to the display.
-	// This will only be done on the first Draw.
-	// If we are printing, it was already allocated in OnBeginPrinting
-	if (!GetRetSec(pDC) && !pDC->IsPrinting())
-		CreateRetainedPanel(pDC, &m_retSec, &m_retDib);
+	// Make sure a retained section is allocated, and that it matches the device size the
+	// current DC will draw the panel at.  The panel size (or the DC's effective scale) can
+	// change after the section was first built; if we don't resize it, panels get clipped.
+	if (!pDC->IsPrinting()) {
+		POINT po = { 0, 0 };
+		POINT pe = { CUnitPanelPage::unitWidth, CUnitPanelPage::unitHeight };
+		pDC->LPtoDP(&po);
+		pDC->LPtoDP(&pe);
+		int needW = abs(pe.x - po.x);
+		BOOL needNew = (GetRetSec(pDC) == NULL);
+		if (!needNew) {
+			BITMAP bm;
+			::GetObject(GetRetSec(pDC), sizeof(bm), &bm);
+			if (bm.bmWidth != needW) needNew = TRUE;
+		}
+		if (needNew) {
+			FreeRetainedPanelS();
+			CreateRetainedPanel(pDC, &m_retSec, &m_retDib);
+		}
+	}
 
 	// Use our own palette
 	if (oldPal = pDC->SelectPalette(GetPalette(pDC), FALSE))
@@ -1123,7 +1145,7 @@ void CPageView::OnIgnore()
 
 #define SCROLLWIDTH			16
 
-void SetPanelsWide(int nWide) inline {
+void SetPanelsWide(int nWide) {
 	if (theApp.m_bComicView)
 		GetView()->SetPanelsWide(nWide);
 }

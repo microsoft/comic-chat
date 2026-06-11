@@ -74,7 +74,7 @@ static void ShowGesture( CUserInfo *pui, int);
 
 BOOL ChatInitialize()
 {
-	extern bCXKeepServer;
+	extern BOOL bCXKeepServer;
 
 	if (!bCXKeepServer)
 		InitializeServerConnection();

@@ -152,12 +152,12 @@ void LoadCompositeRule(float emotion, CString &rule) {
 
 // eventually make this smart about quote escapes, but for now they aren't necessary.
 const char *ReadString(const char *string, char *buff) {
-	char *firstQuote = strchr(string, '"');
+	const char *firstQuote = strchr(string, '"');
 	if (!firstQuote) {
 		*buff = '\0';
 		return string;
 	}
-	char *secondQuote = strchr(firstQuote+1, '"');
+	const char *secondQuote = strchr(firstQuote+1, '"');
 	if (!secondQuote) {
 		*buff = '\0';
 		return string;
@@ -218,16 +218,16 @@ typedef struct {
 	BOOL caseSensitive;
 } STRINGUNIT;
 
-void AddToGeneral(STRINGUNIT *rule) inline {
+inline void AddToGeneral(STRINGUNIT *rule) {
 	generalRules.AddTail(rule);
 }
 
-void AddToWord(STRINGUNIT *rule) inline {
+inline void AddToWord(STRINGUNIT *rule) {
 	wordRules.AddTail(rule);
 }
 
 
-void AddToSentence(STRINGUNIT *rule) inline {
+inline void AddToSentence(STRINGUNIT *rule) {
 	sentenceRules.AddTail(rule);
 }
 

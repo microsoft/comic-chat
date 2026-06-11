@@ -58,7 +58,7 @@ BOOL inside_bbox_tol(DPOINT *pt, BOUNDBOX *bbox, double tol)
 		   of being flat.  Algorithm is only an approximation.
 		   Again, thanks to the folks at PARC */
 double epsilon = 1.0;
-flat_bezier(BEZIER *b) {
+int flat_bezier(BEZIER *b) {
 	double dx, dy, dxdy, dydx;
 	DPOINT d1, d2, d;
 	BOUNDBOX bbox;
@@ -92,7 +92,7 @@ flat_bezier(BEZIER *b) {
 /* subdivide() traverses a bezier, calling the specified call-back procedure
 	       at points roughly delta apart.  Returns when the call-back
 	       proc returns TRUE. */
-subdivide(BEZIER *bezier, int (*proc)(DPOINT *, void *), void *arg, double delta)
+int subdivide(BEZIER *bezier, int (*proc)(DPOINT *, void *), void *arg, double delta)
 {
 	double length, step, alpha;
 	DPOINT pt;
@@ -124,7 +124,7 @@ subdivide(BEZIER *bezier, int (*proc)(DPOINT *, void *), void *arg, double delta
 		to run the call-back proc (proc) on its generic argument
 		(arg).  if the call-back proc returns TRUE, the procedure
 		terminates immediately.  */
-walk_path(int n, BEZIER *beziers, int (*proc)(DPOINT *, void *), void *arg)
+int walk_path(int n, BEZIER *beziers, int (*proc)(DPOINT *, void *), void *arg)
 {
 	int i;
 	for (i = 0; i < n; i++)
@@ -135,7 +135,7 @@ walk_path(int n, BEZIER *beziers, int (*proc)(DPOINT *, void *), void *arg)
 
 #define TOL 2.0
 
-cb_on_line(DPOINT *pt, DPOINT *testpt) {
+int cb_on_line(DPOINT *pt, DPOINT *testpt) {
 	if (fabs(pt->x - testpt->x) + fabs(pt->y - testpt->y) <= TOL)
 		return TRUE;
 	return FALSE;
@@ -226,7 +226,7 @@ BOOL cb_nearest(DPOINT *pt, void *arg)
 /* flatten() traverses a bezier, flattening it into segments, and calls
    the specified callback on segment end points (not including the first)
  */
-flatten(BEZIER *bezier, int (*proc)(DPOINT *, void *), void *arg)
+int flatten(BEZIER *bezier, int (*proc)(DPOINT *, void *), void *arg)
 {
 	BEZIER right, left;
 

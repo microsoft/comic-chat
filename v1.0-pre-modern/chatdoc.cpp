@@ -364,7 +364,7 @@ void FindAttribution(const char *words, void *userInfo, const char **mesgPtr, UI
 		return;
 	}
 
-	char *angle = strchr(words, '>');
+	const char *angle = strchr(words, '>');
 	if (!angle) {
 		*mesgPtr = words;
 		*id = userInfo ? ExtractAvatarID(userInfo) : MyAvatarID();		// necessary, since this file is unaware of CUserInfo type
@@ -388,7 +388,7 @@ void FindAttribution(const char *words, void *userInfo, const char **mesgPtr, UI
 
 void FindAddressees(UINT speakerID, const char *words, const char **mesgPtr) {
 	UINT id, addressees[10], nAddressees = 0;
-	char *colon = strchr(words, ':');
+	const char *colon = strchr(words, ':');
 	if (!colon) {
 		*mesgPtr = words;
 		return;
@@ -423,7 +423,7 @@ void FindAddressees(UINT speakerID, const char *words, const char **mesgPtr) {
 
 void FindPose(UINT speakerID, const char *words, const char **mesgPtr) {
 	UINT id, addressees[10], nAddressees = 0;
-	char *colon = strchr(words, '|');
+	const char *colon = strchr(words, '|');
 	if (!colon) {
 		*mesgPtr = words;
 		return;
@@ -463,7 +463,7 @@ void FindPose(UINT speakerID, const char *words, const char **mesgPtr) {
 }
 
 int FindBalloonType(const char *words, const char **mesgPtr) {
-	char *colon = strchr(words, ';');
+	const char *colon = strchr(words, ';');
 	if (!colon || colon != words+1 || !strchr("WST", *words)) {
 		*mesgPtr = words;
 		return SM_SAY;

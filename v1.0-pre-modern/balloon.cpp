@@ -385,7 +385,7 @@ int PermuteFilters(CFontInfo& fontI, RANGE lFilters[], RANGE rFilters[], int nLF
 	
 	baseY = 0;
 	lastX = -LARGEINTEGER;
-	for (i = 0; i < nRFilters; i++) {
+	for (int i = 0; i < nRFilters; i++) {
 		rFilters[i].x += XBORDER;
 		if (i == 0)
 			rFilters[i].y = baseY + TOPBORDER + YBORDER;
@@ -441,7 +441,7 @@ CSpline *CBWoodringNormal::CreateBalloonSpline(CFormatInfo& fInfo) {
 		pts[nPts++] = nextPoint;
 	}
 
-	for (i = nRFilters-1; i >= 0; i--) {
+	for (int i = nRFilters-1; i >= 0; i--) {
 		thisPoint.x = nextPoint.x = rFilters[i].x;
 		thisPoint.y = lastY;
 		AddWavies(pts[nPts-1], thisPoint, pts, nPts, HWAVEHEIGHT, HWAVEINTERVAL);
