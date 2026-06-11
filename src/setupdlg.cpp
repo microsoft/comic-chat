@@ -106,11 +106,11 @@ void CSetupDialog::OnOK()
 // Strips off white space on either end
 BOOL GetValue(const char *buff, char *value) {
 	// assumes value is large enough to hold chars
-	char *start = strchr(buff, ':');
+	const char *start = strchr(buff, ':');
 	if (!start) return FALSE;
 	start++;
 	while (*start && isspace(*start)) start++;
-	char *end = strchr(buff, '\0');
+	const char *end = strchr(buff, '\0');
 	while (isspace(*end) || !*end) end--;
 	int len = end - start + 1;
 	strncpy(value, start, len);
@@ -782,7 +782,7 @@ void CNicknameEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 BOOL CNicknameEdit::CheckIfInvalid(UINT nChar)
 {
 	int nlength = m_strInvalid.GetLength();
-	CString strChar(nChar);
+	CString strChar((char)nChar);
 
 	for(int index=0;index<nlength;index++)
 	{

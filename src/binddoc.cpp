@@ -67,7 +67,7 @@ const OLE_CMDMAP* CDocObjectServerDoc::_GetBaseCommandMap()
 }
 #endif
 
-const OLE_CMDMAP* CDocObjectServerDoc::GetCommandMap() const
+const OLE_CMDMAP* CDocObjectServerDoc::MyGetCommandMap() const
 {
 	return &CDocObjectServerDoc::commandMap;
 }

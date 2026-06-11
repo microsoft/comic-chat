@@ -18,6 +18,10 @@
 #include "IpFrame.h"
 #include "chatDoc.h"
 #include "spltchat.h"
+
+void initproc(void) {}
+void ttsproc(char *) {}
+void exitproc(void) {}
 #include "chatView.h"
 #include "chatprot.h"
 #include "version.h"
@@ -130,11 +134,19 @@ static const CLSID clsid =
 
 BOOL CChatApp::InitInstance()
 {
+	HMODULE hUser32 = LoadLibrary("user32.dll");
+	if (hUser32) {
+		typedef BOOL (WINAPI *SetProcessDPIAwareFunc)();
+		SetProcessDPIAwareFunc setDPIAware = (SetProcessDPIAwareFunc)GetProcAddress(hUser32, "SetProcessDPIAware");
+		if (setDPIAware) setDPIAware();
+		FreeLibrary(hUser32);
+	}
+
 	int iarg;
 	CString strTmp;
 
-	void initproc();
-	initproc();
+		void initproc();
+		initproc();
 
 	// Various initializations...
 	void LoadEmotionStrings();
@@ -619,7 +631,7 @@ void CDUpOne(const char *fullpath) {
 	char buff[200];
 	const char *start = fullpath, *penult = NULL, *ult = NULL;
 	while (1) {
-		char *next = strchr(start, '\\');
+		const char *next = strchr(start, '\\');
 		if (next) {
 			penult = ult;
 			ult = next;
@@ -639,7 +651,7 @@ void CChatApp::SetBaseDir(const char *fullpath) {
 	char buff[200];
 	const char *start = fullpath, *ult = NULL;
 	while (1) {
-		char *next = strchr(start, '\\');
+		const char *next = strchr(start, '\\');
 		if (next) {
 			ult = next;
 			start = next+1;

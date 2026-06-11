@@ -23,6 +23,7 @@
 // WARNING: RE: LINK defines...
 // The following should be in v. 2.0 of richedit.h.  Since our build enviroment only has v. 1.0,
 // I'm including these defines here.  Please fix as soon as the new .h is available!!!
+#ifndef CFE_LINK
 #define CFM_LINK		0x00000020		/* Exchange hyperlink extension */
 #define CFE_LINK		0x0020
 #define ENM_LINK				0x04000000
@@ -42,6 +43,7 @@ typedef struct _enlink
     LPARAM lParam;
     CHARRANGE chrg;
 } ENLINK;
+#endif
 
 // END WARNING
 

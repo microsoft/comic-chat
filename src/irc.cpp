@@ -106,7 +106,7 @@ void TryNewNick(int msg_id, const char *showNick = NULL) {
 		SetMyName(nickDlg.m_strNickname);  // since won't get a nick message back
 }
 
-void ChatSetConnectionStatus(int iStat) inline {
+inline void ChatSetConnectionStatus(int iStat) {
 	//Post string to StatusBar, Pane 1
 	CString strStatus;
 
@@ -421,7 +421,7 @@ int RemoveMemberFromList(CUserInfo* pui) {
 }
 
 
-CUserInfo *LookupPui(const char *nickname) inline {
+inline CUserInfo *LookupPui(const char *nickname) {
 	void *pui;
 	if (*nickname == '@') nickname++;			// strip away op sign, if given
 	if (mapNickToPtr.Lookup(nickname, pui) == 0) return NULL;
@@ -853,7 +853,7 @@ void CIrcSocket::ProcessMessage(char *line) {
 		if ((*psz) && psz[1])	{ // handle str lengths of 0 and 1
 			CChatDoc *doc = GetChatDoc();
 			// note: doc is null if we're closing up IE3.0 w/ Connect dialog open
-			if (doc) doc->SetPathName(psz+1); 
+			if (doc) doc->SetPathName(psz+1, FALSE); 
 		}
 	}
 	else if (!strcmp(command, "NICK")) {		// change nickname

@@ -717,7 +717,7 @@ BOOL CDIB::MapColorsToPalette(CPalette *pPal)
     PALETTEENTRY pe[256];
     pPal->GetPaletteEntries(0, 256, pe);
     pctThis = GetClrTabAddress();
-    for (i = 0; i < 256; i++) {
+    for (int i = 0; i < 256; i++) {
         pctThis->rgbRed = pe[i].peRed;    
         pctThis->rgbGreen = pe[i].peGreen;    
         pctThis->rgbBlue = pe[i].peBlue;
@@ -972,7 +972,7 @@ void CDIB::Convert8ToNonRLE() {
 	pBI->biSizeImage = newSize;
 }
 
-void MyWrite(BYTE* & myImg, BYTE* & bptr, BOOL &highRead, BOOL &highWrite, BOOL advance) inline {
+inline void MyWrite(BYTE* & myImg, BYTE* & bptr, BOOL &highRead, BOOL &highWrite, BOOL advance) {
 	USHORT val;
 	if (highRead)
 		val = *bptr >> 4;

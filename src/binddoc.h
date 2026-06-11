@@ -49,20 +49,20 @@ protected: \
 	virtual const OLE_CMDMAP* GetCommandMap() const; \
 
 #else
-#define DECLARE_OLECMD_MAP() \
+#define MY_DECLARE_OLECMD_MAP() \
 private: \
 	static const OLE_CMDMAP_ENTRY _commandEntries[]; \
 protected: \
 	static AFX_DATA const OLE_CMDMAP commandMap; \
-	virtual const OLE_CMDMAP* GetCommandMap() const; \
+	virtual const OLE_CMDMAP* MyGetCommandMap() const; \
 
 #endif
 
 #ifdef _AFXDLL
-#define BEGIN_OLECMD_MAP(theClass, baseClass) \
+#define MY_BEGIN_OLECMD_MAP(theClass, baseClass) \
 	const OLE_CMDMAP* PASCAL theClass::_GetBaseCommandMap() \
 		{ return &baseClass::commandMap; } \
-	const OLE_CMDMAP* theClass::GetCommandMap() const \
+	const OLE_CMDMAP* theClass::MyGetCommandMap() const \
 		{ return &theClass::commandMap; } \
 	AFX_DATADEF const OLE_CMDMAP theClass::commandMap = \
 	{ &theClass::_GetBaseCommandMap, &theClass::_commandEntries[0] }; \
@@ -70,8 +70,8 @@ protected: \
 	{ \
 
 #else
-#define BEGIN_OLECMD_MAP(theClass, baseClass) \
-	const OLE_CMDMAP* theClass::GetCommandMap() const \
+#define MY_BEGIN_OLECMD_MAP(theClass, baseClass) \
+	const OLE_CMDMAP* theClass::MyGetCommandMap() const \
 		{ return &theClass::commandMap; } \
 	AFX_DATADEF const OLE_CMDMAP theClass::commandMap = \
 	{ &baseClass::commandMap, &theClass::_commandEntries[0] }; \
@@ -220,7 +220,7 @@ public:
    DECLARE_INTERFACE_MAP()
 
 // OLECMD map - for handling commands sent via IOleCommandTarget
-   DECLARE_OLECMD_MAP()
+   MY_DECLARE_OLECMD_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////

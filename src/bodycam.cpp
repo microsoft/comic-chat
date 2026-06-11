@@ -188,7 +188,7 @@ void CBodyCam::OnPaint()
 #define MINBULL	93
 
 // sets m_bullSide and m_bullDisabled
-void CBodyCam::CacheBullSide(int width) inline {
+inline void CBodyCam::CacheBullSide(int width) {
 	m_bullSide = min(width, MAXBULL);
 	if (m_bullSide < MINBULL) {
 		m_bullDisabled = TRUE;
@@ -390,7 +390,7 @@ void CBodyDouble::FlipBodyBox(RECT &fullRect, RECT &headRect, RECT &torsoRect) {
 	torsoRect.right = torsoRect.left - torsoWidth;
 }
 
-void CBodyCam::GetBodyRect(RECT &rect) inline {
+inline void CBodyCam::GetBodyRect(RECT &rect) {
 	GetClientRect(&rect);
 	rect.bottom -= m_bullSide;				   // subtract out bullseye
 	rect.top += 2 * m_talkToHeight;
