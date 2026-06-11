@@ -12,12 +12,6 @@ it explains *why* the bugs happened, not just *what* changed.
 > ~12% of every panel was silently clipped. The fix is to size the bitmap from
 > the DC's real `LPtoDP` extent, rebuild it when that extent changes, and blit
 > with `StretchBlt` as a safety net.
->
-> A second, app-wide issue: only the comic page is drawn in device-independent
-> TWIPs. The *other* surfaces (member-list face icons, the bodycam emotion
-> wheel) use hardcoded 96-DPI pixel sizes, so once the app became DPI-aware they
-> rendered ~33% too small. Those are scaled through a single `DpiScale()` helper
-> (see §10).
 
 ---
 
@@ -253,16 +247,7 @@ does.
    a busy channel so a title/cast panel is generated.
 4. Confirm the random title pun renders **in full** (no clipped final letter)
    and that balloons/avatars reach the panel's right edge without being cut.
-5. Confirm the **pixel-based surfaces** are sized proportionally to the comic
-   (see §10): the member-list face icons (upper right), the avatar preview, and
-   the bodycam **emotion wheel** with its 8 face icons (lower right).
-6. Optional: attach DebugView and confirm there are no panel clip anomalies.
-
-**Verified:** built clean and run end-to-end on a 144-DPI (150%) display —
-connected to Libera (`###bots`), comic view rendered with the title
-"YOU SHOULDA BEEN THERE" uncut, correctly-sized member-list faces, a crisp
-avatar preview, and a properly-scaled emotion wheel. Standard-DPI (96/100%) is
-unaffected because `DpiScale(n) == n` there.
+5. Optional: attach DebugView and confirm there are no panel clip anomalies.
 
 ---
 
@@ -277,100 +262,3 @@ unaffected because `DpiScale(n) == n` there.
 - **Missing TTS wrapper.** `chat.exe` imported `initproc`/`ttsproc`/`exitproc`
   from `lhwrap.dll`, a wrapper around the Lernout & Hauspie text-to-speech
   engine (1996). That DLL is absent, so these are stubbed; speech is a no-op.
-
----
-
-## 10. App-wide scaling of pixel-based surfaces
-
-Fixing the comic page (§5) is necessary but **not sufficient**. The comic page
-is the only surface drawn in TWIPs; the rest of the UI uses hardcoded device
-pixels tuned for 96 DPI. Once the process became DPI-aware, those surfaces
-stopped being bitmap-stretched by Windows and rendered at their literal pixel
-sizes — i.e. ~33% too small on a 144-DPI (150%) display. The visible symptoms
-were the **member-list face icons** (upper right) and the **bodycam emotion
-wheel** (lower right) looking tiny next to a correctly-sized comic.
-
-### Why not just let Windows scale the whole app?
-We tried the obvious "uniform" answers and rejected them:
-
-- **DPI virtualization (unaware):** bitmap-stretches everything uniformly, but
-  blurry, and it still hit the comic-bitmap clipping bug.
-- **GDI Scaling** (`gdiScaling=true` + `dpiUnaware`): re-renders GDI crisply,
-  but Comic Chat persists its window geometry in raw pixels. Geometry saved
-  during a DPI-*aware* session got re-scaled by the OS, so the **main window
-  opened gigantic**. The OS-scaling model fights the app's custom pixel layout.
-
-So we keep true DPI awareness (comic + window geometry are correct) and scale
-the pixel surfaces ourselves.
-
-### The helper
-`common.h` exposes one tiny helper, initialized once in
-`CChatApp::InitInstance`:
-
-```cpp
-extern int g_screenDpi;                                  // = GetDeviceCaps(LOGPIXELSX)
-inline int DpiScale(int n96) { return ::MulDiv(n96, g_screenDpi, 96); }
-```
-
-At 96 DPI `DpiScale(n) == n`, so **standard-DPI users see no change** — this is
-purely additive for high-DPI displays.
-
-### Where it's applied
-- **Member list (`memblst.cpp`, `irc.cpp`):** the list-view image list is created
-  at `DpiScale(40)` cells, and `AddToImageList` `StretchBlt`s each face bitmap up
-  by the same factor (the source art is fixed ~96-DPI pixel art, so it must be
-  enlarged or it renders tiny in a big cell).
-- **Bodycam emotion wheel (`bodycam.cpp`):** `CacheBullSide` caps the wheel at
-  `DpiScale(MAXBULL)` / `DpiScale(MINBULL)`; the shared icon metrics
-  (`m_iconWidth`, `m_iconHeight`, `m_cursorRadius`) are scaled once in the
-  constructor; and the emotion face icons are drawn with the stretching
-  `CDIB::Draw(dc,x,y,w,h)` overload to fill the scaled slots.
-- **Say box + action buttons (`chat.cpp`, `saywnd.cpp`, `spltchat.cpp`):** the
-  input-edit font (`m_fontText`, `nFontHeight`) is created at `-DpiScale(14)`;
-  the Say-window layout (edit height, bar position) in `CSayWnd::OnSize` uses
-  `DpiScale(cxSayBar/cyToolBar)`; the Say pane's minimum height
-  (`nPixelsSayMin`) is `DpiScale(23)` so the bigger text isn't clipped; and the
-  four action-balloon toolbar buttons are enlarged by stretching `IDB_BALLOONS`
-  into a `DpiScale`-sized image list assigned to the toolbar control (high-DPI
-  only — a no-op at 96).
-
-### Gotchas / follow-ups
-- Stretching small pixel art with `COLORONCOLOR` is slightly blocky but matches
-  the in-panel comic avatars (which stretch the same art) and is far better than
-  tiny. `HALFTONE` would be smoother at a small perf cost.
-- The bodycam wheel is still capped by its splitter pane's pixel width; it's wide
-  enough at normal window sizes, but a very narrow right column will clamp it.
-
----
-
-## 11. UX polish pass (scroll wheel + panel auto-fit)
-
-Two non-DPI usability fixes shipped alongside the scaling work:
-
-- **Mouse-wheel scrolling (`pageview.cpp`).** `CPageView` (a `CScrollView`) had no
-  wheel handler, so the comic area never scrolled by wheel. Added
-  `OnMouseWheel`, which scrolls via `OnScrollBy(CSize(0, -notches*DpiScale(48)))`.
-  Relies on the cursor's window receiving `WM_MOUSEWHEEL` (focused window, or the
-  hovered one with Windows' "scroll inactive windows" setting, which is on by
-  default).
-- **Panels-per-row auto-fit (`pageview.cpp`).** The column count was a fixed,
-  registry-persisted value (usually 2), so wide windows wasted space. Added
-  `FitPanelsWide()` — the largest column count (1..5) whose panels stay a
-  comfortable width (`COMFORTABLEPANELWIDTH` twips) — and apply it when the view
-  activates and on resize.
-
-  **Important implementation detail:** `SetPanelsWide()` reloads the comic
-  history and updates scroll info, which re-enters `WM_SIZE`. Calling it directly
-  from `OnSize`/`OnActivateView` crashed (re-entrancy). The fix is to **defer**
-  the reflow with `PostMessage(WM_AUTOFITPANELS)` and run it from the posted
-  handler in a stable state, guarded by `m_bAutoFitting` and an idempotent
-  "only if the count actually changed" check.
-- **Word wrap inside balloons (`balloon.cpp`).** `BreakIntoLines` used to
-  `ForceLineBreak` (split mid-character) when a single word was wider than the
-  balloon's estimated text area — so in a narrow balloon a short word like
-  "Test" became "Tes" / "t". Since the balloon spline is built from the actual
-  line widths, the right behavior is to keep the word whole and let the balloon
-  grow; `BreakIntoLines` now does that instead of splitting the word. (This is a
-  bubble-internal layout fix, independent of panel width — narrow panels just
-  made it surface more often.)
-
