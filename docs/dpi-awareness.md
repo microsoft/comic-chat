@@ -365,4 +365,12 @@ Two non-DPI usability fixes shipped alongside the scaling work:
   the reflow with `PostMessage(WM_AUTOFITPANELS)` and run it from the posted
   handler in a stable state, guarded by `m_bAutoFitting` and an idempotent
   "only if the count actually changed" check.
+- **Word wrap inside balloons (`balloon.cpp`).** `BreakIntoLines` used to
+  `ForceLineBreak` (split mid-character) when a single word was wider than the
+  balloon's estimated text area — so in a narrow balloon a short word like
+  "Test" became "Tes" / "t". Since the balloon spline is built from the actual
+  line widths, the right behavior is to keep the word whole and let the balloon
+  grow; `BreakIntoLines` now does that instead of splitting the word. (This is a
+  bubble-internal layout fix, independent of panel width — narrow panels just
+  made it surface more often.)
 
