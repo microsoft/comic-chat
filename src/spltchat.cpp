@@ -8,6 +8,7 @@
 #include "saywnd.h"
 #include "spltchat.h"
 #include "ui.h"
+#include "common.h"
 #include <afxpriv.h>
 
 /////////////////////////////////////////////////////////////////////////////
@@ -179,8 +180,9 @@ void CSplitChatV::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 /////////////////////////////////////////////////////////////////////////////
 // implementation for pageview/saywnd splitter
 
-// Initial window percentages/sizes.
-#define nPixelsSayMin	23
+// Initial window percentages/sizes.  Scaled for the display DPI so the Say box +
+// action buttons (whose fonts/glyphs are DPI-scaled) aren't clipped on high-DPI.
+#define nPixelsSayMin	DpiScale(23)
 
 BEGIN_MESSAGE_MAP(CSplitSay, CSplitterWnd)
 	ON_WM_SIZE()

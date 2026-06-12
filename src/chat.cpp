@@ -6,6 +6,7 @@
 
 #include "stdafx.h"
 #include "chat.h"
+#include "common.h"
 
 //BINDER: include OLE interfaces for Binder compatibility
 #include "ui.h"
@@ -218,7 +219,7 @@ BOOL CChatApp::InitInstance()
 	fontFace.LoadString(ID_COMP_FONT_NAME);
 
 	// create fonts
-	if( !m_fontText.CreateFont(	nFontHeight,
+	if( !m_fontText.CreateFont(	-DpiScale(-nFontHeight),
 								nFontWidth,				
 								nFontEscapement,
 								nFontOrientation,

@@ -325,6 +325,14 @@ purely additive for high-DPI displays.
   (`m_iconWidth`, `m_iconHeight`, `m_cursorRadius`) are scaled once in the
   constructor; and the emotion face icons are drawn with the stretching
   `CDIB::Draw(dc,x,y,w,h)` overload to fill the scaled slots.
+- **Say box + action buttons (`chat.cpp`, `saywnd.cpp`, `spltchat.cpp`):** the
+  input-edit font (`m_fontText`, `nFontHeight`) is created at `-DpiScale(14)`;
+  the Say-window layout (edit height, bar position) in `CSayWnd::OnSize` uses
+  `DpiScale(cxSayBar/cyToolBar)`; the Say pane's minimum height
+  (`nPixelsSayMin`) is `DpiScale(23)` so the bigger text isn't clipped; and the
+  four action-balloon toolbar buttons are enlarged by stretching `IDB_BALLOONS`
+  into a `DpiScale`-sized image list assigned to the toolbar control (high-DPI
+  only — a no-op at 96).
 
 ### Gotchas / follow-ups
 - Stretching small pixel art with `COLORONCOLOR` is slightly blocky but matches
@@ -332,8 +340,29 @@ purely additive for high-DPI displays.
   tiny. `HALFTONE` would be smoother at a small perf cost.
 - The bodycam wheel is still capped by its splitter pane's pixel width; it's wide
   enough at normal window sizes, but a very narrow right column will clamp it.
-- **Remaining pixel surface:** the gesture/say toolbar bitmaps are not yet
-  DPI-scaled (MFC toolbars need larger bitmap resources or an image-list stretch).
-  Not flagged as a problem in practice, but it's the next surface if pursuing
-  pixel-perfect parity everywhere.
+
+---
+
+## 11. UX polish pass (scroll wheel + panel auto-fit)
+
+Two non-DPI usability fixes shipped alongside the scaling work:
+
+- **Mouse-wheel scrolling (`pageview.cpp`).** `CPageView` (a `CScrollView`) had no
+  wheel handler, so the comic area never scrolled by wheel. Added
+  `OnMouseWheel`, which scrolls via `OnScrollBy(CSize(0, -notches*DpiScale(48)))`.
+  Relies on the cursor's window receiving `WM_MOUSEWHEEL` (focused window, or the
+  hovered one with Windows' "scroll inactive windows" setting, which is on by
+  default).
+- **Panels-per-row auto-fit (`pageview.cpp`).** The column count was a fixed,
+  registry-persisted value (usually 2), so wide windows wasted space. Added
+  `FitPanelsWide()` — the largest column count (1..5) whose panels stay a
+  comfortable width (`COMFORTABLEPANELWIDTH` twips) — and apply it when the view
+  activates and on resize.
+
+  **Important implementation detail:** `SetPanelsWide()` reloads the comic
+  history and updates scroll info, which re-enters `WM_SIZE`. Calling it directly
+  from `OnSize`/`OnActivateView` crashed (re-entrancy). The fix is to **defer**
+  the reflow with `PostMessage(WM_AUTOFITPANELS)` and run it from the posted
+  handler in a stable state, guarded by `m_bAutoFitting` and an idempotent
+  "only if the count actually changed" check.
 
