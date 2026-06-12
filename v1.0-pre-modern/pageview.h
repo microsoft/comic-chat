@@ -58,12 +58,14 @@ public:
 	void AddPrintOffset(POINT *, BOOL mapBack);
 	int GetProspectivePanelWidth(int nWide);
 	int GetProspectivePanelHeight(int nHigh);
+	int FitPanelsWide();			// largest column count whose panels stay a comfortable size
 	void SetPanelsWide(int nWide);
 	void SetPanelsHigh(int nHigh);
 	void FreeRetainedPanelS() { if (m_retDib) delete m_retDib; if (m_retSec) ::DeleteObject(m_retSec); m_retDib = NULL; m_retSec = NULL; }
 	void FreeRetainedPanelP() { if (m_printRetDib) delete m_printRetDib; if (m_printRetSec) ::DeleteObject(m_printRetSec); m_printRetDib = NULL; m_printRetSec = NULL; }
 	void ResetExistingPanels();
 	BOOL AtBottom();
+	BOOL m_bAutoFitting;			// re-entrancy guard for the panels-per-row auto-fit
 	void VerifyScrollPosition(CPoint& pt);
 
 
@@ -110,8 +112,10 @@ protected:
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
+	afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
 	//}}AFX_MSG
 	afx_msg LRESULT OnLoginDlg(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT OnAutoFitPanels(WPARAM wParam, LPARAM lParam);
 	DECLARE_MESSAGE_MAP()
 
 public:
