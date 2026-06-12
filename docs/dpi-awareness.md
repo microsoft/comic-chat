@@ -253,7 +253,16 @@ does.
    a busy channel so a title/cast panel is generated.
 4. Confirm the random title pun renders **in full** (no clipped final letter)
    and that balloons/avatars reach the panel's right edge without being cut.
-5. Optional: attach DebugView and confirm there are no panel clip anomalies.
+5. Confirm the **pixel-based surfaces** are sized proportionally to the comic
+   (see §10): the member-list face icons (upper right), the avatar preview, and
+   the bodycam **emotion wheel** with its 8 face icons (lower right).
+6. Optional: attach DebugView and confirm there are no panel clip anomalies.
+
+**Verified:** built clean and run end-to-end on a 144-DPI (150%) display —
+connected to Libera (`###bots`), comic view rendered with the title
+"YOU SHOULDA BEEN THERE" uncut, correctly-sized member-list faces, a crisp
+avatar preview, and a properly-scaled emotion wheel. Standard-DPI (96/100%) is
+unaffected because `DpiScale(n) == n` there.
 
 ---
 
