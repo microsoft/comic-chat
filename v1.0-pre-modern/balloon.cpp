@@ -112,8 +112,13 @@ int BreakIntoLines(CDC *dc, int maxWidth, char *str, char *starts[], int lengths
 			lastWidth = dwExtent.cx;
 			continue;				// it fits -- try to fit more
 		} else {					// doesn't fit
-			if (lastLength == 0)    // A line couldn't fit bbox constraint -- break it! (no hyphen)
-				ForceLineBreak(dc, str, maxWidth, lastLength, lastWidth);
+			if (lastLength == 0) {  // the first word alone is wider than the text area
+				// Keep the word intact and let the balloon grow to fit it, rather
+				// than splitting a word mid-character ("Tes" / "t").  The balloon
+				// spline is built from the actual line widths, so it simply widens.
+				lastLength = thisLength;
+				lastWidth = dwExtent.cx;
+			}
 			starts[nLines] = str;
 			lengths[nLines] = lastLength;
 			widths[nLines++] = lastWidth;
