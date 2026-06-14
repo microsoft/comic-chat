@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 .DS_Store
+*.exe
 
 # Microsoft Source Library Manager (SLM) internal metadata
 SLM.INI
