@@ -23,10 +23,10 @@ This repository contains source snapshots spanning the full development history 
 
 | Folder | Date | Description |
 |--------|------|-------------|
-| [`v1.0-pre/`](v1.0-pre/) | August 1996 | Pre-release source snapshot (rup 206 "Beta 2") |
-| [`v1.0/`](v1.0/) | August 1996 | Comic Chat 1.0 release source |
-| [`v2.1b/`](v2.1b/) | February 1998 | Comic Chat 2.1 beta source |
-| [`v2.5-beta-1/`](v2.5-beta-1/) | June 1998 | Comic Chat 2.5 beta 1 source |
+| [`v1.0-pre/`](v1.0-pre/) | August 1996 | Pre-release source snapshot (rup 206 "Beta 2") — [README](docs/v1.0-pre/README.md) |
+| [`v1.0/`](v1.0/) | August 1996 | Comic Chat 1.0 release source — [README](docs/v1.0/README.md) |
+| [`v2.1b/`](v2.1b/) | February 1998 | Comic Chat 2.1 beta source — [README](docs/v2.1b/README.md) |
+| [`v2.5-beta-1/`](v2.5-beta-1/) | June 1998 | Comic Chat 2.5 beta 1 source — [README](docs/v2.5-beta-1/README.md) |
 | [`artifacts/`](artifacts/) | January 1998 | SDK, companion tools, JChat, documentation |
 | [`v1.0-pre-modern/`](v1.0-pre-modern/) | 2026 | Modernized v1.0-pre: DPI-aware, TLS, builds with current Visual Studio |
 | [`docs/`](docs/) | — | Modernization write-ups and documentation |
