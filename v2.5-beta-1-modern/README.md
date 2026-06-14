@@ -1,0 +1,147 @@
+# Microsoft Chat 2.5 beta-1 — Modern build (`v2.5-beta-1-modern`)
+
+This folder is a **modernized port of Microsoft Chat 2.5 beta-1** (the June 1998
+"Microsoft Chat" client — the most advanced single-client version in this
+repository). The goal of this folder is to be **easy to build and run on a
+current Windows + Visual Studio machine**, while leaving the original
+[`v2.5-beta-1/`](../v2.5-beta-1) tree untouched as the historical reference.
+
+The original 2.5 source built with the **Windows NT DDK `BUILD.EXE`** system
+(`sources` / `dirs` / `makefile.def`). This folder replaces that with a clean,
+self-contained **`nmake` makefile** (`chat.mak`) that uses a modern Visual Studio
+C++/MFC toolchain.
+
+## Building
+
+From a 32-bit Visual Studio developer prompt (or by calling `vcvars32.bat`):
+
+```bat
+call "<VisualStudio>\VC\Auxiliary\Build\vcvars32.bat"
+cd v2.5-beta-1-modern
+nmake /f chat.mak CFG="chat - Win32 Release"    REM optimized, for everyday use
+nmake /f chat.mak CFG="chat - Win32 Debug"      REM asserts + TRACE for DebugView
+```
+
+Two configurations are provided:
+
+- **Release** -> `Release\CChat.exe` (optimized `/MT`/`/O2`, `NDEBUG`). Use this
+  for normal use. It behaves like the original shipped product.
+- **Debug** -> `Debug\CChat.exe` (`/MTd`/`/Od`, `_DEBUG`). Use this for
+  development: it emits `TRACE` output (viewable in Sysinternals **DebugView**)
+  and keeps assertions, which is handy when investigating behavior.
+
+Both link MFC statically. Character/backdrop art lives next to the source in
+[`comicart\`](comicart) as `.avb` / `.bgb` files.
+
+> **Why two configs?** This is a 1996-1998 MFC app. A modern *debug* build injects
+> assertions (debug-heap validation, MFC teardown-order and CRT range checks)
+> that did **not** exist in its original MFC 4.0 / old-CRT toolchain. Several of
+> them fire harmlessly during normal use and shutdown; left as modal dialogs they
+> can block `CWinApp::ExitInstance` (where settings are saved), which can make
+> settings appear not to persist. The **Release** build has none of these and
+> runs/saves exactly like the original. The Debug build additionally installs a
+> CRT report hook to suppress those assertion dialogs and saves settings at frame
+> close, so it stays usable too.
+
+> The makefile does **not** track header dependencies. After editing any `.h`,
+> delete the matching `Debug\*.obj` / `Release\*.obj` and rebuild so the change
+> propagates everywhere.
+
+## What changed to build under a modern compiler
+
+### Build system
+- New **`chat.mak`** (replaces the NT DDK `sources`/`dirs` build). Precompiled
+  headers are intentionally disabled for robustness.
+- Compiler switches that restore legacy behaviour:
+  `/Zc:forScope-` (old for-loop scoping), `/Zc:strictStrings-`
+  (string-literal → `char*`), plus `/FORCE:MULTIPLE /nodefaultlib:"libc"` and the
+  spectre-mitigated ATLMFC lib path.
+- `MIDL` generates `icchat.h` / `icchat_i.c` from `base\icchat.idl`.
+- The delay-load DLL wrappers (`dlylddll.c` → `..\core\dlylddll.c`) are compiled
+  in; they provide the `msrating` / `msconf` / `wininet` thunks. `wininet.lib`
+  is linked. NetMeeting (`nmproto`) stays excluded (off by default).
+
+### Legacy C++ fixes
+- Removed trailing `inline` on declarations/definitions (`f() inline;`/`{`).
+- Added missing return types (e.g. several `splinutl` functions, `SortFunc`,
+  `GetIndex`).
+- Renamed `DECLARE_OLECMD_MAP` / `GetCommandMap` → `MY_*` / `MyGetCommandMap`
+  to avoid a covariant-return clash with modern `CCmdTarget::GetCommandMap`.
+- Cast `const`-qualified `strchr`/`strstr` results back to `char*`.
+- Renamed `avbfile` / `avatar` `INT8/INT16/INT32` → `AVBINT8/16/32` (they
+  collided with the SDK's signed `INT8/16/32`).
+- `mcithrd`: local `MSG` for the thread pump, 3-arg `PostThreadMessage`.
+- `chatsrv::ReattachTo` now uses `CAsyncSocket::Detach/AttachHandle` (the modern
+  MFC socket handle map is internal).
+- Misc: `CWnd::CreateEx` qualification, `abs` → `labs((long))`, `const int`s in
+  `ColorDlg.h`.
+
+### Two fixes that were the real blockers
+- **`stdafx.h`**: removed the 1998 `#define tagLVITEMA _LV_ITEMA` (and
+  `LVFINDINFO`/`TCITEM`) remap. It was added to match MFC 4.0's old common-control
+  struct tags; modern MFC and the SDK both use the new tags, so the remap instead
+  *broke* linking against `CListCtrl`/`CTabCtrl`.
+- **`stdafx.cpp`**: added a **Common Controls v6 manifest dependency**. The 2.5
+  toolbar is a rebar (`CCoolBar`), and `RB_INSERTBAND` fails unless the loaded
+  `comctl32` matches the modern `REBARBANDINFO` size. Without this the toolbar
+  fails to create → the main frame fails → a debug-heap assertion on cleanup.
+  This is the manifest that makes the app actually start.
+
+### Other build-enabling changes
+- `resource.h`: shifted the 9 `ID_EM_*` emotion IDs out of MFC's reserved
+  `0xF006` string-table range (they collided with `afxres.rc`).
+- Added **`chatver.h`** and **`chatver.rc`** (the version stamp; these were
+  generated by the original DDK build and were missing from the source drop).
+- Shared fix in [`../artifacts/core/urlutil.cpp`](../artifacts/core/urlutil.cpp)
+  (`const int` + `(LPTSTR)` casts).
+
+## Display scaling
+
+The app runs **DPI-unaware**: it deliberately does *not* call
+`SetProcessDPIAware()`, so on a high-DPI display Windows bitmap-scales the whole
+window uniformly (toolbar, status bar, menus, every font, and the comic view all
+scale together). This avoids the "some surfaces scale, others stay tiny" mess
+that results from per-surface scaling in a TWIP + pixel hybrid UI like this one.
+
+A `DpiScale()` helper ([`dpiscale.h`](dpiscale.h)) and the per-surface scaling
+ported from `v1.0-pre-modern` are still present but become no-ops while DPI-
+unaware (the display DPI reads as 96). If you'd rather make the app DPI-*aware*
+and scale every surface yourself, that infrastructure is the starting point —
+left as an exercise for the reader.
+
+## Other modernization fixes
+
+- **Mouse-wheel scrolling** in the comic view (`CPageView::OnMouseWheel`).
+- **Panels-per-row auto-fit** on resize — `CPageView` chooses the largest
+  comfortable column count for the current width, deferred via a posted
+  `WM_AUTOFITPANELS` message to avoid `WM_SIZE` re-entrancy.
+- **IRC JOIN parsing** — modern servers (e.g. Libera) send `JOIN #channel` with
+  the channel as a normal argument rather than a `:`-trailing parameter; the JOIN
+  handler now recovers the channel from `args[1]` so rooms register correctly.
+- **Text view buffer tracking** — modern RichEdit stores a line break as a single
+  `\r`, so the old `m_dwBuffSize` accounting (which counted `\r\n` as two) drifted
+  and tripped debug assertions; it now resyncs to the control's actual length.
+- **No dead-server downloads** — Comic Chat used to fetch custom characters and
+  backdrops from Microsoft's (now-gone) art servers. Both download paths are
+  disabled in favor of the bundled art, with a one-time heads-up dialog.
+- **Bundled-art lookup** — the art is found whether it sits next to the exe
+  (distribution) or one directory up (the dev `Debug\` layout).
+- **On-screen startup window** — a stale/oversized saved placement is shrunk to
+  the work area and clamped fully on-screen.
+- **Safe `is*` functions** ([`safectype.h`](safectype.h)) — `isspace`/`isdigit`/
+  etc. are wrapped to pass `unsigned char`, so high-byte characters no longer trip
+  the modern debug CRT.
+- **Default comic balloon font** bumped from 9pt to 12pt for readability on large
+  high-DPI panels (`IDS_DFLT_COMICSPNTSIZE`).
+
+## Known differences / not yet ported
+
+- **Native TLS transport is not included.** 2.5's `ircsock.cpp` already uses SSPI,
+  but for IRC *authentication* (server auth packages), not SChannel transport
+  encryption. Adding TLS would mean porting the `CTlsClient` SChannel client from
+  `v1.0-pre-modern/tlssock.cpp` and wiring a "Use SSL" / port 6697 option into the
+  connect dialog. See [`../docs/tls.md`](../docs/tls.md).
+- **Balloon word-wrap** is intentionally left as-is: 2.5 already has a more
+  advanced international, word-boundary-aware wrapper
+  (`FindSubStringForINTLThatFits`), so the simpler `v1.0-pre-modern` fix is not
+  needed here.
