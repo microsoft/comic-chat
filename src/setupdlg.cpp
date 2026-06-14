@@ -52,6 +52,7 @@ CSetupDialog::CSetupDialog(CWnd* pParent /*=NULL*/)
 	m_bGetChannelList = FALSE;
 	m_radioConnect = 0;
 	//}}AFX_DATA_INIT
+	m_bUseSSL = FALSE;
 	m_myCharacterName = _T("");
 
 	bExpanded = FALSE;
@@ -75,6 +76,7 @@ void CSetupDialog::DoDataExchange(CDataExchange* pDX)
 	DDX_CBString(pDX, IDC_CHATROOMS, m_strChatRooms);
 	DDX_Radio(pDX, IDC_CONCHAN, m_radioConnect);
 	//}}AFX_DATA_MAP
+	DDX_Check(pDX, IDC_USESSL, m_bUseSSL);
 }
 
 
@@ -91,6 +93,7 @@ BEGIN_MESSAGE_MAP(CSetupDialog, CDialog)
 	ON_EN_CHANGE(IDC_PORTNUM, OnChangePortnum)
 	ON_EN_CHANGE(IDC_SERVER, OnChangeServer)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_USESSL, OnUseSSL)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -100,6 +103,20 @@ END_MESSAGE_MAP()
 void CSetupDialog::OnOK() 
 {
 	CDialog::OnOK();
+}
+
+// Toggling SSL flips between the conventional IRC plaintext (6667) and TLS
+// (6697) ports, but only when the field still holds the other default so we
+// never clobber a port the user typed deliberately.
+void CSetupDialog::OnUseSSL()
+{
+	BOOL checked = (IsDlgButtonChecked(IDC_USESSL) == BST_CHECKED);
+	CString cur;
+	GetDlgItemText(IDC_PORTNUM, cur);
+	if (checked && cur == "6667")
+		SetDlgItemText(IDC_PORTNUM, "6697");
+	else if (!checked && cur == "6697")
+		SetDlgItemText(IDC_PORTNUM, "6667");
 }
 
 // Finds the text after the colon (on an ini line) and copies that into value.
@@ -277,6 +294,9 @@ BOOL CSetupDialog::LoadFromReg() {
 		RegQueryValueEx (hKey, "ShowComicView", 0, NULL, (LPBYTE)&theApp.m_bComicView, 
 						&cbData);
 
+		cbData = sizeof(m_bUseSSL);
+		RegQueryValueEx (hKey, "UseSSL", 0, NULL, (LPBYTE)&m_bUseSSL, &cbData);
+
 		cbData = sizeof(i);
 		RegQueryValueEx (hKey, "ComicsData", 0, NULL, (LPBYTE)&i, &cbData);
 		void SetSendComicsData(BOOL);
@@ -412,6 +432,8 @@ BOOL CSetupDialog::SaveToReg() {
 		RegSetValueEx (hKey, "ShowComicView", 0, REG_DWORD, (LPBYTE)&theApp.m_bComicView, 
 						sizeof(theApp.m_bComicView));
 
+		RegSetValueEx (hKey, "UseSSL", 0, REG_DWORD, (LPBYTE)&m_bUseSSL, sizeof(m_bUseSSL));
+
 		BOOL GetSendComicsData();
 		i = GetSendComicsData();
 		RegSetValueEx (hKey, "ComicsData", 0, REG_DWORD, (LPBYTE)&i, sizeof(int));
@@ -511,6 +533,10 @@ const char *GetMyServer() {
 
 UINT GetMyPort() {
 	return (setupDlg.m_ircPort);
+}
+
+BOOL GetMyUseSSL() {
+	return (setupDlg.m_bUseSSL);
 }
 
 const char *GetMyRealName() {

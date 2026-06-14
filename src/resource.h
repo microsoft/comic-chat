@@ -117,6 +117,7 @@
 #define IDC_LICENSE                     1077
 #define IDC_NEWCHANNEL                  1078
 #define IDC_NEWROOM                     1079
+#define IDC_USESSL                      1080
 #define ID_CANCEL_EDIT_SRVR             32769
 #define BIND_IDP_FAILED_TO_AUTO_REGISTER 32774
 #define ID_FILE_PREFERENCES             32782
@@ -378,7 +379,7 @@
 #define _APS_3D_CONTROLS                     1
 #define _APS_NEXT_RESOURCE_VALUE        204
 #define _APS_NEXT_COMMAND_VALUE         32926
-#define _APS_NEXT_CONTROL_VALUE         1080
+#define _APS_NEXT_CONTROL_VALUE         1081
 #define _APS_NEXT_SYMED_VALUE           103
 #endif
 #endif
