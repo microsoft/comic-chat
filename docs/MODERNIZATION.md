@@ -9,6 +9,7 @@ to the detailed write-ups and summarizes every change in one place.
 |------|-----------|
 | High-DPI rendering + UI scaling + UX polish | [`dpi-awareness.md`](dpi-awareness.md) |
 | Native TLS over IRC (SChannel) | [`tls.md`](tls.md) *(on the `tls-schannel` branch / PR)* |
+| Modern build of the 2.5 beta-1 client | [`../v2.5-beta-1-modern/README.md`](../v2.5-beta-1-modern/README.md) |
 
 ---
 
@@ -91,3 +92,38 @@ launch, connect to Libera, comic view with an uncut title, correctly-scaled
 member faces / avatar preview / emotion wheel, legible Say box, mouse-wheel
 scroll, 3+ panels per row, and clean balloon word-wrap. Standard-DPI behavior is
 unchanged.
+
+## 6. The 2.5 beta-1 client (`v2.5-beta-1-modern/`)
+
+Everything above targets the `v1.0-pre-modern/` tree (the v1.0-pre client). The
+repository also contains the more advanced **Microsoft Chat 2.5 beta-1** (June
+1998) source, which originally built with the **Windows NT DDK `BUILD.EXE`**
+system rather than `nmake`.
+
+[`v2.5-beta-1-modern/`](../v2.5-beta-1-modern) is a copy of that tree brought up
+on the modern toolchain with its own clean `nmake` makefile, so it **builds and
+runs** today:
+
+```bat
+call "<VS>\VC\Auxiliary\Build\vcvars32.bat"
+cd v2.5-beta-1-modern
+nmake /f chat.mak CFG="chat - Win32 Debug"
+```
+
+Highlights of the bring-up (full list in the folder's
+[`README.md`](../v2.5-beta-1-modern/README.md)):
+
+- A new `chat.mak` replacing the DDK `sources`/`dirs` build; `MIDL` for the COM
+  proxy; the delay-load DLL thunks compiled in; `wininet.lib` linked.
+- The same class of legacy-C++ cleanups as `v1.0-pre-modern`, plus 2.5-specific
+  ones (`INT8/16/32` SDK collision, `MyGetCommandMap`, socket-handle reattach, …).
+- **Two real blockers**: removing the MFC-4.0 `tagLVITEMA → _LV_ITEMA` remap from
+  `stdafx.h` (it broke linking against modern MFC common controls), and adding a
+  **Common Controls v6 manifest** so the rebar toolbar's `RB_INSERTBAND` succeeds
+  (that failure was the startup crash).
+- Re-created the missing `chatver.h` / `chatver.rc` version stamp.
+- The DPI, mouse-wheel and panels-per-row work above, ported across.
+
+Not ported: native TLS transport (2.5's SSPI is for IRC *authentication*, not
+SChannel) and main-toolbar glyph scaling. 2.5's balloon wrapper is already
+international/word-aware, so the `src` word-wrap fix is unnecessary there.

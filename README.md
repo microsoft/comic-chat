@@ -29,6 +29,7 @@ This repository contains source snapshots spanning the full development history 
 | [`v2.5-beta-1/`](v2.5-beta-1/) | June 1998 | Comic Chat 2.5 beta 1 source — [README](docs/v2.5-beta-1/README.md) |
 | [`artifacts/`](artifacts/) | January 1998 | SDK, companion tools, JChat, documentation |
 | [`v1.0-pre-modern/`](v1.0-pre-modern/) | 2026 | Modernized v1.0-pre: DPI-aware, TLS, builds with current Visual Studio |
+| [`v2.5-beta-1-modern/`](v2.5-beta-1-modern/) | 2026 | Modernized v2.5-beta-1: DPI-aware, builds with current Visual Studio (nmake replaces the NT DDK build) |
 | [`docs/`](docs/) | — | Modernization write-ups and documentation |
 
 See [`file dates.txt`](file%20dates.txt) for the original file modification timestamps from each archive.
@@ -70,6 +71,16 @@ nmake /f chat.mak CFG="chat - Win32 Debug"
 ```
 
 The modernization covers build fixes (legacy C++, MFC/OLE macro clashes, linker libs), **DPI-aware rendering and UI scaling**, several **UX fixes** (mouse-wheel scrolling, panels-per-row auto-fit, balloon word-wrap), and optional **native TLS** for connecting to modern IRC networks. See [`docs/MODERNIZATION.md`](docs/MODERNIZATION.md) for details.
+
+`v2.5-beta-1-modern/` brings the more advanced **Comic Chat 2.5 beta-1** (June 1998) client — which originally built with the Windows NT DDK `BUILD.EXE` system — up on the modern toolchain with its own clean `nmake` makefile:
+
+```bat
+call "<VisualStudio>\VC\Auxiliary\Build\vcvars32.bat"
+cd v2.5-beta-1-modern
+nmake /f chat.mak CFG="chat - Win32 Debug"
+```
+
+It carries the DPI/mouse-wheel/panels-per-row work across; the chief 2.5-specific fixes were dropping the MFC-4.0 common-control struct-tag remap and adding a Common Controls v6 manifest so the rebar toolbar creates. See [`v2.5-beta-1-modern/README.md`](v2.5-beta-1-modern/README.md).
 
 ### Original build requirements
 
