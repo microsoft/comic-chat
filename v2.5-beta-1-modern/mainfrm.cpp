@@ -51,6 +51,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWnd)
 	ON_WM_SYSCOLORCHANGE()
 	ON_WM_MENUSELECT()
 	//}}AFX_MSG_MAP
+	ON_WM_CLOSE()
 //	ON_MESSAGE(WM_SETMESSAGESTRING, OnSetMessageString)
 END_MESSAGE_MAP()
 
@@ -170,6 +171,17 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 	}
 
 	return CMDIFrameWnd::PreCreateWindow(cs);
+}
+
+// Save user settings (fonts, colors, panel layout, ...) at frame close, BEFORE
+// the window teardown. On a modern DEBUG build that teardown can trip framework
+// assertions that prevent CChatApp::ExitInstance (the original save point) from
+// running; saving here guarantees the settings persist either way. Harmless and
+// idempotent in Release, where ExitInstance also runs normally.
+void CMainFrame::OnClose()
+{
+	theApp.SaveToReg(FALSE /*bShort*/);
+	CMDIFrameWnd::OnClose();
 }
 
 

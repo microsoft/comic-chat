@@ -3,19 +3,30 @@
 # replacing the original NT DDK BUILD.EXE (sources/dirs) system.
 #
 #   call "<VS>\VC\Auxiliary\Build\vcvars32.bat"
-#   nmake /f chat.mak CFG="chat - Win32 Debug"
+#   nmake /f chat.mak CFG="chat - Win32 Debug"      (asserts + TRACE for DebugView)
+#   nmake /f chat.mak CFG="chat - Win32 Release"    (optimized, no debug asserts)
 #
 # Notes:
 #  - Precompiled headers are intentionally disabled for robustness.
 #  - Delay-load helper (dlylddll.c) and NetMeeting (nmproto) are excluded.
 #  - icchat_i.c / icchat.h are generated from base\icchat.idl via MIDL.
+#  - Debug -> .\Debug\CChat.exe ; Release -> .\Release\CChat.exe.
 
 !IF "$(CFG)" == ""
 CFG=chat - Win32 Debug
 !ENDIF
 
+!IF "$(CFG)" == "chat - Win32 Release"
+OUTDIR=.\Release
+INTDIR=.\Release
+CPP_CFG=/MT /O2 /D "NDEBUG"
+RSC_CFG=/d "NDEBUG"
+!ELSE
 OUTDIR=.\Debug
 INTDIR=.\Debug
+CPP_CFG=/MTd /Od /D "_DEBUG"
+RSC_CFG=/d "_DEBUG"
+!ENDIF
 
 CPP=cl.exe
 RSC=rc.exe
@@ -26,10 +37,13 @@ ARTINC=..\artifacts\inc
 ARTLIB=..\artifacts\lib\i386
 SPECTRE=C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\ATLMFC\lib\spectre\x86
 
-CPP_PROJ=/nologo /MTd /W3 /GX /Zi /Od /Zc:forScope- /Zc:strictStrings- /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" \
+# /Zi is kept in both configs so Release is still debuggable (it emits a PDB but
+# does not disable optimization). The MFC/CRT static libraries are selected
+# automatically by the _DEBUG/NDEBUG define + /MT[d].
+CPP_PROJ=/nologo $(CPP_CFG) /W3 /GX /Zi /Zc:forScope- /Zc:strictStrings- /D "WIN32" /D "_WINDOWS" /D "_MBCS" \
  /I "." /I "$(ARTINC)" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /c
 
-RSC_PROJ=/l 0x409 /fo"$(INTDIR)\chat.res" /i "." /i "$(ARTINC)" /d "_DEBUG"
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\chat.res" /i "." /i "$(ARTINC)" $(RSC_CFG)
 
 LINK32_FLAGS=/nologo /subsystem:windows /FORCE:MULTIPLE /incremental:no /debug \
  /machine:I386 /nodefaultlib:"libc" \

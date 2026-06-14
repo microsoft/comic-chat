@@ -419,10 +419,35 @@ static const CLSID clsid =
 /////////////////////////////////////////////////////////////////////////////
 // CChatApp initialization
 
+#ifdef _DEBUG
+#include <crtdbg.h>
+// This 1996-1998 application, built as a modern DEBUG binary, trips legacy debug
+// assertions that DID NOT exist in its original MFC 4.0 / old-CRT toolchain and
+// would NOT exist in a release build: debug-heap validation, CRT ctype range
+// checks, RichEdit length sanity, and MFC teardown-order checks. Left alone they
+// pop modal dialogs that interrupt use and can block CWinApp::ExitInstance from
+// running -- which is when user settings (fonts, colors, layout) are saved, so
+// they appear not to persist. Suppress assertion/error dialogs and continue,
+// mirroring how a release build behaves; warnings still flow to the debugger.
+static int __cdecl ChatSuppressAssertHook(int nRptType, char* /*szMsg*/, int* pnRet)
+{
+	if (nRptType == _CRT_ASSERT || nRptType == _CRT_ERROR)
+	{
+		if (pnRet) *pnRet = 0;	// 0 = continue execution (do not break)
+		return TRUE;			// handled -- don't show the modal dialog
+	}
+	return FALSE;				// let warnings use the default reporting
+}
+#endif // _DEBUG
+
 BOOL CChatApp::InitInstance()
 {
 	int iarg;
 	CString strTmp;
+
+#ifdef _DEBUG
+	_CrtSetReportHook2(_CRT_RPTHOOK_INSTALL, ChatSuppressAssertHook);
+#endif
 
 	// Run DPI-UNAWARE: we deliberately do NOT call SetProcessDPIAware(). On a
 	// high-DPI display Windows then bitmap-scales the whole window uniformly
@@ -782,6 +807,13 @@ void CChatApp::OnHelpTopics()
 
 int CChatApp::ExitInstance() 
 {
+	// Persist settings FIRST, before the shutdown cleanup below. Some of that
+	// teardown can fault on modern Windows, and if it did we used to lose the
+	// user's fonts/colors/panel layout because SaveToReg ran only at the very end.
+	// (CMainFrame::OnClose also saves, before window teardown, in case ExitInstance
+	// is never reached.)
+	SaveToReg(FALSE /*bShort*/);
+
 	if (m_hShutdownEvent)
 	{
 		SetEvent (m_hShutdownEvent);
@@ -815,8 +847,6 @@ int CChatApp::ExitInstance()
 		delete m_pNetRequestor;
 		m_pNetRequestor = NULL;
 	}
-
-	SaveToReg(FALSE /*bShort*/);
 
 	return CWinApp::ExitInstance();
 }

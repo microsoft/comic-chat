@@ -18,14 +18,34 @@ From a 32-bit Visual Studio developer prompt (or by calling `vcvars32.bat`):
 ```bat
 call "<VisualStudio>\VC\Auxiliary\Build\vcvars32.bat"
 cd v2.5-beta-1-modern
-nmake /f chat.mak CFG="chat - Win32 Debug"
+nmake /f chat.mak CFG="chat - Win32 Release"    REM optimized, for everyday use
+nmake /f chat.mak CFG="chat - Win32 Debug"      REM asserts + TRACE for DebugView
 ```
 
-Output is `Debug\CChat.exe`. The build links MFC statically. Character/backdrop
-art lives next to the source in [`comicart\`](comicart) as `.avb` / `.bgb` files.
+Two configurations are provided:
+
+- **Release** -> `Release\CChat.exe` (optimized `/MT`/`/O2`, `NDEBUG`). Use this
+  for normal use. It behaves like the original shipped product.
+- **Debug** -> `Debug\CChat.exe` (`/MTd`/`/Od`, `_DEBUG`). Use this for
+  development: it emits `TRACE` output (viewable in Sysinternals **DebugView**)
+  and keeps assertions, which is handy when investigating behavior.
+
+Both link MFC statically. Character/backdrop art lives next to the source in
+[`comicart\`](comicart) as `.avb` / `.bgb` files.
+
+> **Why two configs?** This is a 1996-1998 MFC app. A modern *debug* build injects
+> assertions (debug-heap validation, MFC teardown-order and CRT range checks)
+> that did **not** exist in its original MFC 4.0 / old-CRT toolchain. Several of
+> them fire harmlessly during normal use and shutdown; left as modal dialogs they
+> can block `CWinApp::ExitInstance` (where settings are saved), which can make
+> settings appear not to persist. The **Release** build has none of these and
+> runs/saves exactly like the original. The Debug build additionally installs a
+> CRT report hook to suppress those assertion dialogs and saves settings at frame
+> close, so it stays usable too.
 
 > The makefile does **not** track header dependencies. After editing any `.h`,
-> delete `Debug\*.obj` and rebuild so the change propagates everywhere.
+> delete the matching `Debug\*.obj` / `Release\*.obj` and rebuild so the change
+> propagates everywhere.
 
 ## What changed to build under a modern compiler
 

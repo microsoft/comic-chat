@@ -77,7 +77,8 @@ The modernization covers build fixes (legacy C++, MFC/OLE macro clashes, linker 
 ```bat
 call "<VisualStudio>\VC\Auxiliary\Build\vcvars32.bat"
 cd v2.5-beta-1-modern
-nmake /f chat.mak CFG="chat - Win32 Debug"
+nmake /f chat.mak CFG="chat - Win32 Release"    REM everyday use
+nmake /f chat.mak CFG="chat - Win32 Debug"      REM asserts + TRACE for DebugView
 ```
 
 It carries the mouse-wheel and panels-per-row work across and runs **DPI-unaware** so Windows scales the whole window uniformly (rather than scaling a few surfaces and leaving the rest tiny). The chief 2.5-specific fixes were dropping the MFC-4.0 common-control struct-tag remap, adding a Common Controls v6 manifest so the rebar toolbar creates, and the runtime fixes needed to connect/join/chat on a present-day IRC network. See [`v2.5-beta-1-modern/README.md`](v2.5-beta-1-modern/README.md).
