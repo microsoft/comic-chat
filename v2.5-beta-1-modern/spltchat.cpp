@@ -193,7 +193,7 @@ CSplitSay::CSplitSay() : CSplitterWnd()
 {
 	m_bViewsCreated = FALSE;
 	m_bInitialSizingDone = FALSE;
-	m_nPixelsSayMin = (!theApp.m_bShowMode) ? NPIXELSSAYMIN : 0;
+	m_nPixelsSayMin = (!theApp.m_bShowMode) ? DpiScale(NPIXELSSAYMIN) : 0;
 };
 
 void CSplitSay::StopTracking( BOOL bAccept )

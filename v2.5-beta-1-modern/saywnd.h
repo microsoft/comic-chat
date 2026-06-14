@@ -84,6 +84,8 @@ protected:
 	CSayCtrl	m_wndSayCtrl;
 	CSayToolBar 	m_wndSayBar;
 	CFont*		m_fontText;
+	CBitmap		m_sayBarBmp;		// DPI-stretched say-bar button bitmap (high-DPI only)
+	CImageList	m_sayBarImages;		// image list backing the stretched say-bar buttons
 	static DWORD	m_dwDefaultButtons;			// buttons to be created by default for the class
 
 public:

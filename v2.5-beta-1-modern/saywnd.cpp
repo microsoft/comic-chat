@@ -590,6 +590,36 @@ BOOL CSayWnd::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 		//m_wndSayBar.ModifyStyle(0, TBSTYLE_FLAT); // make it flat
 		m_wndSayBar.SetSizes(sizeButton, sizeImage);
 
+		// On high-DPI displays the 17px say-bar glyphs (say / think / whisper / send)
+		// are tiny.  Stretch the button bitmap into a DPI-scaled image list so the
+		// action buttons match the rest of the scaled UI.  No-op at 96 DPI.
+		if (g_screenDpi > 96) {
+			int cell  = DpiScale(cxToolBar);
+			int cellH = DpiScale(cyToolBar);
+			CBitmap orig;
+			if (orig.LoadBitmap(IDB_SAY_BAR)) {
+				BITMAP bm;
+				orig.GetBitmap(&bm);
+				int nBtns = bm.bmWidth / cxToolBar;
+				if (nBtns < 1) nBtns = 1;
+				CClientDC dc(this);
+				CDC srcDC, dstDC;
+				srcDC.CreateCompatibleDC(&dc);
+				dstDC.CreateCompatibleDC(&dc);
+				m_sayBarBmp.CreateCompatibleBitmap(&dc, nBtns * cell, cellH);
+				CBitmap *oS = srcDC.SelectObject(&orig);
+				CBitmap *oD = dstDC.SelectObject(&m_sayBarBmp);
+				dstDC.SetStretchBltMode(COLORONCOLOR);
+				dstDC.StretchBlt(0, 0, nBtns * cell, cellH, &srcDC, 0, 0, bm.bmWidth, bm.bmHeight, SRCCOPY);
+				srcDC.SelectObject(oS);
+				dstDC.SelectObject(oD);
+				m_sayBarImages.Create(cell, cellH, ILC_COLOR24 | ILC_MASK, nBtns, 0);
+				m_sayBarImages.Add(&m_sayBarBmp, RGB(192, 192, 192));	// light-gray = transparent
+				m_wndSayBar.GetToolBarCtrl().SetImageList(&m_sayBarImages);
+				m_wndSayBar.SetSizes(CSize(cell + DpiScale(7), cellH + DpiScale(6)), CSize(cell, cellH));
+			}
+		}
+
 		int buttonPos = 0;
 		for (int i = 0; i < SAYNBUTTONS; i++) {
 			if ((1 << i) & m_dwButtons)
@@ -628,7 +658,7 @@ BOOL CSayWnd::SetFont(LOGFONT &logFont, BOOL bMatchButtonsToSelection /* = FALSE
 
 	lf.lfWeight		= FW_REGULAR;
 	lf.lfStrikeOut	= lf.lfUnderline = lf.lfItalic = FALSE;
-	lf.lfHeight		= nFontHeight;
+	lf.lfHeight		= -DpiScale(-nFontHeight);
 
 	MatchFont(lf);
 	strcpy(logFont.lfFaceName, lf.lfFaceName);
