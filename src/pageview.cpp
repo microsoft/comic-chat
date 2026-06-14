@@ -44,6 +44,7 @@ static char THIS_FILE[] = __FILE__;
 
 #define pMainFrame	((CMainFrame *) theApp.m_pMainWnd)
 #define WM_LOGINDLG WM_USER+1
+#define WM_AUTOFITPANELS WM_USER+2	// deferred panels-per-row auto-fit (avoids OnSize re-entrancy)
 /////////////////////////////////////////////////////////////////////////////
 // The one and only CClientApp object
 
@@ -72,6 +73,7 @@ CPageView::CPageView()
 	m_printRetSec = NULL;
 	m_palette = NULL;
 	bFirstTime = TRUE;	// the first time this is checked it will be the first time through
+	m_bAutoFitting = FALSE;
 }
 
 CPageView::~CPageView()
@@ -110,12 +112,14 @@ BEGIN_MESSAGE_MAP(CPageView, CScrollView)
 	ON_WM_KEYDOWN()
 	ON_WM_VSCROLL()
 	ON_WM_RBUTTONDOWN()
+	ON_WM_MOUSEWHEEL()
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CView::OnFilePrintPreview)
 	ON_MESSAGE(WM_LOGINDLG, OnLoginDlg)
+	ON_MESSAGE(WM_AUTOFITPANELS, OnAutoFitPanels)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -190,10 +194,17 @@ void CreateRetainedPanel(CDC *pDC, HBITMAP *retSec, CDIB **retDib) {
 											   + 256*sizeof(RGBQUAD));
 	BITMAPINFOHEADER *infoHdr = &(b->bmiHeader);
 	infoHdr->biSize = sizeof(BITMAPINFOHEADER);
-	double inchesWide = (double)CUnitPanelPage::unitWidth / UNITSPERINCH;
-	double inchesHigh = (double)CUnitPanelPage::unitHeight / UNITSPERINCH;
-	infoHdr->biWidth = (int) ceil(inchesWide * pDC->GetDeviceCaps(LOGPIXELSX));
-	infoHdr->biHeight = (int) ceil(inchesHigh * pDC->GetDeviceCaps(LOGPIXELSY));
+	// Size the bitmap by the DC's actual logical->device mapping (LPtoDP) rather than
+	// GetDeviceCaps.  When the view's mapping scale differs from the reported DPI (which
+	// happens under some high-DPI configurations), GetDeviceCaps under-sizes the bitmap and
+	// the right/bottom of every panel gets clipped.  Using LPtoDP guarantees the bitmap is
+	// exactly the device size the same DC will draw/blit the panel at.
+	POINT pOrg = { 0, 0 };
+	POINT pExt = { CUnitPanelPage::unitWidth, CUnitPanelPage::unitHeight };
+	pDC->LPtoDP(&pOrg);
+	pDC->LPtoDP(&pExt);
+	infoHdr->biWidth = abs(pExt.x - pOrg.x);
+	infoHdr->biHeight = abs(pExt.y - pOrg.y);
 	infoHdr->biPlanes = 1;
 	infoHdr->biBitCount = max(8, pDC->GetDeviceCaps(BITSPIXEL)); // dither if necessary, so use at least 8 bits
 	TRACE("DPI = %d, pixels = %d, bits = %d.\n", pDC->GetDeviceCaps(LOGPIXELSX), infoHdr->biWidth, infoHdr->biBitCount);
@@ -247,11 +258,26 @@ void CPageView::OnDraw(CDC* pDC)
 	}
 
 
-	// Make sure a retained section is allocated, if we're drawing to the display.
-	// This will only be done on the first Draw.
-	// If we are printing, it was already allocated in OnBeginPrinting
-	if (!GetRetSec(pDC) && !pDC->IsPrinting())
-		CreateRetainedPanel(pDC, &m_retSec, &m_retDib);
+	// Make sure a retained section is allocated, and that it matches the device size the
+	// current DC will draw the panel at.  The panel size (or the DC's effective scale) can
+	// change after the section was first built; if we don't resize it, panels get clipped.
+	if (!pDC->IsPrinting()) {
+		POINT po = { 0, 0 };
+		POINT pe = { CUnitPanelPage::unitWidth, CUnitPanelPage::unitHeight };
+		pDC->LPtoDP(&po);
+		pDC->LPtoDP(&pe);
+		int needW = abs(pe.x - po.x);
+		BOOL needNew = (GetRetSec(pDC) == NULL);
+		if (!needNew) {
+			BITMAP bm;
+			::GetObject(GetRetSec(pDC), sizeof(bm), &bm);
+			if (bm.bmWidth != needW) needNew = TRUE;
+		}
+		if (needNew) {
+			FreeRetainedPanelS();
+			CreateRetainedPanel(pDC, &m_retSec, &m_retDib);
+		}
+	}
 
 	// Use our own palette
 	if (oldPal = pDC->SelectPalette(GetPalette(pDC), FALSE))
@@ -331,6 +357,40 @@ CPalette* GetPalette(CDC *dc) {
 void CPageView::OnSize(UINT nType, int cx, int cy) 
 {
 	CScrollView::OnSize(nType, cx, cy);
+
+	// Defer the panels-per-row auto-fit to a posted message so it runs in a stable
+	// state rather than re-entrantly inside layout (SetPanelsWide reloads history
+	// and updates scroll info, which would recurse through WM_SIZE and crash).
+	if (!bFirstTime && nType != SIZE_MINIMIZED && cx > 0 && cy > 0 && theApp.m_bComicView)
+		PostMessage(WM_AUTOFITPANELS, 0, 0);
+}
+
+// Handle the deferred auto-fit: pick the column count that fits the current width
+// and reflow only if it actually changed.  Idempotent, so collapsing several
+// posted requests into one is harmless.
+LRESULT CPageView::OnAutoFitPanels(WPARAM, LPARAM)
+{
+	if (m_bAutoFitting || !theApp.m_bComicView || !GetClientDC() || !GetDocument())
+		return 0;
+	int fit = FitPanelsWide();
+	if (fit > 0 && fit != CUnitPanelPage::GetUnitPanelsPerRow()) {
+		m_bAutoFitting = TRUE;
+		SetPanelsWide(fit);
+		m_bAutoFitting = FALSE;
+	}
+	return 0;
+}
+
+// Scroll the comic with the mouse wheel.  WM_MOUSEWHEEL goes to the focused
+// window (usually the Say box) or, with "scroll inactive windows", the hovered
+// one; either way scroll the page here.
+BOOL CPageView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+	int notches = zDelta / WHEEL_DELTA;					// +ve = away from user = scroll up
+	int dyDevice = -notches * DpiScale(48);				// ~48 logical px per notch
+	if (dyDevice != 0)
+		OnScrollBy(CSize(0, dyDevice), TRUE);
+	return TRUE;
 }
 
 
@@ -451,10 +511,27 @@ void CPageView::OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDea
 		PostMessage(WM_LOGINDLG,0,0);
 		bFirstTime = FALSE;
 
-		// if panel width never set (new user!) do something reasonable for current display
-		if (CUnitPanelPage::unitWidth < MINUNITPANELWIDTH) SetPanelsWide(2);  // force reasonable panel size
+		// Fit the panels per row to the window width.  Deferred (posted) so the
+		// reflow happens after this activation settles, not re-entrantly.
+		PostMessage(WM_AUTOFITPANELS, 0, 0);
 	}
-}		
+}
+
+// Pick the largest column count (1..5) whose resulting panels stay a comfortable
+// size.  GetProspectivePanelWidth() shrinks as the count grows, so we stop at the
+// first count that would make panels too small.
+#define COMFORTABLEPANELWIDTH	3000	// twips (~2.1"); keeps panels readable
+int CPageView::FitPanelsWide()
+{
+	int best = 1;
+	for (int n = 1; n <= 5; n++) {
+		if (GetProspectivePanelWidth(n) >= COMFORTABLEPANELWIDTH)
+			best = n;
+		else
+			break;
+	}
+	return best;
+}
 
 
 void CPageView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
@@ -1123,7 +1200,7 @@ void CPageView::OnIgnore()
 
 #define SCROLLWIDTH			16
 
-void SetPanelsWide(int nWide) inline {
+void SetPanelsWide(int nWide) {
 	if (theApp.m_bComicView)
 		GetView()->SetPanelsWide(nWide);
 }

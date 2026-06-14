@@ -472,11 +472,11 @@ BOOL CUnitPanelPage::AddReaction(int id) {
 	return TRUE;
 }
 
-GetIndex(const CPtrList &list, void *member) {
+int GetIndex(const CPtrList &list, const void *member) {
 	int index = 0;
 	POSITION pos = list.GetHeadPosition();
 	while (pos) {
-		void *foo = list.GetNext(pos);
+		const void *foo = list.GetNext(pos);
 		if (member == foo)
 			return index;
 		index++;
@@ -558,7 +558,7 @@ void CUnitPanel::LayoutAvatars() {
 		maxNorm = max(maxNorm, normHeight[i]);
 	}
 
-	for (i = 0; i < bdyCount; i++) {
+	for (int i = 0; i < bdyCount; i++) {
 		// scale all of them such that maxHeight == unitHeight / 2
 		int newHeight  = ROUND(maxBodyHeight * ((float)normHeight[i] / maxNorm));
 		float scaleRatio = (float)newHeight / height[i];
@@ -576,7 +576,7 @@ void CUnitPanel::LayoutAvatars() {
 		// must reduce the size of the avatars
 		float reduction = (float)CUnitPanelPage::unitWidth / sumWidth;
 		bdyWidth = 0;
-		for (i = 0; i < bdyCount; i++) {
+		for (int i = 0; i < bdyCount; i++) {
 			height[i] = ROUND(height[i] * reduction);
 			width[i] = ROUND(width[i] * reduction);
 			top[i] = -CUnitPanelPage::unitHeight + height[i];
@@ -587,14 +587,14 @@ void CUnitPanel::LayoutAvatars() {
 		// increase size of avatars
 		zoomFactor = (double)CUnitPanelPage::unitWidth / sumWidth;
 
-		for (i = 0; i < bdyCount; i++)
+		for (int i = 0; i < bdyCount; i++)
 			maxHeadHeight = max(maxHeadHeight, headHeight[i]);
 		double headFactor = (double)maxBodyHeight / (maxHeadHeight * 1.2);  // don't cut at neck
 		zoomFactor = min(zoomFactor, headFactor);
 		if (zoomFactor < 1.1) zoomFactor = 1.0;
 
 		bdyWidth = 0;
-		for (i = 0; i < bdyCount; i++) {
+		for (int i = 0; i < bdyCount; i++) {
 			height[i] = ROUND(height[i] * zoomFactor);
 			width[i] = ROUND(width[i] * zoomFactor);
 			bdyWidth += width[i];
@@ -606,7 +606,7 @@ void CUnitPanel::LayoutAvatars() {
 
 	int margin = (CUnitPanelPage::unitWidth - bdyWidth) / (bdyCount+1); // margins also between avs and borders
 	int xOffset = margin;
-	for (i = 0; i < bdyCount; i++) {
+	for (int i = 0; i < bdyCount; i++) {
 		CBodyRecord *r = (CBodyRecord *) placed[i];
 		CBody *b = r->m_body;
 		m_bodies.AddTail(b);
@@ -716,7 +716,7 @@ BOOL GetInterveningBBox(CBalloon *balloons[], int index, RECT &freeRect, RECT &i
 	// bottom of any balloon to its right\and no higher than the top of any balloon
 	// to its left.
 	irect.top = freeRect.top;
-	for (i = 0; i < index; i++) {
+	for (int i = 0; i < index; i++) {
 		balloons[i]->GetCloudBBox(&cloudbox);
 		if (cloudbox.right < irect.left) {		// cloud is to the right
 			irect.top = min(irect.top, cloudbox.top);
@@ -903,7 +903,14 @@ void CUnitPanelPage::Draw(CDC *dc, POINT *, RECT *damage = NULL) {
 			panel->Draw(&memDC, &loc, &damageRel);
 			if (!dc->m_bPrinting || !printBMP) {
 				POINT loc2 = AccountForScroll(&loc, TRUE, TRUE, dc->m_bPrinting);
-				VERIFY(dc->BitBlt(loc2.x, loc2.y, unitWidth, -unitHeight, &memDC, 0, 0, SRCCOPY));
+				// The offscreen panel bitmap is built at the system (GetDeviceCaps) DPI,
+				// but the destination DC's logical->device scale can differ (e.g. when the
+				// scroll view applies its own mapping). A plain BitBlt copies 1:1 and would
+				// clip the right/bottom of each panel. StretchBlt scales the whole panel
+				// bitmap to exactly fill the panel slot, so nothing is clipped.
+				dc->SetStretchBltMode(COLORONCOLOR);
+				VERIFY(dc->StretchBlt(loc2.x, loc2.y, unitWidth, -unitHeight,
+									   &memDC, 0, 0, unitWidth, -unitHeight, SRCCOPY));
 			} else PrintBMP();
 		}
 		if (panelCount % truePanelsPerRow == 0) {
@@ -1165,7 +1172,7 @@ void CUnitPanelPage::AddStars(CUnitPanel *panel, int topY) {
 		int iconVdisp = (rowHeight - ICONSIZE)/2;			// center text or icon vertically in row
 		int textVdisp = (rowHeight - lineHeight)/2;
 
-		for (i = 0; i < nStars; i++) {
+		for (int i = 0; i < nStars; i++) {
 			((CLabel *)sLabels[i])->m_format |= FT_LEFT_JUSTIFY;
 			CBodyUnary *b = new CBodyUnary(((CAvatarX *)stars[i])->m_avatarID);
 			b->m_bodyID = ((CAvatarX *)stars[i])->m_icon;
@@ -1334,7 +1341,7 @@ int EvalPlacement(CPtrArray &bdyArray, int nPlaced, CBodyRecord &bdy, int index,
 
 	bdy.m_body->m_flip = TRUE;
 
-	for (i = 0; i <= nPlaced; i++) {
+	for (int i = 0; i <= nPlaced; i++) {
 		CBodyRecord *rec1 = (CBodyRecord *) (bdyArray[i]);
 		for (int j = i+1; j <= nPlaced; j++) {
 			CBodyRecord *rec2 = (CBodyRecord *) bdyArray[j];

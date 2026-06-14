@@ -15,19 +15,19 @@
 
 extern CChatApp theApp;
 
-INT16 read16(FILE *fp) inline {
+inline INT16 read16(FILE *fp) {
 	INT16 val;
 	fread(&val, sizeof(val), 1, fp);
 	return val;
 }
 
-INT32 read32(FILE *fp) inline {
+inline INT32 read32(FILE *fp) {
 	INT32 val;
 	fread(&val, sizeof(val), 1, fp);
 	return val;
 }
 
-INT8 read8(FILE *fp) inline {
+inline INT8 read8(FILE *fp) {
 	INT8 val;
 	fread(&val, sizeof(val), 1, fp);
 	return val;
@@ -137,7 +137,7 @@ BOOL CAvatarX::LoadBasics(int key, FILE *fp, const char *path) {
 
 USHORT RegisterAVFileRec(UINT fgndOffset, UINT transOffset, UINT auraOffset, const char *path);
 
-float EmotionToFloat(int) inline;
+inline float EmotionToFloat(int);
 
 void CAvatarComplex::LoadFaceRecs(FILE *fp, const char *path) {
 	int lastOffset = 0;
@@ -271,7 +271,7 @@ float emFloats[] = {
 	(float) EM_3QFWALK,
 };
 
-float EmotionToFloat(int index) inline {
+inline float EmotionToFloat(int index) {
 	return emFloats[index];
 }
 

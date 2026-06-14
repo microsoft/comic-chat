@@ -98,6 +98,17 @@ CBodyCam::CBodyCam()
 		sprintf(buff, "%s\\%s", theApp.GetAvatarDir(), lg_icons[i]);
 		VERIFY(m_icons[i].Load(buff));
 	}
+
+	// Scale the (96-DPI) emotion-wheel pixel metrics to the display DPI once, so the
+	// wheel and its face icons stay proportional to the rest of the UI on high-DPI
+	// screens.  Guarded because these are shared statics across all bodycams.
+	static BOOL s_dpiScaled = FALSE;
+	if (!s_dpiScaled) {
+		m_cursorRadius = (short)DpiScale(m_cursorRadius);
+		m_iconWidth    = (short)DpiScale(m_iconWidth);
+		m_iconHeight   = (short)DpiScale(m_iconHeight);
+		s_dpiScaled = TRUE;
+	}
 }
 
 CBodyCam::~CBodyCam()
@@ -188,11 +199,11 @@ void CBodyCam::OnPaint()
 #define MINBULL	93
 
 // sets m_bullSide and m_bullDisabled
-void CBodyCam::CacheBullSide(int width) inline {
-	m_bullSide = min(width, MAXBULL);
-	if (m_bullSide < MINBULL) {
+inline void CBodyCam::CacheBullSide(int width) {
+	m_bullSide = min(width, DpiScale(MAXBULL));
+	if (m_bullSide < DpiScale(MINBULL)) {
 		m_bullDisabled = TRUE;
-		m_bullSide = MINBULL;
+		m_bullSide = DpiScale(MINBULL);
 	} else m_bullDisabled = FALSE;
 }
 
@@ -232,7 +243,8 @@ RECT CBodyCam::GetIconRect(int i) const {
 void CBodyCam::DrawBullsEyeCons(CDC *dc, RECT &rect) {
 	for (int i = 0; i < NEMOTIONS; i++) {
 		RECT iconRect = GetIconRect(i);
-		m_icons[i].Draw(dc, iconRect.left, iconRect.bottom); // iconRect is flipped to support hit-testing
+		// Stretch the fixed-size face art up to the (DPI-scaled) icon slot.
+		m_icons[i].Draw(dc, iconRect.left, iconRect.bottom, m_iconWidth, m_iconHeight, SRCCOPY); // iconRect is flipped to support hit-testing
 	}
 }
 
@@ -390,7 +402,7 @@ void CBodyDouble::FlipBodyBox(RECT &fullRect, RECT &headRect, RECT &torsoRect) {
 	torsoRect.right = torsoRect.left - torsoWidth;
 }
 
-void CBodyCam::GetBodyRect(RECT &rect) inline {
+inline void CBodyCam::GetBodyRect(RECT &rect) {
 	GetClientRect(&rect);
 	rect.bottom -= m_bullSide;				   // subtract out bullseye
 	rect.top += 2 * m_talkToHeight;

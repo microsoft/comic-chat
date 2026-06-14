@@ -6,6 +6,7 @@
 
 #include "stdafx.h"
 #include "chat.h"
+#include "common.h"
 
 //BINDER: include OLE interfaces for Binder compatibility
 #include "ui.h"
@@ -18,6 +19,10 @@
 #include "IpFrame.h"
 #include "chatDoc.h"
 #include "spltchat.h"
+
+void initproc(void) {}
+void ttsproc(char *) {}
+void exitproc(void) {}
 #include "chatView.h"
 #include "chatprot.h"
 #include "version.h"
@@ -117,6 +122,9 @@ CChatApp::~CChatApp()
 
 CChatApp theApp;
 
+// Per-display DPI used by DpiScale() (see common.h) to size pixel-based UI.
+int g_screenDpi = 96;
+
 // This identifier was generated to be statistically unique for your app.
 // You may change it if you prefer to choose a specific identifier.
 
@@ -130,11 +138,30 @@ static const CLSID clsid =
 
 BOOL CChatApp::InitInstance()
 {
+	HMODULE hUser32 = LoadLibrary("user32.dll");
+	if (hUser32) {
+		typedef BOOL (WINAPI *SetProcessDPIAwareFunc)();
+		SetProcessDPIAwareFunc setDPIAware = (SetProcessDPIAwareFunc)GetProcAddress(hUser32, "SetProcessDPIAware");
+		if (setDPIAware) setDPIAware();
+		FreeLibrary(hUser32);
+	}
+
+	// Capture the display DPI now (after declaring awareness) so DpiScale() can
+	// size the pixel-based UI surfaces correctly.
+	{
+		HDC hdcScreen = ::GetDC(NULL);
+		if (hdcScreen) {
+			int dpi = ::GetDeviceCaps(hdcScreen, LOGPIXELSX);
+			if (dpi > 0) g_screenDpi = dpi;
+			::ReleaseDC(NULL, hdcScreen);
+		}
+	}
+
 	int iarg;
 	CString strTmp;
 
-	void initproc();
-	initproc();
+		void initproc();
+		initproc();
 
 	// Various initializations...
 	void LoadEmotionStrings();
@@ -192,7 +219,7 @@ BOOL CChatApp::InitInstance()
 	fontFace.LoadString(ID_COMP_FONT_NAME);
 
 	// create fonts
-	if( !m_fontText.CreateFont(	nFontHeight,
+	if( !m_fontText.CreateFont(	-DpiScale(-nFontHeight),
 								nFontWidth,				
 								nFontEscapement,
 								nFontOrientation,
@@ -619,7 +646,7 @@ void CDUpOne(const char *fullpath) {
 	char buff[200];
 	const char *start = fullpath, *penult = NULL, *ult = NULL;
 	while (1) {
-		char *next = strchr(start, '\\');
+		const char *next = strchr(start, '\\');
 		if (next) {
 			penult = ult;
 			ult = next;
@@ -639,7 +666,7 @@ void CChatApp::SetBaseDir(const char *fullpath) {
 	char buff[200];
 	const char *start = fullpath, *ult = NULL;
 	while (1) {
-		char *next = strchr(start, '\\');
+		const char *next = strchr(start, '\\');
 		if (next) {
 			ult = next;
 			start = next+1;
