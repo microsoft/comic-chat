@@ -211,7 +211,7 @@ CChatApp::CChatApp()
 	m_fileIn = NULL;
 #endif
 
-	m_ImageList.Create(40, 40, ILC_COLOR, 5, 5);
+	m_ImageList.Create(DpiScale(40), DpiScale(40), ILC_COLOR, 5, 5);
 
 	LOGFONT	logFontGUI;
 	HFONT	hfontGUI = (HFONT) GetStockObject(DEFAULT_GUI_FONT);
@@ -405,6 +405,9 @@ void CChatApp::InitializeComicsFonts() {
 
 CChatApp theApp;
 
+// Per-display DPI used by DpiScale() (see dpiscale.h) to size pixel-based UI.
+int g_screenDpi = 96;
+
 // This identifier was generated to be statistically unique for your app.
 // You may change it if you prefer to choose a specific identifier.
 
@@ -420,6 +423,24 @@ BOOL CChatApp::InitInstance()
 {
 	int iarg;
 	CString strTmp;
+
+	// Declare per-monitor/system DPI awareness so Windows does not bitmap-stretch
+	// the comic view, then capture the display DPI for DpiScale().
+	HMODULE hUser32 = LoadLibrary("user32.dll");
+	if (hUser32) {
+		typedef BOOL (WINAPI *SetProcessDPIAwareFunc)();
+		SetProcessDPIAwareFunc setDPIAware = (SetProcessDPIAwareFunc)GetProcAddress(hUser32, "SetProcessDPIAware");
+		if (setDPIAware) setDPIAware();
+		FreeLibrary(hUser32);
+	}
+	{
+		HDC hdcScreen = ::GetDC(NULL);
+		if (hdcScreen) {
+			int dpi = ::GetDeviceCaps(hdcScreen, LOGPIXELSX);
+			if (dpi > 0) g_screenDpi = dpi;
+			::ReleaseDC(NULL, hdcScreen);
+		}
+	}
 
 	/*
 		There are three paths in NM that can launch CChat. Two of them use CreateProcess and

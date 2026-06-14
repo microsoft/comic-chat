@@ -92,6 +92,17 @@ CBodyCam::CBodyCam()
 	m_avatar = NULL;
 	m_palette = NULL;
 	m_mouseDown = FALSE;
+
+	// Scale the (96-DPI) emotion-wheel pixel metrics to the display DPI once, so the
+	// wheel and its face icons stay proportional to the rest of the UI on high-DPI
+	// screens.  Guarded because these are shared statics across all bodycams.
+	static BOOL s_dpiScaled = FALSE;
+	if (!s_dpiScaled) {
+		m_cursorRadius = (short)DpiScale(m_cursorRadius);
+		m_iconWidth    = (short)DpiScale(m_iconWidth);
+		m_iconHeight   = (short)DpiScale(m_iconHeight);
+		s_dpiScaled = TRUE;
+	}
 	m_forcedDelete = TRUE;		// indicates bodycam must be deleted in OnNCDestroy
 	m_emotion.Set(0.0, 0.0);	// start off neutral
 	m_retDib = NULL;			// allocated later by CreateRetainedBitmap
@@ -207,8 +218,8 @@ void CBodyCam::OnPaint()
 // sets m_bullSide and m_bullDisabled
 void CBodyCam::CacheBullSide(int width)
 {
-	m_bullSide = min(width, MAXBULL);
-	if (m_bullSide < MINBULL) {
+	m_bullSide = min(width, DpiScale(MAXBULL));
+	if (m_bullSide < DpiScale(MINBULL)) {
 		m_bullDisabled = TRUE;
 		//m_bullSide = MINBULL;
 		m_bullSide = 0;

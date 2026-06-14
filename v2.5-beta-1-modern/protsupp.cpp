@@ -604,14 +604,41 @@ int AddToImageList(CUserInfo* pui)
 										pDIB->GetBitsAddress(),
 										pDIB->GetBitmapInfoAddress(),
 										DIB_RGB_COLORS);
+
+		// The icon art is fixed ~96-DPI pixel art.  The list-view image-list cells
+		// were enlarged (DpiScale(40)); stretch the face up by the same factor so
+		// it doesn't render tiny in a big cell on high-DPI displays.
+		BITMAPINFOHEADER *bih = &(pDIB->GetBitmapInfoAddress()->bmiHeader);
+		int srcW = bih->biWidth;
+		int srcH = (bih->biHeight < 0) ? -bih->biHeight : bih->biHeight;
+		int dstW = DpiScale(srcW);
+		int dstH = DpiScale(srcH);
+		HBITMAP hImage = hBmp;
+		HBITMAP hScaled = NULL;
+		if (dstW != srcW || dstH != srcH) {
+			HDC hdc = GetClientDC()->GetSafeHdc();
+			HDC srcDC = CreateCompatibleDC(hdc);
+			HDC dstDC = CreateCompatibleDC(hdc);
+			hScaled = CreateCompatibleBitmap(hdc, dstW, dstH);
+			HBITMAP oldSrc = (HBITMAP)SelectObject(srcDC, hBmp);
+			HBITMAP oldDst = (HBITMAP)SelectObject(dstDC, hScaled);
+			SetStretchBltMode(dstDC, COLORONCOLOR);
+			StretchBlt(dstDC, 0, 0, dstW, dstH, srcDC, 0, 0, srcW, srcH, SRCCOPY);
+			SelectObject(srcDC, oldSrc);
+			SelectObject(dstDC, oldDst);
+			DeleteDC(srcDC);
+			DeleteDC(dstDC);
+			hImage = hScaled;
+		}
 		CBitmap temp;
-		CBitmap* pImageBmp = temp.FromHandle(hBmp);
+		CBitmap* pImageBmp = temp.FromHandle(hImage);
 									
 		// Replace the next two lines with code to get correct avatar head
 		origAv->m_iconIndex = theApp.m_ImageList.Add(pImageBmp,pImageBmp);
 		TRACE("Allocating an icon (%d) for %s.\n", origAv->m_iconIndex, origAv->m_name);
 		TRACE("Icon %d is handle %x\n", origAv->m_iconIndex, hBmp);
 		VERIFY(DeleteObject(hBmp));
+		if (hScaled) DeleteObject(hScaled);
 	} else TRACE("Icon already in stock (%d) for %s.\n", origAv->m_iconIndex, origAv->m_name);
 
 	return origAv->m_iconIndex;

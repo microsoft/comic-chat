@@ -37,6 +37,8 @@
 #include <shlobj.h>
 #include <mmsystem.h>
 
+#include "dpiscale.h"
+
 #ifndef NOGLOBPAL
 extern CPalette        ghPalette;
 extern LOGPALETTE      *gpLogPal;

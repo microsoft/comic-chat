@@ -108,6 +108,7 @@ BEGIN_MESSAGE_MAP(CPageView, CScrollView)
 	ON_WM_SIZE()
 	ON_WM_PALETTECHANGED()
 	//}}AFX_MSG_MAP
+	ON_WM_MOUSEWHEEL()
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
@@ -1412,6 +1413,18 @@ BOOL bDoScroll)
 	if (bFocus)
 		DrawFocus (pDC);
 	return bRet;
+}
+
+// Scroll the comic with the mouse wheel.  WM_MOUSEWHEEL goes to the focused
+// window (usually the Say box) or, with "scroll inactive windows", the hovered
+// one; either way scroll the page here.
+BOOL CPageView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+	int notches = zDelta / WHEEL_DELTA;					// +ve = away from user = scroll up
+	int dyDevice = -notches * DpiScale(48);				// ~48 logical px per notch
+	if (dyDevice != 0)
+		OnScrollBy(CSize(0, dyDevice), TRUE);
+	return TRUE;
 }
 
 void 

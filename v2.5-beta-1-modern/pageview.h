@@ -118,6 +118,7 @@ protected:
 	//}}AFX_MSG
 	afx_msg LRESULT OnLoginDlg(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnPaletteChanged(CWnd* pFocusWnd);
+	afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
 	DECLARE_MESSAGE_MAP()
 
 public:
