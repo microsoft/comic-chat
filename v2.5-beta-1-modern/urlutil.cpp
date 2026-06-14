@@ -1,3 +1,3 @@
 #include "stdafx.h"
 
-#include "..\core\urlutil.cpp"
+#include "..\artifacts-modern\core\urlutil.cpp"

@@ -568,7 +568,7 @@ DWORD TEXTVIEWCLASSNAME::dwClearTextViewBuffer(DWORD dwMinCut)
 		m_dwBuffSize -= cbHist;
 		#ifdef DEBUG
 			DWORD cbRecvLen = ::SendMessage(m_hwnd, WM_GETTEXTLENGTH, 0L, 0L);
-			m_dwBuffSize = cbRecvLen;	// resync to RichEdit's actual length (modern RichEdit stores CRLF as one char)
+			ASSERT (cbRecvLen == m_dwBuffSize, "Wrong m_dwBuffSize in CTextView::dwClearTextViewBuffer");
 		#endif // DEBUG
 	}
 
@@ -1114,7 +1114,7 @@ INT TEXTVIEWCLASSNAME::iDisplayMsgText(LPCTSTR szText, DWORD dwTextLen,
 
 	#ifdef DEBUG
 		DWORD cbRecvLen = ::SendMessage(m_hwnd, WM_GETTEXTLENGTH, 0L, 0L);
-		m_dwBuffSize = cbRecvLen;	// resync to RichEdit's actual length (modern RichEdit stores CRLF as one char)
+		ASSERT (cbRecvLen == m_dwBuffSize, "Wrong m_dwBuffSize in CTextView::dwClearTextViewBuffer");
 	#endif // DEBUG
 
 	// REGISB, 10/09/97: Bug 1976 workaround
@@ -1195,7 +1195,7 @@ INT TEXTVIEWCLASSNAME::iDisplayMsgText(LPCTSTR szText, DWORD dwTextLen,
 				m_dwBuffSize+=2;
 				#ifdef DEBUG
 					DWORD cbRecvLen = ::SendMessage(m_hwnd, WM_GETTEXTLENGTH, 0L, 0L);
-					m_dwBuffSize = cbRecvLen;	// resync to RichEdit's actual length (modern RichEdit stores CRLF as one char)
+					ASSERT (cbRecvLen == m_dwBuffSize, "Wrong m_dwBuffSize in CTextView::iDisplayMsgText");
 					if (cbRecvLen != m_dwBuffSize)
 					{
 						LPTSTR szTmp[1025];
@@ -1215,7 +1215,7 @@ INT TEXTVIEWCLASSNAME::iDisplayMsgText(LPCTSTR szText, DWORD dwTextLen,
 				m_dwBuffSize += g_nHeaderTabLen;
 				#ifdef DEBUG
 					DWORD cbRecvLen = ::SendMessage(m_hwnd, WM_GETTEXTLENGTH, 0L, 0L);
-					m_dwBuffSize = cbRecvLen;	// resync to RichEdit's actual length (modern RichEdit stores CRLF as one char)
+					ASSERT (cbRecvLen == m_dwBuffSize, "Wrong m_dwBuffSize in CTextView::iDisplayMsgText");
 				#endif // DEBUG
 			}
 
@@ -1230,7 +1230,7 @@ INT TEXTVIEWCLASSNAME::iDisplayMsgText(LPCTSTR szText, DWORD dwTextLen,
 				m_dwBuffSize+=2;
 				#ifdef DEBUG
 					DWORD cbRecvLen = ::SendMessage(m_hwnd, WM_GETTEXTLENGTH, 0L, 0L);
-					m_dwBuffSize = cbRecvLen;	// resync to RichEdit's actual length (modern RichEdit stores CRLF as one char)
+					ASSERT (cbRecvLen == m_dwBuffSize, "Wrong m_dwBuffSize in CTextView::iDisplayMsgText");
 				#endif // DEBUG
 			}
 			// Reset Previous Header Call Info.
@@ -1474,7 +1474,7 @@ INT TEXTVIEWCLASSNAME::iDisplayMsgText(LPCTSTR szText, DWORD dwTextLen,
 
 #ifdef DEBUG
 	cbRecvLen = ::SendMessage(m_hwnd, WM_GETTEXTLENGTH, 0L, 0L);
-	m_dwBuffSize = cbRecvLen;	// resync to RichEdit's actual length (modern RichEdit stores CRLF as one char)
+	ASSERT (cbRecvLen == m_dwBuffSize, "Wrong m_dwBuffSize in CTextView::iDisplayMsgText");
 	//if (cbRecvLen != m_dwBuffSize)
 	//{
 	//	char szDbg[800];

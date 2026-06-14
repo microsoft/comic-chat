@@ -1,4 +1,4 @@
 #include "stdafx.h"
 
 #include "textcore.h"
-#include "..\core\textview.cpp"
+#include "..\artifacts-modern\core\textview.cpp"
