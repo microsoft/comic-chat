@@ -10,6 +10,10 @@
 SLM.INI
 slm.dif
 
+# Build output directories
+Debug/
+Release/
+
 # ClassWizard database
 *.clw
 
