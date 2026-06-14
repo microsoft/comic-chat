@@ -35,6 +35,7 @@ public:
 	CChatDoc* GetDocument();
 	BOOL m_bFirstTime;		// State variable to determine if this is the first time the view has been activated
 	BOOL m_bAtBottom;		// indicates whether at bottom (ie., should be autoscrolling)
+	BOOL m_bAutoFitting;	// guards re-entrancy during deferred panels-per-row auto-fit
 // Operations
 public:
 	void PrintFooter(CDC *pDC, CPrintInfo *pInfo);
@@ -119,6 +120,8 @@ protected:
 	afx_msg LRESULT OnLoginDlg(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnPaletteChanged(CWnd* pFocusWnd);
 	afx_msg BOOL OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
+	afx_msg LRESULT OnAutoFitPanels(WPARAM wParam, LPARAM lParam);
+	int FitPanelsWide();
 	DECLARE_MESSAGE_MAP()
 
 public:

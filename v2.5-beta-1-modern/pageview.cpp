@@ -48,6 +48,12 @@ static char THIS_FILE[] = __FILE__;
 
 extern CChatApp theApp;
 
+// Deferred panels-per-row auto-fit.  Reflowing inside OnSize re-enters layout
+// (SetPanelsWide reloads history and updates scroll info -> WM_SIZE recursion),
+// so OnSize just posts this message and the work happens in a stable state.
+#define WM_AUTOFITPANELS	(WM_USER+2)
+#define COMFORTABLEPANELWIDTH	3000	// twips (~2.1"); keeps panels readable
+
 
 /////////////////////////////////////////////////////////////////////////////
 // CPageView
@@ -71,6 +77,7 @@ CPageView::CPageView()
 	m_palette = NULL;
 	m_bFirstTime = TRUE;	// the first time this is checked it will be the first time through
 	m_bAtBottom = TRUE;
+	m_bAutoFitting = FALSE;
 	m_bbox.SetRectEmpty(); // init view size
 }
 
@@ -109,6 +116,7 @@ BEGIN_MESSAGE_MAP(CPageView, CScrollView)
 	ON_WM_PALETTECHANGED()
 	//}}AFX_MSG_MAP
 	ON_WM_MOUSEWHEEL()
+	ON_MESSAGE(WM_AUTOFITPANELS, OnAutoFitPanels)
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
@@ -1373,8 +1381,42 @@ void CPageView::OnSize(UINT nType, int cx, int cy)
 	if (m_bAtBottom) ScrollToBottom();		// So that we don't lose autoscrolling on sizing
 
 	CScrollView::OnSize(nType, cx, cy);
+
+	// Defer the panels-per-row auto-fit to a posted message so it runs in a stable
+	// state rather than re-entrantly inside layout (see WM_AUTOFITPANELS above).
+	if (!m_bFirstTime && nType != SIZE_MINIMIZED && cx > 0 && cy > 0 && theApp.m_bComicView)
+		PostMessage(WM_AUTOFITPANELS, 0, 0);
 	
 //	if (m_bAtBottom) ScrollToBottom();		// So that we don't lose autoscrolling on sizing	
+}
+
+// Pick the largest column count whose resulting panel width is still comfortable.
+int CPageView::FitPanelsWide()
+{
+	int best = 1;
+	for (int n = 1; n <= 5; n++) {
+		if (GetProspectivePanelWidth(n) >= COMFORTABLEPANELWIDTH)
+			best = n;
+		else
+			break;
+	}
+	return best;
+}
+
+// Handle the deferred auto-fit: pick the column count that fits the current width
+// and reflow only if it actually changed.  Idempotent, so collapsing several
+// posted requests into one is harmless.
+LRESULT CPageView::OnAutoFitPanels(WPARAM, LPARAM)
+{
+	if (m_bAutoFitting || !theApp.m_bComicView || !GetDocument())
+		return 0;
+	int fit = FitPanelsWide();
+	if (fit > 0 && fit != CUnitPanelPage::GetUnitPanelsPerRow()) {
+		m_bAutoFitting = TRUE;
+		SetPanelsWide(fit);
+		m_bAutoFitting = FALSE;
+	}
+	return 0;
 }
 
 void 
