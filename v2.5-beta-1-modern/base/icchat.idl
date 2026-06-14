@@ -1,0 +1,110 @@
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		uuid(241af502-8fb6-11cf-adc5-00aa00badf6f),
+		object,
+		oleautomation,
+		dual,
+		helpstring("ICChatAutomation Interface"),
+		pointer_default(unique)
+	]
+	interface ICChatAutomation : IDispatch
+	{
+		HRESULT SessionConnect( void );
+		HRESULT Open( void );
+		HRESULT Close( void );
+		HRESULT Save( void );
+		HRESULT SaveAs( void );
+		HRESULT Createshortcut( void );
+		HRESULT Print( void );
+		HRESULT PrintSetup( void );
+		HRESULT About( void );
+		HRESULT Undo( void );
+		HRESULT Cut( void );
+		HRESULT Copy( void );
+		HRESULT Paste( void );
+		HRESULT Delete( void );
+		HRESULT SelectAll( void );
+		HRESULT ViewToolbar( void );
+		HRESULT ViewTabbar( void );
+		HRESULT ViewStatusbar( void );
+		HRESULT ViewComics( void );
+		HRESULT ViewText( void );
+		HRESULT ViewList( void );
+		HRESULT ViewIcon( void );
+		HRESULT Motd( void );
+		HRESULT Options( void );
+		HRESULT SetColor( void );
+		HRESULT Bold( void );
+		HRESULT Italic( void );
+		HRESULT Underlined( void );
+		HRESULT FixedPitch( void );
+		HRESULT Symbol( void );
+		HRESULT NewRoom( void );
+		HRESULT Leave( void );
+		HRESULT CreateRoom( void );
+		HRESULT ChatroomList( void );
+		HRESULT Channelprops( void );
+		HRESULT Disconnect( void );
+		HRESULT UserList( void );
+		HRESULT Invite( void );
+		HRESULT Away( void );
+		HRESULT MemberGetinfo( void );
+		HRESULT Getidentity( void );
+		HRESULT WhisperboxMlist( void );
+		HRESULT MemberIgnore( void );
+		HRESULT SendEmail( void );
+		HRESULT SendFile( void );
+		HRESULT Homepage( void );
+		HRESULT Netmeeting( void );
+		HRESULT Version( void );
+		HRESULT PingUser( void );
+		HRESULT Localtime( void );
+		HRESULT AddToFavorites( void );
+		HRESULT OpenFavorites( void );
+		HRESULT Cascade( void );
+		HRESULT Tile( void );
+		HRESULT Arrange( void );
+		HRESULT HelpTopics( void );
+		HRESULT Freestuff( void );
+		HRESULT Productnews( void );
+		HRESULT FAQ( void );
+		HRESULT OnlineSupport( void );
+		HRESULT BestofWeb( void );
+		HRESULT SearchtheWeb( void );
+		HRESULT MsHomepage( void );
+		HRESULT ReleaseNotes( void );
+		HRESULT ShowMenu( void );
+		HRESULT HideMenu( void );
+		HRESULT Automations( void );
+
+//
+//		HRESULT CChatPopupMessage( [in]VARIANT_BOOL* pbool, 
+//							       [in]long *p1, 
+//							       [in]long *p2,
+//							       [out]long *ret1,
+//							       [out]long *ret2);
+//
+	};
+[
+	uuid(241af501-8fb6-11cf-adc5-00aa00badf6f),
+	version(3.0),
+	helpstring("Microsoft Chat 3.0 Object Library")
+]
+library iCChatLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(241af500-8fb6-11cf-adc5-00aa00badf6f),
+		helpstring("Microsoft Chat Room")
+	]
+	coclass Document
+	{
+		[default] interface ICChatAutomation;
+	};
+};
+

@@ -1,0 +1,18 @@
+/********************************************************************/
+/*        chatoc.RCV                                               */
+/********************************************************************/
+
+#include <afxres.h>
+
+#define VER_FILETYPE			      VFT_APP
+#define VER_FILESUBTYPE			   VFT_UNKNOWN
+#define VER_DESCRIPTION_STR		"Microsoft Chat\0"
+#define VER_INTERNALNAME_STR		"CCHAT\0"
+#define VER_PRODUCTNAME_STR      "Microsoft\256 Chat"
+#define VER_PRODUCTRELEASE_STR   "Version 3.0\0"
+#ifndef WIN32
+#define VER_LEGALCOPYRIGHT_YEARS "1995-1998"
+#endif
+#define VER_ORIGNAME_STR	      "CCHAT.EXE\0"
+
+#include <chatver.rc>

@@ -36,7 +36,7 @@ SZTHISFILE
 //		The caller is in charge of freeing *pszCanonURL if the function is successful
 HRESULT CUrlRec::HrCanonicalizeUrl(LPCTSTR cszURL, LPDWORD pdwURLLength, LPTSTR *pszCanonURL)
 {
-	const nCanonExt = 16;
+	const int nCanonExt = 16;
 
 	ASSERT(pdwURLLength, "pdwURLLength is NULL in CUrlRec::HrCanonicalizeUrl");
 
@@ -303,7 +303,7 @@ HRESULT CUrlRec::HrIdentifyUrls(LPCTSTR cszText, LPINT rgnUrlBounds, LPINT pnUrl
 
 	while (TRUE)
 	{
-		LPTSTR szColon = _tcschr(cszStart, chUrlColon);
+		LPTSTR szColon = (LPTSTR)_tcschr(cszStart, chUrlColon);
 		if (szColon)
 		{
 			LPCTSTR cszWord = FindPreceedingWord(cszStart, szColon);
@@ -467,7 +467,7 @@ BOOL CUrlRec::bUrlNeedsNewBrowser(LPCTSTR cszUrl, LPTSTR szExePath)
 	UINT	uExe = 0;
 
 	// does the url start with http:, https:, ftp: or gopher?
-	LPTSTR	szColon = _tcschr(cszUrl, chUrlColon);
+	LPTSTR	szColon = (LPTSTR)_tcschr(cszUrl, chUrlColon);
 
 //	ASSERT(szColon, "szColon is NULL in CUrlRec::bUrlNeedsNewBrowser");
 

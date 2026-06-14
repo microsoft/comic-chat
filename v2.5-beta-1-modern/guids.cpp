@@ -1,0 +1,16 @@
+//=--------------------------------------------------------------------------=
+// Guids.Cpp
+//=--------------------------------------------------------------------------=
+// Copyright  1996  Microsoft Corporation.  All Rights Reserved.
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF 
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A 
+// PARTICULAR PURPOSE.
+//=--------------------------------------------------------------------------=
+//
+// contains the guids we will define ourselves.
+//
+#include "stdafx.h"
+#include "INITGUID.H"                   // define all the guids
+#include "CSFace.H"
