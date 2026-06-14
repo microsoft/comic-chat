@@ -1,0 +1,24 @@
+HKCR
+{
+	ChannelObject.ChannelObject.1 = s 'ChannelObject Class'
+	{
+		CLSID = s '{011EEE44-46DF-11D0-99CB-00C04FD64497}'
+	}
+	ChannelObject.ChannelObject = s 'ChannelObject Class'
+	{
+		CurVer = s 'ChannelObject.ChannelObject.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {011EEE44-46DF-11D0-99CB-00C04FD64497} = s 'ChannelObject Class'
+		{
+			ProgID = s 'ChannelObject.ChannelObject.1'
+			VersionIndependentProgID = s 'ChannelObject.ChannelObject'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}

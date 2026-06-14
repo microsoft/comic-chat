@@ -1,0 +1,726 @@
+--------------------------------------------------------------------
+                       SUPPORT.TXT for Microsoft Chat
+                    For Microsoft Windows 95 and Windows NT
+                                October 1997            
+--------------------------------------------------------------------
+
+               (c) Copyright Microsoft Corporation, 1997
+
+
+
+------------------------
+HOW TO USE THIS DOCUMENT
+------------------------
+
+To view support.txt on screen in Notepad, maximize the Notepad window.
+
+To print support.txt, open it in Notepad or another word processor, 
+and then use the Print command on the File menu.
+
+
+--------
+CONTENTS
+--------
+Your Guide to Microsoft Technical Support 
+Self-Help Tools to Find Answers Yourself
+Direct Assistance with a Microsoft Technical Support Engineer
+Technical Support Worldwide
+
+
+
+Your Guide to Microsoft Technical Support
+=========================================
+
+If you have a technical question about Microsoft Chat, use this 
+book, The Web the Way You Want It, or consult Help. If you still have a 
+question, Microsoft offers technical support and services ranging from 
+self-help tools to direct assistance with a Microsoft Technical Support 
+Engineer. 
+
+  Note
+    * The services and prices listed here are available in the United           
+States and Canada only. 
+
+
+Self-Help Tools to Find Answers Yourself
+========================================
+
+Microsoft Technical Support Online 
+----------------------------------
+This innovative site uses the cutting-edge technology of Microsoft to 
+help you access the most relevant technical information and resources 
+to answer your support questions. Use the Troubleshooting wizards to 
+easily diagnose and answer technical questions. Or select technical 
+articles, programming aids, or commonly asked questions from the 
+Microsoft Knowledge Base of over 75,000 articles. Visit 
+http://www.microsoft.com/support/ today and see how easy it is to find 
+the answers you need.
+
+
+Direct Assistance with a Microsoft Technical Support Engineer
+=============================================================
+
+Standard No-Charge Support
+--------------------------
+If you still need answers to your technical questions, Microsoft offers 
+no-charge support for retail* versions of this product as follows:
+
+Standard No-Charge Support for Microsoft Chat is provided as part of the 
+support available for Internet Explorer.  Specifically, 90 days of no-
+charge support, beginning with the first time you contact an engineer 
+with a question on either Microsoft Chat or Internet Explorer.
+
+To receive Standard No-Charge Support, in the U.S., call (425) 635-
+7123, 6:00 A.M. to 6:00 P.M. Pacific time, Monday through Friday, 
+excluding holidays. In Canada, call (905) 568-4494, 5:00 A.M. to 5:00 
+P.M. Pacific time, Monday through Friday, excluding holidays. Toll-
+charges may apply.
+
+  Note
+  * If your Microsoft product was pre-installed or distributed with 
+your personal computer, the personal computer manufacturer is 
+responsible for providing your product support. For support, contact 
+the manufacturer or source from which you obtained your Microsoft 
+product.
+
+
+Pay-Per-Incident Support
+------------------------
+If you require support after normal business hours, or if your 90 days 
+of Standard No-Charge Support, as described above, have expired, you 
+can purchase Pay-Per-Incident Support. 
+
+In the U.S., for a fee of $35 US per incident, call (800) 936-5700 or 
+(900) 555-2000, 24 hours a day, seven days a week, including holidays. 
+
+In Canada, for a fee of $45 CDN plus tax per incident, call (800) 668-
+7975, 5:00 A.M. to 9:00 P.M. Pacific time, seven days a week, excluding 
+holidays.
+
+  Note
+  * Support fees for the (800)#  calls will be billed to your VISA, 
+MasterCard, or American Express credit card. Support fees for the 
+(900)#  calls will appear on your telephone bill.
+
+
+Priority Annual Support
+-----------------------
+If you anticipate a high volume of support incidents, or need priority 
+access to Microsoft Technical Support Engineers, you can purchase a 
+Priority Annual Desktop Account. 
+
+In the U.S., for more information or to purchase an annual account, at 
+a cost of $295 US per 10 incidents, call (800) 936-3500, 24 hours a 
+day, 7 days a week, including holidays. To submit and incident against 
+an existing account, call (800) 936-4700, 24 hours a day, 7 days a 
+week, including holidays.
+
+In the Canada, for more information, to purchase an annual account at a 
+cost of $295 CDN plus tax per 10 incidents, or to submit an incident 
+against an existing account, please call (800) 668-7975, 5:00 A.M. to 
+9:00 P.M. Pacific time, seven days a week, excluding holidays.
+
+Submitting Questions via the Internet
+-------------------------------------
+In the U.S. and Canada, you can also submit your Standard No-Charge, 
+Pay-Per-Incident or Priority Annual support questions via the Internet 
+with Web Response. For more details, visit Microsoft Technical Support 
+Online at http://www.microsoft.com/support/
+
+
+Additional Support Options
+==========================
+
+Support Programs and Services
+-----------------------------
+Microsoft Technical Support also offers professional support programs 
+and services for medium-sized and large businesses that require more 
+than just standard incident resolution. For more information, see the 
+Support.txt online document or visit Microsoft Technical Support Online 
+at http://www.microsoft.com/support/
+
+Text Telephone
+--------------
+Microsoft text telephone (TT/TTY) services are available for the deaf 
+or hard-of-hearing. In the United States, using a TT/TTY modem, call 
+(425) 635-4948. In Canada, using a TT/TTY modem, call (905) 568-9641.
+
+
+Technical Support Worldwide
+===========================
+
+Support services and prices may vary outside the United States and 
+Canada. For information about support available outside the U.S. and 
+Canada, contact the local Microsoft subsidiary in your area. For a list 
+of worldwide Microsoft subsidiaries, see the Support.txt online 
+document or visit Microsoft Technical Support Online at 
+http://www.microsoft.com/support/
+
+  Note
+  * The services and prices listed here are available in the United 
+States and Canada only. Support services may vary outside the U.S. and 
+Canada. For more information about support in other locations, contact 
+your local Microsoft subsidiary.
+
+
+Microsoft’s support services are subject to Microsoft’s then-current 
+prices, terms, and conditions, which are subject to change without 
+notice. 
+
+If you are outside the United States and have a question about a 
+Microsoft product, first:
+
+	* Consult the documentation and other printed information 
+included with your product. 
+	* Check online Help. 
+	* Check the Readme documents that come with your product disks. 
+	  These files provide general information that became available 
+	  after the books in the product package were published. 
+	* Consult electronic options such as CompuServe forums or 
+bulletin 
+	  boards, if available. 
+
+If you cannot find a solution, you can receive information about how to 
+obtain product support by contacting the Microsoft subsidiary office 
+that serves your country.
+
+Calling a Microsoft Subsidiary Office
+-------------------------------------
+When you call, you should be at your computer and have the appropriate 
+product documentation at hand. Be prepared to give the following 
+information:
+
+	* The version number of Microsoft product that you are using. 
+	* The type of hardware that you are using, including network 
+	  hardware, if applicable. 
+	* The operating system that you are using. 
+	* The exact wording of any messages that appeared on your screen. 
+	* A description of what happened and what you were doing when the 
+	  problem occurred. 
+	* A description of how you tried to solve the problem. 
+
+The following list contains Microsoft subsidiary offices and the 
+countries they serve. If there is no Microsoft office in your country, 
+please contact the establishment from which you purchased your 
+Microsoft product. This list provides only basic technical support 
+phone and fax numbers; other services such as BBS and sales numbers may 
+be available. Support policies may vary by country.
+
+
+Area				Telephone Numbers
+____________________________________________________
+
+Argentina		Microsoft de Argentina S.A.
+                        Technical Support: (54) (1) 314-0560
+			Customer Service: (54) (1) 819-1900
+			Fax: (54) (1) 819-1921
+
+
+Australia		Microsoft Pty. Ltd.
+			Technical Support: (61) (02) 9805 1108
+			Fax: (61) (02) 9805 1108
+			
+
+Austria			Microsoft Ges.m.b.H.
+			Phone: (+43) 1 610 64-0
+			Fax: (+43) 1 610 64-200
+			Information: 0660-6520
+			CompuServe: GO MSEURO (Microsoft Central Europe)
+			Standard Support: Installation and Handling
+			  Windows 95: 0660-6510
+			General information about Support Network in 
+			  Central Europe:
+			Fax: 0049/2622/167006
+
+
+Belgium			Microsoft NV
+                        Phone: +32-2-730 39 11
+			Fax: +32-2-726 96 09
+			Microsoft Information Center: +32-2-481 52 52
+			CompuServe: 02-2150530 (GO MSBEN)
+			Bulletin Board: +32-2-726 85 45 
+			  (14400/1200/2400/9600 baud, 8 bits, no parity, 1 
+stop bit, 
+			  ANSI terminal emulation)
+			Technical Support:
+                          +32-2-513 32 74 (Dutch-speaking)
+                          +32-2-502 34 32 (English-speaking)
+                          +32-2-513 22 68 (French-speaking)
+
+Bolivia
+See Argentina
+
+
+Brazil			Microsoft Informatica Ltda.
+                        Phone: (55) (11) 5514-7100
+			Fax: (55) (11) 5514-7106 / 5514-7107
+			Technical Support:
+			  Phone: (55) (11) 5506-8087
+			  Fax: (55) (11) 5506-8506
+			Bulletin Board Service: (55) (11) 5506-1234
+			Customer Support: (55) (11) 822-5764
+
+
+Canada			Microsoft Canada Inc.
+			Head Office Phone: 1 (905) 568-0434
+			Customer Support Centre: 1 (800) 563-9048
+			Technical Support (Desktop Systems including 
+			  Microsoft Windows 95: 1 (905) 568-4494
+			  Priority Support Information: 1 (800) 668-7975
+			Text Telephone (TT/TDD) 1 (905) 568-9641
+			Bulletin Board Service: 1 (905) 507-3022
+			 
+
+Caribbean		Microsoft Caribbean, Inc.
+			Phone: (809) 273-3600
+			Technical Support: (214) 714-9100
+			Fax: (809) 273-3636
+
+
+Central America
+See Latin America
+
+
+Chile			Microsoft Chile S.A.
+                	Phone: 56-2-330-6000
+			Fax: 56-2-330-6190
+			Personal Operating Systems:
+			  Phone: 56-2-330-6222
+			Fax: 56-2-341-1439
+			Customer Service: 56-2-800-213121
+
+
+Colombia		Microsoft Colombia
+			Phone: (571) 618 2245
+			Technical Support: 
+			  Phone: (571) 618 2255
+			  Fax: (571) 618 2269
+
+
+Czech Republic          Microsoft s.r.o.
+                        Phone (+42) (2) 611 97 111
+			Technical Support: (+42) (2) 2150 3222
+			    or 53 52 56 (Windows only)
+			Fax: (+42) (2) 611 97 100
+                                   
+                                 
+Denmark			Microsoft Denmark AS
+                        Technical Support: (45) (44) 89 01 11
+			Phone: (45) (44) 89 01 00
+			Fax:  (45) (44) 68 55 10
+			Microsoft FaxSvar: (45) (44) 89 01 44
+			Microsoft BBS: (45) (44) 66 90 46
+			  (Document 303030 in FaxSvar contains detailed 
+instructions)
+			Microsoft MSDL:  (45) (44) 66 90 46
+			Microsoft FastTips: (45) (44) 89 01 44
+			
+
+Dubai                   Microsoft Middle East
+			Phone: (971) 4 513 888
+			Fax: (971) 4 527 444
+			Technical Support (Personal Operating Systems 
+			  & Desktop Applications:
+			  Phone: (971) (4) 524 488
+			  Fax: (971) (4) 524 495
+			E-mail: mts@emirates.net.ae 
+			Priority Support Information: (971) (4) 555 752 
+
+			
+Ecuador			Corporation Microsoft del Ecuador S.A.
+                        Phone: (593) (2) 460-447, (593) (2) 460-451
+			Customer Service: (593) (2) 460-453, (593) (2) 460-
+458
+			Technical Support: (593) (2) 463-094
+
+
+Egypt			Microsoft Egypt
+			Phone: +202-418-6101 
+			Fax: +202-4174766
+			Technical Support (Personal Operating Systems 
+			  & Desktop Applications: 
+			  Phone: (202) 261 3991 / 6
+			  Fax: (971) 403 2718
+
+
+England 
+See United Kingdom
+
+
+Finland			Microsoft OY
+                        Phone: (358) (90) 525 501
+			Fax: (358) (90) 522 955
+			Technical Support Phone: (358) (90) 525 502 500
+			Microsoft FaxSvar: (46) (0) 8-752 29 00 
+			  (Information in Swedish and English)
+			Microsoft BBS: (46) (0) 8-750 47 42 
+			  (Information in Swedish and English)
+			Microsoft MSDL:	 (358) (90) 455 03 66
+			Microsoft FastTips: (358) (90) 525 502 550
+			For Technical Support, please contact your 
+			  local dealer.
+
+
+France			Microsoft France
+			Phone: (33) (1) 69-86-46-46
+			Fax: (33) (1) 64-46-06-60
+			Technical Support:
+			  Phone: (33) (1) 59-85-96-33 (Province)
+			  or (33) (3) 49-49-49-57
+			  Fax: (33) (1) 69-28-00-28
+	
+		
+French Polynesia
+See France
+
+
+Germany			Microsoft GmbH
+			Phone: 089/3176-0
+			CompuServe: GO MSEURO (Microsoft Central Europe)
+			Bulletin board, device drivers, tech notes: 
+			  Btx: *microsoft# or *610808000#
+			Standard Support: Installation and Handling
+                          Windows: 089/3176-1110
+                          Windows 95: 089/3176-1115
+			Fax: 089/3176-1000
+			General information about the Microsoft 
+			  Support Network in Central Europe:
+			  Fax: 02622/167006
+
+
+Greece			Microsoft Hellas, S.A.
+			Phone: (30) (1) 6806-775 through (30) (1) 6806-779
+			Fax: (30) (1) 6806-780
+			Technical Support:
+			  Phone: (30) (1) 9247-030
+			  Fax: (30) (1) 9215-363
+
+
+Hong Kong		Microsoft Hong Kong Ltd.
+                        Technical Support: (852) 2804-4222
+			Fax: (852) 560-2217
+			Product Support Faxback Service: (852) 2535-9293
+
+
+Hungary			Microsoft Hungary
+                        Phone: +36 (1) 268 1668
+			Fax: +36 (1) 268-1558
+			Technical Support: +36 (1) 267-4636 (2MSINFO)
+                        
+Iceland
+See Denmark
+
+
+India                   Microsoft India
+			Phone: (011) (91) (80) 509 2678, 
+			  (011) (91) (11) 646 0767, 646 0813
+			Fax: (011) (91) (80) 509 2601, 
+			  (011) (91) (11) 647 4714
+			
+
+Indonesia (SP)		Indonesia - Jakarta
+                        Technical Support: 62 21 5721060
+                        Fax: 62 21 5732077
+
+
+Ireland
+See United Kingdom
+
+
+
+Israel			Microsoft Israel Ltd.
+			Phone: 972-3-613-0833
+			Fax: 972-3-613-0834
+			
+Italy			Microsoft SpA
+			Phone: (39) (2) 7039-21
+			Fax: (39) (2) 7039-2020
+			Microsoft by Fax (Fax-on-demand service): 
+			  (39) (2) 70-300-703
+			Dealer Support (Customer Service for resellers only): 
+			  (39) (2) 70-398-388
+			Bulletin Board Service: (39) (2) 7030-0102
+ 			Technical Support: (39) (2) 70-398-351
+			Microsoft Consulting Service: (39) (2) 7039-2400
+			Microsoft Rome Office: (39) (6) 5432-497
+
+
+Japan			Microsoft Company Ltd.
+                        Technical Support (Standard Support): (81) 
+(424) 41-8700
+			Technical Support options/ Support Contract:
+			  Phone: 0120-37-0196 (toll free domestic only)
+			Customer Service Phone (Version 
+upgrade/Registration):
+			  Phone: (81) (48) 226-5500
+			  Fax: (81) (48) 226-5511
+                          
+                          
+Korea			Microsoft CH
+			Phone: (82) (2) 531-4500
+			Fax: (82) (2) 531-1724 
+			Customer Service: 080-022-7337 (toll free domestic 
+only)
+			Technical Support (Windows) : (82) (2) 563-0054
+			Microsoft FastTips: (82) (2) 3453-7555 
+
+
+Latin America           Microsoft Latin American Headquarters (USA)
+                        Phone: (305) 489-4800
+			Fax: (305) 491-1616
+			Customer Service: (425) 936-8661
+			Technical Support: (214) 714-9100
+
+
+Liechtenstein
+See Switzerland (German-speaking)
+
+
+Luxembourg		Microsoft NV
+                        Phone: +32-2-730 39 11
+			Microsoft Information Center:  +32-2-481 52 52
+			CompuServe: +32-2-215 05 30 (GO MSBEN)
+			Bulletin Board: +32-2-726 85 45 
+			  (1200/2400/9600/14400 baud, 8 bits, no parity, 1 
+stop bit, ANSI
+			  terminal emulation)
+			Technical Support:
+                            +32-2-513 32 74 (Dutch-speaking)
+                            +32+2-502 34 32 (English-speaking)
+                            +32+2-513 22 68 (French-speaking)
+
+
+Malaysia (SP)		Microsoft (Malaysia) Sdn Bhd
+			Phone: (60-3) 793-9595
+			Fax: (60-3) 791-6080
+
+
+Mexico                  Microsoft Mexico, S.A. de C.V.
+			Technical Support (Applications and Operating 
+Systems):
+			  (52) (5) 325-0912
+			Customer Service: (52) (5) 325-0911
+			Fast Tips: (52) (5) 237-4894 
+			Bulletin Board Service:
+			  (52) (5) 628-6200 
+			  (2400s/14400Kbaud, 8 bits, no parity, 1 stop bit, 
+ANSI)
+			  (52) (5) 628-6202
+ 			  (14400Kbaud, 8 bits, no parity, 1 stop bit, ANSI)
+			  User: MSMEXICO, NO Password
+
+                            
+Morocco			Microsoft Afrique Du Nord
+			Phone: (212) 2 47 10 72
+			Fax: (212) 2 47 10 86
+
+
+Netherlands		Microsoft BV
+                        Phone: 023-5689189
+			Technical Support:
+                            023-5677877 (Dutch-speaking)
+                            023-5677853 (English-speaking)
+			Customer Service: 023-5677700
+			CompuServe: 020-6880085 (GO MSBEN)
+			Bulletin Board: 023-5634221 (1200/2400/9600/14400 
+baud, 8 bits,
+			  no parity, 1 stop bits, ANSI terminal emulation)
+
+
+New Zealand		Microsoft New Zealand Ltd.
+			Phone: 64 (9) 358-3724
+			Fax: 64 (9) 358-3726
+			Technical Support:
+			  Phone: 64 (9) 357-5575
+			  Fax: 64 (9) 307-0516 and 357-5577
+
+
+Northern Ireland
+See United Kingdom
+
+
+Norway			Microsoft Norway AS
+                        Phone: (47) (22) 02 25 00
+			Fax: (47) (22) 95 06 64
+			Techincal Support: (47) (22) 02 25 50	
+			Microsoft BBS: (47) (22) 18 22 09
+			  (Document 404040 in FaxSvar contains detailed 
+instructions)
+			Microsoft FaxSvar: (47) (22) 02 25 70
+			Microsoft MSDL:	(47) (22) 18 22 09
+			Microsoft FastTips: (47) (22) 02 25 70
+               
+         
+Papua New Guinea
+See Australia
+
+
+Paraguay
+See Argentina
+
+
+Peru                   	
+See Latin America
+
+
+Philippines (SP)	Microsoft Philippines 
+			Phone: 632 811 0062
+			Technical Support: 632 892 2295 or 2495
+			Fax: 632 813 2493
+
+
+Poland			Microsoft Sp.z o.o.
+			Phone: +(48-22) 661-54-00
+			Fax: +(48-22) 661-54-34
+			Information Service: +(48-22) 628-69-24
+			Technical Support: +(48-22) 621-67-93
+
+
+Portugal		Microsoft Portugal, Lda.
+                        Phone: (351) 1 4409200
+			Fax: (351) 1 4412101
+			Technical Support:
+			  Standard Support (All Clusters): 
+			  (351) 1 4409280 ,-81, -82, or -83
+			  Fax : (351) 1 44116555
+			
+Republic of China	Microsoft Taiwan Corp.
+			Phone: (886) (2) 504-3122
+			Fax: (886) (2) 504-3121
+			Technical Support: (886) (2) 508-9501
+
+
+Republic of Ireland
+See United Kingdom
+
+
+Russia			Microsoft A/O
+                        Fax: (+7) (502) 224 50 45
+
+
+Saudi Arabia		Microsoft Saudi Arabia
+			Phone: +966-1-488-1165
+			Fax: +966-1-488-1576 
+			Technical Support:
+			  (Personal Operating System and Desktop 
+Applications):
+			  Phone: 800-124 0500 
+			  (toll free within Saudi Arabia)
+			  Fax: 966-1-4740576
+
+
+Scotland
+See United Kingdom
+
+
+Singapore		Microsoft Singapore Pte Ltd.
+                        Phone: (65) 337-6088 
+			Fax: (65) 337-6788
+			Customer Services Phone: (65) 433-5488
+			Customer Services Fax: (65) 339-9958
+			Product Support Services Phone: (65) 337-9946
+			Product Support Services Fax: (65) 337-6700
+ 				
+	
+Slovenia		Microsoft d.o.o (see Germany also)
+                        Phone: +386 61 1881 133
+			Fax: +386 61 1881 137
+			Technical Support: +386 61 123 23 54 or +386 64 331 
+020
+
+
+Slovak Republic         Microsoft Slovakia s.r.o.
+                        Phone (+42) (7) 37 63 02
+			Fax: (+42) (7) 37 66 71
+			Technical Support: (+42) (7) 31 20 83
+
+
+South Africa	        Microsoft South Africa
+                        Phone: (27) 11 445 0000
+			Fax: (27) 11 445 0046
+			Technical Support:
+			  (Toll Free): 0 802 11 11 04
+			  (Toll): (27) 11 445 0000
+			  Fax: (+27) 11 445-0343
+	        
+
+South East Africa and Indian Ocean Islands
+See South Africa
+
+
+Spain			Microsoft Iberica SRL
+                        Phone: (34) 1-807-9999
+			Fax: (34) 1-803-8310
+			Technical Support: (34) 1-807-9960
+			Customer Service: (34) 1-804-0096
+			FaxBack telephone: (34) 1-804-0096
+                        
+
+Sweden			Microsoft AB
+                        Phone: (46) (0) 8-752 56 00
+			Technical Support: (46) (0) 8-752 09 29
+                        Microsoft FaxSvar: (46) (0) 8-752 29 00
+			Microsoft BBS: (46) (0) 8-750 47 42
+			  (Document 202020 in FaxSvar contains detailed 
+instructions)
+			Information on Technical Support: (46) (0) 8-752 09 
+29
+			Microsoft MSDL: (46) (0) 8-750 47 42
+			Microsoft FastTips: (46) (0) 8-752 29 00
+			Fax: (46) (0) 8-750 51 58	
+                        
+
+Switzerland		Microsoft AG
+			Phone: 01-839 61 11
+			Fax: 01-831 08 69
+			CompuServe: GO MSEURO(Microsoft Central Europe)
+			Documentation:
+			  Phone: 155 59 00
+			  Fax: 064-224294, Microsoft Info-Service, Postfach, 
+8099 Zürich
+			Standard Support: Installation and Handling
+			  Windows 95: 01-342-4085
+			  Microsoft Software for Apple Macintosh: 01-342-4081
+			Technical support (French speaking): 022-738 96 88
+			General information about Microsoft Support in 
+			  Central Europe:
+			  Fax: 0049/2622/167006
+
+
+Thailand                Microsoft Thailand Ltd.
+                        Phone: (662) 266-3300
+			Fax: (662) 266-3310
+			Product Support:
+			  Phone: (662) 613-7208 through 11
+			  Fax: (662) 613-7198
+
+
+Turkey                  Microsoft Turkey
+                        Phone: (90) 212 258 59 98
+			Fax: (90) 212 258 59 54
+			Support Hotline Phone: (90) 212 258 96 66
+			Fax: (90) 212 258 95 99
+			Bulletin Board Service: 90 (212) 227 93 90
+
+
+United Kingdom          Microsoft Ltd.
+			Fax: (0870) 60 20 100
+			Phone: (0870) 60 10 100
+			Bulletin Board Service: Microsoft KeyData: (0870) 50 
+30 200  
+			  (up to 28800 baud, no parity, 8 bits, 1 stop bit) 
+			Faxback Service: Microsoft KeyFax: (0870) 50 30 100
+			Technical Support:  (0870) 50 10 100
+
+
+Uruguay                 Technical Support: (598) (2) 77-4934
+
+
+Venezuela		Corporation MS 90 de Venezuela S.A.
+                        Phone: (582) 265-2250 
+			Fax: (582) 265-0863 / (582) 265-2611
+			Technical Support: (582) 264-1933
+
+
+Wales
+See United Kingdom

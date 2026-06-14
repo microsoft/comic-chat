@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>Chat Log-in</title>
+</head>
+
+<body bgcolor=#FFFFFF topmargin=0 leftmargin=5>
+<script LANGUAGE="JavaScript">
+<!--- Hide script from old browsers.
+
+function focus()
+{
+	document.nameform.nickname.focus()
+}
+
+function connect()
+{
+	if (isIE30())
+	{
+		window.location="update.htm"
+		return false;
+	}
+	if (isIE())
+	{
+		name = document.nameform.nickname.value
+		room = "newbies"
+		password = " "
+		window.location = "ieframe.htm?name=" + name + "&room=" + room + "&password=" + password
+		return false;
+	}
+	if (isMC())
+	{
+		name = document.nameform.nickname.value
+		room = "newbies"
+		password = " "
+		window.location = "ieframe.htm?name=" + name + "&room=" + room + "&password=" + password
+		return false;
+	}
+	name = document.nameform.nickname.value
+	room = "newbies"
+	password = " "
+	window.location = "frameset.htm?name=" + name + "&room=" + room + "&password=" + password
+	return false;
+}
+
+//	IE version 3.0 without updated scripting engine
+function isIE30()
+{
+	var t = new String("test")
+	var s = new String(t.split + "")
+	if (s.charAt(0) == "u")
+		return true
+	else
+		return false
+}
+
+//	functions to determine what vesrion of IE is in use
+function isIE()
+{
+	if (navigator.appVersion.substring(0,1) == 2)
+		return true
+	else
+		return false
+}
+
+//	MAC Communicator client
+function isMC()
+{
+	var s = new String(navigator.appVersion)
+	if (s.indexOf("Macintosh") > 0)
+		return true
+	else
+		return false
+}
+
+// End the hiding here. -->
+</script>
+
+<table width=100% height=100% cellpadding=0 cellspacing=0>
+<tr>
+	<td width=100% height=20% valign=middle colspan=3>
+	<br>
+	<center><img src=../images/banner.jpg alt="Microsoft Script Chat"></center>
+	<br>
+	</td>
+</tr>
+<tr>
+	<td width=21% height=80% valign=top>
+	<font face=arial color=#800000>
+	<br>
+	<b><small>Welcome!</small></b>
+	</font>
+	<br><br>
+	<font face=arial>
+	<small>Microsoft Script Chat is a full-featured chat application using Java and JavaScript. One feature that is unique is the ability to fully customize
+	the UI the way you want. Other features include dynamically changing information on the screen the user
+	sees by using push technology.
+	<br><br>To get started enter a nick within the given field and click on Connect.</small>
+	</font>
+	</td>
+	<td width=1% height=80%></td>
+	<td width=78% height=80% valign=top bgcolor=#FFFFCC>
+	<table width=100% height=22 cellpadding=0 cellspacing=0>
+	<tr>
+		<td width=100% height=22 bgcolor=#000099>
+		<font face=arial color=#FFFFFF>
+		<b><small>Chat Log-in</small></b>
+		</font>
+		</td>
+	</tr>
+	</table>
+	<font face=arial color=#000099>
+	<br>
+	<b><small>Browser Requirements</small></b>
+	</font>
+	<small>
+	<font face=arial>
+	<ul>
+	<li>Microsoft Internet Explorer, version 3.02 or later (with <a href=http://www.microsoft.com/msdownload/scripting.htm>2.0 Scripting Engine</a>)</li>
+	<li>Netscape Navigator, version 3.0 or later</li>
+	<li>Browser that fully support Java 1.02 and JavaScript 2.0</li>
+	</ul>
+	If you don't have one of these browser combinations, you can obtain a copy of Microsoft Internet Explorer or Netscape Navigator for free off the internet.
+	<form name=nameform onSubmit="return connect()">
+	<table>
+	<tr>
+		<td>
+		<font face=arial>
+		<small>Enter Nickname</small>
+		</font>
+		</td>
+		<td>
+		<input type=text size=20 value=Anonymous name=nickname>
+		</td>
+		<td>
+		<input type=image src=../images/connect.gif onMouseOver="src='../images/connect1.gif'" onMouseOut="src='../images/connect.gif'" border=0 alt=Connect name=Connect>
+		</td>
+	</tr>
+	</table>
+	</form>
+	The following features are not supported in IE3.0 Win32
+	<ul>
+	<li>Automatic scrolling of the chat history box.</li>
+	<li>Automatic sending of message with return key.</li>
+	</ul>
+	The following features are not supported in NS4 Mac
+	<ul>
+	<li>Automatic scrolling of the chat history box.</li>
+	</ul>
+	<br>
+	</td>
+	</font>
+	</small>
+</tr>
+</table>
+</body>
+</html>

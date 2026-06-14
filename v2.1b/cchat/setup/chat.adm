@@ -1,0 +1,91 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+CLASS USER   ;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+CATEGORY !!Chat
+KEYNAME "Software\Microsoft\Microsoft Comic Chat"
+
+	POLICY !!ServerList
+		PART !!ServerListName EDITTEXT REQUIRED
+			DEFAULT !!ServerListDefault
+			VALUENAME "ServerList"
+		END PART
+	END POLICY
+
+	POLICY !!IRCServer
+		PART !!IRCServerText EDITTEXT  REQUIRED
+			DEFAULT !!IRCServerTextDefault
+			VALUENAME "IRCServer"
+		END PART
+	END POLICY
+
+	POLICY !!IRCChannel
+		PART !!IRCChannelText EDITTEXT  REQUIRED
+			DEFAULT !!IRCChannelTextDefault
+			VALUENAME "IRCChannel"
+		END PART
+	END POLICY
+
+	POLICY !!Character
+		PART !!CharacterText EDITTEXT  REQUIRED
+			DEFAULT !!CharacterTextDefault
+			VALUENAME "Character"
+		END PART
+	END POLICY
+
+	POLICY !!Backdrop
+		PART !!BackdropText EDITTEXT  REQUIRED
+			DEFAULT !!BackdropTextDefault
+			VALUENAME "Backdrop"
+		END PART
+	END POLICY
+
+	POLICY !!Profile
+		PART !!ProfileText EDITTEXT  REQUIRED
+			DEFAULT !!ProfileTextDefault
+			VALUENAME "Profile"
+		END PART
+	END POLICY
+
+	POLICY !!ListRegistered
+		PART !!ListRegisteredText CHECKBOX
+			VALUENAME "ListRegistered"
+			DEFCHECKED
+			VALUEON NUMERIC 1
+			VALUEOFF NUMERIC 0
+		END PART
+	END POLICY
+
+
+END CATEGORY	; Chat
+
+[strings]
+
+Chat="Microsoft Chat"
+ServerList="Change chat server list"
+ServerListName="Server list"
+ServerListDefault="comicsrv1.microsoft.com;comisrv2.microsoft.com;comicsrv3.microsoft.com"
+
+IRCServer="Change default chat server"
+IRCServerText="Default chat server"
+IRCServerTextDefault="comicsrv.microsoft.com"
+
+IRCChannel="Change default chat room"
+IRCChannelText="Default chat room"
+IRCChannelTextDefault="#Comic_Chat"
+
+Character="Change default character"
+CharacterText="Default character"
+CharacterTextDefault="TIKI"
+
+Backdrop="Change default backdrop bitmap"
+BackdropText="Default backdrop"
+BackdropTextDefault="Field"
+
+Profile="Change user's profile for Microsoft Chat"
+ProfileText="User profile string"
+ProfileTextDefault="This person is too lazy to create a profile entry."
+
+ListRegistered="Turn on option to show only registered rooms in room list"
+ListRegisteredText="Show only registered rooms in room list"

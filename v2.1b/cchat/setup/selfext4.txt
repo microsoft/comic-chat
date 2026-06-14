@@ -1,0 +1,7 @@
+[Version]
+Class=IEXPRESS
+CDFVersion=2.0
+
+[SelfExtractOptions]
+PackagePurpose=InstallApp
+TargetName=".\MsChat4.exe"

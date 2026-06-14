@@ -1,0 +1,35 @@
+HKCR
+{
+	XCChat.Control.1 = s 'XCChat Control'
+	{
+		CLSID = s '{3788BC03-3670-11D1-9787-00C04FB6C76D}'
+		'Insertable'
+	}
+	XCChat.Control = s 'XCChat Control'
+	{
+		CurVer = s 'XCChat.Control.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3788BC03-3670-11D1-9787-00C04FB6C76D} = s 'XCChat Control'
+		{
+			ProgID = s 'XCChat.Control.1'
+			VersionIndependentProgID = s 'XCChat.Control'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove 'Control'
+			ForceRemove 'Programmable'
+			ForceRemove 'Insertable'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '131473'
+			}
+			'TypeLib' = s '{40AAFEC1-3665-11D1-9787-00C04FB6C76D}'
+			'Version' = s '1.0'
+		}
+	}
+}

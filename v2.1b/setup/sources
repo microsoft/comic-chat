@@ -1,0 +1,15 @@
+!include $(DEVROOT)\common.inc
+
+MAJORCOMP=common
+MINORCOMP=setup
+
+TARGETNAME=cchat21
+TARGETPATH=$(_OBJ_DIR)
+TARGETTYPE=LIBRARY
+
+# TARGETLIBS=
+# INCLUDES=
+
+SOURCES=
+
+!include makefile

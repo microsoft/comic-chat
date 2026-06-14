@@ -1,0 +1,9 @@
+- handle reflection API. ideas?
+  * runtime component? poor obfuscation though, since runtime
+    part can be subverted and a map of orig -> new names can
+    be obtained.
+  * mark certain Strings as being used in reflection API?
+- add way to stop -loading- files from batch obfuscator
+- reduce memory requirements
+  * cache computed dependency information?
+

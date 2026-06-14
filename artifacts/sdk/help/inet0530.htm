@@ -1,0 +1,457 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>Methods</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headcoma.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="Methods"><BR CLEAR=ALL>
+<A NAME="chatocx_vb_0504010203000000"></A><H3>Methods<BR CLEAR=ALL>
+<HR></H3><P>This section describes the methods associated with the Microsoft Chat control.
+
+
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000100"></A><H3>AboutBox Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Displays the About message dialog box.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.AboutBox<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000200"></A><H3>BanParticipant Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Bans a member from or reinstates a member to a chat room.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.BanParticipant</B> <I>Name</I><B>,</B> <I>Set</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Name</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A BSTR value that contains the alias of the member to be banned or reinstated.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Set</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A Boolean value that determines whether the member is banned or reinstated. If the value is set to TRUE, the member is banned from the chat room and cannot rejoin it. If the value is set to FALSE, the member is reinstated and can join the chat at any time.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method only prevents the member from rejoining or allows the member to rejoin the chat room after leaving or being kicked. It does not kick the member from the chat room. <B>BanParticipant</B> cannot be called before the <A HREF="inet0531.htm#chatocx_vb_0504010204000200" TARGET="TEXT">OnEndEnumeration</A> event has been triggered.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000900" TARGET="TEXT">KickParticipant</A> 
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000300"></A><H3>CancelEntering Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Cancels an <A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A> operation
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.CancelEntering<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method should be called only when the control's <A HREF="inet0529.htm#chatocx_vb_0504010202000f00" TARGET="TEXT">State</A> property is equal to 2 (Connecting).
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A> 
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000400"></A><H3>ClearHistory Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Empties the History text box.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ClearHistory<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method has an effect only if the value of the <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A> property includes a History text box (<I>value</I>=8).
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000500" TARGET="TEXT">History</A>, <A HREF="inet0531.htm#chatocx_vb_0504010204000600" TARGET="TEXT">OnHistoryFull</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000500"></A><H3>EnterRoom Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Allows the user to enter the specified chat room.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.EnterRoom</B> <I>RoomPath</I><B>,</B> <I>RoomPwd</I><B>,</B> <I>ThisParticipantAlias</I><B>,</B> <I>SecurityPackage</I><B>,</B> <I>Flags</I><B>,</B> <I>Type</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>RoomPath</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string value containing the location of the chat room. The format of the string should be: 
+<P>[<I>prefix</I>]://<I>server-name</I>[:<I>port-number</I>]/[[#]|[&amp;]]<I>room-name</I>
+
+<P>The <I>prefix</I> is optional and can be either mic or irc. The <I>server-name</I> is the host name of the chat server computer. The optional number sign (#) indicates that the chat room can be a global IRC room. The optional ampersand (&amp;) indicates that the room can be a local IRC or MIC room. The <I>room-name</I> is the name of the chat room. 
+
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>RoomPwd</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string containing either the room password or the host key used when creating or joining a password-protected room.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ThisParticipantAlias</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string containing the alias that the user will be known by in the chat room.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>SecurityPackage</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string containing a list of security packages that are separated by semicolons and ordered by preference. If <I>SecurityPackage</I> is set to an empty string, the control asks the server for a list of security packages it provides. If the server replies no packages at all, an anonymous connection is tried. If the server replies with a list of packages, the first package on the list is tried. If the string is set to "ALL", all the server's security packages are tried in an order defined by the server. The control will stop looping through the security packages as soon as one package succeeds or an error not related to the account information occurs. If all packages fail, the control will try to connect the user anonymously. The "ANON" string can be used to request anonymous connections.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Flags</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A combination of values used when creating or joining a room. These values characterize the room type and cannot change dynamically once the room is created. Set to zero to use no flags. Can be any combination of the following values.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Value
+ </B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Join an existing chat room or create a chat room if one does not exist. If this flag is not set, the <B>EnterRoom</B> method will create a chat, but will not join an existing chat.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">The chat room will not be exposed to other servers on the Internet.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">4
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">The chat room is set up as read-only for news feeds, stock quotes, and so on.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">8
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">The chat room will allow only MIC clients to join it. IRC users will not be able to join the chat room.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">16
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">The server will accept only authenticated members in this chat room.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">32
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Only authenticated members can talk in the chat room.
+</FONT></TD></TR></TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Type</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A combination of values to set the type of chat room. Set to zero to use no flags. The chat room type can dynamically vary during its lifetime. The user is notified when the room type changes through the <A HREF="inet0531.htm#chatocx_vb_0504010204000e00" TARGET="TEXT">OnRoomTypeChanged</A> event. Can be any combination of the following values.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Value
+ </B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Allows any user into the chat room.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Allows only hosts to change the topic of the chat room.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">4
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Allows only users who logged on to this server to enter the chat room.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">8
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Disables whispering in the chat room.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">16
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Creates an auditorium room. The member list shows only the user and the hosts. Participants cannot whisper, but hosts can whisper to anybody, regardless of whether the no-whisper (<I>Type</I>=8) flag is set. Messages coming from participants are sent only to the hosts.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">32
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Creates a moderated room. Members join the chat room as spectators by default.
+</FONT></TD></TR></TABLE>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method should be called only when the control's <A HREF="inet0529.htm#chatocx_vb_0504010202000f00" TARGET="TEXT">State</A> property is equal to 1 (Disconnected).
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000300" TARGET="TEXT">CancelEntering</A>, <A HREF="inet0530.htm#chatocx_vb_0504010203000600" TARGET="TEXT">ExitRoom</A>, <A HREF="inet0531.htm#chatocx_vb_0504010204000e00" TARGET="TEXT">OnRoomTypeChanged</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202000d00" TARGET="TEXT">RoomPath</A> 
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000600"></A><H3>ExitRoom Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Disconnects the user from the current chat room.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ExitRoom<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method should be called only when the control's <A HREF="inet0529.htm#chatocx_vb_0504010202000f00" TARGET="TEXT">State</A> property is equal to 3 (Connected).
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000300" TARGET="TEXT">CancelEntering</A>, <A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000700"></A><H3>GetParticipantRealName Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Gets the real name of a participant by using the member's participant ID or alias (nickname).
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.GetParticipantRealName</B> <I>ParticipantID</I><B>,</B> <I>Alias</I><B>,</B> <I>Synchronous</I><B>,</B> <I>RealName</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ParticipantID</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A long integer value that indicates which member's real name is being requested. If <I>ParticipantID</I> is set to -1, the method uses the selected member's participant ID in the Participant list box. If <I>ParticipantID</I> is not set to -1, the participant ID must have come from an <A HREF="inet0531.htm#chatocx_vb_0504010204000300" TARGET="TEXT">OnEnterParticipant</A> event. This value must be set to zero if the application is requesting the real name by using the member's alias. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Alias</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A BSTR value that contains the requested member's alias. This value must be set to an empty string if the application is requesting the real name by using the member's <I>ParticipantID</I>. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Synchronous</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A Boolean value that indicates whether this method is executed synchronously or asynchronously. If <I>Synchronous</I> is set to TRUE, the real name is put into the string that is pointed to by <I>RealName</I> for a Visual Basic or C/C++ application. If <I>Synchronous</I> is set to FALSE, the answer to the query comes back asynchronously. If the query is successful, the <A HREF="inet0531.htm#chatocx_vb_0504010204000b00" TARGET="TEXT">OnParticipantRealName</A> event returns the information. If the query is not successful, the <A HREF="inet0531.htm#chatocx_vb_0504010204000400" TARGET="TEXT">OnError</A> event is triggered. VBScript does not support pointers, so <I>Synchronous</I> must be set to FALSE.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>RealName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An address of a string where the real name of the member will be stored if the method is executed synchronously.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>When using <I>ParticipantID</I>, the scope of the search is limited to members currently in the chat room. When using <I>Alias</I>, the entire server is searched. 
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202001100" TARGET="TEXT">ThisParticipantID</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001000" TARGET="TEXT">ThisParticipantAlias</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000800"></A><H3>InviteParticipant Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Invites a member to the user's current chat room.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.InviteParticipant</B> <I>Alias</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Alias</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string value that contains the alias of the member to invite.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The member must be on the same chat server as the user.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0531.htm#chatocx_vb_0504010204000900" TARGET="TEXT">OnParticipantInvited</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001000" TARGET="TEXT">ThisParticipantAlias</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000900"></A><H3>KickParticipant Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Kicks a member from the chat room.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.KickParticipant</B> <I>ParticipantID</I><B>,</B> <I>KickComment</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ParticipantID</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A long integer value that indicates which member will be kicked. If <I>ParticipantID</I> is set to -1, the method uses the participant ID of the member selected in the Participant list box. If <I>ParticipantID</I> is not set to -1, the participant ID must have come from an <A HREF="inet0531.htm#chatocx_vb_0504010204000300" TARGET="TEXT">OnEnterParticipant</A> event. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>KickComment</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A BSTR value that contains a text message with the host's reason for kicking the member. If the kicked member uses the Chat control and has the value 128 (inform about member status changes) set in the <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A> property, the member will see a message box with this reason.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method cannot be called before the <A HREF="inet0531.htm#chatocx_vb_0504010204000200" TARGET="TEXT">OnEndEnumeration</A> event has been triggered.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000200" TARGET="TEXT">BanParticipant</A>, <A HREF="inet0531.htm#chatocx_vb_0504010204000a00" TARGET="TEXT">OnParticipantKicked</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001100" TARGET="TEXT">ThisParticipantID</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000a00"></A><H3>MoveSplitBar Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Changes the appearance of the cursor to a cross hair so the user can resize the control by using the arrow keys or the mouse.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.MoveSplitBar<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000b00"></A><H3>SelectParticipants Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Selects, deselects, or inverts the selection of members in the Participant list box.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.SelectParticipants</B> <I>value</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A short integer value that determines which members are selected. Can be set to one of the following values.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Value
+ </B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">0 
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Deselects any highlighted member. 
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1 
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Selects all the members. 
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2 
+</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Deselects the highlighted members and selects the members that were not highlighted.
+</FONT></TD></TR></TABLE>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method has an effect only if the <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A> property includes a Participant list box (<I>value</I>=4). 
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000c00" TARGET="TEXT">SendMessage</A> 
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000c00"></A><H3>SendMessage Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Sends a message.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.SendMessage</B> <I>DestinationList</I><B>,</B> <I>Count</I><B>,</B> <I>Message</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>DestinationList</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A VARIANT value that indicates how this message should be distributed. The message can be broadcast to all members, whispered to one member, or whispered to a group of members:
+<UL><LI>To broadcast the message to all members, the value must be set by an integer, a long integer, or an array of long integers (limited to one element) equal to -1.
+<LI>To whisper to one member (unicast), the value must be set by a long integer equal to the member's participant ID.
+<LI>To whisper to a group of members (multicast), the value must be set by an array of long integers corresponding to the member's participant ID.
+</UL>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Count</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A short integer that determines the number of recipients that will receive the message. To broadcast a message to all members, set the value of <I>Count</I> to zero. Otherwise, set <I>Count</I> to the number of members that will receive the message.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Message</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A VARIANT value that contains the message being distributed:
+<UL><LI>To distribute a text message to be displayed in the History text box of the selected members, the data type must be a BSTR value that contains the text to be displayed.
+<LI>To distribute a data message being sent to the selected members, the data can be an array of bytes, shorts, longs, floats, doubles, Booleans, errors, currencies, or dates that correspond to the following VARIANT types: VT_UI1, VT_I2, VT_I4, VT_R4, VT_R8, VT_BOOL, VT_ERROR, VT_CY, VT_DATE.
+</UL>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method cannot be called before the <A HREF="inet0531.htm#chatocx_vb_0504010204000200" TARGET="TEXT">OnEndEnumeration</A> event has been triggered.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000500" TARGET="TEXT">History</A>, <A HREF="inet0531.htm#chatocx_vb_0504010204000700" TARGET="TEXT">OnMessage</A>, <A HREF="inet0530.htm#chatocx_vb_0504010203000b00" TARGET="TEXT">SelectParticipants</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001100" TARGET="TEXT">ThisParticipantID</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010203000d00"></A><H3>SetParticipantStatus Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Changes the status of the member in a chat room.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.SetParticipantStatus</B> <I>ParticipantID</I><B>,</B> <I>Mask</I><B>,</B> <I>Status</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ParticipantID</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. If <I>ParticipantID</I>=-1, the member selected in the Participant list box will be affected. Only one member can be selected for this method to work. Otherwise, the value of <I>ParticipantID</I> has to come from an <A HREF="inet0531.htm#chatocx_vb_0504010204000300" TARGET="TEXT">OnEnterParticipant</A> event.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Mask</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A short integer indicating the types of status changes that the user wants to make. Set to zero if no masks are wanted. Can be set to one of the following values or a combination of 1 and one other value. 
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Value
+ </B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1 
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Mask to set a member's privileges. Must be set if <I>Status</I> is 1, 2, or 4.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Mask to set the whisper status of the user. Must be set if <I>Status</I> is changed to 8 or zero (to allow whispers).
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">4
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Mask to set the ignored status of a member. Must be set if <I>Status</I> is changed to 16 or zero (to allow the user to receive messages from the member again).
+</FONT></TD></TR></TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Status</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A short integer setting the participant's status changes. Set to zero if the user wants to allow the member to whisper to the user (if <I>Mask</I> includes 2) or allow the user to receive messages from the member (if <I>Mask</I> includes 4). Can be set to any combination of the following values.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Value
+ </B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Changes the privileges of the member to a host. The value of <I>Mask</I> must include 1.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Changes the privileges of the member to a participant. The value of <I>Mask</I> must include 1.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">4
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Changes the privileges of the member to a spectator. The value of <I>Mask</I> must include 1.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">8
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Changes the status of the user to not allow whispers. The value of <I>Mask</I> must include 2.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">16
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Changes the status of the member to be ignored so the user will not receive any messages from that member. The value of <I>Mask</I> must include 4.
+</FONT></TD></TR></TABLE>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method cannot be called before the <A HREF="inet0531.htm#chatocx_vb_0504010204000200" TARGET="TEXT">OnEndEnumeration</A> event. The following are the rules that apply to status changes:
+<UL><LI>The user cannot ignore herself or himself or the hosts.
+<LI>The user can set the flag for no whispers (<I>Status</I>=8) only on herself or himself.
+<LI>Only a host can change another user's privileges.
+<LI>The user cannot set both the no-whisper and ignored values (or masks), since users cannot ignore themselves and the user cannot set the whisper value of another member.
+</UL>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0531.htm#chatocx_vb_0504010204000c00" TARGET="TEXT">OnParticipantStatusChanged</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001100" TARGET="TEXT">ThisParticipantID</A>
+
+</BLOCKQUOTE><P>
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

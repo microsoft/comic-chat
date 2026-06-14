@@ -1,0 +1,645 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>Properties</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headcoma.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="Properties"><BR CLEAR=ALL>
+<A NAME="chatocx_vb_0504010202000000"></A><H3>Properties<BR CLEAR=ALL>
+<HR></H3><P>This section describes the properties associated with the Microsoft Chat control.
+
+
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000100"></A><H3>Appearance Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves or sets the appearance of the Chat control. This property is persistent and is read-only when connected to a chat room. This property has meaning only if the internal user interface is displayed.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.Appearance</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A short integer expression that determines the appearance of the Chat control. Can be set to one of the return values listed below.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a short integer value that indicates the current appearance of the Chat control. Can be one of the following values.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Value
+ </B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">0 
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">All flat
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">3-D children only
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">3-D control frame only
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">3 
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">All 3-D
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000300" TARGET="TEXT">BorderStyle</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000200"></A><H3>BackColor Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves or sets the color of the background behind the text panes and the toolbar. This property is persistent and has meaning only if the internal user interface is displayed.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.BackColor</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. An OLE_COLOR expression that determines the background color. The default value is the system's default window background color.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns the OLE_COLOR value of the current background behind the text panes and toolbar.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000300"></A><H3>BorderStyle Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves or sets the appearance of the border. This property is read-only when connected to a chat room and has meaning only if the internal user interface is displayed. This property is persistent.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.BorderStyle</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A short integer expression that determines the border appearance. Can be set to one of the return values listed below.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns the current border style. Can be one of the following values.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Value
+ </B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">0
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">None
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1 
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Single fixed for children only
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2 
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Single fixed for control frame only
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">3
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">All single fixed
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000100" TARGET="TEXT">Appearance</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000400"></A><H3>Height Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves or sets the height of the control in HiMetrics. Each HiMetrics unit corresponds to 0.01 millimeters. This property is persistent.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.Height</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A HiMetrics value that indicates the height of the Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns the current height of the Chat control in HiMetrics units.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202001400" TARGET="TEXT">Width</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000500"></A><H3>History Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves the current content of the History text box. This property is read-only and has meaning only if the internal user interface is displayed.
+
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.History<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a BSTR value that contains the current contents of the History text box. If <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A> does not include the History text box (<I>value</I>=8), this property returns an empty string.
+
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The length of this string is limited by the <A HREF="inet0529.htm#chatocx_vb_0504010202000800" TARGET="TEXT">MaxHistoryLength</A> property. 
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000400" TARGET="TEXT">ClearHistory</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000600"></A><H3>LastMessageReceived Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves the last message the user received from the channel. This property is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.LastMessageReceived<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a BSTR value that contains the last message received by the user.
+
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This property is updated whenever the user receives a text message.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000700" TARGET="TEXT">LastMessageSent</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000700"></A><H3>LastMessageSent Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves the last message sent by the user. This property is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.LastMessageSent<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a BSTR value that contains the last text message sent by the user.
+
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This property is updated whenever the user sends a text message.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000600" TARGET="TEXT">LastMessageReceived</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000800"></A><H3>MaxHistoryLength Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves or sets the maximum number of characters allowed in the History text box. This property has meaning only if the internal user interface is displayed.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.MaxHistoryLength</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A long integer value that sets the maximum number of characters allowed in the History text box. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns the maximum number of characters allowed in the History text box. If the <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A> property does not include the History text box (<I>value</I>=8), this property is equal to zero. The default value of <B>MaxHistoryLength</B> is 32K.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000400" TARGET="TEXT">ClearHistory</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202000500" TARGET="TEXT">History</A> 
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000900"></A><H3>MaxMembers Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves or sets the maximum number of members in a chat room.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.MaxMembers</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A long integer expression that determines the maximum number of members allowed in the room. Only a host of the chat room can change this property.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns zero if the limit is the server's default limit, or the maximum number of members otherwise.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000b00" TARGET="TEXT">MemberCount</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000a00"></A><H3>MaxMessageLength Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves or sets the maximum number of characters allowed in the Send text box.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.MaxMessageLength</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A long integer value that determines the maximum number of characters allowed in the Send text box. The default value is 2040 characters, which is the maximum message length on an MIC server. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns the maximum number of characters allowed in the Send text box. If the <A HREF="inet0529.htm#chatocx_vb_0504010202001300" TARGET="TEXT">UIOption</A> property does not include the Send text box (<I>value</I>=16), this property is equal to zero. 
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000c00" TARGET="TEXT">SendMessage</A> 
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000b00"></A><H3>MemberCount Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves the number of members currently in the user's chat room. This property is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.MemberCount<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns zero if the user is not in a chat room, or the number of members in the chat room otherwise. 
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000900" TARGET="TEXT">MaxMembers</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000c00"></A><H3>Rating Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves the rating of a chat room. This property is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.Rating<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a BSTR value that contains the Platform for Internet Content Selection (PICS) rating if the chat room is on an MIC server. Otherwise, this property returns an empty string. For more information on PICS ratings, see <A HREF="inet0257.htm")TARGET="TEXT">Internet Ratings</A>. 
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000d00"></A><H3>RoomPath Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves the location of the chat room to which the user is currently connected. This property is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.RoomPath<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a BSTR expression that evaluates to the server location of the chat room. If the user is not connected to a chat room, an empty string is returned.
+
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The format of the server location returned is:
+
+<P><I>prefix</I>://<I>server-name</I>[:<I>port-number</I>]/[[#]|[&amp;]]<I>room-name</I>
+
+<P>The <I>prefix</I> can be mic or irc. The <I>server-name</I> is the host name of the chat server computer. The optional number sign (#) indicates that the chat room can be a global IRC room. The optional ampersand (&amp;) indicates that the room can be a local IRC or MIC room. The <I>room-name</I> is the name of the chat room. 
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000e00"></A><H3>RoomTopic Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves or sets the chat room's topic. This property can be used to set the topic when creating a chat room, to change the topic when the user is in the room, or to get the current topic of the room that the user is in.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.RoomTopic</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A BSTR value that indicates the topic name to be set. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a BSTR value that contains the topic name of the chat room that the user is currently in.
+
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The user cannot set or modify the topic if the chat room was created with the value in the <A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A> method set to (<I>Type</I>=2), which allows only the host to change the topic, and the user is not the host. 
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0531.htm#chatocx_vb_0504010204000d00" TARGET="TEXT">OnRoomTopicChanged</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202000f00"></A><H3>State Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves whether the user is currently disconnected from, connected to, or in the process of connecting to a chat room. This property is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.State<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns the current user state. Can be one of the following values.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Value
+ </B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Disconnected from any chat rooms
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Connecting to a chat room
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">3
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Connected to a chat room
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0530.htm#chatocx_vb_0504010203000300" TARGET="TEXT">CancelEntering</A>, <A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A>, <A HREF="inet0530.htm#chatocx_vb_0504010203000600" TARGET="TEXT">ExitRoom</A>, <A HREF="inet0531.htm#chatocx_vb_0504010204000f00" TARGET="TEXT">OnStateChanged</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202001000"></A><H3>ThisParticipantAlias Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves the user's alias. This property is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ThisParticipantAlias<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a BSTR value that contains the user's nickname used when the <A HREF="inet0530.htm#chatocx_vb_0504010203000500" TARGET="TEXT">EnterRoom</A> method was called, if the user is currently in a chat room. If the user is not in a chat room, an empty string is returned.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0531.htm#chatocx_vb_0504010204000800" TARGET="TEXT">OnParticipantAliasChanged</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001100" TARGET="TEXT">ThisParticipantID</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001200" TARGET="TEXT">ThisParticipantName</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202001100"></A><H3>ThisParticipantID Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Retrieves the user's numeric identifier. This property is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ThisParticipantID<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a long integer value that contains the user's numeric identifier, if the user is currently in a chat room. If the user is not in a chat room, the value is zero.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202001000" TARGET="TEXT">ThisParticipantAlias</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001200" TARGET="TEXT">ThisParticipantName</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202001200"></A><H3>ThisParticipantName Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Returns the user's Microsoft Windows&#174; user name. This property is read-only.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ThisParticipantName<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns a BSTR value that contains the user's Windows user name, if the user is currently in a chat room. If the user is not in a chat room, an empty string is returned.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202001000" TARGET="TEXT">ThisParticipantAlias</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202001100" TARGET="TEXT">ThisParticipantID</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202001300"></A><H3>UIOption Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Contains flags that control the appearance of the default user interface. This property is a bitmask. 
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.UIOption</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A short integer expression that equals the sum of the desired user interface option values. Can include the following option values.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Value
+ </B></FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Description
+</B></FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to display the Send button. Must set the Send text box (<I>value</I>=16) in order to set the Send button.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to display the Whisper button. Must set the Send button (<I>value</I>=1) in order to set the Whisper button.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">4
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to display the Participant list box.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">8
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to display the History text box. This window displays all messages that have been received.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">16
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to display the Send text box. The user composes messages in this text box before sending them.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">32
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to notify members in the History text box when a new user joins the chat.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">64
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to notify members in the History text box when a user leaves the chat.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">128
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to allow the Chat control to display a dialog box that notifies the user when a member's status (host, participant, or spectator) changes, when a member's alias (nickname) changes, and when the user has been kicked by a host.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">256
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to insert a blank line between messages in the History text box.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">512
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to allow the Chat control to display error dialog boxes. When an <A HREF="inet0531.htm#chatocx_vb_0504010204000400" TARGET="TEXT">OnError</A> event is triggered, a dialog box containing the error message will appear.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">1024
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to allow the user to resize the control.
+</FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">2048
+ </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Set this value to allow any URLs appearing in the History text box to be clickable.
+</FONT></TD></TR></TABLE>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns the sum of the option values currently selected.
+
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>To set a Chat control's user interface so that it includes a Send text box, Send button, Whisper button, History text box, and Participant list box, this property must be set to the sum of the option values. In this case, the sum would equal 31 (16 + 1 + 2 + 8 + 4 = 31). To set the control to have all options, the sum would equal 4095 (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 = 4095).
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000100" TARGET="TEXT">Appearance</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202000200" TARGET="TEXT">BackColor</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202000300" TARGET="TEXT">BorderStyle</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202000500" TARGET="TEXT">History</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202000800" TARGET="TEXT">MaxHistoryLength</A>, <A HREF="inet0529.htm#chatocx_vb_0504010202000a00" TARGET="TEXT">MaxMessageLength</A>
+
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="chatocx_vb_0504010202001400"></A><H3>Width Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Returns or sets the width of the control in HiMetrics. Each HiMetrics unit corresponds to 0.01 millimeters. This property is persistent.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.Width</B>[<B>=</B><I>value</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a Chat control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A HiMetrics value that indicates the width of the Chat control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Return Value</H5>
+<BLOCKQUOTE><P>
+<P>Returns the current width of the Chat control in HiMetrics units.
+
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0529.htm#chatocx_vb_0504010202000400" TARGET="TEXT">Height</A>
+
+</BLOCKQUOTE><P>
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

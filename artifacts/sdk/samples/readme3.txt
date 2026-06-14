@@ -1,0 +1,78 @@
+------------------------------------------------------------------
+       Microsoft Chat SDK 2.0 Samples Readme File
+                          January 1998          
+------------------------------------------------------------------
+
+             (c) Copyright Microsoft Corporation, 1998
+
+
+OVERVIEW OF THE CHAT SDK SAMPLES
+================================
+
+The Samples directory consists of the following subdirectories, which  
+contain samples demonstrating ways to use chat controls. Each 
+subdirectory includes a text file with detailed information about the 
+sample and how to install or build it.
+
+ChatAd
+------
+This is a simple Visual Basic Application which provides monitoring 
+capability for administrators. This sample uses Chat Control 1.1.
+
+Checkrs
+-------
+This is a Visual Basic Application which enables you to play Checkers 
+game with the people you are chatting with. This sample uses Chat Control 1.1.
+
+Trnscrpt
+--------
+Trnscrpt contains a VB Application which provides a transcript of the chat 
+session. This sample uses Chat Control 1.1.
+
+ExecChat
+--------
+ExecChat contains a VB application for hosting Executive Chat Sessions. 
+This application can be used in three modes: Host, Moderator and Special
+Guest. This sample uses Chat Control 1.1.
+
+Webdemo
+-------
+Webdemo contains five web pages that demonstrate the usage of Microsoft Chat
+Control 1.1 with Visual Basic scripting.
+
+Chat2000
+--------
+Chat2000 is a sample application that demonstrates how to use the Microsoft Chat 
+Control 1.1 inside a MDI MFC application.
+
+Chappy
+------
+Chappy is a sample application that demonstrates how to use Microsoft Chat Protocol 2.0
+in a MFC application.
+
+Nmstart
+-------
+Nmstart.htm is a web page that uses the Microsoft Chat Protocol 2.0 and also launches
+NetMeeting between two members of a chat room using our nmstart.ocx and this web page. 
+
+Prchckrs
+--------
+Prchckrs is a sample web page that uses the Microsoft Chat Protocol 2.0 and a Visual 
+Basic 5.0 control to send data between to chatters using the chat protocol and play
+a game of checkers.
+
+Procx
+-----
+Procx has sample web pages on how to use the Microsoft Chat Protocol 2.0 with Visual
+Basic Scripting. 
+
+ChanFltr
+--------
+ChanFltr uses Microsoft Chat Protocol 2.0. This Visual Basic application will monitor
+the chat server for new room names and changes in the chat room topic. A system 
+admistrator can use this to monitor the chat room name and kill channels. 
+
+Exec2
+-----
+Exec2 is a VB application that uses Microsoft Chat Protocol 2.0. This application
+makes it easy for hosts, moderators and special guests to host special chat events.

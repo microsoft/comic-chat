@@ -1,0 +1,36 @@
+  CHAT INPUT CONTROL - CINPUT
+===============================
+
+donsc - 5/19/98
+
+
+This is the control that accepts the user input. It consists of a parent window,
+that contains a rich edit control and a toolbar. It has been implemented as
+a C++ class based on the design decisions we had made for the re-architecture
+way back in January.
+
+CINPUT.H & CINPUT.CPP contain the declaration and the implementation of the control
+that I have completed to-date.  At the very simplest level, this control could be
+considered completed, but I would add additional functionality based on the other
+requirements of the application. For example, the following capabilities should
+be implemented in conjunction with other "chat" capabilities:
+
+1. Interface with the code that does the RichEdit to mIRC code formatting. 
+2. Provide keyboard translation for hotkeys.
+
+Here's an extract from an earlier mail I sent with some rambling thoughts about
+this control:
+
+    Here's an approach I'm considering using for the chat input window interface.
+
+    I don't believe we need to make this a COM interface simply because it is only
+    likely that we will be using this component. For ease-of-use then, I'm thinking
+    it best to make it a C++ class interface.  I believe it's easier to maintain
+    and work with than just a windows custom control.
+
+    To make it easier to extend the interface, I am planning on using windows
+    messaging for notification of events. The other option would be to use virtual
+    callback functions.  Adding virtual callback functions at a later time can
+    be risky business. I believe extending the interface by adding new messages
+    or new notification types for a particular message is a safer approach.
+

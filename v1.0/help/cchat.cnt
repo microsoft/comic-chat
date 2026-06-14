@@ -1,0 +1,22 @@
+:Base cchat.hlp>proc4
+:Title Comic Chat Help
+1 Overview=CCHAT_OVERVIEW>medium
+1 Connecting to Comic Chat
+2 Specifying a server or chat room=CCHAT_CONN_SERV
+2 Connecting to a favorite chat room=CCHAT_FAV_ROOM
+1 Using Comic Chat
+2 Changing a character’s expression=CCHAT_CHANGE_EXP
+2 Ignoring a character=CCHAT_IGNORE_CHAR
+2 Searching for a specific chat room=CCHAT_SEARCH_ROOM
+2 Viewing the chat history=CCHAT_VIEW_HIST
+2 Working offline=CCHAT_WORK_OFFLINE
+2 Comic Chat Options
+3 Specifying a connection=cc_connecting
+3 Specifying general settings=CCHAT_GEN_SETTINGS
+3 Modifying your personal information=CCHAT_MOD_PERS
+3 Specifying a character=CCHAT_SPEC_CHAR
+3 Defining a background=CCHAT_DEF_BACK
+1 Tips and Tricks
+2 Adding a chat room to your Favorites=CCHAT_ADD_FAV
+2 Keyboard shortcuts=CCHAT_KEY_SHORT>big
+2 Using character gestures=CCHAT_CHAR_GEST>big

@@ -1,0 +1,192 @@
+!IF 0
+
+Copyright (c) 1989-1996 Microsoft Corporation
+
+Module Name:
+
+    sources.
+
+Abstract:
+
+    This file specifies the target component being built and the list of
+    sources files needed to build that component.  Also specifies optional
+    compiler switches and libraries that are unique for the component being
+    built.
+
+
+History:
+    Derived from WebCheck Makefile RamuM July 22 96
+    Common ccshell makefile and cleanup 15-Apr-96 Scott Hysom (scotth)
+    Created 27-Sep-94 by Bob Day (bobday)
+    from template created 12-Apr-1990 by Steve Wood (stevewo)
+
+NOTE:   Commented description of this file is in \nt\public\oak\bin\sources.tpl
+
+!ENDIF
+
+COMMONINC_DIR     = ..\..
+
+#
+# Cross-compiler macros for unique naming
+#
+
+MAJORCOMP       = shell
+MINORCOMP       = ComicChat
+
+
+#
+# Defines for common.inc
+#
+
+NOT_UNICODE     = 1
+PRECOMPILED_CXX = 1
+
+#
+# Include our common Sources
+#
+
+!include $(COMMONINC_DIR)\chatsrc.inc
+
+
+#
+# Other directives
+#
+
+#NTDEBUGTYPE = windbg
+#USE_PDB = 1
+
+#
+# Common settings required by build.exe and makefile.def
+#
+
+TARGETNAME      = CChat
+TARGETPATH      = obj
+TARGETTYPE      = PROGRAM
+
+USE_MFC = 1
+USE_STATIC_MFC = 1
+MFC_VER	= 40
+
+#LINKER_FLAGS = $(LINKER_FLAGS) /verbose 
+
+#USE_MSVCRT = 1
+!UNDEF USE_MSVCRT
+USE_LIBCMT = 1
+#USE_NOLIBS = 1
+
+#
+# Precompiled specs
+#
+
+PRECOMPILED_INCLUDE = ..\stdafx.h
+PRECOMPILED_SOURCEFILE = ..\stdafx.cpp
+
+
+#BINPLACE_FLAGS  = $(BINPLACE_FLAGS) -a
+
+TARGETLIBS	=  \
+#		  $(LIBRARY_PATH)\libcmt.lib \
+                  $(LIBRARY_PATH)\comctl32.lib      \
+                  $(LIBRARY_PATH)\uuid.lib          \
+                  $(LIBRARY_PATH)\ole32.lib         \
+                  $(LIBRARY_PATH)\oleaut32.lib      \
+		  $(LIBRARY_PATH)\oldnames.lib      \
+		  $(LIBRARY_PATH)\wsock32.lib       \
+	 	  $(LIBRARY_PATH)\shell32.lib       \
+                  $(LIBRARY_PATH)\winmm.lib         \
+		  $(LIBRARY_PATH)\imm32.lib         \
+		  $(LIBRARY_PATH)\winspool.lib \
+		  $(LIBRARY_PATH)\comdlg32.lib \
+		  $(LIBRARY_PATH)\oledlg.lib
+#		  $(LIBRARY_PATH)\CTL3D32.lib
+
+
+#PICS_DIR	= $(BASEDIR)\private\inet\ohare
+
+
+UMENTRYABS      = ModuleEntry
+
+#INCLUDES=$(PICS_DIR)\inc;$(INCLUDES)
+
+IDL_TYPE=ole
+PASS0_HEADERDIR = $(ROOT)\chat\cchat
+MIDL_UUIDDIR = $(ROOT)\chat\cchat
+
+
+#
+# List of sources
+#
+
+SOURCES= \
+	..\chat.rc \
+	..\Admindlg.cpp \
+	..\arc.cpp \
+	..\avatar.cpp \
+	..\avatario.cpp \
+	..\backdrop.cpp \
+	..\balloon.cpp \
+	..\bbox.cpp \
+	..\binddcmt.cpp \
+	..\binddoc.cpp \
+	..\bindipfw.cpp \
+	..\binditem.cpp \
+	..\bindtarg.cpp \
+	..\bindview.cpp \
+	..\bindauto.cpp \
+	..\bodycam.cpp \
+	..\chat.cpp \
+	..\chatDoc.cpp \
+	..\ChatItem.cpp \
+	..\chatView.cpp \
+	..\childfrm.cpp \
+	..\colordlg.cpp \
+	..\Dib.cpp \
+	..\fonts.cpp \
+	..\format.cpp \
+	..\histent.cpp \
+	..\IpFrame.cpp \
+	..\ircproto.cpp \
+	..\MainFrm.cpp \
+	..\memblst.cpp \
+	..\mfcbind.cpp \
+	..\oleobjct.cpp \
+	..\PageView.cpp \
+	..\panel.cpp \
+	..\print.cpp \
+	..\proppage.cpp \
+	..\protsupp.cpp \
+	..\RoomList.cpp \
+	..\rtfctrl.cpp	\
+	..\saywnd.cpp \
+	..\setupdlg.cpp \
+	..\spline.cpp \
+	..\splinutl.cpp \
+	..\spltchat.cpp \
+	..\textpose.cpp \
+	..\textview.cpp \
+	..\traj.cpp \
+	..\vector2d.cpp	\
+	..\chanprop.cpp \
+	..\ccommon.cpp	\
+        ..\dlylddll.c   \
+        ..\intl.c \
+        ..\sounddlg.cpp \
+        ..\textcore.cpp \
+        ..\urlutil.cpp \
+	..\txtfntdg.cpp \
+	..\userlist.cpp \
+	..\whisprbx.cpp \
+	..\jis2sjis.cpp \
+	..\sjis2jis.cpp \
+	..\chicdial.cpp \
+	..\filesend.cpp \
+	..\motd.cpp \
+	..\tabbar.cpp \
+	..\userinfo.cpp \
+	..\nmproto.cpp \
+	icbcore.idl	\
+	imsconf2.idl \
+	icchat.idl	\
+	..\icchat_i.c \
+	..\icbcore_i.c
+

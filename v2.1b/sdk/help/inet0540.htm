@@ -1,0 +1,687 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>Properties</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headcoma.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="Properties"><BR CLEAR=ALL>
+<H5><FONT COLOR="#000000">Objects</FONT></H5><A NAME="mschatpr_vb_ref_0504020201060000"></A><H3>Properties<BR CLEAR=ALL>
+<HR></H3><P>This section describes the properties associated with the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+
+
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201060100"></A><H3>ChannelName Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Synchronously reads or writes the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A> of the channel.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.ChannelName<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string containing the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A> of the channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read/write or read-only depending on the <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060300" TARGET="TEXT">ChannelState</A> value:
+<UL><LI>If the <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060300" TARGET="TEXT">ChannelState</A> is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000201" TARGET="TEXT">chsClosed</A>, the property is read/write.
+<LI>If the <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060300" TARGET="TEXT">ChannelState</A> is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000202" TARGET="TEXT">chsOpening</A> or <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000203" TARGET="TEXT">chsOpen</A>, the property is read-only.
+<LI>If the <B>ChannelName</B> property is set while the channel is closed, the <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A> and <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A> methods use its value if their <I>ChannelName</I> parameter is not specified.
+</UL>
+<P>After joining a channel, the <B>ChannelName</B> property is not necessarily the string you specified in <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A>, or <B>ChannelName</B> because of the cloned channels.
+
+
+<P>For example, you could call:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.Channels(1).JoinChannel "#Chat" 
+</FONT></PRE>
+<P>and, in fact, join "#Chat3", which will be the value returned by the <B>ChannelName</B> property.
+<P>The <B>ChannelName</B> property is <I>not</I> cleared when the user leaves the channel and the <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060300" TARGET="TEXT">ChannelState</A> becomes <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000201" TARGET="TEXT">chsClosed</A>.
+<P>The user can also synchronously get the channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A> using: 
+<PRE><FONT FACE="Courier" SIZE="2">&lt;channel&gt;.ChannelProperty("Name")</FONT></PRE>
+<P>But the <B>ChannelName</B> property is simpler and more efficient. 
+<P>The asynchronous method of accessing the channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A> is:
+<PRE><FONT FACE="Courier" SIZE="2">&lt;channel&gt;.QueryChannelProperty "Name"</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A>, <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060200" TARGET="TEXT">ChannelProperty</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070900" TARGET="TEXT">QueryChannelProperty</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201060200"></A><H3>ChannelProperty Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Synchronously accesses a channel property.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.ChannelProperty(</B><I>ChannelPropertyName</I><B>)<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string that contains one of the valid values shown in the following table.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>IRCX </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>IRC/IRCX 
+</B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>protocol only&nbsp;&nbsp;&nbsp; </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>protocols
+ </B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000202" TARGET="TEXT">Account</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000203" TARGET="TEXT">BannedList</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000206" TARGET="TEXT">ClientData</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020b" TARGET="TEXT">Keyword</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000207" TARGET="TEXT">ClientGuid</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000210" TARGET="TEXT">MaxMemberCount</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000208" TARGET="TEXT">CloneList</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060600" TARGET="TEXT">MemberCount</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000209" TARGET="TEXT">CreationTime</A>&nbsp;&nbsp; </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000214" TARGET="TEXT">Modes</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020a" TARGET="TEXT">HostKey</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020c" TARGET="TEXT">Lag</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020d" TARGET="TEXT">Language</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000217" TARGET="TEXT">ObjectId</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000218" TARGET="TEXT">OnJoin</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000219" TARGET="TEXT">OnPart</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021a" TARGET="TEXT">OwnerKey</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021b" TARGET="TEXT">Rating</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021d" TARGET="TEXT">ServicePath</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021e" TARGET="TEXT">Subject</A> 
+</FONT></TD>
+</TR>
+</TABLE>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only. 
+<P>When the client asks for this property, the server might return more information than was requested. Because of this, all answers are packaged into a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object and exposed to the caller.
+<P>Generally, all the information known by the client at the time of the <B>ChannelProperty</B> call is exposed to the caller in the <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+<P>The <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060300" TARGET="TEXT">ChannelState</A> must be <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000203" TARGET="TEXT">chsOpen</A> for the <B>ChannelProperty</B> property access to succeed.
+</BLOCKQUOTE><P>
+<H5>Example</H5><BLOCKQUOTE><P>
+<P>The following are asynchronous methods of accessing a channel property.
+<PRE><FONT FACE="Courier" SIZE="2">&lt;channel&gt;.QueryChannelProperty &lt;ChannelPropertyName&gt; 
+'and
+&lt;control&gt;.QueryChannelProperty &lt;ChannelPropertyName&gt;, &lt;ChannelName&gt;
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060100" TARGET="TEXT">ChannelName</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070900" TARGET="TEXT">QueryChannelProperty</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201060300"></A><H3>ChannelState Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Returns the current channel state of the control.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.ChannelState<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A variable of <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000200" TARGET="TEXT">enumChannelState</A> type.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+<P>At creation, the state of a channel is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000201" TARGET="TEXT">chsClosed</A>. When calling its <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A> or <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A> method, the state becomes asynchronously <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000202" TARGET="TEXT">chsOpening</A> and <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000203" TARGET="TEXT">chsOpen</A>. It becomes <B>chsClosed</B> again when the user leaves the channel or is kicked from the channel, or when a server disconnection occurs.
+<P>If the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object is removed from the collection, attempts to access any of its properties or methods will cause an occurrence of the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201080000" TARGET="TEXT">Channels</A> collection error 3172, "The channel is no more part of the collection."
+<P>The asynchronous channel state changes are exposed through the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040600" TARGET="TEXT">OnChannelState</A> event.
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201060400"></A><H3>ChannelTopic Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Synchronously reads the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A> of the channel.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.ChannelTopic<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression that contains the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A> of the channel.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+<P>The <B>ChannelTopic</B> property is <I>not</I> cleared when the user leaves the channel and the channel state becomes <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000201" TARGET="TEXT">chsClosed</A>.
+<P>The user can also synchronously get the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A> of the channel by using:
+<PRE><FONT FACE="Courier" SIZE="2">&lt;channel&gt;.ChannelProperty("Topic") 
+'or 
+&lt;control&gt;.ChannelProperty("Topic", &lt;channelname&gt;)
+</FONT></PRE>
+<P>But the <B>ChannelTopic</B> property is simpler and more efficient.
+<P>The asynchronous methods to access the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A> of the channel are:
+
+<PRE><FONT FACE="Courier" SIZE="2">&lt;channel&gt;.QueryChannelProperty "Topic" 
+'and 
+&lt;control&gt;.QueryChannelProperty "Topic", &lt;channelname&gt; 
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060200" TARGET="TEXT">ChannelProperty</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070900" TARGET="TEXT">QueryChannelProperty</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201060500"></A><H3>Index Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Uniquely identifies the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object in the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201080000" TARGET="TEXT">Channels</A> collection.
+
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.Index<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A long integer that will receive the index of the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+<P>The index of a channel is not fixed; it can vary during the lifetime of the object. If a channel with a smaller index is removed from the collection, the index is 
+<I>decremented</I>. If a channel with a smaller or equal index is added to the collection, the index is <I>incremented</I>.
+</BLOCKQUOTE><P>
+<H5>Example</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">Dim lIndex As Long
+
+Set c=MsChatPr1.Channels.Add(1, "Key1")
+lIndex=chanobj.Index    'lIndex now contains 1
+MsChatPr1.Channels.Add 1, "Key2"
+lIndex=chanobj.Index    'lIndex now contains 2
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0541.htm#mschatpr_vb_ref_05040202010a0100" TARGET="TEXT">Add</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201090200" TARGET="TEXT">Item</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010a0200" TARGET="TEXT">Remove</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201060600"></A><H3>MemberCount Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Synchronously returns the current number of members in the channel.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.MemberCount</B> <BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A long integer that will receive the current number of members in the channel. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+<P>If the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object is not open, attempts to access its <B>MemberCount</B> property will cause an occurrence of the Channel Error 3062, "The channel is not open."
+
+<P><B>Examples</B>
+<P>The user can also synchronously obtain the member count of the channel by using:
+<PRE><FONT FACE="Courier" SIZE="2">ChannelProperty("MemberCount")
+</FONT></PRE>
+<P>But the <B>MemberCount</B> property is simpler and more efficient.
+<P>The asynchronous methods of accessing the member count of the channel are:
+<PRE><FONT FACE="Courier" SIZE="2">&amp;lt:channel&gt;.QueryChannelProperty "MemberCount"
+'and
+&amp;lt:control&gt;.QueryChannelProperty "MemberCount", &amp;lt:channelname&gt;
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060200" TARGET="TEXT">ChannelProperty</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070900" TARGET="TEXT">QueryChannelProperty</A> 
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201060700"></A><H3>MemberIdentity Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Synchronously accesses the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000401" TARGET="TEXT">Identity</A> of a channel member.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>.</B><I>object</I><B>.MemberIdentity</B> [<I>MemberNickname</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression containing the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000401" TARGET="TEXT">Identity</A> of a member. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>MemberNickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant. When specified, the variant must be a string and represent the nickname of a channel member. If not specified, the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000401" TARGET="TEXT">Identity</A> of the caller is returned.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+<P>The member's <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000401" TARGET="TEXT">Identity</A> is composed of the member's <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000408" TARGET="TEXT">UserName</A> and <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000402" TARGET="TEXT">IPAddress</A> separated by the @ sign.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">RegisB@REGISB1.dns.microsoft.com
+RegisB@zorg.microsoft.com
+</FONT></PRE>
+<P>The <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000401" TARGET="TEXT">Identity</A> of a member is fixed. The identity cannot vary, unlike a member's <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000405" TARGET="TEXT">Nickname</A>.
+<P>The user can also synchronously get a member's <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000401" TARGET="TEXT">Identity</A> by using:
+<PRE><FONT FACE="Courier" SIZE="2">&lt;channel&gt;.MemberProperty("Identity", &lt;nickname&gt;)
+</FONT></PRE>
+<P>But the <B>MemberIdentity</B> call is simpler and more efficient.
+<P>The asynchronous method to access a member's identity is:
+<PRE><FONT FACE="Courier" SIZE="2">&lt;channel&gt;.QueryMemberProperty "Identity", &lt;nickname&gt;
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060900" TARGET="TEXT">MemberProperty</A>, <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020800" TARGET="TEXT">Nickname</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070a00" TARGET="TEXT">QueryMemberProperty</A> 
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201060800"></A><H3>MemberModes Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Synchronously accesses a channel member's <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000214" TARGET="TEXT">Modes</A>.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.MemberModes</B>[<B>,</B> <I>MemberNickname</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A variable of <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000800" TARGET="TEXT">enumMemberMode</A> type. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>MemberNickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant. When specified, the variant must be a string and represent the nickname of a channel member. If not specified, the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000214" TARGET="TEXT">Modes</A> of the caller are returned.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+<P>The member modes expose eight Booleans, each Boolean taking two values that are mutually exclusive. For example, the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000802" TARGET="TEXT">mmClientIgnored</A> and <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000803" TARGET="TEXT">mmNotClientIgnored</A> values are mutually exclusive. 
+<P>If the <B>MemberModes</B> property returns 0x000AA41 = <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000802" TARGET="TEXT">mmClientIgnored</A> + <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000806" TARGET="TEXT">mmAway</A> + <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000809" TARGET="TEXT">mmNotSysop</A> + <A HREF="inet0543.htm#mschatpr_vb_ref_050402020200080b" TARGET="TEXT">mmNotOwner</A> + <A HREF="inet0543.htm#mschatpr_vb_ref_050402020200080d" TARGET="TEXT">mmNotHost</A> + <A HREF="inet0543.htm#mschatpr_vb_ref_050402020200080f" TARGET="TEXT">mmNoVoice</A>, 
+
+the control is certain that this member is ignored by the caller, currently away, not a system operator, not a channel host, and has no voice. 
+<P>However, in this example, because <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000804" TARGET="TEXT">mmAuthMember</A> and <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000805" TARGET="TEXT">mmNotAuthMember</A> are not part of the returned modes, the control is not aware of member authentication. 
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020800" TARGET="TEXT">Nickname</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201060900"></A><H3>MemberProperty Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Synchronously accesses a channel member's property.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.MemberProperty</B> <I>MemberPropertyName</I>[<B>,</B> <I>MemberNickname</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>MemberPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string containing a valid member property name value.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>MemberNickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant. When specified, the variant must be a string and represent the nickname of a channel member. If not specified, the property of the caller is returned.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020800" TARGET="TEXT">Nickname</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201070000"></A><H3>Methods<HR></H3><P>This section describes the methods associated with the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+
+
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201070100"></A><H3>BanMembers Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Bans a member(s) and reinstates a member(s).
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.BanMembers</B> <I>MemberItems</I><B>,</B> <I>Set</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>MemberItems</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object. Specifies which members are to be banned or reinstated. The valid item names for constructing the <I>MemberItems</I> object are:
+
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000402" TARGET="TEXT">IPAddress</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000403" TARGET="TEXT">IPAddressOp</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000405" TARGET="TEXT">Nickname</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000406" TARGET="TEXT">NicknameOp</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000408" TARGET="TEXT">UserName</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000409" TARGET="TEXT">UserNameOp</A>
+</FONT></TD></TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Set</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A Boolean variable. This parameter must be TRUE to ban the member from the channel, or FALSE to reinstate the member to the channel.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. Ban all the users with an IP address that ends with ".net":
+<PRE><FONT FACE="Courier" SIZE="2">Dim mi As ChatItems
+
+Set mi = New ChatItems
+mi.AssociatedType = "Query"
+mi.Item("IPAddressOp") = "EndsWith"
+mi.Item("IPAddress") = ".net"
+chan.BanMembers mi, True
+Set mi = Nothing
+</FONT></PRE>
+<P>2. Ban all the users with the username "ProutZ":
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim mi As ChatItems
+
+Set mi = New ChatItems
+mi.AssociatedType = "Query"
+mi.Item("UserName") = "ProutZ"
+chan.BanMembers mi, True
+Set mi = Nothing
+</FONT></PRE>
+<P>3. Reinstate all the users with a username that contains "regis" and an IP address that starts with "ms":
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim mi As ChatItems
+
+Set mi = New ChatItems
+mi.AssociatedType = "Query"
+mi.Item("UserNameOp") = "Contains"
+mi.Item("UserName") = "regis"
+mi.Item("IPAddressOp") = "StartsWith"
+mi.Item("IPAddress") = "ms"
+chan.BanMembers mi, False
+Set mi = Nothing
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020700" TARGET="TEXT">NewChatItems</A> 
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201070200"></A><H3>ChangeChannelProperty Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Asynchronously modifies a channel property.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ChangeChannelProperty</B> <I>ChannelPropertyName</I><B>,</B> <I>NewChannelProperty</I> <BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression. The following table shows the valid channel property names.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>IRCX </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>IRC/IRCX 
+</B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>protocol only&nbsp;&nbsp;&nbsp; </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>protocols
+ </B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000202" TARGET="TEXT">Account</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020b" TARGET="TEXT">Keyword</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000206" TARGET="TEXT">ClientData</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000210" TARGET="TEXT">MaxMemberCount</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000207" TARGET="TEXT">ClientGuid</A>&nbsp;&nbsp;&nbsp; </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000214" TARGET="TEXT">Modes</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020a" TARGET="TEXT">HostKey</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020d" TARGET="TEXT">Language</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020c" TARGET="TEXT">Lag</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000218" TARGET="TEXT">OnJoin</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000219" TARGET="TEXT">OnPart</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021a" TARGET="TEXT">OwnerKey</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021b" TARGET="TEXT">Rating</A> 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021d" TARGET="TEXT">ServicePath</A>
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021e" TARGET="TEXT">Subject</A>
+</FONT></TD>
+</TR>
+</TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>NewChannelProperty</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A variant, the type of which depends on the new channel property.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>A successful call results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040500" TARGET="TEXT">OnChannelPropertyChanged</A> event.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">chanobj.ChangeChannelProperty "HostKey", "SecretHost"
+chanobj.ChangeChannelProperty "Lag", 2
+chanobj.ChangeChannelProperty "Modes", cmPublic + cmKnock + cmTopicop
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000100" TARGET="TEXT">enumChannelMode</A>, <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040500" TARGET="TEXT">OnChannelPropertyChanged</A> 
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201070300"></A><H3>ChangeMemberProperty Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Asynchronously changes a member property.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ChangeMemberProperty</B> <I>MemberPropertyName</I><B>,</B> <I>NewMemberProperty</I>[<B>,</B> <I>MemberNickname</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>MemberPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression. The <I>only</I> valid member property name value is "Modes".
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>NewMemberProperty</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A variant. This property must represent a valid member <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000404" TARGET="TEXT">Modes</A> value. A valid member modes value is a combination of these <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000800" TARGET="TEXT">enumMemberMode</A> values:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000802" TARGET="TEXT">mmClientIgnored</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">= &amp;H1. </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000803" TARGET="TEXT">mmNotClientIgnored</A>&nbsp;&nbsp;</FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">= &amp;H2.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200080a" TARGET="TEXT">mmOwner</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">= &amp;H100.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200080b" TARGET="TEXT">mmNotOwner</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">= &amp;H200.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200080c" TARGET="TEXT">mmHost</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">= &amp;H400.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200080d" TARGET="TEXT">mmNotHost</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">= &amp;H800.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200080e" TARGET="TEXT">mmVoice</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">= &amp;H1000.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200080f" TARGET="TEXT">mmNoVoice</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">= &amp;H2000.
+</FONT></TD></TR></TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>MemberNickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. If specified, it must be an empty variant or a valid channel member nickname. If omitted or empty, the nickname of the caller is used.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>A successful call results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040f00" TARGET="TEXT">OnMemberPropertyChanged</A> event.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. Change your own modes (giving up your host privileges in the channel):
+<PRE><FONT FACE="Courier" SIZE="2">chan1.ChangeMemberProperty "Modes", mmNotHost
+</FONT></PRE>
+<P>2. Change another user's member modes (turning a member into a host):
+<PRE><FONT FACE="Courier" SIZE="2">chan1.ChangeMemberProperty "Modes", mmHost, "JamesB"
+</FONT></PRE>
+<P>3. Ignore a member:
+<PRE><FONT FACE="Courier" SIZE="2">chan1.ChangeMemberProperty "Modes", mmClientIgnored, "AustinP"
+</FONT></PRE>
+<P><B>Note</B>  You cannot ignore a channel host or owner, or a server system operator or administrator.
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201070400"></A><H3>CreateChannel Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Creates a channel on IRCX servers only.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.CreateChannel</B> [<I>ChannelName</I>][<B>,</B> <I>ChannelKeyword</I>][<B>,</B> <I>ChannelModes</I>][<B>,</B> <I>MaxMemberCount</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object. 
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant. If specified, must be empty or contain a valid channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A>. If the parameter is empty or not specified, the current value of the <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060100" TARGET="TEXT">ChannelName</A> property is used instead.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelKeyword</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant. If specified, must be empty or a string. If the parameter is empty or not specified, the channel will be created with no <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020b" TARGET="TEXT">Keyword</A> set.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelModes</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant. If specified, must be empty or a number (integer or long) that is a valid channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000214" TARGET="TEXT">Modes</A> value. A valid <I>ChannelModes</I> parameter is a combination of some of the values from the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000100" TARGET="TEXT">enumChannelMode</A> enumeration. The valid components of a <I>ChannelModes</I> value are:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000102" TARGET="TEXT">cmPublic</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H0.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000103" TARGET="TEXT">cmPrivate</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H1.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000104" TARGET="TEXT">cmHidden</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H2.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000105" TARGET="TEXT">cmSecret</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H4.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000106" TARGET="TEXT">cmModerated</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H8.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000107" TARGET="TEXT">cmNoExtern</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H10.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000108" TARGET="TEXT">cmTopicop</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H20.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000109" TARGET="TEXT">cmInvite</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H40.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200010a" TARGET="TEXT">cmKnock</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H80.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200010b" TARGET="TEXT">cmNoWhisper</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H100.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200010d" TARGET="TEXT">cmService</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H400.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200010e" TARGET="TEXT">cmAuthOnly</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H800.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_050402020200010f" TARGET="TEXT">cmCloneable</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H1000.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000111" TARGET="TEXT">cmAuditorium</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H4000.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000112" TARGET="TEXT">cmNoFormat</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H8000.
+ </FONT></TD></TR><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000113" TARGET="TEXT">cmCreateOnly</A> </FONT></TD><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">&amp;H10000000.
+</FONT></TD></TR></TABLE>
+<P>The <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000103" TARGET="TEXT">cmPrivate</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000104" TARGET="TEXT">cmHidden</A>, and <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000105" TARGET="TEXT">cmSecret</A> values are mutually exclusive. If the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000113" TARGET="TEXT">cmCreateOnly</A> flag is set, the <B>CreateChannel</B> call will fail if the channel already exists. If this flag is not set, the caller will join the channel if it already exists.
+<P>If the <I>ChannelModes</I> parameter is empty or not specified, the channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000214" TARGET="TEXT">Modes</A> value will be defined by the server's default settings.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>MaxMemberCount</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant. If specified, the <I>MaxMemberCount</I> parameter must be empty or a number (integer or long) that is a valid maximum member count. If the parameter is empty or not specified, the maximum member count of the channel will be defined by the server's default settings. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The channel state must be <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000201" TARGET="TEXT">chsClosed</A> for the call to succeed, and the channel must belong to the collection for the call to be successful.
+<P>A successful <B>CreateChannel</B> calls results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040600" TARGET="TEXT">OnChannelState</A> event in which the channel state is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000202" TARGET="TEXT">chsOpening</A>, then an <B>OnChannelState</B> event is fired with the channel state <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000201" TARGET="TEXT">chsClosed</A>
+ or the following suite of events: 
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Event </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Parameters
+</B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040600" TARGET="TEXT">OnChannelState</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> (Channel, chsOpening)
+</FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040600" TARGET="TEXT">OnChannelState</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> (Channel, chsOpen)
+</FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040200" TARGET="TEXT">OnBeginEnumeration</A>&nbsp;&nbsp;&nbsp; </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> (Channel, etInitialMembers)
+</FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040100" TARGET="TEXT">OnAddMember</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> (Channel, Nickname, MemberItems)
+</FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040a00" TARGET="TEXT">OnEndEnumeration</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> (Channel, etInitialMembers)
+</FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040400" TARGET="TEXT">OnChannelProperty</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> (Channel, ChannelItems)
+</FONT></TD>
+</TR>
+</TABLE>
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. Specify all the parameters:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.Channels(1).CreateChannel "#MyRoom", "SecretPassword", cmTopicop +  cmCreateOnly, 20
+</FONT></PRE>
+<P>2. Omit the <I>ChannelKeyword</I> and <I>MaxMemberCount</I> parameters:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.Channels(1).CreateChannel "#MyRoom", , cmCreateOnly
+</FONT></PRE>
+<P>3. Use empty variants:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.Channels(1).CreateChannel "#MyRoom", Empty, 
+cmCreateOnly, Empty
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060100" TARGET="TEXT">ChannelName</A>, <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060300" TARGET="TEXT">ChannelState</A>, <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000100" TARGET="TEXT">enumChannelMode</A>, <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A>, <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040600" TARGET="TEXT">OnChannelState</A>
+</BLOCKQUOTE><P>
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

@@ -1,0 +1,67 @@
+------------------------------------------------------------------
+       Microsoft Chat SDK 2.0 Beta Samples Readme File
+                          October 1997            
+------------------------------------------------------------------
+
+             (c) Copyright Microsoft Corporation, 1997
+
+
+OVERVIEW OF THE CHAT SDK SAMPLES
+================================
+
+The Samples directory consists of the following subdirectories, which  
+contain samples demonstrating ways to use the ActiveX Controls. Each 
+subdirectory includes a text file with detailed information about the 
+sample and how to install or build it.
+
+ChatAd
+------
+This is a simple Visual Basic Application which provides monitoring 
+capability for administrators. This sample uses Microsoft Chat Control 1.1.
+
+Checkrs
+-------
+This is a Visual Basic Application which enables you to play Checkers 
+game with the people you are chatting with. This sample uses Microsoft Chat Control 1.1.
+
+Trnscrpt
+--------
+Trnscrpt contains a VB Application which provides a transcript of the chat 
+session. This sample uses Microsoft Chat Control 1.1.
+
+ExecChat
+--------
+ExecChat contains a VB application for hosting Executive Chat Sessions. 
+This application can be used in three modes: Host, Moderator and Special
+Guest. This sample uses Microsoft Chat Control 1.1.
+
+Webdemo
+-------
+Webdemo contains five web pages that demonstrate the usage of the Microsoft Chat 
+Control 1.1 with Visual Basic scripting.
+
+Chat2000
+--------
+Chat2000 is a sample application that demonstrates how to use the Chat OCX inside an 
+MDI MFC application.
+
+Chappy
+------
+Chappy is a sample application that demonstrates how to use Microsoft Chat Protocol 2.0
+in a MFC application.
+
+Nmstart
+-------
+Nmstart.htm is a web page that uses the Microsoft Chat Protocol 2.0 and also launches
+NetMeeting between two members of a chat room using our nmstart.ocx and this web page. 
+
+Prchckrs
+--------
+Prchckrs is a sample web page that uses the Microsoft Chat Protocol 2.0 and a Visual 
+Basic 5.0 control to send data between to chatters using the chat protocol and play
+a game of checkers.
+
+Procx
+-----
+Procx has sample web pages on how to use the Microsoft Chat Protocol 2.0 with Visual
+Basic Scripting. 

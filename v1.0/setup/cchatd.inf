@@ -1,0 +1,220 @@
+; CChatD.INF
+;
+; This is the Setup information file to install 
+; Microsoft Comic Chat, debug version.
+;
+; Copyright (c) 1993-1995 Microsoft Corporation
+;
+
+[Version]
+Signature="$CHICAGO$"
+Provider=%MSFT%
+AdvancedINF=2.0
+
+[DefaultInstall]
+CopyFiles      = ProductFiles, HelpFiles, InfFiles, AvatarFiles, BackdropFiles
+UpdateInis     = CChatInis
+AddReg         = CChatReg
+OptionDesc     = %CChatDesc%
+Tip            = %CChatTop%
+Parent         = AccessTop
+InstallType    = 10
+IconIndex      = 39  ;Windows Logo mini-icon for dialogs
+Uninstall      = CChatUninstall
+
+[CChatUninstall]
+DelFiles       = ProductFiles, HelpFiles, InfFiles, AvatarFiles, BackdropFiles
+UpdateInis	   = CChatDelInis
+DelReg         = CChatDelReg
+
+[DestinationDirs]
+ProductFiles   = 24,%OEM_PROGRAMF%\%CChatDir%
+HelpFiles	   = 18
+InfFiles	   = 17    
+AvatarFiles    = 24,%OEM_PROGRAMF%\%CChatDir%\ComicArt\Avatars
+BackdropFiles  = 24,%OEM_PROGRAMF%\%CChatDir%\ComicArt\Backdrop
+
+[ProductFiles]
+CHATD.EXE
+CHAT.PDB
+TITLES.TXT  	
+README.HTM   
+LICENSE.TXT 	
+	
+[HelpFiles]
+CCHAT.HLP
+CCHAT.CNT
+
+[InfFiles]
+CCHATD.INF
+
+[AvatarFiles]
+JORDAN.AVB
+HUGH.AVB
+MIKE.AVB
+SUSAN.AVB
+ARMANDO.AVB
+XENO.AVB
+TIKI.AVB
+LANCE.AVB
+DAN.AVB
+MARGARET.AVB
+TONGTYED.AVB
+ANNA.AVB
+FC_SHO_S.BMP	
+FC_ANG_S.BMP	
+FC_BOR_L.BMP	
+FC_BOR_S.BMP	
+FC_COY_L.BMP
+FC_COY_S.BMP	
+FC_DED_L.BMP	
+FC_HAP_L.BMP	
+FC_HAP_S.BMP	
+FC_HP2_S.BMP
+FC_LAF_L.BMP	
+FC_LAF_S.BMP	
+FC_NEU_L.BMP	
+FC_NEU_S.BMP	
+FC_SAD_L.BMP
+FC_SAD_S.BMP	
+FC_SCA_L.BMP	
+FC_SCA_S.BMP	
+FC_SHO_L.BMP	
+FC_ANG_L.BMP
+
+[BackdropFiles]
+ROOM8BS.BMP 
+FIELD.BMP
+PASTORAL.BMP
+
+[SourceDisksNames]
+1 = %DiskName%,CChat,0
+
+[SourceDisksFiles]
+CHATD.EXE		= 1
+CHAT.PDB		= 1
+TITLES.TXT  	= 1
+README.TXT  	= 1
+LICENSE.TXT 	= 1
+CCHAT.HLP		= 1
+CCHAT.CNT		= 1
+CCHATD.INF              = 1
+JORDAN.AVB		= 1
+HUGH.AVB		= 1
+MIKE.AVB		= 1
+SUSAN.AVB		= 1
+ARMANDO.AVB		= 1
+XENO.AVB		= 1
+TIKI.AVB		= 1
+LANCE.AVB		= 1
+DAN.AVB			= 1
+MARGARET.AVB	= 1
+TONGTYED.AVB	= 1
+ANNA.AVB		= 1
+FC_SHO_S.BMP	= 1
+FC_ANG_S.BMP	= 1
+FC_BOR_L.BMP	= 1
+FC_BOR_S.BMP	= 1
+FC_COY_L.BMP	= 1
+FC_COY_S.BMP	= 1
+FC_DED_L.BMP	= 1
+FC_HAP_L.BMP	= 1
+FC_HAP_S.BMP	= 1
+FC_HP2_S.BMP	= 1
+FC_LAF_L.BMP	= 1
+FC_LAF_S.BMP	= 1
+FC_NEU_L.BMP	= 1
+FC_NEU_S.BMP	= 1
+FC_SAD_L.BMP	= 1
+FC_SAD_S.BMP	= 1
+FC_SCA_L.BMP	= 1
+FC_SCA_S.BMP	= 1
+FC_SHO_L.BMP	= 1
+FC_ANG_L.BMP	= 1
+ROOM8BS.BMP		= 1
+FIELD.BMP		= 1
+PASTORAL.BMP	= 1
+
+[CChatInis]
+setup.ini, progman.groups,, "group100=%CChatGroup%"
+setup.ini, group100,, """%CChat_LINK%"", %24%\%PROGRAMF%\%CCHATDIR%\ChatD.EXE,,, CChat"
+
+[CChatDelInis]
+setup.ini, progman.groups,, "group100=%CChatGroup%"
+setup.ini, group100,, """%CChat_LINK%"""
+
+[CChatReg]
+HKCR,".ccr",,,"ccr_auto_file"
+HKCR,"ccr_auto_file",,,"Comic Chat Room"
+HKCR,"ccr_auto_file\shell",,,"open"
+HKCR,"ccr_auto_file\shell\open",,,""
+HKCR,"ccr_auto_file\shell\open","EditFlags",1,01,00,00,00
+HKCR,"ccr_auto_file\shell\open\command",,,"c:\%Program_Files%\cchat\chatd.exe \""%%1\"""
+HKCR,".ccc",,,"ccc_auto_file"
+HKCR,"ccc_auto_file",,,"Comic Chat Conversation"
+HKCR,"ccc_auto_file\shell",,,"open"
+HKCR,"ccc_auto_file\shell\open",,,""
+HKCR,"ccc_auto_file\shell\open","EditFlags",1,01,00,00,00
+HKCR,"ccc_auto_file\shell\open\command",,,"c:\%Program_Files%\cchat\chatd.exe \""%%1\"""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}",,,"Comic Chat Room"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Verb",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Verb\0",,,"&Edit,0,2"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Verb\1",,,"&Open,0,2"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Insertable",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType\2",,,"Room"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType\3",,,"chat"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\MiscStatus",,,"32"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\ProgID",,,"ComicChat.Room.1"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\InprocHandler32",,,"ole32.dll"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\LocalServer32",,,"c:\%Program_Files%\cchat\chatd.exe"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DefaultIcon",,,"c:\%Program_Files%\cchat\chatd.exe,1"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DocObject",,,"0"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Printable",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DefaultExtension",,,".ccr,Comic Chat Room (*.ccr)"
+HKCR,"ComicChat.Room.1",,,"Comic Chat Room"
+HKCR,"ComicChat.Room.1\Insertable",,,""
+HKCR,"ComicChat.Room.1\protocol",,,""
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing",,,""
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing\verb",,,""
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing\verb\0",,,"&Edit"
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing\server",,,"c:\%Program_Files%\cchat\chatd.exe"
+HKCR,"ComicChat.Room.1\CLSID",,,"{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}"
+HKCR,"ComicChat.Room.1\DocObject",,,"0"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RenameFiles\AppFilesRoot,,,%24%
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RenameFiles\AppFilesRoot,%OLD_PROGRAMF%,,"%Old_Program_Files%" ; review - leave in for M8
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RenameFiles\AppFilesRoot,%PROGRAMF%,,!$!$!$!$.$!$
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RenameFiles\AppFilesRoot,!$!$!$!$.$!$,,"%Program_Files%,1"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RenameFiles\AppFiles,,,"%24%\%PROGRAMF%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RenameFiles\AppFiles,%ACCESSOR%,,!$!$!$!$.$!$
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RenameFiles\AppFiles,!$!$!$!$.$!$,,"%Accessories%,1"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat,"DisplayName",,"%CChatName%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat,"UninstallString",,"RunDll setupx.dll,InstallHinfSection CChatUninstall 4 cchatd.inf"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Chatd.EXE",,,"%24%\%PROGRAMF%\CChat\Chatd.EXE"
+
+[CChatDelReg]
+HKCR,.ccr
+HKCR,ccr_auto_file
+HKCR,.ccc
+HKCR,ccc_auto_file
+HKCR,clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat
+HKCR,ComicChat.Room.1
+HKCU,SOFTWARE\Microsoft\%CChatName%
+
+[Strings]
+CChatGroup			= "Microsoft Comic Chat"
+CChatName			= "Microsoft Comic Chat"
+CChatDir			= "CChat"
+CChat_LINK			= "Microsoft Comic Chat"
+CChatDesc			= "CChat"
+CChatTop			= "Microsoft Comic Chat"
+Program_Files		= "Program Files"
+Old_Program_Files	= "Old Program Files" 
+OLD_PROGRAMF		= "Programf"          
+PROGRAMF			= "Progra~1"          
+OEM_PROGRAMF		= "Progra~1"          
+Accessories			= "CChat"
+ACCESSOR			= "CChat"          
+DiskName			= "Microsoft Comic Chat Installation Disk"
+

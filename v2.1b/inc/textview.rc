@@ -1,0 +1,54 @@
+/////////////////////////////////////////////////////////////////////////////
+// TextView.Rc
+/////////////////////////////////////////////////////////////////////////////
+// Copyright 1995-1996  Microsoft Corporation.  All Rights Reserved.
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF 
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A 
+// PARTICULAR PURPOSE.
+/////////////////////////////////////////////////////////////////////////////
+//
+// contains the resources for our DLL, including the TypeLib, error strings,
+// and versioning information.
+//
+
+#include "TVRes.H"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursors that are not localized
+//
+IDC_CURSORHAND			CURSOR DISCARDABLE "Hand.Cur"
+
+STRINGTABLE DISCARDABLE
+BEGIN
+	IDS_NORMAL_HEADER,				"%1%2 says:"
+	IDS_WHISPER_HEADER,				"%1%2 whispers to %3:"
+	IDS_THOUGHT_HEADER,				"%1%2 thinks:"
+	IDS_BROADCAST_HEADER,			"%1%2 broadcasts:"
+	IDS_ACTION_HEADER,				"%1%2"
+	IDS_PRIVATE_HEADER,				"%1%2 sends private message:"
+	IDS_REPLY_HEADER,				"%1%2 replies to private message:"
+	
+	IDS_JOIN_CHATROOM_ACTION,		"%1%2 has joined the conversation."
+	IDS_LEAVE_CHATROOM_ACTION,		"%1%2 has left the conversation."
+
+	IDS_GETINFO_INFO,				"%1%2%3"
+	IDS_STATUSCHANGED_INFO,			"%1 has been made a %2."
+	IDS_ALIASCHANGED_INFO,			"%1 is now known as %2."
+	IDS_TOPICCHANGED_INFO,			"The topic of the chat is now '%1'."
+	IDS_KICKED_INFO,				"The host %1 kicked %2 (%3)."
+	IDS_REALNAME_INFO,				"The real name of %1 is %2."
+
+	IDS_NOKICKREASON_INFO,			"No reason specified"
+
+	IDS_HOSTSTATUS_INFO,			"host"
+	IDS_PARTSTATUS_INFO,			"participant"
+	IDS_SPECSTATUS_INFO,			"spectator"
+
+	IDS_HOST_HEADER,				"Host "
+	IDS_PART_HEADER,				""
+	IDS_SPEC_HEADER,				""
+	IDS_ROOM_HEADER,				"Room "
+END

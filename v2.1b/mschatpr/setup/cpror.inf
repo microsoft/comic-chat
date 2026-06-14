@@ -1,0 +1,12 @@
+; Sample INF file for MsChatPr.Ocx download 
+
+[Add.Code]
+MsChatPr.ocx=MsChatPr.ocx
+
+; Download of the OCX itself
+[MsChatPr.ocx]
+file-win32-x86=thiscab
+clsid={039397C0-46DF-11D0-99CB-00C04FD64497}
+FileVersion=---VERSIONNUM---
+RegisterServer=yes
+DestDir=11

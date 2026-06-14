@@ -1,0 +1,175 @@
+<html>
+
+<body bgcolor=c0c0c0>
+
+<head>Test Pages</head>
+<br>
+<a href=script.html>Scripting Test Page with no Toolbar </a>
+<br>
+<a href=normal.html>Normal Test Page </a>
+<br>
+<a href=observer.html>Observer Test Page </a>
+<br>
+<a href=pink.html>Pink page with italic/bold Font.</a>
+<br>
+
+Optional Parameters
+<table border=true>
+<tr>
+<td><b>Name</b></td>
+<td><b>Values</b></td>
+<td><b>Default</b></td>
+<td><b>Information</b></td>
+</tr>
+<tr>
+<td>port</td>
+<td>number</td>
+<td>6667</td>
+<td>the port the chat server is running on, usually 6667</td>
+</tr>
+<tr>
+<td>nickname</td>
+<td>userNickname</td>
+<td>"Anonymous"</td>
+<td>the default name, used for autoconnect</td>
+</tr>
+<tr>
+<td>room</td>
+<td>roomname</td>
+<td>-</td>
+<td>the default room to join</td>
+</tr>
+<tr>
+<td>toolbar</td>
+<td>true | false</td>
+<td>true</td>
+<td>whether or not the toolbar should be visible</td>
+</tr>
+<tr>
+<td>memberlist</td>
+<td>true | false</td>
+<td>true</td>
+<td>whether or not the memberlist should be visible</td>
+</tr>
+<tr>
+<td>observer</td>
+<td>true | false</td>
+<td>false</td>
+<td>if true, the user can not participate in conversation</td>
+</tr>
+<tr>
+<td>banner</td>
+<td>imagename</td>
+<td>-</td>
+<td>specifies a welcome image that should be displayed when the applet loads</td>
+</tr>
+<tr>
+<td>autoconnect</td>
+<td>true | false</td>
+<td>false</td>
+<td>if true, and room and nickname are specified, applet will automatically connect when loaded</td>
+</tr>
+<tr>
+<td>autodisconnect</td>
+<td>true | false</td>
+<td>false</td>
+<td>if true, the applet will automatically disconnect when the page is left</td>
+</tr>
+<tr>
+<td>motd</td>
+<td>true | false</td>
+<td>true</td>
+<td>if true, the applet will display the Message of the Day after connecting</td>
+</tr>
+<tr>
+<td>stats</td>
+<td>true | false</td>
+<td>true</td>
+<td>if true, the applet will display Server stats after connecting</td>
+</tr>
+<tr>
+<td>id</td>
+<td>uniqueString</td>
+<td>"null"</td>
+<td>unique ids must be supplied if multiple chat applets will be on the same page.</td>
+</tr>
+<tr>
+<td>font</td>
+<td>fontname,style,size</td>
+<td>Helvetica,0,11</td>
+<td>Helvetica | Dialog | TimesRoman | Courier, 0(plain),1(bold),2(italic),3(bold+italic),8-20</td>
+</tr>
+<tr>
+<td>bgcolor</td>
+<td>ffffff</td>
+<td>c0c0c0</td>
+<td>specify the color using hex notation just like in html body tag</td>
+</tr>
+</table>
+
+Public applet methods (can be called by scripts)
+<table border=true>
+<tr>
+<td><b>Returns</b></td>
+<td><b>Method</b></td>
+<td><b>Information</b></td>
+</tr>
+<tr>
+<td>void</td>
+<td>connect(String nickname)</td>
+<td>connects to the server with the specified nickname, if a room parameter is not specified, user will be shown a room list</td>
+</tr>
+<tr>
+<td>void</td>
+<td>connect(String nickname, String room)</td>
+<td>same as above, but user joins specified room, overrides room parameter (if present)</td>
+</tr>
+<tr>
+<td>void</td>
+<td>disconnect()</td>
+<td>user exits room if in one, and closes connecting to server.</td>
+</tr>
+<tr>
+<td>String</td>
+<td>getNick()</td>
+<td>returns the users nickname, or null if user hasn't logged on yet.</td>
+</tr>
+<tr>
+<td>String</td>
+<td>getRoom()</td>
+<td>returns the room the user is in, or null if not in a room.</td>
+</tr>
+<tr>
+<td>void</td>
+<td>join(String room, String password)</td>
+<td>leaves current room if any, and joins specified room. Password ignored if null or ""</td>
+</tr>
+<tr>
+<td>void</td>
+<td>showRoomList()</td>
+<td>Displays the room list window.</td>
+</tr>
+<tr>
+<td>void</td>
+<td>showEnterRoomDialog()</td>
+<td>displays the enter room dialog box.</td>
+</tr>
+<tr>
+<td>void</td>
+<td>showFontDialog()</td>
+<td>displays the change font dialog.</td>
+</tr>
+<tr>
+<td>void</td>
+<td>showConnectDialog()</td>
+<td>shows the dialog which prompts user to connect to server.</td>
+</tr>
+<tr>
+<td>void</td>
+<td>showAboutDialog()</td>
+<td>displays the about Microsoft Chat dialog.</td>
+</tr>
+</table>
+
+
+</html>

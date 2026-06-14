@@ -1,0 +1,163 @@
+//=--------------------------------------------------------------------------=
+// PrErr.H
+//=--------------------------------------------------------------------------=
+// Copyright  1996  Microsoft Corporation.  All Rights Reserved.
+//=--------------------------------------------------------------------------=
+//
+// Declaration of the scodes used in the MsChatPr ActiveX control
+//
+#ifndef __PRERR_H__
+
+const SCODE CPR_E_FAILURE					= CUSTOM_CTL_SCODE(3000);
+const SCODE CPR_E_INVALIDARG				= CUSTOM_CTL_SCODE(3001);
+
+//
+// Connection errors
+//
+const SCODE CPR_E_ALREADYCONNECTING			= CUSTOM_CTL_SCODE(3020);
+const SCODE CPR_E_ALREADYCONNECTED			= CUSTOM_CTL_SCODE(3021);
+const SCODE CPR_E_ALREADYDISCONNECTING		= CUSTOM_CTL_SCODE(3022);
+const SCODE CPR_E_NOOPINPROGRESS			= CUSTOM_CTL_SCODE(3023);
+const SCODE CPR_E_DISCONNECTFIRST			= CUSTOM_CTL_SCODE(3024);
+const SCODE CPR_E_NOTCONNECTED				= CUSTOM_CTL_SCODE(3025);	// online operation attempted on an off-line socket
+const SCODE CPR_E_HOSTNOTFOUND				= CUSTOM_CTL_SCODE(3026);	// server not found by DNS
+const SCODE CPR_E_SOCKETCREATE				= CUSTOM_CTL_SCODE(3027);	// WinSock failure
+const SCODE CPR_E_CANTCONNECT				= CUSTOM_CTL_SCODE(3028);	// can't connect..server down?
+const SCODE CPR_E_SOCKETERROR				= CUSTOM_CTL_SCODE(3029);	// generic WinSock error
+const SCODE CPR_E_LOSTCONNECTION			= CUSTOM_CTL_SCODE(3030);	// connection lost
+const SCODE CPR_E_SOCKETCLOSED				= CUSTOM_CTL_SCODE(3031);	// somebody closed the socket
+const SCODE CPR_E_NETWORKDOWN				= CUSTOM_CTL_SCODE(3032);	
+const SCODE CPR_E_HOSTDROPPEDCONNECTION		= CUSTOM_CTL_SCODE(3033);	// the host server dropped your connection
+
+//
+// Login errors
+//
+const SCODE CPR_E_ALREADYLOGGING			= CUSTOM_CTL_SCODE(3040);
+const SCODE CPR_E_ALREADYLOGGED				= CUSTOM_CTL_SCODE(3041);
+const SCODE CPR_E_NOTLOGGED					= CUSTOM_CTL_SCODE(3042);
+const SCODE CPR_E_ALREADYREGISTERED			= CUSTOM_CTL_SCODE(3043);
+const SCODE CPR_E_NOTREGISTERED				= CUSTOM_CTL_SCODE(3044);
+const SCODE CPR_E_BADSECUPACK				= CUSTOM_CTL_SCODE(3045);
+const SCODE CPR_E_LOGINFAILED				= CUSTOM_CTL_SCODE(3046);
+const SCODE CPR_E_AUTHFAILED				= CUSTOM_CTL_SCODE(3047);
+const SCODE CPR_E_AUTHNOTAVAIL				= CUSTOM_CTL_SCODE(3048);	// SSPI authentication wasn't available.
+const SCODE CPR_E_AUTHENTICATEDONLY			= CUSTOM_CTL_SCODE(3049);	// This server only allows authenticated logins
+
+//
+// Channel Errors
+//
+const SCODE CPR_E_ALREADYOPEN				= CUSTOM_CTL_SCODE(3060);
+const SCODE CPR_E_ALREADYOPENING			= CUSTOM_CTL_SCODE(3061);
+const SCODE CPR_E_NOTOPEN					= CUSTOM_CTL_SCODE(3062);
+const SCODE CPR_E_NOTCLOSED					= CUSTOM_CTL_SCODE(3063);
+const SCODE CPR_E_OPENNOTUNIQUE				= CUSTOM_CTL_SCODE(3064);
+const SCODE CPR_E_CHANNELBADNAME			= CUSTOM_CTL_SCODE(3065);
+const SCODE CPR_E_CHANNELBADTOPIC			= CUSTOM_CTL_SCODE(3066);
+const SCODE CPR_E_CHANNELBADKEY				= CUSTOM_CTL_SCODE(3067);	// bad password on the channel
+const SCODE CPR_E_CHANNELBADHOSTKEY			= CUSTOM_CTL_SCODE(3068);
+const SCODE CPR_E_CHANNELBADOWNERKEY		= CUSTOM_CTL_SCODE(3069);
+const SCODE CPR_E_CHANNELBADMODES			= CUSTOM_CTL_SCODE(3070);
+const SCODE CPR_E_BADMAXMEMBERCOUNT			= CUSTOM_CTL_SCODE(3071);
+const SCODE CPR_E_CHANNELFULL				= CUSTOM_CTL_SCODE(3072);	// room is full
+const SCODE CPR_E_TOOMANYCHANNELS			= CUSTOM_CTL_SCODE(3073);	// server has a limit on # of channels
+const SCODE CPR_E_NOTONCHANNEL				= CUSTOM_CTL_SCODE(3074);
+const SCODE CPR_E_ALREADYONCHANNEL			= CUSTOM_CTL_SCODE(3075);	// you are joining a channel you are already on
+const SCODE CPR_E_NOSUCHCHANNEL				= CUSTOM_CTL_SCODE(3076);	// channel does not exist
+																		// a user can be in at at time
+const SCODE CPR_E_INVITEONLYCHANNEL			= CUSTOM_CTL_SCODE(3077);	// you were not invited to this channel
+const SCODE CPR_E_CHANNELKEYALREADYSET		= CUSTOM_CTL_SCODE(3078);
+
+//
+// Property Errors
+// 
+const SCODE CPR_E_BADPROPERTY				= CUSTOM_CTL_SCODE(3080);
+const SCODE CPR_E_BADVALUE					= CUSTOM_CTL_SCODE(3081);
+const SCODE	CPR_E_PROPNOTREADABLE			= CUSTOM_CTL_SCODE(3082);
+const SCODE CPR_E_PROPREADONLY				= CUSTOM_CTL_SCODE(3083);
+const SCODE	CPR_E_PROPNOTWRITEABLE			= CUSTOM_CTL_SCODE(3084);
+
+//
+// Member Errors
+// 
+const SCODE CPR_E_NOSUCHMEMBER				= CUSTOM_CTL_SCODE(3090);
+const SCODE CPR_E_MEMBERBADMODES			= CUSTOM_CTL_SCODE(3091);
+
+//
+// User Errors
+//
+const SCODE CPR_E_BADNICKNAME				= CUSTOM_CTL_SCODE(3100);	// bad nick name - illegal chars
+const SCODE CPR_E_BADUSERNAME				= CUSTOM_CTL_SCODE(3101);
+const SCODE CPR_E_BADREALNAME				= CUSTOM_CTL_SCODE(3102);
+const SCODE CPR_E_BADPASSWORD				= CUSTOM_CTL_SCODE(3103);
+const SCODE CPR_E_NICKNAMEINUSE				= CUSTOM_CTL_SCODE(3104);	// somebody else is already using this alias
+const SCODE CPR_E_NICKCOLLISION				= CUSTOM_CTL_SCODE(3105);
+const SCODE CPR_E_NOSUCHNICK				= CUSTOM_CTL_SCODE(3106);
+const SCODE CPR_E_USERBADMODES				= CUSTOM_CTL_SCODE(3107);
+const SCODE CPR_E_NICKTOOFAST				= CUSTOM_CTL_SCODE(3108);
+const SCODE CPR_E_NICKNOCHANGE				= CUSTOM_CTL_SCODE(3109);
+
+//
+// Sending
+//
+const SCODE CPR_E_TOOMUCHDATA				= CUSTOM_CTL_SCODE(3110);	// data size exceeds max buffer bounds
+const SCODE CPR_E_CANTSEND					= CUSTOM_CTL_SCODE(3111);	// trouble sending buffer.could be client or server
+const SCODE CPR_E_INVALIDRECIPIENTLIST		= CUSTOM_CTL_SCODE(3112);	// 
+const SCODE CPR_E_BADREASON					= CUSTOM_CTL_SCODE(3113);
+const SCODE CPR_E_INVALIDAWAYMESSAGE		= CUSTOM_CTL_SCODE(3114);
+const SCODE CPR_E_NULLMSG					= CUSTOM_CTL_SCODE(3115);
+const SCODE CPR_E_BADMSGTYPE				= CUSTOM_CTL_SCODE(3116);
+const SCODE CPR_E_NOWHISPER					= CUSTOM_CTL_SCODE(3117);
+const SCODE CPR_E_BADTAG					= CUSTOM_CTL_SCODE(3118);
+
+//
+// Protocol Errors
+//
+const SCODE CPR_E_SERVER					= CUSTOM_CTL_SCODE(3130);	// general server error
+const SCODE CPR_E_NOTIRCX					= CUSTOM_CTL_SCODE(3131);	// NOT an IRCX function OR if a IRCX operation
+const SCODE CPR_E_PROPMODE					= CUSTOM_CTL_SCODE(3132);
+const SCODE CPR_E_NOMOTD					= CUSTOM_CTL_SCODE(3133);
+const SCODE CPR_E_UNKNOWNCOMMAND			= CUSTOM_CTL_SCODE(3134);
+
+//
+// Access Rights errors
+//
+const SCODE CPR_E_NOTSYSOP					= CUSTOM_CTL_SCODE(3140);
+const SCODE CPR_E_NOTOWNER					= CUSTOM_CTL_SCODE(3141);	// you need owner privileges for this operation
+const SCODE CPR_E_NOTHOST					= CUSTOM_CTL_SCODE(3142);	// you need host privileges for this operation
+const SCODE CPR_E_RATINGBLOCK				= CUSTOM_CTL_SCODE(3143);
+const SCODE CPR_E_BANNEDFROMCHANNEL			= CUSTOM_CTL_SCODE(3144);	// you are banned from this channel
+const SCODE CPR_E_BANNEDFROMSERVER			= CUSTOM_CTL_SCODE(3145);	// you are banned from this server
+const SCODE CPR_E_WILLBEBANNED				= CUSTOM_CTL_SCODE(3146);	// you will be banned
+const SCODE CPR_E_CANTIGNORE				= CUSTOM_CTL_SCODE(3147);	// you can't ignore a sysop or admin
+const SCODE CPR_E_NOJOINMICONLY				= CUSTOM_CTL_SCODE(3148);
+const SCODE CPR_E_NOJOINREMOTE				= CUSTOM_CTL_SCODE(3149);
+const SCODE CPR_E_NOJOINDYNAMIC				= CUSTOM_CTL_SCODE(3150);
+const SCODE CPR_E_NODYNAMICCHANNELS			= CUSTOM_CTL_SCODE(3151);
+const SCODE CPR_E_AUTHONLY					= CUSTOM_CTL_SCODE(3152);
+const SCODE CPR_E_OVERFLOWABORT				= CUSTOM_CTL_SCODE(3153);
+const SCODE CPR_E_CANTCHANGEUSERMODE		= CUSTOM_CTL_SCODE(3154);
+
+//
+// ChatItems related errors
+//
+const SCODE CPR_E_ITEMNOTAVAILABLE			= CUSTOM_CTL_SCODE(3160);
+const SCODE CPR_E_ITEMNAMENA				= CUSTOM_CTL_SCODE(3161);
+const SCODE CPR_E_INVALIDASSOCIATEDTYPE		= CUSTOM_CTL_SCODE(3162);
+const SCODE CPR_E_INVALIDITEMNAME			= CUSTOM_CTL_SCODE(3163);
+const SCODE CPR_E_INVALIDITEMVALUE			= CUSTOM_CTL_SCODE(3164);
+const SCODE CPR_E_NOTOPERATOR				= CUSTOM_CTL_SCODE(3165);	// not a valid operator
+const SCODE CPR_E_TIMEOUT					= CUSTOM_CTL_SCODE(3166);	// generic timeout
+
+//
+// Channel Collection Errors
+//
+const SCODE CPR_E_CHANOBJ_BADINDEX			= CUSTOM_CTL_SCODE(3170);
+const SCODE CPR_E_CHANOBJ_INDEXOOB			= CUSTOM_CTL_SCODE(3171);
+const SCODE CPR_E_CHANOBJ_DELETED			= CUSTOM_CTL_SCODE(3172);
+const SCODE CPR_E_CHANOBJ_BADKEY			= CUSTOM_CTL_SCODE(3173);
+const SCODE CPR_E_CHANOBJ_KEYNOTUNIQUE		= CUSTOM_CTL_SCODE(3174);
+
+//=======================================================================================================
+
+#define __PRERR_H__
+#endif // __PRERR_H__

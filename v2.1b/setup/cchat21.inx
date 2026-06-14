@@ -1,0 +1,394 @@
+; CChat21.INF
+;
+; This is the Setup information file to install Microsoft Chat 2.1
+;
+; Copyright (c) 1993-1997 Microsoft Corporation
+;
+
+#include "..\..\h\chatver.h"
+; Version VER_PRODUCTVERSION
+
+[Version]
+Signature="$CHICAGO$"
+Provider=%MSFT%
+AdvancedINF=2.5, "You need a newer version of Advpack.dll."
+
+[DefaultInstall]
+CopyFiles      = ProductFiles, HelpFiles, NfFiles, ArtFiles
+UpdateInis     = CChatDelOldInis, CChatInis
+AddReg         = CChatReg
+OptionDesc     = %CChatDesc%
+Tip            = %CChatTop%
+Parent         = AccessTop
+InstallType    = 10
+IconIndex      = 39  ;Windows Logo mini-icon for dialogs
+Uninstall      = CChatUninstall
+CustomDestination = MyCustomDestination
+DelFiles       = OldInfFiles
+DelReg         = CChatDelOldReg
+PerUserInstall = MSChat.Stub.Add
+
+[DefaultInstall.NT]
+CopyFiles      = ProductFiles, HelpFiles, NfFiles, ArtFiles
+UpdateInis     = CChatDelOldInis,CChatInis.NT
+AddReg         = CChatReg
+OptionDesc     = %CChatDesc%
+Tip            = %CChatTop%
+Parent         = AccessTop
+InstallType    = 10
+IconIndex      = 39  ;Windows Logo mini-icon for dialogs
+Uninstall      = CChatUninstall
+CustomDestination = MyCustomDestination
+DelFiles       = OldInfFiles
+DelReg         = CChatDelOldReg
+PerUserInstall = MSChat.Stub.Add.NT
+
+[CChatUninstall]
+SmartReboot    = I
+DelFiles       = ProductFilesRemove, HelpFilesRemove, ArtFilesRemove
+UpdateInis     = CChatDelInis
+DelReg         = CChatDelReg
+CustomDestination = MyCustomDestinationUninstall
+BeginPrompt    = Remove.BeginPrompt
+EndPrompt      = Remove.EndPrompt
+DelDirs        = AppDelDir
+PerUserInstall = MSChat.Stub.Remove
+
+[MSChat.Stub.Add]
+DisplayName=%CChatDesc%
+ComponentID=comicchat
+GUID=%ActSetup_GUID%
+Version=VER_PRODUCTVERSION
+Locale=%LOCALE_ID%
+IsInstalled=1
+StubPath=rundll32.exe advpack.dll,LaunchINFSection %17%\%nfName%,PerUserAdd
+
+[MSChat.Stub.Add.NT]
+DisplayName=%CChatDesc%
+ComponentID=comicchat
+GUID=%ActSetup_GUID%
+Version=VER_PRODUCTVERSION
+Locale=%LOCALE_ID%
+IsInstalled=1
+StubPath=rundll32.exe advpack.dll,LaunchINFSection %17%\%nfName%,PerUserAdd.NT
+
+[MSChat.Stub.Remove]
+DisplayName=%CChatDesc%
+ComponentID=comicchat
+GUID=%ActSetup_GUID%
+Version=VER_PRODUCTVERSION
+Locale=%LOCALE_ID%
+IsInstalled=0
+StubPath=rundll32.exe advpack.dll,LaunchINFSection %17%\%nfName%,PerUserRemove
+
+[PerUserAdd]
+UpdateInis = CChatDelOldInis, CChatInis
+CustomDestination = MyCustomDestination.PerUser
+
+[PerUserAdd.NT]
+UpdateInis = CChatDelOldInis, CChatInis.NT
+CustomDestination = MyCustomDestination.PerUser
+
+[PerUserRemove]
+UpdateInis     = CChatDelInis
+CustomDestination = MyCustomDestinationUninstall
+DelReg = CChatDelReg.PerUser
+
+[MyCustomDestination]
+49000,49005=DestA,5
+49010,49015,49016=DestB,1
+
+[MyCustomDestination.PerUser]
+49000,49005=DestA,5
+49010,49015,49016=DestB,5
+
+[MyCustomDestinationUninstall]
+49000,49005=DestA,5
+49010,49015=DestB,5
+
+[DestA]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion,ProgramFilesDir,'%PromptA%','%24%\%Program_Files%'
+
+[DestB]
+HKLM,SOFTWARE\Microsoft\%CChatName%,BaseDir,'%PromptB%','%49005%\%CChatDir%'
+
+[DestinationDirs]
+ProductFiles       = 49010
+ProductFilesRemove = 49010
+HelpFiles          = 18
+HelpFilesRemove    = 18
+ArtFiles           = 49010,%ArtDir%
+ArtFilesRemove     = 49010,%ArtDir%
+NfFiles            = 17
+OldInfFiles        = 17
+
+[OldInfFiles]
+CChat11.INF,,,1
+// CChat2.INF,,,1   We don't want to remove the Win98 Setup entry so that users can reinstall MsChat20 in the future
+
+[AppDelDir]
+%49010%\%ArtDir%
+%49010%
+
+[ProductFiles]
+CChat.exe,,,4
+README.TXT,,,33
+LICENSE.TXT,,,33
+SUPPORT.TXT,,,33
+
+[ProductFilesRemove]
+CChat.exe,,,1
+README.TXT,,,1
+LICENSE.TXT,,,1
+SUPPORT.TXT,,,1
+
+[HelpFiles]
+CCHAT.HLP,,,33
+CCHAT.CNT,,,33
+
+[HelpFilesRemove]
+CCHAT.HLP,,,1
+CCHAT.CNT,,,1
+
+[ArtFiles]
+ANNA.AVB,,,33
+ARMANDO.AVB,,,33
+DAN.AVB,,,33
+HUGH.AVB,,,33
+JORDAN.AVB,,,33
+LANCE.AVB,,,33
+MARGARET.AVB,,,33
+MIKE.AVB,,,33
+SUSAN.AVB,,,33
+TIKI.AVB,,,33
+TONGTYED.AVB,,,33
+XENO.AVB,,,33
+
+FIELD.BMP,,,33
+PASTORAL.BMP,,,33
+ROOM.BMP,,,33
+
+[ArtFilesRemove]
+ANNA.AVB,,,1
+ARMANDO.AVB,,,1
+DAN.AVB,,,1
+HUGH.AVB,,,1
+JORDAN.AVB,,,1
+LANCE.AVB,,,1
+MARGARET.AVB,,,1
+MIKE.AVB,,,1
+SUSAN.AVB,,,1
+TIKI.AVB,,,1
+TONGTYED.AVB,,,1
+XENO.AVB,,,1
+
+FIELD.BMP,,,1
+PASTORAL.BMP,,,1
+ROOM.BMP,,,1
+
+[NfFiles]
+CChat21.INF,,,33
+
+[SourceDisksNames]
+1 = %DiskName%,MsChat21.CAB,0
+
+[SourceDisksFiles]
+CChat21.INF=1
+
+CChat.exe=1
+README.TXT=1
+LICENSE.TXT=1
+SUPPORT.TXT=1
+
+CCHAT.HLP=1
+CCHAT.CNT=1
+
+FIELD.BMP=1
+PASTORAL.BMP=1
+ROOM.BMP=1
+
+ANNA.AVB=1
+ARMANDO.AVB=1
+DAN.AVB=1
+JORDAN.AVB=1
+HUGH.AVB=1
+LANCE.AVB=1
+MARGARET.AVB=1
+MIKE.AVB=1
+SUSAN.AVB=1
+TIKI.AVB=1
+TONGTYED.AVB=1
+XENO.AVB=1
+
+[CChatInis]
+; Add the Microsoft Chat entries to the Start.Programs folder(s)
+
+; Add to Start.Programs.Internet Explorer
+setup.ini, progman.groups,, "groupies="%PGMGRP_IESUITE%""
+setup.ini, groupies,, """%CChat_LINK%"", ""%49016%\%CChatExe%"""
+
+; Add to Start.Programs
+setup.ini, progman.groups,, "CChat="
+setup.ini, CChat,, """%CChat_LINK%"", ""%49016%\%CChatExe%"""
+
+
+[CChatInis.NT]
+; Add the Microsoft Chat entries to the Start.Programs folder(s)
+
+; Add to Start.Programs.Internet Explorer
+setup.ini, progman.groups,, "groupies="%PGMGRP_IESUITE%""
+setup.ini, groupies,, """%CChat_LINK%"", """"""%49016%\%CChatExe%"""""""
+
+; Add to Start.Programs
+setup.ini, progman.groups,, "CChat="
+setup.ini, CChat,, """%CChat_LINK%"", """"""%49016%\%CChatExe%"""""""
+
+
+[CChatDelInis]
+; Remove the Microsoft Chat entries from the Start.Programs folder(s)
+
+; Remove from Start.Programs.Internet Explorer
+setup.ini, progman.groups,, "groupies="%PGMGRP_IESUITE%""
+setup.ini, groupies,, """%CChat_LINK%"""
+
+; Remove from Start.Programs
+setup.ini, progman.groups,, "CChat="
+setup.ini, CChat,, """%CChat_LINK%"""
+
+
+[CChatDelOldInis]
+setup.ini, progman.groups,, "CChat="
+setup.ini, CChat,, """Microsoft Comic Chat"""
+
+
+[CChatReg]
+HKCR,.ccr,,,ComicChatRoomShortcut
+HKCR,ComicChatRoomShortcut,,,%CChat_short%
+HKCR,ComicChatRoomShortcut,"IsShortcut",,""
+HKCR,ComicChatRoomShortcut,"EditFlags",1,00,00,01,00
+HKCR,ComicChatRoomShortcut\DefaultIcon,,,"%49015%\%CChatExe%,1"
+HKCR,ComicChatRoomShortcut\shell,,,"open"
+HKCR,ComicChatRoomShortcut\shell\open,,,""
+//HKCR,ComicChatRoomShortcut\shell\open,"EditFlags",1,01,00,00,00
+HKCR,ComicChatRoomShortcut\shell\open\command,,,"%49015%\%CChatExe% \""%%1\"""
+
+HKCR,.ccc,,,ComicChatTranscript
+HKCR,ComicChatTranscript,,,%CChat_conv%
+HKCR,ComicChatTranscript,"EditFlags",1,00,00,01,00
+HKCR,ComicChatTranscript\DefaultIcon,,,"%49015%\%CChatExe%,0"
+HKCR,ComicChatTranscript\shell,,,"open"
+HKCR,ComicChatTranscript\shell\open,,,""
+//HKCR,ComicChatTranscript\shell\open,"EditFlags",1,01,00,00,00
+HKCR,ComicChatTranscript\shell\open\command,,,"%49015%\%CChatExe% \""%%1\"""
+
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}",,,"Comic Chat Room"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Verb",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Verb\0",,,"&Edit,0,2"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Verb\1",,,"&Open,0,2"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Insertable",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType\2",,,"Room"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\AuxUserType\3",,,"chat"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\MiscStatus",,,"32"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\ProgID",,,"ComicChat.Room.1"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\InprocHandler32",,,"ole32.dll"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\LocalServer32",,,"%49015%\%CChatExe%"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DefaultIcon",,,"%49015%\%CChatExe%,1"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DocObject",,,"0"
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\Printable",,,""
+HKCR,"clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}\DefaultExtension",,,".ccr,Comic Chat Room (*.ccr)"
+
+HKCR,"ComicChat.Room.1",,,"Comic Chat Room"
+HKCR,"ComicChat.Room.1\Insertable",,,""
+HKCR,"ComicChat.Room.1","EditFlags",1,00,00,01,00
+HKCR,"ComicChat.Room.1\protocol",,,""
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing",,,""
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing\verb",,,""
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing\verb\0",,,"&Edit"
+HKCR,"ComicChat.Room.1\protocol\StdFileEditing\server",,,"%49015%\%CChatExe%"
+HKCR,"ComicChat.Room.1\CLSID",,,"{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}"
+HKCR,"ComicChat.Room.1\DocObject",,,"0"
+
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\%CChatExe%",,,"%49015%\%CChatExe%"
+
+HKLM,"SOFTWARE\Microsoft\%CChatName%",,,""
+HKLM,"SOFTWARE\Microsoft\%CChatName%","BaseDir",,"%49015%"
+HKLM,"SOFTWARE\Microsoft\%CChatName%","ArtDir",,"%ArtDir%"
+
+HKCR,"mic",,,""
+HKCR,"mic","URL Protocol",,""
+HKCR,"mic\shell",,,""
+HKCR,"mic\shell\open",""
+HKCR,"mic\shell\open\command",,,"%49015%\%CChatExe% \""%%1\"""
+
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat,"DisplayName",,"%CChatDesc%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat,"UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %nfName%, CChatUninstall"
+
+// Entries for Active Setup
+// NO LONGER NEEDED -- The PerUserInstall section writes these entries
+// HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ActSetup_GUID%",,0,"%CChatDesc%"
+// HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ActSetup_GUID%","Version",1,---PRODVERSIONNUM---
+
+
+[CChatDelReg]
+HKCR,.ccr
+HKCR,.ccc
+HKCR,ComicChatRoomShortcut
+HKCR,ComicChatTranscript
+HKCR,mic
+HKCR,clsid\{241AF500-8FB6-11CF-ADC5-00AA00BADF6F}
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat
+HKCR,ComicChat.Room.1
+HKCU,SOFTWARE\Microsoft\%CChatName%
+HKLM,SOFTWARE\Microsoft\%CChatName%
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\"App Paths"\%CChatExe%
+// Entries for Active Setup
+// NO LONGER NEEDED -- The PerUserInstall section removes this entry
+// HKLM,"SOFTWARE\Microsoft\Active Setup\Installed Components\%ActSetup_GUID%"
+
+[CChatDelOldReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChat
+
+[CChatDelReg.PerUser]
+HKCU,SOFTWARE\Microsoft\%CChatName%
+
+[Remove.BeginPrompt]
+Prompt="%REMOVE_CONFIRMATION_PROMPT%"
+ButtonType=OKCANC
+Title="%CChatDesc%"
+
+[Remove.EndPrompt]
+Prompt="%REMOVE_COMPLETION_PROMPT%"
+Title="%CChatDesc%"
+
+
+[Strings]
+CChatDesc					= "Microsoft Chat 2.1"
+CChatTop					= "Microsoft Chat 2.1"
+; This is Reg Key entry name
+CChatName					= "Microsoft Comic Chat"
+CChat_LINK					= "Microsoft Chat"
+CChatDir					= "Microsoft Chat"
+CChatExe					= "CChat.exe"
+Program_Files				= "Program Files"
+CChat_conv					= "Microsoft Chat Conversation"
+CChat_short					= "Microsoft Chat Room Shortcut"
+ActSetup_GUID				= "{44BBA844-CC51-11CF-AAFA-00AA00B6015C}"
+
+DiskName					= "Microsoft Chat 2.1 Installation Disk"
+LocationPrompt				= "Install Microsoft Chat 2.1 to:"
+
+PGMGRP_IESUITE				= "Internet Explorer"
+
+ArtDir						= "ComicArt"
+;Remember to change in SourceFiles and NfFiles also
+nfName						= "CChat21.inf"
+
+; Two-letter ID of locale/language
+LOCALE_ID					= "EN"
+
+PromptA						= "Choose your Program Files directory."
+PromptB						= "Where would you like to install Microsoft Chat Files?"
+
+REMOVE_CONFIRMATION_PROMPT = "This will remove Microsoft Chat 2.1. Make sure you are not running Microsoft Chat Application."
+REMOVE_COMPLETION_PROMPT   = "Microsoft Chat 2.1 has been removed successfully."

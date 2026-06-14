@@ -1,0 +1,1 @@
+#define HID_CONNECTING 0x101
