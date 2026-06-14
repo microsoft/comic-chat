@@ -1,0 +1,118 @@
+; ArtPack1.INF
+;
+; This is the Setup information file to install 
+; Microsoft Comic Chat ArtPack1.
+;
+; Copyright (c) 1993-1996 Microsoft Corporation
+;
+
+[Version]
+Signature="$CHICAGO$"
+Provider=%MSFT%
+AdvancedINF=2.5, "You need a newer version of Advpack.dll."  
+
+[DefaultInstall]
+CopyFiles      = InfFiles, ArtFiles
+AddReg         = CChatReg95
+OptionDesc     = %CChatDesc%
+Tip            = %CChatTop%
+Parent         = AccessTop
+InstallType    = 10
+IconIndex      = 39  ;Windows Logo mini-icon for dialogs
+Uninstall      = CChatUninstall
+CustomDestination = MyCustomDestination
+
+[DefaultInstall.NT]
+CopyFiles      = InfFiles, ArtFiles
+AddReg         = CChatReg95
+OptionDesc     = %CChatDesc%
+Tip            = %CChatTop%
+Parent         = AccessTop
+InstallType    = 10
+IconIndex      = 39  ;Windows Logo mini-icon for dialogs
+Uninstall      = CChatUninstall
+CustomDestination = MyCustomDestination
+
+
+[CChatUninstall]
+DelFiles       = InfFiles, ArtFiles
+DelReg         = CChatDelReg
+CustomDestination = MyCustomDestinationUninstall
+
+[MyCustomDestination]
+49000,49005=DestA,5
+49010,49015=DestB,7
+
+[MyCustomDestinationUninstall]
+49000,49005=DestA,5
+49010,49015=DestB,5
+
+[DestA]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion,ProgramFilesDir,'%PromptA%',"%24%\%Program_Files%"
+
+[DestB]
+HKLM,SOFTWARE\Microsoft\Microsoft Comic Chat,BaseDir,'%PromptB%',"%49005%\%CChatDir%"
+"","","","You are missing the software required for Microsoft Comic Chat Art Pack 1 Install!",""
+
+[DestinationDirs]
+InfFiles        = 17    
+ArtFiles     	= 49010,%ArtDir%
+
+[InfFiles]
+ArtPack1.INF
+
+[ArtFiles]
+BOLO.AVB
+CRO.AVB
+DENISE.AVB
+KEVIN.AVB
+LYNNEA.AVB
+MAYNARD.AVB
+REBECCA.AVB
+SAGE.AVB
+SCOTTY.AVB
+
+DEN.BMP
+VOLCANO.BMP
+
+[SourceDisksNames]
+1 = %DiskName%,ArtPack1.CAB,0
+
+[SourceDisksFiles]
+ArtPack1.INF = 1
+
+BOLO.AVB = 1
+CRO.AVB = 1
+DENISE.AVB = 1
+KEVIN.AVB = 1
+LYNNEA.AVB = 1
+MAYNARD.AVB = 1
+REBECCA.AVB = 1
+SAGE.AVB = 1
+SCOTTY.AVB = 1
+
+DEN.BMP = 1
+VOLCANO.BMP = 1
+
+[CChatReg95]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChatArtPack1,"DisplayName",,"%CChatDesc%"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChatArtPack1,"UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %InfName%, CChatUninstall"
+
+[CChatDelReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ComicChatArtPack1
+
+[Strings]
+CChatDesc		= "Microsoft Comic Chat Art Pack 1"
+CChatTop		= "Microsoft Comic Chat Art Pack 1"
+CChatDir		= "Comic Chat"
+Program_Files		= "Program Files"             
+DiskName		= "Microsoft Comic Chat Art Pack 1 Installation Disk"
+DefaultLocation		= "%24%\Program Files\CChat"
+
+ArtDir			= "ComicArt"
+;Remember to change in SourceFiles and InfFiles also
+InfName			= "ArtPack1.INF"
+
+PromptA="Choose your Program Files directory."
+PromptB="Choose your Comic Chat directory."
+

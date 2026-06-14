@@ -1,0 +1,24 @@
+HKCR
+{
+	ChannelsCollection.ChannelsCollection.1 = s 'ChannelsCollection Class'
+	{
+		CLSID = s '{011EEE42-46DF-11D0-99CB-00C04FD64497}'
+	}
+	ChannelsCollection.ChannelsCollection = s 'ChannelsCollection Class'
+	{
+		CurVer = s 'ChannelsCollection.ChannelsCollection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {011EEE42-46DF-11D0-99CB-00C04FD64497} = s 'ChannelsCollection Class'
+		{
+			ProgID = s 'ChannelsCollection.ChannelsCollection.1'
+			VersionIndependentProgID = s 'ChannelsCollection.ChannelsCollection'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}

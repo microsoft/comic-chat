@@ -1,0 +1,33 @@
+HKCR
+{
+	MsChatPr.MsChatPr.1 = s 'MsChatPr Class'
+	{
+		CLSID = s '{039397C0-46DF-11D0-99CB-00C04FD64497}'
+	}
+	MsChatPr.MsChatPr = s 'MsChatPr Class'
+	{
+		CurVer = s 'MsChatPr.MsChatPr.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {039397C0-46DF-11D0-99CB-00C04FD64497} = s 'MsChatPr Class'
+		{
+			ProgID = s 'MsChatPr.MsChatPr.1'
+			VersionIndependentProgID = s 'MsChatPr.MsChatPr'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove 'Control'
+			ForceRemove 'Programmable'
+			ForceRemove 'Insertable'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '132497'
+			}
+			'TypeLib' = s '{9FE8A900-96AC-11CF-9086-00AA006C3FBC}'
+			'Version' = s '2.0'
+		}
+	}
+}

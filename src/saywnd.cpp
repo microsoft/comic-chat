@@ -6,6 +6,7 @@
 
 #include "stdafx.h"
 #include "userinfo.h"
+#include "common.h"
 #include "textview.h"
 #include "memblst.h"
 #include "chat.h"
@@ -317,18 +318,18 @@ void CSayWnd::OnSize(UINT nType, int cx, int cy)
 #else
 			// position and size gesture and entry window
 			m_wndSayBar.SetWindowPos(	NULL,
-										cx - cxSayBar-6,// The 6 was added to move the grabspace of the toolbar
+										cx - DpiScale(cxSayBar)-DpiScale(6),// The 6 was added to move the grabspace of the toolbar
 														// under the sayctrl
 										-3,				// same with the three
-										cxSayBar+12,	// previously 0
-										cyToolBar+12,	// previously 0
+										DpiScale(cxSayBar)+DpiScale(12),	// previously 0
+										DpiScale(cyToolBar+12),	// previously 0
 										SWP_NOZORDER );	// this used to also have SWP_NORESIZE | 
 
 			m_wndSayCtrl.SetWindowPos(	&wndTop, // this was previously NULL
 										0,
 										0,
-										cx - cxSayBar,
-										cyToolBar+6, //  This was previously cy
+										cx - DpiScale(cxSayBar),
+										DpiScale(cyToolBar+6), //  This was previously cy
 										0);  // This was previously SWP_NOZORDER
 
 #endif
@@ -411,6 +412,35 @@ BOOL CSayWnd::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	}
 
 	m_wndSayBar.SetSizes( sizeButton, sizeImage );
+
+	// On high-DPI displays the 17px toolbar glyphs are tiny.  Stretch the button
+	// bitmap into a DPI-scaled image list so the four action buttons (say / think /
+	// whisper / send) match the rest of the scaled UI.  No-op at 96 DPI.
+	if (g_screenDpi > 96) {
+		int nBtns  = sizeof(balloons) / sizeof(UINT);
+		int cell   = DpiScale(cxToolBar);
+		int cellH  = DpiScale(cyToolBar);
+		CBitmap orig;
+		if (orig.LoadBitmap(IDB_BALLOONS)) {
+			BITMAP bm;
+			orig.GetBitmap(&bm);
+			CClientDC dc(this);
+			CDC srcDC, dstDC;
+			srcDC.CreateCompatibleDC(&dc);
+			dstDC.CreateCompatibleDC(&dc);
+			m_sayBarBmp.CreateCompatibleBitmap(&dc, nBtns * cell, cellH);
+			CBitmap *oS = srcDC.SelectObject(&orig);
+			CBitmap *oD = dstDC.SelectObject(&m_sayBarBmp);
+			dstDC.SetStretchBltMode(COLORONCOLOR);
+			dstDC.StretchBlt(0, 0, nBtns * cell, cellH, &srcDC, 0, 0, bm.bmWidth, bm.bmHeight, SRCCOPY);
+			srcDC.SelectObject(oS);
+			dstDC.SelectObject(oD);
+			m_sayBarImages.Create(cell, cellH, ILC_COLOR24 | ILC_MASK, nBtns, 0);
+			m_sayBarImages.Add(&m_sayBarBmp, RGB(192, 192, 192));	// light-gray = transparent
+			m_wndSayBar.GetToolBarCtrl().SetImageList(&m_sayBarImages);
+			m_wndSayBar.SetSizes(CSize(cell + DpiScale(7), cellH + DpiScale(6)), CSize(cell, cellH));
+		}
+	}
 
 	// TODO: Remove this if you don't want Gest tips
 	m_wndSayBar.SetBarStyle(m_wndSayBar.GetBarStyle() |

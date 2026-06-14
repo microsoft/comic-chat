@@ -1,0 +1,99 @@
+<html>
+<head>
+
+<script>
+<!-- Hide from non-javascript browsers
+setTimeout("refresh()", 15000)
+function refresh()
+{
+	if (document.input.message.value == "" &&
+	    document.changenick.nick.value == "%localnick%" &&
+	    document.changeroom.room.value == "%localroom%")
+		window.location = "/enhanced.irct?nick=%localnick%&room=%roomnopound%&tag=%tag%";
+	else
+		setTimeout("refresh()", 15000);
+}
+// Done hiding-->
+</script>
+
+<noscript>
+<meta name="Refresh" http-equiv="Refresh" content="30;url=/enhanced.irct?nick=%localnick%&room=%roomnopound%&tag=%tag%">
+</noscript>
+
+</head>
+<body bgcolor=ffffff onLoad="document.input.message.focus()">
+<font color=000050 size=+3>%localnick% chatting in room %localroom%.<br></font>
+<hr>
+<chat length=10>
+
+connected(host)
+<img src=http://keezer/images/connect.gif> <b><font color=0000ff>Connected to %host%.</font></b><br>
+
+messageOfTheDay(line)
+<img src=http://keezer/images/connect.gif> <font color=000040>%line%<br></font>
+
+invalidNick(badnick)
+<img src=http://keezer/images/ignore.gif> <font color=000000>Invalid nickname or nickname already in use: "%badnick%". Please choose another.</font><br>
+
+nickChanged(oldnick, newnick)
+<img src=http://keezer/images/head.gif> <font color=404080>%oldnick% is now known as %newnick%.</font><br>
+
+invitationArrived(source, room)
+<img src=http://keezer/images/shake.gif> <font color=ff8080>%source% has invited you to join %room%.</font><br>
+
+messageArrived(source, target, message)
+<img src=http://keezer/images/say.gif> <font color=2020ff>%source% says: </font><font color=000000>%message%</font><br>
+
+whisperArrived(source, target, message)
+<img src=http://keezer/images/whisper.gif> <font color=d02020>%source% whispers to %target%: </font><font color=000000>%message%</font><br>
+
+memberJoined(room, nick)
+<img src=http://keezer/images/enter.gif> <font color=008000>%nick% has joined %room%.</font><br>
+
+memberParted(room, nick)
+<img src=http://keezer/images/exit.gif> <font color=800000>%nick% has left %room%.</font><br>
+
+memberKicked(room, nick, kicker)
+<img src=http://keezer/images/gavel.gif> <font color=d00000>%kicker% has kicked %nick% from %room%.</font><br>
+
+memberKickedForReason(room, nick, kicker, reason)
+<img src=http://keezer/images/gavel.gif> <font color=d000000>%kicker% has kicked %nick% from %room%, saying: %reason%.</font><br>
+
+</chat>
+<hr>
+<form name=input method=get action=enhanced.irct>
+	<input type=hidden name=nick value="%localnick%">
+	<input type=hidden name=room value="%localroom%">
+	<input type=hidden name=tag value="%tag%">
+	<input type=text name=message size=60>
+	<input type=submit value="Send">
+	<select name=target>
+		<option selected>%localroom%
+		<members>
+		<option>@%host%
+		<option>%speaker%
+		<option>-%observer%
+		</members>
+	</select>
+</form>
+<hr>
+<form name=changenick method=get action=enhanced.irct>
+	<input type=hidden name=room value="%localroom%">
+	<input type=text name=nick size=20 value="%localnick%">
+	<input type=hidden name=tag value="%tag%">
+	<input type=submit value="Change Nick">
+</form>
+<hr>
+<form name=changeroom method=get action=enhanced.irct>
+	<input type=hidden name=nick value="%localnick%">
+	<input type=text name=room size=20 value="%localroom%">
+	<input type=hidden name=tag value="%tag%">
+	<input type=submit value="Change Room">
+</form>
+<hr>
+<font color=000040 size=+1>Server local time: %date%.</font>
+</html>
+
+
+
+

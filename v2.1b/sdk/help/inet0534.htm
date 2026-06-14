@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>Microsoft Chat Protocol Control 2.0 Visual Basic Overview (Beta1 Release)</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headcoma.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="Microsoft Chat Protocol Control 2.0 Visual Basic Overview (Beta1 Release)"><BR CLEAR=ALL>
+<H2><A NAME="mschatpr_vb_ovr_0504020100000000">Microsoft Chat Protocol Control 2.0 Visual Basic Overview (Beta1 Release)</A></H2>
+<BR CLEAR=ALL>
+<P>The Microsoft&#174; Chat Protocol Control 2.0 is an ActiveX&#153; control that allows the user to participate in a chat, or conversation, between two or more users connected to a chat server.
+
+<P>The Chat Protocol control allows the user to communicate both text and data, including arrays, Booleans, errors, currencies, and dates.
+
+<P>Stand-alone Microsoft Visual Basic&#174; or Microsoft Visual C++&#174; applications containing the Chat Protocol control or HTML pages that utilize the Chat Protocol control are referred to as <I>chat clients</I>. These chat clients communicate with a chat server through either the IRC (Internet Relay Chat) or IRCX (Extended Internet Relay Chat) protocols. The Chat Protocol control abstracts the IRC/IRCX protocols by the heavy use of objects and properties, thus insulating the developer from unnecessary knowledge of these protocols.
+
+<P>Because the Microsoft Chat Protocol Control 2.0 does not implement a user interface, developers are free to design and implement their own.
+<P><P><A CLASS=tctop HREF="inet0534.htm#mschatpr_vb_ovr_0504020101000000" TARGET=TEXT><IMG SRC="art/arrowb.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowb.gif">The Chat Protocol Control</A><BR>
+<P><P><A CLASS=tctop HREF="inet0534.htm#mschatpr_vb_ovr_0504020102000000" TARGET=TEXT><IMG SRC="art/arrowb.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowb.gif">Dependencies</A><BR>
+<P><P><A CLASS=tctop HREF="inet0534.htm#mschatpr_vb_ovr_0504020103000000" TARGET=TEXT><IMG SRC="art/arrowb.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowb.gif">Licensing and Distribution</A><BR>
+<P><P><A CLASS=tctop HREF="inet0534.htm#mschatpr_vb_ovr_0504020104000000" TARGET=TEXT><IMG SRC="art/arrowb.gif" WIDTH="6" HEIGHT="11"  BORDER=0 ALT="arrowb.gif">Using the Chat Protocol Control</A><BR>
+<H3><A NAME="mschatpr_vb_ovr_0504020101000000">The Chat Protocol Control</A></H3>
+<P>The Chat Protocol control is an ActiveX control that can be hosted by Microsoft Visual Basic or Microsoft Visual C++ applications. Web authors can also insert the Chat Protocol control into an HTML file with the &lt;OBJECT&gt; tag, and use Microsoft Visual Basic Scripting Edition (VBScript) to manipulate the control's properties, methods, and events. Web pages can be designed to query the user list, query the room lists, monitor the chat for specific events such as language type, notify when friends are online, and assign them specific privileges in a chat room. 
+<H3><A NAME="mschatpr_vb_ovr_0504020102000000">Dependencies</A></H3>
+<P>The Chat Protocol control requires the presence of the Mschatpr.ocx on the user's computer. These files can be obtained by installing the Internet Client SDK. To implement Web pages that use the Chat Protocol control, the Web server must have access to a chat server. If the Chat Protocol control is implemented as a stand-alone client application, the computer running this application must have access to a chat server. The Chat Protocol control enables the connection from the user's computer to a chat channel, or chat room, on the chat server. 
+
+<H3><A NAME="mschatpr_vb_ovr_0504020103000000">Licensing and Distribution</A></H3>
+<P>The Chat Protocol control is an ActiveX control that can be hosted by any ActiveX control container. This control is available for installation and redistribution on all computers with validly licensed copies of Microsoft operating system products (for example, Windows NT&#174;, Windows&#174; 95, and so on). For further information on licensing issues, refer to the License.txt file distributed with the Internet Client SDK.
+<H3><A NAME="mschatpr_vb_ovr_0504020104000000">Using the Chat Protocol Control</A></H3>
+<P>To use the Chat Protocol control, you can either directly log on to the chat server, or connect to the server prior to logging on.
+
+<P>You can connect to the server first to determine what security packages are available on the server. The following method is used to do this.
+
+<P><I>object</I>.<B>Connect</B> <I>ServerName</I>
+
+<P>The following method is used to log on to a chat server.
+
+<P><I>object</I>.<B>Login</B> <I>ServerName</I>, <I>Nickname</I> [, <I>UserName</I>] [, <I>RealName</I>] [, <I>Password</I>] [, <I>SecurityPackages</I>] 
+
+
+<P>After logging on, you can add a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object to the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201080000" TARGET="TEXT">Channels</A> collection with the <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010a0100" TARGET="TEXT">Add</A> method. The <B>Channels</B> collection object is a standard Visual Basic collection object that uses the standard <B>Add</B> and <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010a0200" TARGET="TEXT">Remove</A> methods and the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201090200" TARGET="TEXT">Item</A> and <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201090100" TARGET="TEXT">Count</A> properties.
+
+<P><A HREF="inet0541.htm#mschatpr_vb_ref_05040202010a0100" TARGET="TEXT">Add</A> method: 
+<P><I>value</I>=<I>object</I>.<B>Add</B>[(<I>Index</I>] [, <I>Key</I>)] 
+
+<P>After the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object is created, you can join a channel with the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A> or <A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A> method. The <B>CreateChannel</B> method can be used only on an IRCX server.
+
+<P><A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A> method:
+
+<P><I>object</I>.<B>JoinChannel</B> [<I>ChannelName</I>] [, <I>ChannelKeyword</I>]
+
+<P><A HREF="inet0540.htm#mschatpr_vb_ref_0504020201070400" TARGET="TEXT">CreateChannel</A> method: 
+<P><I>object</I>.<B>CreateChannel</B> [<I>ChannelName</I>] [, <I>ChannelKeyword</I>] [, <I>ChannelModes</I>] [, <I>MaxMemberCount</I>] 
+
+<P><B>Example</B>
+<P>The following example adds <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> objects to the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201080000" TARGET="TEXT">Channels</A> collection with the <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010a0100" TARGET="TEXT">Add</A> method, and then joins
+the "Questions" Channel with the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070500" TARGET="TEXT">JoinChannel</A> method:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chan1, chan2 As Channel
+
+Set chan1 = MsChatPr1.Channels.Add(1, "Questions")
+Set chan2 = MsChatPr1.Channels.Add(2, "Answers")
+
+MsChatPr1.Channels(1).JoinChannel "Questions"
+</FONT></PRE>
+<P>All the channel methods and properties are available after the channel has been joined. For example, the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070c00" TARGET="TEXT">SendMessage</A> method sends text or data to the channel or a selective set of channel members.
+
+<P><I>object</I>.<B>SendMessage</B> <I>MessageType</I>, <I>Message</I> [, <I>RecipientNicknames</I>] [, <I>DataMessageTag</I>]
+
+<P><B>Example</B>
+<P>The following example sends a regular string to the channel.
+
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.Channels(1).SendMessage msgtNormal, "How are you?"
+</FONT></PRE>
+<P>For incoming messages, the <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041000" TARGET="TEXT">OnMessage</A> event is fired. You can use this event to update the user interface of the chat client.
+
+<P><I>object</I>_<B>OnMessage</B>(<I>Channel</I>, <I>SenderNickname</I>, <I>MessageType</I>, <I>Message</I>, <I>RecipientNicknames</I>, <I>DataMessageTag</I>)
+
+<P>To leave the channel, the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201070700" TARGET="TEXT">LeaveChannel</A> method closes the current channel.
+
+<P><I>object</I>.<B>LeaveChannel</B> 
+
+<P>The <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010a0200" TARGET="TEXT">Remove</A> method removes a <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201050000" TARGET="TEXT">Channel</A> object from the <A HREF="inet0541.htm#mschatpr_vb_ref_0504020201080000" TARGET="TEXT">Channels</A> collection.
+
+<P><I>object</I>.<B>Remove</B> <I>Index</I>
+
+<H4><A NAME="mschatpr_vb_ovr_0504020104010000">Querying the Server for Information</A></H4>
+<P>Information regarding the server, a channel, a user, or a member can be obtained asynchronously or synchronously.
+
+<P>The Chat Protocol control supports sophisticated querying by the use of the <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object. These queries relate to the server, a channel, a user, or a member. Generally, the information provided by the server is exposed to you through a <B>ChatItems</B> object.
+
+<P>The following example shows how to construct a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object to query the server for all users whose nicknames start with the letter 'a'.
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim UserQueryItems As ChatItems
+
+Set UserQueryItems = New ChatItems
+UserQueryItems.AssociatedType = "Query"
+UserQueryItems.Item("Nickname") = "a"
+UserQueryItems.Item("NicknameOp") = "StartsWith"
+MsChatPr1.ListUsers UserQueryItems
+Set UserQueryItems = Nothing
+</FONT></PRE>
+<P><B>Note:</B>  Because VBScript does not have a <B>New</B> operator, you need to use the control's <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020700" TARGET="TEXT">NewChatItems</A> property to create a new <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object. Therefore, in VBScript, the first two lines of the preceding example would be:
+<PRE><FONT FACE="Courier" SIZE="2">Dim UserQueryItems
+
+Set UserQueryItems = MsChatPr1.NewChatItems
+</FONT></PRE>
+<P>Information can also be queried synchronously using the object properties. However, the control will be blocked until the server returns the required information. If the server has not returned the required information within a customizable period, the control throws a time-out error and unblocks. If the server sends the information later, the information will be exposed to the user through an event. You can alter this time-out period through the <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020b00" TARGET="TEXT">PropertyAccessTimeOut</A> property.
+
+
+
+<H4><A NAME="mschatpr_vb_ovr_0504020104020000">The OBJECT Tag for HTML Pages</A></H4>
+<P>The following example uses the OBJECT tag to implement the Chat Protocol control. 
+
+<PRE><FONT FACE="Courier" SIZE="2">&lt;OBJECT ID=MsChatPr1
+STANDBY="Downloading the Microsoft Chat Protocol Control"
+CODETYPE="application/x-oleobject"
+CLASSID="CLSID:039397C0-46DF-11D0-99CB-00C04FD64497"
+CODEBASE="MsChatPr.Cab"&gt;
+&lt;/OBJECT&gt;
+</FONT></PRE>
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

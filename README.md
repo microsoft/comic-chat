@@ -31,6 +31,25 @@ NMAKE /f "chat.mak" CFG="chat - Win32 Debug"
 
 Alternatively, open `chat.mdp` in Visual C++ 4.x.
 
+### Modernized build (2026)
+
+The project also builds with a current Visual Studio C++/MFC toolchain and runs
+on modern high-DPI Windows. Using the same makefile from a `vcvars32` prompt:
+
+```bat
+call "<VisualStudio>\VC\Auxiliary\Build\vcvars32.bat"
+cd src
+nmake /f chat.mak CFG="chat - Win32 Debug"
+```
+
+The modernization covers the build fixes (legacy C++, MFC/OLE macro clashes,
+linker libs), **DPI-aware rendering and UI scaling**, several **UX fixes**
+(mouse-wheel scrolling, panels-per-row auto-fit, balloon word-wrap), and
+optional **native TLS** for connecting to modern IRC networks. See
+[`docs/MODERNIZATION.md`](docs/MODERNIZATION.md) for the overview and the
+detailed write-ups it links to.
+
+
 ### Requirements
 
 - Visual C++ 4.x (or compatible NMAKE toolchain)

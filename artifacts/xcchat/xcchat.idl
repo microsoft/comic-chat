@@ -1,0 +1,60 @@
+#include <olectl.h>
+// xcchat.idl : IDL source for xcchat.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (xcchat.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	
+
+	[
+		object,
+		uuid(3788BC02-3670-11D1-9787-00C04FB6C76D),
+		dual,
+		helpstring("IXControl Interface"),
+		pointer_default(unique)
+	]
+	interface IXControl : IDispatch
+	{
+		[propget, id(1), helpstring("property ShowToolBar")] HRESULT ShowToolBar([out, retval] BOOL *pVal);
+		[propput, id(1), helpstring("property ShowToolBar")] HRESULT ShowToolBar([in] BOOL newVal);
+		[propget, id(2), helpstring("property JoinNetMeeting")] HRESULT JoinNetMeeting([out, retval] BOOL *pVal);
+		[propput, id(2), helpstring("property JoinNetMeeting")] HRESULT JoinNetMeeting([in] BOOL newVal);
+		[propget, id(3), helpstring("property ShowMenu")] HRESULT ShowMenu([out, retval] BOOL *pVal);
+		[propput, id(3), helpstring("property ShowMenu")] HRESULT ShowMenu([in] BOOL newVal);
+		[propget, id(4), helpstring("property ShowNetMeeting")] HRESULT ShowNetMeeting([out, retval] BOOL *pVal);
+		[propput, id(4), helpstring("property ShowNetMeeting")] HRESULT ShowNetMeeting([in] BOOL newVal);
+	};
+[
+	uuid(40AAFEC1-3665-11D1-9787-00C04FB6C76D),
+	version(1.0),
+	helpstring("xcchat 1.0 Type Library")
+]
+library XCCHATLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(3788BC03-3670-11D1-9787-00C04FB6C76D),
+		helpstring("XCChat Control")
+	]
+	coclass XControl
+	{
+		[default] interface IXControl;
+	};
+	
+	
+
+	[
+		uuid(0044C943-5A70-11D1-9787-00C04FB6C76D),
+		helpstring("XProps Class")
+	]
+	coclass XProps
+	{
+		interface IUnknown;
+	};
+};

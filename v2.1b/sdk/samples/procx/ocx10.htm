@@ -1,0 +1,1270 @@
+<!--
+#Protocol OCX HTML Sample
+#Microsoft Corporation - 1997
+-->
+<HTML>
+<SCRIPT LANGUAGE="VBScript">
+<!--
+'##########################################################################
+'#Global Variables
+'##########################################################################
+Option Explicit
+
+DIM strListOpt				'List Channels, or List Users.
+DIM strMode					'Host, NoHost, Voice, NoVoice
+DIM strSubFilter				'Filter Channels/Users options
+Dim strSelectParticipants		'Participants that are selected, comma separated
+Dim rgstrSelectParticipants(19)	'The array of recipients for whispering
+Dim strMembers(19)			'The array of members selected (in general)
+Dim strRecipients				'Recipients of an incoming message
+Dim bInitialMembers			'Is the initial member list being exposed?
+Dim lHistoryLen				'Current number of characters in the history window
+DIM FlagAway				'Flag.  Set away?  (Y = 1; N = 0)
+DIM ItemCount				'# of Items Listed in the lstUserChannels box
+DIM cpnName					'Channel Property Name, Name
+DIM cpnTopic				'Channel Property Name, Topic
+DIM cpnMemberCount			'Channel Property Name, Member Count
+Dim vbcrlf					'Carriage Return, Line Feed
+
+'##########################################################################
+'#User Defined Subs
+'##########################################################################
+Sub AppendHistory(strText, nIndent, nCR)
+
+  Dim i    
+  Dim lSelStart
+  Dim iSelLength
+  Dim strIndented
+    
+  lSelStart = document.WEBChat.rtfHistory.SelStart
+  iSelLength = document.WEBChat.rtfHistory.SelLength
+    
+  If (nCR > 0 And document.WEBChat.rtfHistory.Text <> "") Then
+    For i = 1 To nCR
+      document.WEBChat.rtfHistory.SelStart = lHistoryLen
+      document.WEBChat.rtfHistory.SelLength = 0
+      document.WEBChat.rtfHistory.SelText = vbcrlf
+      lHistoryLen = lHistoryLen + 2
+    Next
+  End If
+
+  strIndented = Space(nIndent*2) + strText
+  
+  document.WEBChat.rtfHistory.SelStart = lHistoryLen
+  document.WEBChat.rtfHistory.SelLength = 0
+  document.WEBChat.rtfHistory.SelText = strIndented  
+  lHistoryLen = lHistoryLen + Len(strIndented)
+        
+  If (iSelLength > 0) Then
+    document.WEBChat.rtfHistory.SelStart = lSelStart
+    document.WEBChat.rtfHistory.SelLength = iSelLength
+  Else
+    document.WEBChat.rtfHistory.SelStart = lHistoryLen
+    document.WEBChat.rtfHistory.SelLength = 0
+  End If
+End Sub
+
+Sub FillRecipients
+  Dim MyList
+  Dim i,j
+    
+  For i = 0 To 19
+    rgstrSelectParticipants(i) = ""
+  Next
+
+  strSelectParticipants = ""
+  Set MyList = document.WEBChat.lstParticipants
+
+  For i = 0 To MyList.ListCount-1
+    If MyList.Selected(i) And MyList.List(i) <> MsChatPr1.Nickname Then
+	  If strSelectParticipants = "" Then
+	    strSelectParticipants = MyList.List(i)
+		rgstrSelectParticipants(0) = MyList.List(i)
+        j = 1
+	  Else
+	    If j > 19 Then
+		  MsgBox "Whispers are limited to 20 participants."
+		  Exit Sub
+		End If
+	    strSelectParticipants = strSelectParticipants + ", "
+	    strSelectParticipants = strSelectParticipants + MyList.List(i)
+		rgstrSelectParticipants(j) = MyList.List(i)
+		j = j + 1
+	  End If
+	End If
+  Next
+End Sub
+
+Sub ExtractRecipients(RecipientNicknames)
+  strRecipients = ""
+  If (Not IsEmpty(RecipientNicknames)) Then
+    If (VarType(RecipientNicknames) = vbString) Then
+      strRecipients = CStr(RecipientNicknames)
+    Else
+      Dim i
+      strRecipients = CStr(RecipientNicknames(LBound(RecipientNicknames)))
+      For i = LBound(RecipientNicknames) + 1 To UBound(RecipientNicknames)
+        strRecipients = strRecipients + ", " + CStr(RecipientNicknames(i))
+      Next
+    End If
+  End If
+End Sub
+
+Sub SeperateSelected(MyStr)
+Dim CommaLoc
+Dim i
+Dim ParseMe
+Dim Flag
+
+   i = 0
+   flag = 0
+   ParseMe = ""
+
+   Do While i <> 20
+ 	strMembers(i) = ""
+	i = i + 1
+   Loop
+
+   i = 0
+  
+   CommaLoc = CStr(InStr(MyStr, ","))
+
+   Do While CommaLoc <> 0
+	If i > 19 Then
+	  MsgBox "Selected users are limited to 20 participants."
+	  Exit Sub
+	Else
+	  flag = -1
+	  strMembers(i)= Left(MyStr, CommaLoc - 1)
+	  ParseMe = Right(MyStr, Len(MyStr) - CommaLoc - 1)
+	  CommaLoc = CStr(InStr(ParseMe, ","))
+	  i = i + 1
+	End If
+   Loop
+
+   If flag = 0 Then
+	strMembers(i) = MyStr
+   Else
+	strMembers(i) = ParseMe
+   End If
+End Sub
+
+Function VPropertyFromChatItems(ci, strPropertyName)
+
+If (ci.ItemValid(strPropertyName)) Then
+    VPropertyFromChatItems = ci.Item(strPropertyName)
+Else
+    VPropertyFromChatItems = Empty
+End If
+
+End Function
+
+'##########################################################################
+'#Form added events
+'##########################################################################
+Sub Window_OnLoad()
+   document.WEBChat.lblConnectionState.BackColor = 255
+   strListOpt = "ListChannels"
+   strSubFilter = "All"
+   strMode = "Host"
+   document.WEBChat.rtfHistory.HideSelection = FALSE
+   document.WEBChat.rtfHistory.Locked = TRUE
+   document.WEBChat.lstUserChannels.IntegralHeight = FALSE
+   document.WEBChat.lstParticipants.IntegralHeight = FALSE
+   lstEvents.IntegralHeight = FALSE
+   bInitialMembers = FALSE
+
+   MSChatPr1.Channels.Add
+
+   document.WEBChat.cmbServer.AddItem "comicsrv1.microsoft.com"
+   document.WEBChat.cmbServer.AddItem "comicsrv2.microsoft.com"
+   document.WEBChat.cmbServer.AddItem "comicsrv3.microsoft.com"
+   vbcrlf = chr(13) & chr(10)
+End Sub
+
+Sub Window_OnUnload()
+  Select Case MsChatPr1.ConnectionState
+    Case 1,3:
+      MSChatPr1.CancelConnectLogin
+
+    Case 2,4:
+      MsChatPr1.Disconnect
+  End Select
+End Sub
+
+Sub btnAbout_Click()
+   MsChatPr1.AboutBox
+End Sub
+
+Sub Connect_Click()
+   Select Case MsChatPr1.ConnectionState
+	Case 0, 2:
+	  If document.WEBChat.cmbServer.Text <> "" Then
+	    MSChatPr1.Login document.WEBChat.cmbServer.Text, document.WEBChat.txtNickName.Value, document.WEBChat.txtRealName.Value
+	  Else
+	    MsgBox "Must first enter a server to connect to."
+	  End If
+
+	Case 1, 3:
+	  MSChatPr1.CancelConnectLogin
+
+	Case 4:
+	  MSChatPr1.Disconnect
+        lHistoryLen = 0
+	  document.WEBChat.lblNumPart.Caption = "# of participants: None"
+	  document.WEBChat.lstUserChannels.Clear
+	  document.WEBChat.lblItemCount.Caption = "Listed Items: 0"
+	  document.WEBChat.rtfHistory.Text = ""
+	  document.WEBChat.lstParticipants.Clear
+	  document.WEBChat.lstBanned.Clear
+
+	Case 5:
+	  lstEvents.AddItem "ConnectionState is " + CStr(MSChatPr1.ConnectionState)
+
+	Case Else
+	  lstEvents.AddItem "Unexpected ConnectionState = " + CStr(MSChatPr1.ConnectionState)
+   End Select
+End Sub
+
+Sub btnListOption_Click()
+Dim UserQueryItems
+Dim ChannelQueryItems
+
+   Set UserQueryItems = MsChatPr1.NewChatItems
+   Set ChannelQueryItems = MsChatPr1.NewChatItems
+
+   If MsChatPr1.ConnectionState <> 4 Then
+	MsgBox "Must first be connected to a server."
+	Exit Sub
+   End If
+
+   Select Case strListOpt
+	Case "ListChannels":
+	  document.WEBChat.lstUserChannels.Clear
+	  document.WEBChat.lblItemCount.Caption = "Listed Items: 0"
+	  ItemCount = 0
+
+	  If document.WEBChat.txtFilter.Value = "" Then
+	    ChannelQueryItems.AssociatedType="Query"
+	    MsChatPr1.ListChannels(ChannelQueryItems)
+	  Else
+	    ChannelQueryItems.AssociatedType="Query"
+
+	    Select Case strSubFilter
+		Case "ChannelName":
+			If MsChatPr1.ConnectionType = 0 Then
+			  ChannelQueryItems.Item("Name") = document.WEBChat.txtFilter.Value
+			  MsChatPr1.ListChannels(ChannelQueryItems)
+			Else
+			 If MsChatPr1.ConnectionType = 1 Then
+			  ChannelQueryItems.Item("NameOp") = "Contains"
+			  ChannelQueryItems.Item("Name") = document.WEBChat.txtFilter.Value
+	    		  MsChatPr1.ListChannels(ChannelQueryItems)
+			 End If
+			End If
+
+		Case "ChannelTopic":
+		  If MsChatPr1.ConnectionType = 1 Then
+			ChannelQueryItems.Item("TopicOp") = "Contains"
+			ChannelQueryItems.Item("Topic") = document.WEBChat.txtFilter.Value
+	    		MsChatPr1.ListChannels(ChannelQueryItems)
+		  Else
+			MsgBox "This item is IRCX only."
+			lstEvents.AddItem "Cannot ListUsers by IP address on an IRC server."
+			Exit Sub
+		  End If
+
+		Case "MemCount":
+		  If MsChatPr1.ConnectionType = 1 Then
+			ChannelQueryItems.Item("MemberCount") = CLng(document.WEBChat.txtFilter.Value)
+	    		MsChatPr1.ListChannels(ChannelQueryItems)
+		  Else
+			MsgBox "This item is IRCX only."
+			lstEvents.AddItem "Cannot ListUsers by IP address on an IRC server."
+			Exit Sub
+		  End If
+
+		Case "All":
+	    		MsChatPr1.ListChannels(ChannelQueryItems)
+
+		Case Else
+			'MsgBox "Unexpected case in btnListOption, Sub ListChannel"
+			lstEvents.AddItem "Unexpected case in btnListOption, Sub ListChannel"
+	    End Select
+
+	    Set ChannelQueryItems = Nothing
+	  End If
+
+	Case "ListUsers":
+	  document.WEBChat.lstUserChannels.Clear
+	  document.WEBChat.lblItemCount.Caption = "Listed Items: 0"
+	  ItemCount = 0
+
+	  If document.WEBCHat.txtFilter.Value = "" Then
+	    UserQueryItems.AssociatedType = "Query"
+	    MsChatPr1.ListUsers UserQueryItems
+	    Set UserQueryItems = Nothing
+	  Else
+	    UserQueryItems.AssociatedType = "Query"
+
+	    Select Case strSubFilter
+		Case "Nickname":
+			UserQueryItems.Item("NicknameOp") = "Contains"
+			UserQueryItems.Item("Nickname") = document.WEBChat.txtFilter.Value
+	    		MsChatPr1.ListUsers UserQueryItems
+
+		Case "IPAddress":
+			If MsChatPr1.ConnectionType = 1 Then
+			  UserQueryItems.Item("IPAddressOp") = "EndsWith"
+			  UserQueryItems.Item("IPAddress") = document.WEBChat.txtFilter.Value
+	    		  MsChatPr1.ListUsers UserQueryItems
+			Else
+			  MsgBox "This item is IRCX only."
+			  lstEvents.AddItem "Cannot ListUsers by IPAddress on an IRC server."
+			  Exit Sub
+			End If
+
+		Case "All":
+	    		MsChatPr1.ListUsers UserQueryItems
+
+		Case Else
+			'MsgBox "Unexpected case in btnListOption, Sub ListUsers."
+			lstEvents.AddItem "Unexpected case in btnListOption, Sub ListUsers"
+	    End Select
+
+	    Set UserQueryItems = Nothing
+	  End If
+
+	Case Else
+	   lstEvents.AddItem "btnListOptions = UNEXPECTED State vartype!"
+	   Exit Sub
+   End Select
+End Sub
+
+Sub btnGo_Click()
+   If MsChatPr1.ConnectionState <> 4 Then
+	MsgBox "Must first be connected to a server."
+	Exit Sub
+   End If
+
+   Select Case document.WEBChat.btnGo.Value
+	Case "Join":
+	   If MsChatPr1.ConnectionState = 4 Then
+		If MsChatPr1.Channels.Count = 0 Then
+		  MsChatPr1.Channels(1).JoinChannel document.WEBChat.txtRoomName.Value
+		ElseIf MsChatPr1.Channels.Count > 0 Then
+		  If MsChatPr1.Channels(1).ChannelState = 0 Then
+		    MsChatPr1.Channels(1).JoinChannel document.WEBChat.txtRoomName.Value
+		  Else
+		    MsgBox "You are already in a channel."
+		  End If
+		End If
+	Else
+	  MsgBox "You must first connect to a server."
+	End If
+
+	Case "Leave":
+	   If MsChatPr1.Channels(1).ChannelState = 2 Then
+		MSChatPr1.Channels(1).LeaveChannel
+		document.WEBChat.lblRoomStatus.Caption = "Not in a room"
+		document.WEBChat.lblNumPart.Caption = "# of participants: None"
+		document.WEBChat.rtfHistory.text = ""
+		document.WEBChat.lstParticipants.Clear
+		document.WEBChat.lstBanned.Clear
+	  Else
+	    MsgBox "You are not in a room."
+	  End If
+
+	Case Else:
+	   lstEvents.AddItem "btnGo = UNEXPECTED State vartype!"
+	   Exit Sub
+	End Select
+End Sub
+
+Sub btnChangeTopic_Click()
+   If MsChatPr1.ConnectionState <> 4 Then
+	MsgBox "Must first be connected to a server"
+	Exit Sub
+   End If
+
+   If MsChatPr1.Channels.Count > 0 Then
+	If MSChatPr1.Channels(1).ChannelState = 2 Then
+	  MsChatPr1.Channels(1).ChangeChannelProperty "Topic", 	  document.WEBChat.txtRoomTopic.Value
+	Else
+	  MsgBox "You are not in a room."
+	End If
+   Else
+	MsgBox "You are not in a room."
+   End If
+End Sub
+
+Sub btnSend_Click()
+   If document.WEBChat.rtfMessage.Text = "" Then
+	MsgBox "You must first enter text before speaking."
+	Exit Sub
+   End If
+   
+   If MsChatPr1.Channels(1).ChannelState = 2 Then
+	MsChatPr1.Channels(1).SendMessage 0, document.WEBChat.rtfMessage.Text
+	AppendHistory MsChatPr1.Nickname + " says: ", 0, 1
+	AppendHistory document.WEBChat.rtfMessage.Text, 1, 1
+   Else
+	MsgBox "You are not in a room."
+   End If
+
+   document.WEBChat.rtfMessage.Text = ""
+End Sub
+
+Sub btnWhisper_Click()
+   If document.WEBChat.rtfMessage.Text = "" Then
+	MsgBox "You must first enter text before whispering."
+	Exit Sub
+   End If
+
+   FillRecipients
+
+   If MsChatPr1.Channels(1).ChannelState = 2 Then
+	If strSelectParticipants = "" Then
+	  MsgBox "Must select recipient(s) other than yourself before whispering."
+	Else
+	  Select Case MsChatPr1.ConnectionType
+	    Case 0:
+		MsChatPr1.SendPrivateMessage 0, document.WEBChat.rtfMessage.Text, rgstrSelectParticipants
+		 Case 1:
+	           MsChatPr1.Channels(1).SendMessage 32, document.WEBChat.rtfMessage.Text, rgstrSelectParticipants
+	  End Select
+
+	  AppendHistory MsChatPr1.NIckname + " whispers to " + strSelectParticipants + ": ", 0, 1
+	  AppendHistory document.WEBChat.rtfMessage.Text, 1, 1
+	  document.WEBChat.rtfMessage.Text = ""
+	End If
+   Else
+	  MsgBox "You are not in a room." 
+   End If
+End Sub
+
+Sub btnThink_Click()
+   If document.WEBChat.rtfMessage.Text = "" Then
+	MsgBox "You must first enter text before thinking."
+	Exit Sub
+   End If
+
+   If MsChatPr1.Channels(1).ChannelState = 2 Then
+	MsChatPr1.Channels(1).SendMessage 128, "thinks: " + document.WEBChat.rtfMessage.Text
+	AppendHistory MsChatPr1.Nickname + " thinks: ", 0, 1
+	AppendHistory document.WEBChat.rtfMessage.Text, 1, 1
+      document.WEBChat.rtfMessage.Text = ""
+   Else
+	MsgBox "You are not in a room."
+   End If
+End Sub
+
+Sub btnAction_Click()
+   If document.WEBChat.rtfMessage.Text = "" Then
+	MsgBox "You must first enter text before acting."
+	Exit Sub
+   End If
+
+   If MsChatPr1.Channels(1).ChannelState = 2 Then
+	MsChatPr1.Channels(1).SendMessage 128, document.WEBChat.rtfMessage.Text
+	AppendHistory MsChatPr1.Nickname + " " + document.WEBChat.rtfMessage.Text, 0, 1
+      document.WEBChat.rtfMessage.Text = ""
+   Else
+	MsgBox "You are not in a room."
+   End If
+End Sub
+
+Sub ChangeNick_Click()
+	If MsChatPr1.ConnectionState > 0 Then
+	  If document.WEBChat.txtNickName.Value <> "" Then
+	    MsChatPr1.ChangeNickname document.WEBChat.txtNickName.Value
+	  Else
+	    MsgBox "You must first enter a valid nickname."
+	  End If
+	Else
+	  MsgBox "You are not connected to a server"
+	End If
+End Sub
+
+Sub Kick_Click()
+   If MsChatPr1.Channels(1).ChannelState = 2 Then
+	FillRecipients
+	If strSelectParticipants = "" Then
+	    MsgBox "Must first select a chat participant before kicking."
+	    Exit Sub
+	End If
+   Else
+	MsgBox "You are not in a room."
+   End If
+
+   If InStr(strSelectParticipants, ",") > 0 Then
+	MsgBox "You can only kick on member at a time."
+   Else	
+      MsChatPr1.Channels(1).KickMember strSelectParticipants, document.WEBChat.txtKickComment.Value
+   End If
+End Sub
+
+Sub Ban_Click()
+Dim MemberItems
+Dim i
+
+   i = 0
+
+   If MsChatPr1.Channels(1).ChannelState <> 2 Then
+	  MsgBox "You are not in a room."
+	  Exit Sub
+    End If
+
+   FillRecipients
+
+   If strSelectParticipants = "" Then
+	MsgBox "Must first select chat members to ban."
+	Exit Sub
+   Else
+	SeperateSelected(strSelectParticipants)
+	Set MemberItems = MsChatPr1.NewChatItems
+	MemberItems.AssociatedType = "Query"
+	Do Until strMembers(i) = ""
+	  MemberItems.Item("Nickname") = strMembers(i)
+	  MemberItems.Item("NicknameOp") = "Contains"
+	  MsChatPr1.Channels(1).BanMembers MemberItems, -1
+	  document.WEBChat.lstBanned.AddItem strMembers(i)
+	  MsgBox "User "  + Cstr(strMembers(i)) + " has been banned from " + MsChatPr1.Channels(1).ChannelName
+	  i = i + 1
+	Loop
+   Set MemberItems = Nothing
+   End If
+End Sub
+
+Sub unBan_Click()
+Dim MemberItems
+   If MsChatPr1.Channels(1).ChannelState <> 2 Then
+	MsgBox "You are not in a room."
+	Exit Sub
+   End If
+
+   If document.WEBChat.lstBanned.Text <> "" Then
+	Set MemberItems = MsChatPr1.NewChatItems
+	MemberItems.AssociatedType = "Query"
+	MemberItems.Item("Nickname") = document.WEBChat.lstBanned.Text
+	MemberItems.Item("NicknameOp") = "Contains"
+	MsChatPr1.Channels(1).BanMembers MemberItems, 0
+	MsgBox "User "  + document.WEBChat.lstBanned.Text + " has been unbanned from " + MsChatPr1.Channels(1).ChannelName
+	document.WEBChat.lstBanned.RemoveItem document.WEBChat.lstBanned.ListIndex
+	Set MemberItems = Nothing
+   Else
+	MsgBox "Must first select a user to unBan."
+	Exit Sub
+   End If
+End Sub
+
+Sub Mode_Click()
+Dim i
+
+   i = 0
+   If MsChatPr1.Channels(1).ChannelState <> 2 Then
+	MsgBox "You are not in a room."
+	Exit Sub
+   End If
+
+   FillRecipients
+
+   If strSelectParticipants = "" Then
+	MsgBox "Must first select a chat participant."
+	Exit Sub
+   End If
+
+   SeperateSelected(strSelectParticipants)
+
+   Select Case strMode
+	Case "Host":
+	Do Until strMembers(i) = ""
+	  MsChatPr1.Channels(1).ChangeMemberProperty "Modes", 1024, strMembers(i)
+	  i = i + 1
+      Loop
+	Case "NotHost":
+	Do Until strMembers(i) = ""
+	  MsChatPr1.Channels(1).ChangeMemberProperty "Modes", 2048, strMembers(i)
+	  i = i + 1
+	Loop
+   End Select
+End Sub
+
+Sub SetAway_Click()
+	If MsChatPr1.ConnectionState <> 4 Then
+	  MsgBox "Must first be connected to a server."
+	  Exit Sub
+	End If
+
+   Select Case FlagAway
+	Case 0:
+	  MsChatPr1.SetAway -1, document.WEBChat.txtSetAway.Value
+	  MsgBox "You have been marked as being away."
+	  FlagAway = 1
+	  document.WEBChat.btnSetAway.Value = "UnAway"
+	Case 1:
+	  MsChatPr1.SetAway 0
+	  MsgBox "You are no longer being marked as being away."
+	  FlagAway =0
+	  document.WEBChat.btnSetAway.Value = "Set Away"
+	Case Else
+	  'MsgBox "Unexpected error in SetAway_Click"
+	  lstEvents.AddItem "Unexpected error in SetAway_Click"
+   End Select
+End Sub
+
+Sub rtfMessage_KeyDown(KeyCode, Shift)
+  If 13 = KeyCode Then
+    btnSend_Click
+  End If
+End Sub
+
+'##########################################################################
+'# MSChat Protocol OCX Events
+'##########################################################################
+Sub MSChatPr1_OnAddMember(Channel, Nickname, MemberItems)
+	document.WEBChat.lstParticipants.AddItem Nickname
+	document.WEBChat.lblNumPart.Caption = "# of participants: " + Cstr(MsChatPr1.Channels(1).MemberCount)
+  If (Not bInitialMembers) Then
+    AppendHistory Nickname + " joined the conversation.", 0, 1
+  End If
+End Sub
+
+Sub MSChatPr1_OnBeginEnumeration(Channel, EnumType)
+   lstEvents.AddItem "Begin Enumeration"
+   lstEvents.AddItem "----------------------------------------------------------"
+End Sub
+
+Sub MSChatPr1_OnChannelError(Channel, ErrorCode, Description)
+
+   MsgBox "OnChannelError " + Description + ", Err: " + CStr(ErrorCode)
+   lstEvents.AddItem "OnChannelError " + Description + ", Err: " + CStr(ErrorCode)
+   lstEvents.AddItem "----------------------------------------------------------"
+
+End Sub
+
+Sub MSChatPr1_OnChannelProperty(Channel, ChannelItems)
+Dim cpnName
+Dim cpnTopic
+Dim cpnMemberCount
+
+   cpnName = "Name"
+   cpnTopic = "Topic"
+   cpnMemberCount = "MemberCount"
+
+   If CStr(VPropertyFromChatItems(ChannelItems, cpnTopic)) <> "" Then
+     document.WEBChat.lstUserChannels.AddItem CStr(VPropertyFromChatItems(ChannelItems, cpnName)) + ",     " + CStr(VPropertyFromChatItems(ChannelItems, cpnTopic)) + ",     " + CStr(VPropertyFromChatItems(ChannelItems, cpnMemberCount))
+   Else
+     document.WEBChat.lstUserChannels.AddItem CStr(VPropertyFromChatItems(ChannelItems, cpnName)) + ",     No Topic" + ",     " + CStr(VPropertyFromChatItems(ChannelItems, cpnMemberCount))
+   End If
+
+   ItemCount = ItemCount + 1
+   document.WEBChat.lblItemCount.Caption = "Listed Items: " + CStr(ItemCount)
+
+End Sub
+
+Sub MSChatPr1_OnChannelPropertyChanged(Channel, ModifierNickname, ChannelPropertyName, OldChannelProperty, NewChannelProperty)
+
+   If ChannelPropertyName = "Topic" Then
+	If CStr(OldChannelProperty) = "" Then
+	  MsgBox ModifierNickName + " has changed the " + ChannelPropertyName + " to '" + CStr(NewChannelProperty) + "'."
+	Else
+	  If Cstr(NewChannelProperty) = "" Then
+		MsgBox ModifierNickName + " has changed the " + ChannelPropertyName + " from '" + CStr(OldChannelProperty) + "' to (no topic)."
+	  Else
+		MsgBox ModifierNickName + " has changed the " + ChannelPropertyName + " from '" + CStr(OldChannelProperty) + "' to '" + CStr(NewChannelProperty) + "'."
+	  End If
+	End If
+   End If
+End Sub
+
+Sub MSChatPr1_OnChannelState(ByVal Channel, ByVal NewChannelState)
+   Select Case NewChannelState
+	Case 0:
+	  document.WEBChat.btnGo.Value = "Join"
+	  document.WEBChat.lblRoomStatus.Caption = "Not in a room"
+	  lstEvents.AddItem "Channel State = " + CStr(Channel.ChannelState) + ", ChannelClosed"
+	  lstEvents.AddItem "The number of channels currently opening in the channel collection is " + CStr(MsChatPr1.OpeningChannels)
+
+	Case 1:
+	  document.WEBChat.btnGo.Value = "Wait"
+	  document.WEBChat.lblRoomStatus.Caption = "Not in a room"
+	  lstEvents.AddItem "Channel State = " + CStr(Channel.ChannelState) + ", ChannelOpening"
+	  lstEvents.AddItem "The number of channels currently opening in the channel collection is " + CStr(MsChatPr1.OpeningChannels)
+
+	Case 2:
+	  document.WEBChat.btnGo.Value = "Leave"
+	  document.WEBChat.lblRoomStatus.Caption = "Now chatting in room " + MsChatPr1.Channels(1).ChannelName
+	  lstEvents.AddItem "Channel State = " + CStr(Channel.ChannelState) + ", ChannelOpen"
+	  lstEvents.AddItem "The number of channels currently opening in the channel collection is " + CStr(MsChatPr1.OpeningChannels)
+	  lstEvents.AddItem "The room name is " + Channel.ChannelName
+	  lstEvents.AddItem "The room topic is " + Channel.ChannelTopic
+	  lstEvents.AddItem "The total number of channels in the collection is " + CStr(MsChatPr1.Channels.Count)
+        bInitialMembers = TRUE
+
+	Case Else
+	  document.WEBChat.lblRoomStatus.Caption = "Room Status Unknown"
+	  lstEvents.AddItem "OnChannelState = " + Description + " (Err:" + CStr(ErrorCode) + ", UNEXPECTED State vartype!)"
+	  lstEvents.AddItem "The number of channels opening in the channel collection is " + CStr(MsChatPr1.OpeningChannels)
+   End Select
+
+   lstEvents.AddItem "----------------------------------------------------------"
+End Sub
+
+Sub MSChatPr1_OnConnectionError(ErrorCode, Description, ChannelName)
+   If ErrorCode = 3133 Then
+	lstEvents.AddItem "OnChannel Error " + Description + "Err:" + CStr(ErrorCode) + ")"
+	Exit Sub
+   End If
+
+   Select Case VarType(ChannelName)
+	Case 0:
+	  MsgBox "OnConnectionError: " + Description + " (Err:" + CStr(ErrorCode) + ")"
+	  lstEvents.AddItem "OnConnectionError: " + Description + " (Err:" + CStr(ErrorCode) + ")"
+	Case 8:
+	  MsgBox "OnConnectionError CN:" + ChannelName + ", " + Description + " (Err:" + CStr(ErrorCode) + ")"
+	  lstEvents.AddItem "OnConnectionError CN:" + ChannelName + ", " + Description + " (Err:" + CStr(ErrorCode) + ")"
+	Case Else
+	  MsgBox "OnConnectionError: " + Description + " (Err:" + CStr(ErrorCode) + ", UNEXPECTED ChannelName vartype!)"
+	  lstEvents.AddItem "OnConnectionError CN:" + ChannelName + ", " + Description + " (Err:" + CStr(ErrorCode) + ")"
+   End Select
+
+   document.WEBChat.lblConnectionState.Caption = "**Disconnected**"
+   document.WEBChat.lblConnectionState.BackColor = "255"
+
+   lstEvents.AddItem "----------------------------------------------------------"
+End Sub
+
+Sub MSChatPr1_OnConnectionState(NewConnectionState)
+Dim MyTemp
+   Select Case NewConnectionState
+	Case 0:
+	  lstEvents.AddItem "Connection State = " + CStr(MsChatPr1.ConnectionState) + ", csDisconnected"
+	  document.WEBChat.btnConnect.Value = "Connect"
+	  document.WEBChat.lblConnectionState.Caption = "**Disconnected**"
+	  document.WEBChat.lblConnectionState.BackColor = "255"
+	Case 1:
+	  lstEvents.AddItem "Connection State = " + CStr(MsChatPr1.ConnectionState) + ", csConnecting"
+	  document.WEBChat.btnConnect.Value = "Cancel"
+	  document.WEBChat.lblConnectionState.Caption = "Connecting ..."
+	  document.WEBChat.lblConnectionState.BackColor = "65535"
+
+	Case 2:
+	  lstEvents.AddItem "Connection State = " + CStr(MsChatPr1.ConnectionState) + ", csConnected"
+	  document.WEBChat.btnConnect.Value = "Continue Connect"
+	  document.WEBChat.lblConnectionState.Caption = "Connected ..."
+	  document.WEBChat.lblConnectionState.BackColor = "65535"
+
+	Case 3:
+	  lstEvents.AddItem "Connection State = " + CStr(MSChatPr1.ConnectionState) + ", csLogging"
+	  document.WEBChat.btnConnect.Value = "Cancel"
+	  document.WEBChat.lblConnectionState.Caption = "Logging ..."
+	  document.WEBChat.lblConnectionState.BackColor = "65535"
+
+	Case 4:
+	  lstEvents.AddItem "Connection State = " + CStr(MsChatPr1.ConnectionState) + ", csLogged"
+	  document.WEBChat.lblConnectionState.Caption = "**Logged**"
+	  document.WEBChat.lblConnectionState.BackColor = "65280"
+	  lstEvents.AddItem "The name of the server is " + MSChatPr1.ServerName
+	  lstEvents.AddItem "Your nickname is " + MsChatPr1.Nickname
+
+	  If MsChatPr1.ConnectionType = 0 Then
+	    MyTemp = "IRC"
+	  Else
+	    If MsChatPr1.ConnectionType = 1 Then
+	      MyTemp = "IRCX"
+	    Else
+	      MyTemp = "Unknown"
+	    End If
+	  End If
+
+	  lstEvents.AddItem "Your ConnectionType is " + Cstr(MsChatPr1.ConnectionType) + ", " + MyTemp
+	  lstEvents.AddItem "The number of channels opening in the channel collection is " + CStr(MsChatPr1.OpeningChannels)
+	  document.WEBChat.btnConnect.Value = "Disconnect"
+
+	Case 5:
+	  lstEvents.AddItem "Connection State = " + Cstr(MSChatPr1.ConnectionState) + ", csDisconnecting"
+	  document.WEBChat.btnConnect.Value = "Wait..."
+	  document.WEBChat.lblConnectionState.Caption = "Disconnecting"
+	  document.WEBChat.lblConnectionState.BackColor = "255"
+
+	Case Else
+	  lstEvents.AddItem "OnConnectionState = " + Description + " (Err:" + CStr(ErrorCode) + ", UNEXPECTED State vartype!)"
+   End Select
+
+   lstEvents.AddItem "----------------------------------------------------------"
+End Sub
+
+Sub MSChatPr1_OnDelMember(Channel, Nickname)
+Dim X
+
+   X = 0
+
+   If Nickname <> MsChatPr1.Nickname Then
+	document.WEBChat.lblNumPart.Caption = "# of participants: " + Cstr(MsChatPr1.Channels(1).MemberCount)
+      AppendHistory Nickname + " left the conversation.", 0, 1
+   Else
+	document.WEBChat.lblNumPart.Caption = "# of participants: None"
+	document.WEBChat.rtfHistory.Text = ""
+      lHistoryLen = 0
+	document.WEBChat.lstParticipants.Clear
+	Exit Sub
+   End If
+
+	If X <> document.WEBChat.lstParticipants.ListCount Then
+	  Do While Nickname <> (document.WEBChat.lstParticipants.List(X))
+	    X = X + 1
+	  Loop
+	  document.WEBChat.lstParticipants.RemoveItem X
+	End If
+End Sub
+
+Sub MSChatPr1_OnEndEnumeration(Channel, EnumType)
+   lstEvents.AddItem "End Enumeration"
+   If EnumType = 5 Then
+     bInitialMembers = FALSE
+   End If
+End Sub
+
+Sub MSChatPr1_OnInvitation(ChannelName, InviterItems)
+Dim Nickname
+   Nickname = "Nickname"
+
+   MsgBox CStr(VPropertyFromChatItems(InviterItems, Nickname)) + " has invited you to the room '" + ChannelName + "'."
+End Sub
+
+Sub MSChatPr1_OnMemberKicked(Channel, KickedNickname, KickerNickname, Reason)
+	If Reason = "" Then
+	  MsgBox KickerNickName + " kicked " + KickedNickname + " out of the chat room."
+	Else
+	  MsgBox KickerNickname + " kicked " + KickedNickname + " out of the chat room, saying '" + Reason + "'."
+	End If
+End Sub
+
+Sub MSChatPr1_OnMemberProperty(Channel, MemberItems)
+End Sub
+
+Sub MSChatPr1_OnMemberPropertyChanged(Channel, ModifiedNickname, ModifierNickname, MemberPropertyName, OldMemberProperty, NewMemberProperty)
+Dim X
+
+   X = 0
+
+   If MemberPropertyName = "Nickname" Then
+	MsgBox CStr(OldMemberProperty) + " is now known as " + NewMemberProperty + "."
+	Do While X <> document.WEBChat.lstParticipants.ListCount
+	  If CStr(OldMemberProperty) = (document.WEBChat.lstParticipants.List(X)) then
+	    document.WEBChat.lstParticipants.List(X) = NewMemberProperty
+	  End If
+	  X = X + 1
+	Loop
+   End If
+
+   If IsNumeric(OldMemberProperty) and IsNumeric(NewMemberProperty) Then
+	ModeChanges ModifiedNickname, OldMemberProperty, NewMemberProperty
+   End If
+ 
+End Sub
+
+Sub ModeChanges(ModifiedNickname, OldMemberProperty, NewMemberProperty)
+   If ((OldMemberProperty AND 8192) and not (NewMemberProperty AND 8192)) Then
+	MsgBox Cstr(ModifiedNickname) +  " has been made a speaker."
+   End If
+
+   If ((OldMemberProperty AND 4096) and not (NewMemberProperty AND 4096)) Then
+	 MsgBox Cstr(ModifiedNickname) + " has been made a spectator."
+   End If
+
+   If ((OldMemberProperty AND 2048) and not (NewMemberProperty AND 2048)) Then
+	MsgBox Cstr(ModifiedNickname) + " has been made a host."
+   End If
+End Sub
+
+
+Sub MSChatPr1_OnMessage(Channel, SenderNickname, MessageType, Message, RecipientNicknames, DataMessageTag)
+  Select Case MessageType
+    Case 0:
+      AppendHistory SenderNickname + " says:", 0, 1
+
+    Case 1:
+      AppendHistory SenderNickname + " says (as a notice):", 0, 1
+
+    Case 32:
+	  ExtractRecipients RecipientNicknames
+      AppendHistory SenderNickname + " whispers to " + strRecipients + ":", 0, 1
+
+    Case 128:
+      AppendHistory SenderNickname + " " + Message, 0, 1
+    
+    Case 256:
+      AppendHistory SenderNickname + " sends sound:", 0, 1
+        
+    Case 512:
+      AppendHistory SenderNickname + " sends CTCP:", 0, 1
+   End Select
+
+  Select Case MessageType
+    Case 0, 1, 32, 256, 512:
+      AppendHistory Message, 1, 1
+  End Select
+End Sub
+
+Sub MSChatPr1_OnPrivateMessage(SenderNickname, PrivateMessageType, Message, DataMessageTag)
+  Select Case PrivateMessageType
+    Case 0, 1, 32, 512, 513, 1024, 1025, 2048, 2049:
+      AppendHistory SenderNickname + " sends private message:", 2, 1
+      AppendHistory Message, 3, 1
+	Case 64:
+      AppendHistory SenderNickname + " asked for version information.", 2, 1
+	Case 128:
+      AppendHistory SenderNickname + " asked for lag time.", 2, 1
+	Case 256:
+      AppendHistory SenderNickname + " asked for local time.", 2, 1
+  End Select
+End Sub
+
+Sub MSChatPr1_OnProtocolMessage(MessagePrefix, MessageCommand, MessageParameters, EnableDefault)
+Dim i
+Dim strParams
+    strParams = ""
+
+    Select Case VarType(MessageParameters)
+        Case 8:
+            strParams = CStr(MessageParameters)
+        Case 8204:
+            For i = LBound(MessageParameters) To UBound(MessageParameters)
+                strParams = strParams + "<" + CStr(MessageParameters(i)) + "> "
+            Next
+        Case Else
+            strParams = "UNEXPECTED VARIANT TYPE"
+    End Select
+    lstEvents.AddItem "OnProtocolMessage==> Prefix: " + MessagePrefix + " Command: " + MessageCommand + " Paramaters: " + strParams
+    'MsgBox "OnProtocolMessage==> Prefix: " + MessagePrefix + " Command: " + MessageCommand + " Parameters: " + strParams
+
+End Sub
+
+Sub MSChatPr1_OnServerProperty(ServerItems)
+End Sub
+
+Sub MSChatPr1_OnServerTextMessage(ServerMessageType, Text)
+   Select Case ServerMessageType
+	Case 0:
+	  lstEvents.AddItem "Normal Server Message: " + Text
+	  lstEvents.AddItem "----------------------------------------------------------"
+	Case 1:
+	  lstEvents.AddItem "Notice Server Message: " + Text
+	  lstEvents.AddItem "----------------------------------------------------------"
+	Case 2:
+	  lstEvents.AddItem "Message of the Day: " + Text
+	  lstEvents.AddItem "----------------------------------------------------------"
+	Case Else
+	  lstEvents.AddItem "Unknown server message: " + Text
+	  lstEvents.AddItem "----------------------------------------------------------"
+   End Select
+End Sub
+
+Sub MSChatPr1_OnUserProperty(ChannelItems)
+Dim Nickname
+Dim RealName
+Dim IPAddress
+
+   Nickname = "Nickname"
+   RealName = "RealName"
+   IPAddress = "IPAddress"
+
+   document.WEBChat.lstUserChannels.AddItem CStr(VPropertyFromChatItems(ChannelItems, Nickname)) + ",     " + CStr(VPropertyFromChatItems(ChannelItems, RealName)) + ",     " + CStr(VPropertyFromChatItems(ChannelItems, IPAddress))
+
+   ItemCount = ItemCount + 1
+   document.WEBChat.lblItemCount.Caption = "Listed Items: " + CStr(ItemCount)
+End Sub
+
+Sub MSChatPr1_OnUserPropertyChanged(ModifiedNickname, ModifierNickname, UserPropertyName, OldUserProperty, NewUserProperty)
+End Sub
+-->
+</SCRIPT>
+
+   <HEAD><TITLE>Chat Protocol Control Sample Page</TITLE></HEAD>
+   <BODY BGCOLOR=000000 TEXT=#FFFFFF LINK=#000000 VLINK=#008080>
+
+   <HR SIZE=3 WIDTH=75%>
+   <CENTER><TABLE BORDER=0 CELLSPACING=5 CELLPADDING=0 WIDTH=600>
+	<TR>
+	  <TD COLSPAN=3 ALIGN=CENTER><H1>Chat Protocol Control HTML Sample</H1></TD>
+	</TR>
+
+	<TR>
+	  <TD ALIGN=CENTER COLSPAN=3><A NAME="TOP">[ <A HREF=#Login>Basic Login</A> | <A HREF=#Features>Protocol Features</A> | <A HREF=#Admin>Host Features</A> | <A HREF=#Log>View Events Log</A> ]</TD>
+	</TR>
+
+	<TR>
+	  <TD COLSPAN=3 ALIGN=CENTER><INPUT TYPE=BUTTON NAME="btnAbout" VALUE="About" onClick="btnAbout_Click"></TD>
+	</TR>
+   </TABLE></CENTER>
+   <HR SIZE=3 WIDTH=75%>
+   
+   <FORM NAME="WEBChat">
+   <A NAME="Login"><FONT SIZE=4><B>Basic Login</B></FONT> -- <FONT SIZE=-1><A HREF="#TOP">Return to Top</A></FONT>
+
+   <DL>
+     <DD>Login to chat servers by entering a nickname and channel name.  Once logged on, you may use the various protocol features.  If you are the host of a room, you may use the host features.<FONT SIZE=-1>  <FONT COLOR=FF0000>Note: * - IRCX only</FONT></FONT>
+   </DL>
+
+   <TABLE BORDER=0 CELLPADDING=0 CELLSPACING=5 WIDTH=720>
+	<TH COLSPAN=3>Login Information</TH>
+	<TH COLSPAN=3>Channel Information</TH>
+
+	<TR>
+	  <TD BGCOLOR=FFFFFF><B><FONT COLOR="000080">Real Name:</FONT></B></TD>
+	  <TD><INPUT TYPE=TEXT VALUE="OCXTest" SIZE=30 NAME="txtRealName" MAXLENGTH=58></TD>
+	  <TD><INPUT TYPE=BUTTON VALUE="Connect" onClick="Connect_Click" NAME="btnConnect"></TD>
+	  <TD BGCOLOR=FFFFFF><FONT COLOR=000080><B>Channel Name:</B></FONT></TD>
+	  <TD><INPUT TYPE=TEXT VALUE="#TheRoundTable" SIZE=30 NAME="txtRoomName" MAXLENGTH=58></TD>
+	  <TD><INPUT TYPE=BUTTON NAME="btnGo" VALUE="Join" onClick="btnGo_Click"></TD>
+	</TR>
+
+	<TR>
+	  <TD BGCOLOR=FFFFFF><B><FONT COLOR="000080">Nickname:</FONT></B></TD>
+	  <TD><INPUT TYPE=TEXT VALUE="KingArthur" SIZE=30 NAME="txtNickName" MAXLENGTH=58></TD>
+	  <TD><INPUT TYPE=BUTTON VALUE="Change Nick" onClick="ChangeNick_Click" NAME="btnChangeNick"></TD>
+	  <TD BGCOLOR=FFFFFF><FONT COLOR=000080><B>Channel Topic</B></FONT></TD>
+	  <TD><INPUT TYPE=TEXT VALUE="" SIZE=30 NAME="txtRoomTopic" MAXLENGTH=58></TD>
+	  <TD><INPUT TYPE=BUTTON NAME="btnChangeTopic" VALUE="Change Topic" onClick="btnChangeTopic_Click"></TD>
+	</TR>
+
+	<TR>
+	  <TD BGCOLOR=FFFFFF><B><FONT COLOR="000080">Server Name:</FONT></B></TD> 
+	  <TD><OBJECT ID="cmbServer" WIDTH=148 HEIGHT=21
+	  CLASSID="CLSID:8BD21D30-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="VariousPropertyBits" VALUE="746604571">
+		<PARAM NAME="Value" VALUE="comicsrv1.microsoft.com">
+		<PARAM NAME="DisplayStyle" VALUE="3">
+		<PARAM NAME="Size" VALUE="3911;556">
+		<PARAM NAME="MatchEntry" VALUE="2">
+		<PARAM NAME="ShowDropButtonWhen" VALUE="2">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT></TD>
+	</TR>
+   </TABLE>
+
+   <BR><CENTER><TABLE BORDER=3 CELLSPACING=0 CELLPADDING=0 WIDTH=500 BGCOLOR=FFFFFF>
+	<TR>
+	  <TD COLSPAN=5 ALIGN=LEFT><OBJECT ID="lblConnectionState" WIDTH=85 HEIGHT=16
+ 	  CLASSID="CLSID:978C9E23-D4B0-11CE-BF2D-00AA003F40D0">
+		<PARAM NAME="VariousPropertyBits" VALUE="8388627">
+		<PARAM NAME="Caption" VALUE="**Disconnected**">
+		<PARAM NAME="BackColor" VALUE="255">
+		<PARAM NAME="Size" VALUE="3620;418">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT>**<OBJECT ID="lblNumPart" WIDTH=137 HEIGHT=16
+ 	  CLASSID="CLSID:978C9E23-D4B0-11CE-BF2D-00AA003F40D0">
+		<PARAM NAME="VariousPropertyBits" VALUE="8388627">
+		<PARAM NAME="Caption" VALUE="# of participants: None">
+		<PARAM NAME="Size" VALUE="3620;418">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT>**<OBJECT ID="lblRoomStatus" WIDTH=200 HEIGHT=16
+ 	  CLASSID="CLSID:978C9E23-D4B0-11CE-BF2D-00AA003F40D0">
+		<PARAM NAME="VariousPropertyBits" VALUE="8388627">
+		<PARAM NAME="Caption" VALUE="Not in a room">
+		<PARAM NAME="Size" VALUE="3620;418">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT></TD>
+	</TR>
+
+	<TR ROWSPAN=3>
+	  <TD COLSPAN=4><OBJECT ID="rtfHistory" WIDTH=465 HEIGHT=225
+ CLASSID="CLSID:8BD21D10-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="VariousPropertyBits" VALUE="2894088219">
+		<PARAM NAME="ScrollBars" VALUE="2">
+		<PARAM NAME="Size" VALUE="11187;5715">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT></TD>
+	  <TD ROWSPAN=2><OBJECT ID="lstParticipants" WIDTH=150 HEIGHT=225
+	  CLASSID="CLSID:8BD21D20-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="ScrollBars" VALUE="3">
+		<PARAM NAME="DisplayStyle" VALUE="2">
+		<PARAM NAME="Size" VALUE="15999;4895">
+		<PARAM NAME="MatchEntry" VALUE="0">
+		<PARAM NAME="MultiSelect" VALUE="2">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT><BR>
+	  <INPUT TYPE=BUTTON VALUE="Send" NAME="btnSend" onClick="btnSend_Click"><INPUT TYPE=BUTTON VALUE="Think" NAME="btnThink" onClick="btnThink_Click"><INPUT TYPE=BUTTON VALUE="Whisper" NAME="btnWhisper" onClick="btnWhisper_Click"><INPUT TYPE=BUTTON VALUE="Action" NAME="btnAction" onClick="btnAction_Click"></TD>
+	</TR>
+
+	<TR>
+	  <TD COLSPAN=4><OBJECT ID="rtfMessage" WIDTH=465 HEIGHT=40
+ CLASSID="CLSID:8BD21D10-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="VariousPropertyBits" VALUE="2894088219">
+		<PARAM NAME="ScrollBars" VALUE="2">
+		<PARAM NAME="Size" VALUE="11187;5715">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT></TD>
+	</TR>
+   </TABLE></CENTER>
+
+   <BR><A NAME="Features"><FONT SIZE=4><B>Protocol Features</B></FONT> -- <FONT SIZE=-1><A HREF="#TOP">Return to Top</A></FONT>
+
+   <DL>
+	<DD>Users are listed in the order of: Nickname, RealName, and IPAddress. Channels are listed in the order of Channel Name, Topic, Member Count.  <FONT COLOR=FF0000>You may narrow your results by filtering the list for a particular name, IPAddress, etc.  Just select your filter option and enter your search criteria in the Search Text field.</FONT>
+   </DL>
+
+   <P><TABLE BORDER=0 CELLSPACING=5 CELLPADDING=0 WIDTH=600>
+	<TR>
+	  <TD><INPUT TYPE=RADIO NAME="optListOption" onClick=strListOpt="ListChannels" CHECKED><FONT SIZE=+1>List Channels</FONT></TD>
+	  <TD ROWSPAN=8 BGCOLOR=FFFFFF> <OBJECT ID="lblItemCount" WIDTH=85 HEIGHT=16
+ 	  CLASSID="CLSID:978C9E23-D4B0-11CE-BF2D-00AA003F40D0">
+		<PARAM NAME="VariousPropertyBits" VALUE="8388627">
+		<PARAM NAME="Caption" VALUE="Listed Items: 0">
+		<PARAM NAME="Size" VALUE="3620;418">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT><BR>
+	  <OBJECT ID="lstUserChannels" WIDTH=500 HEIGHT=250
+     CLASSID="CLSID:8BD21D20-EC42-11CE-9E0D-00AA006002F3">
+        <PARAM NAME="ScrollBars" VALUE="2">
+        <PARAM NAME="DisplayStyle" VALUE="2">
+        <PARAM NAME="Size" VALUE="15999;4895">
+        <PARAM NAME="MatchEntry" VALUE="0">
+        <PARAM NAME="FontName" VALUE="Arial">
+	  <PARAM NAME=FontBold" VALUE="0">
+        <PARAM NAME="FontEffects" VALUE="0">
+        <PARAM NAME="FontHeight" VALUE="180">
+        <PARAM NAME="FontCharSet" VALUE="0">
+        <PARAM NAME="FontPitchAndFamily" VALUE="2">
+        <PARAM NAME="FontWeight" VALUE="0">
+    	</OBJECT></TD>
+	</TR>
+
+	<TR>
+	  <TD><INPUT TYPE=RADIO NAME="optSearchOption" onClick=strSubFilter="ChannelName"><FONT SIZE=-1>Filter by Name</FONT><BR><INPUT TYPE=RADIO NAME="optSearchOption" onClick=strSubFilter="ChannelTopic"><FONT SIZE=-1>Filter by Topic*</FONT><BR><INPUT TYPE=RADIO NAME="optSearchOption" onClick=strSubFilter="MemCount"><FONT SIZE=-1>Filter by Member Count*</FONT><BR><INPUT TYPE=RADIO NAME="optSearchOption" onClick=strSubFilter="All" CHECKED><FONT SIZE=-1>List All</FONT></TD>
+	</TR>
+
+	<TR>
+	  <TD><HR></TD>
+	</TR>
+
+	<TR>
+	  <TD><INPUT TYPE=RADIO NAME="optListOption" onClick=strListOpt="ListUsers"><FONT SIZE=+1>List Users</FONT></TD>
+	</TR>
+
+	<TR>
+	  <TD><INPUT TYPE=RADIO NAME="optSearchOption" onClick=strSubFilter="Nickname"><FONT SIZE=-1>Filter by Nickname</FONT><BR><INPUT TYPE=RADIO NAME="optSearchOption" onClick=strSubFilter="IPAddress"><FONT SIZE=-1>Filter by IP Address*</FONT><BR><INPUT TYPE=RADIO NAME="optSearchOption" onClick=strSubFilter="All"><FONT SIZE=-1>List All</FONT></TD>
+	</TR>
+
+	<TR>
+	  <TD>Search Text:</TD>
+	</TR>
+
+	<TR>
+	  <TD><INPUT TYPE=TEXT SIZE=30 VALUE="" NAME="txtFilter"></TD>
+	</TR>
+
+	<TR>
+	  <TD ALIGN=CENTER><INPUT TYPE=BUTTON NAME="btnListOption" onClick="btnListOption_Click" VALUE="Get List"></TD>
+	</TR>
+   </TABLE>
+
+   <DL>
+	<DD>The away feature allows you to automatically send an Away message to anyone that directly sends you a message.  Click Set Away to be marked as being away, click it again to turn it off.
+   </DL>
+
+   <P><CENTER><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=400>
+	<TR>
+	  <TD COLSPAN=4>Away Message:<BR>
+	  <INPUT TYPE=TEXT VALUE="Sorry, I'm away right now." SIZE=60 NAME="txtSetAway" MAXLENGTH=58> <INPUT TYPE=BUTTON VALUE="Set Away" NAME="btnSetAway" onClick="SetAway_Click"></TD>
+	</TR>
+   </TABLE></CENTER>
+
+   <P><HR>
+
+   <BR><A NAME="Admin"><FONT SIZE=4><B>Host Features</B></FONT> -- <FONT SIZE=-1><A HREF="#TOP">Return to Top</A></FONT>
+
+   <DL>
+	<DD>You must be the host of the chat room to use these features.  Select a chat room participant to kick, ban, and change user modes.  Select a nickname from the banned users list to unban.
+   </DL>
+
+
+   <CENTER><TABLE BORDER=0 CELLSPACING=5 CELLPADDING=0 WIDTH=550>
+	<TR>
+	  <TD><B>Users Banned:</B></TD>
+	  <TD><B>Kick Comment:</B></TD>
+	</TR>
+
+	<TR>
+	  <TD ROWSPAN=2><OBJECT STANDBY="Downloading ..."
+	   CODETYPE="application/x-oleobject" ID="lstBanned" WIDTH=153 HEIGHT=69
+	   CLASSID="CLSID:8BD21D20-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="ScrollBars" VALUE="3">
+		<PARAM NAME="DisplayStyle" VALUE="2">
+		<PARAM NAME="Size" VALUE="4049;1824">
+		<PARAM NAME="MatchEntry" VALUE="0">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT></TD>
+	  <TD><INPUT TYPE=TEXT VALUE="My Kick Comment" NAME="txtKickComment" SIZE=30 MAXLENGTH=58> <INPUT TYPE=BUTTON VALUE="Kick" NAME="btnKick" onClick="Kick_Click"></</TD>
+	</TR>
+
+	<TR>
+	  <TD><B>Mode Options:</B></TD>
+	</TR>
+
+	<TR>
+	  <TD><INPUT TYPE=BUTTON VALUE="Ban" NAME="btnBan" Value="Ban" OnClick="Ban_Click"><INPUT TYPE=BUTTON VALUE="UnBan" NAME="btnUnBan" onCLick="unBan_Click"></TD>
+	  <TD><INPUT TYPE=RADIO NAME="optModes" onClick=strMode="Host" CHECKED>Host<INPUT TYPE=RADIO NAME="optModes" onClick=strMode="NotHost">Not Host  <INPUT TYPE=BUTTON VALUE="Change Mode" NAME="btnMode" onClick="Mode_Click"></TD>
+	</TR>
+   </TABLE></CENTER></FORM>
+
+   <HR>
+
+   <BR><A NAME="Log"><FONT SIZE=4><B>Events Log</B></FONT> -- <FONT SIZE=-1><A HREF="#TOP">Return to Top</A></FONT>
+
+   <DL>
+	<DD>Will display information when certain events are fired by the protocol.
+   </DL>
+ 
+
+  <FORM NAME="frmClear"><TABLE BORDER=0 CELLSPACING=5 CELLPADDING=0 WIDTH=600>
+	<TR>
+	  <TD><BR><INPUT TYPE=BUTTON VALUE="Clear" OnClick=lstEvents.Clear NAME="btnClear"></FORM></TD>
+	</TR>
+
+	<TR>
+	  <TD>Events Log: <BR><OBJECT ID="lstEvents" WIDTH=605 HEIGHT=150
+     CLASSID="CLSID:8BD21D20-EC42-11CE-9E0D-00AA006002F3">
+        <PARAM NAME="ScrollBars" VALUE="2">
+        <PARAM NAME="DisplayStyle" VALUE="2">
+        <PARAM NAME="Size" VALUE="15999;4895">
+        <PARAM NAME="MatchEntry" VALUE="0">
+        <PARAM NAME="FontName" VALUE="Comic Sans MS">
+	  <PARAM NAME="FontBold" VALUE="0">
+        <PARAM NAME="FontEffects" VALUE="0">
+        <PARAM NAME="FontHeight" VALUE="180">
+        <PARAM NAME="FontCharSet" VALUE="0">
+        <PARAM NAME="FontPitchAndFamily" VALUE="2">
+        <PARAM NAME="FontWeight" VALUE="0">
+    </OBJECT></TD>
+	</TR>
+   </TABLE>
+
+	<OBJECT ID="MSChatPr1" WIDTH=0 HEIGHT=1
+	STANDBY="Dowloading the Microsoft MSChat" 
+	CODETYPE="application/x-oleobject"
+	CLASSID="CLSID:039397C0-46DF-11D0-99CB-00C04FD64497"
+	CODEBASE="http://activex.microsoft.com/controls/mschat/mschatpr.cab">
+	</OBJECT>
+</BODY>
+</HTML>

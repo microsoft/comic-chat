@@ -1,0 +1,47 @@
+;
+; This is the Setup information file to install 
+; Microsoft Chat Control
+;
+; Copyright (c) 1993-1997 Microsoft Corporation
+;
+
+[Version]
+Signature="$CHICAGO$"
+Provider=%MSFT%
+AdvancedINF=2.5, "You need a newer version of Advpack.dll."  
+
+[DefaultInstall]
+CopyFiles      = SysFiles
+RegisterOCXs	= MsChat.OCX
+
+[DefaultInstall.NT]
+CopyFiles      = SysFiles
+RegisterOCXs	= MsChat.OCX
+
+[DestinationDirs]
+SysFiles	= 11	; LDID_SYS
+
+[SysFiles]
+; Silently don't install if newer versions exist
+chatsock.dll,,,32
+mschat.ocx,,,32
+mschatpr.ocx,,,32
+
+[SourceDisksNames]
+1 = %DiskName%,ChatSdk.CAB,0
+
+[SourceDisksFiles]
+Chatmsdn.INF=1
+chatsock.dll=1
+mschat.ocx=1
+mschatpr.ocx=1
+
+[MsChat.OCX]
+%11%\MsChat.OCX
+%11%\MsChatpr.OCX
+
+[Strings]
+DiskName		= "Microsoft Chat Control Installation Disk"
+
+;Remember to change in SourceFiles and InfFiles also
+;InfName			= "ChatSdk.INF"

@@ -1,0 +1,763 @@
+<!--
+#ChatBot HTML Sample
+#Microsoft Corporation
+#1997
+-->
+
+<HTML>
+<SCRIPT LANGUAGE="VBScript">
+<!--
+'###########################################################################
+'#Global Variables -- Do Not Edit
+'###########################################################################
+
+Dim MyOption		'Option selected for changing Participant Status
+Dim MyParticpantID	'ParticipantID holder, upon entering ChatRoom
+Dim MyString		'Add Word Promopt holder ChatBot
+Dim MySenderID		'ParticipantID from message sender (0 if from the chat)
+Dim MyBotCommentW	'Comment Used when users are warned
+Dim MyBotCommentK	'Comment Used when users are kicked
+Dim MyKickOrWarn	'Flag that is set to kick or ban a user (0=Warn; 1=Kick)
+Dim MyDefaultComment	'Default comment for ChatBot
+Dim MyBotFlag		'Set when ChatBot will enter Chat (0=false; 1=true)
+Dim MyBanNo		'Set when ban on kickcheckbox is not checked
+Dim MyBanYes		'Set when ban on kick checkbox is checked
+Dim MyBadWord		'Set before final action by ChatBot (0=false; 1=true)
+
+Sub Window_OnLoad()
+	MyBanNo = 1
+	MyBanYes = 0
+
+'###########################################################################
+'#The following words will always be scanned for when using ChatBot.
+'#Follow format below to add more words, keep words UPPERCASE.
+'#Words added during run-time will disappear after reload unless added here
+'###########################################################################
+
+	lstWords.AddItem "WORD1"
+	lstWords.AddItem "WORD2"
+	lstWords.AddItem "WORD3"
+
+'###########################################################################
+'#Edit the following string to change the default comment for ChatBot
+'###########################################################################
+
+	MyDefaultComment = "you have been warned by ChatBot"
+
+End Sub
+
+'###########################################################################
+'#Events for form controls -- Do Not Edit
+'###########################################################################
+
+Sub Join_Click()
+   Select Case Chat1.State
+	Case 1:
+	  Chat1.EnterRoom document.WEBChat.txtRoomPath.Value, "", document.WEBChat.txtNickName.Value, "ANON", 1, 1
+	  If Chat2.State = 3 Then
+	    Chat2.Exit Room
+	  End If
+	Case 2:
+	  Chat1.CancelEntering
+	Case 3:
+          Chat1.ExitRoom
+	  Chat1.ClearHistory
+	Case Else:
+   End Select
+End Sub
+
+Sub ChangeTopic_Click()
+	Chat1.RoomTopic = document.WEBChat.txtRoomTopic.Value
+End Sub
+
+Sub Kick_Click()
+	  Chat1.KickParticipant -1, document.ADMIN.txtKickComment.Value
+End Sub
+
+Sub Ban_Click()
+	If document.ADMIN.txtBanName.Value = "" Then
+	  Msgbox "Must first type a User Alias."
+	Else
+	  Chat1.BanParticipant document.ADMIN.txtBanName.Value, -1
+	  MsgBox "User " + document.ADMIN.txtBanName.Value + " has been banned from " + Chat1.RoomPath
+	  document.ADMIN.lstBanned.AddItem document.ADMIN.txtBanName.Value
+	End If
+End Sub
+
+Sub unBan_Click()
+	If document.ADMIN.lstBanned.Text = "" Then
+	  MsgBox "Must first select a user to unBan."
+	Else
+	  Chat1.BanParticipant document.ADMIN.lstBanned.Text, 0
+	  MsgBox "User "  + document.ADMIN.lstBanned.Text + " has been unbanned from " + Chat1.RoomPath
+	  document.ADMIN.lstBanned.RemoveItem document.ADMIN.lstBanned.ListIndex
+	End If
+End Sub
+
+Sub optHost_Click()
+	MyOption = "1"
+End Sub
+
+Sub optParticipant_Click()
+	MyOption = "2"
+End Sub
+
+Sub optSpectator_Click()
+	MyOption = "4"
+End Sub
+
+Sub ChatBot_Click()
+
+	If Chat1.State <> 3 And Chat2.State = 1 Then
+	  MsgBox "Must first be in room before starting ChatBot."
+	  Exit Sub
+	End If
+
+	If document.WEBChat.txtRoomPath.Value = "" Then
+	  MsgBox "Must re-enter Room Path before starting ChatBot"
+	Else
+	  If txtBotNick.Value = "" Then
+	    Chat2.EnterRoom document.WEBChat.txtRoomPath.Value, "", "ChatBot", "ANON", 1, 1
+	    Exit sub
+	  End If
+	End If
+
+   Select Case Chat2.State
+	Case 1:
+	  Chat2.EnterRoom document.WEBChat.txtRoomPath.Value, "", txtBotNick.Value, "ANON", 1, 1
+	Case 2:
+	  Chat2.CancelEntering
+	Case 3:
+	  lstWarnings.Clear
+	  lstNickName.Clear
+	  lstParticipantID.Clear
+	  Chat2.ExitRoom
+	  Chat2.ClearHistory
+	Case Else:
+   End Select
+End Sub
+
+Sub PStatus_Click()
+   Select Case MyOption
+	Case 1:
+	  Chat1.SetParticipantStatus -1, 1, 1
+	Case 2:
+	  Chat1.SetParticipantStatus -1, 1, 2
+	Case 4:
+	  Chat1.SetParticipantStatus -1, 1, 4
+	Case Else:
+	  MsgBox "Could not change status, be sure you have selected an option and a room participant"
+   End Select
+End Sub
+
+Sub AddWord_Click()
+	MyString = ""
+	MyString = Prompt ("Add Word to Scan.  Words added will only exist during this session.  To add words permanently, edit the HTML file. ", "")
+	CheckDuplicates()
+End Sub
+
+Sub Remove_Click()
+	If lstWords.ListIndex = -1 Then
+	  MsgBox "Must first select a word before removing."
+	Else
+	  lstWords.RemoveItem lstWords.ListIndex
+	End If
+End Sub
+
+Sub chkBan_Click()
+	MyBanYes = MyBanYes - 1
+	MyBanNo = MyBanNo - 1
+
+	If MyBanYes = -1 and MyBanNo = -1 Then
+	  MyBanYes = 1
+	  MyBanNo = 0
+	Else
+	  If MyBanYes = 0 and MyBanNo = -1 Then
+	    MyBanYes = 0
+	    MyBanNo = 1
+	  Else
+	    If MyBanNo = 0 and MyBanYes = -1 Then	
+	      MyBanYes = 1
+	      MyBanNo = 0
+	    End If
+	  End If
+	End If
+
+End Sub
+
+'###########################################################################
+'#User Added Sub Routines -- Do Not Edit
+'###########################################################################
+
+Sub CheckDuplicates()
+Dim X
+	X = 0
+        Convert = UCase(MyString)
+
+	If lstWords.ListCount = 0 Then
+	  If MyString = "" Then
+	    Exit Sub
+	  Else
+	    lstWords.AddItem Convert
+	    Exit Sub
+	  End If
+	End If
+
+	If lstWords.ListCount <> 0 Then
+	  Do While lstWords.ListCount <> X
+	    If Convert = lstWords.List(X) Then
+	      MsgBox "The word '" + MyString + "' already exists in the list."
+	      Exit Sub
+	    Else
+	      X = X + 1
+	    End If
+	   Loop
+	End If
+
+	lstWords.AddItem Convert
+End Sub
+
+Sub ProcessUser()
+Dim Default
+Dim UserName
+Dim X
+	X = 0
+
+	Do While X <> lstNickName.ListCount
+	  If CStr(MySenderID) = CStr(lstParticipantID.List(X)) Then
+	    lstWarnings.List(X) = lstWarnings.List(X) + 1
+	    UserName = lstNickName.List(X)
+	    Exit Do
+	  End If
+	X = X + 1
+	Loop
+
+	Default = UserName + " " + MyDefaultComment
+	MyBotCommentW = UserName + ": " + txtBotWarn.Value
+	MyBotCommentK = txtBotKick.Value
+
+	If MyKickOrWarn = 0 Then
+	  If txtBotWarn.Value = "" Then
+	    Chat2.SendMessage -1, 0, Default
+	    Exit Sub
+	  Else
+	    Chat2.SendMessage -1, 0, MyBotCommentW
+	    Exit Sub
+	  End If
+	End If
+
+	If MyKickOrWarn = 1 Then
+	  If MyBanYes = 1 Then
+	    If txtBotKick.Value = "" Then
+	      Chat2.BanParticipant UserName, -1
+	      MsgBox "User "  + UserName + " has been banned from " + Chat2.RoomPath
+	      document.ADMIN.lstBanned.AddItem UserName
+	     Chat2.KickParticipant MySenderID, Default
+	    Else
+	      Chat2.BanParticipant UserName, -1
+	      MsgBox "User "  + UserName + " has been banned from " + Chat2.RoomPath
+	      document.ADMIN.lstBanned.AddItem UserName
+	      Chat2.KickParticipant MySenderID, txtBotKick.Value
+	    End If
+	  Else
+	    If MyBanNo = 1 Then
+	      If txtBotKick.Value = "" Then
+	        Chat2.KickParticipant MySenderID, Default
+	      Else
+	        Chat2.KickParticipant MySenderID, txtBotKick.Value
+	      End If
+	    End If
+	  End If
+	End IF
+End Sub
+
+Function DblCheckMsg(L, R, Msg)
+Dim LeftRes
+Dim RightRes
+Dim Pos
+Dim EndPos
+Dim AscNum
+Dim Ch
+    
+	LeftRes = 0
+	RightRes = 0
+	'Find character to the left of the keyword in msg
+	Pos = InStr(1, Msg, L, 1)
+	If Pos <= 1 Or Len(L) = 0 Then
+	  LeftRes = -1
+	Else
+	  Ch = Right(Msg, Len(Msg) - Pos + 2)
+	  AscNum = Asc(Ch)
+	  If AscNum < 65 Or AscNum > 90 Then
+	    LeftRes = -1
+	  End If
+	End If 
+    'Find character to the right of the keyword in msg
+	Pos = InStr(1, Msg, R, 1)
+	EndPos = Pos + Len(R)
+	If EndPos >= Len(Msg) Or Pos = 0 Or Len(R) = 0 Then
+	  RightRes = -1
+	Else
+	  Ch = Right(Msg, Len(Msg) - EndPos + 1)
+	  AscNum = Asc(Ch)
+	  If AscNum < 65 Or AscNum > 90 Then
+	    RightRes = -1
+	  End If
+	End If
+
+	If LeftRes = -1 and RightRes = -1 Then
+	  MyBadWord = 1
+	End If
+End Function
+
+'###########################################################################
+'#Events for MSChat OCX (1)  -- Do Not Edit
+'###########################################################################
+
+Sub Chat1_OnEnterParticipant(ParticipantID, Name, Status)
+	If MyBotFlag = 1 Then
+	   MyBotFlag = 0
+	   MyParticipantID = ParticipantID
+	   Chat1.SetParticipantStatus MyParticipantID, 1, 1
+	End If
+End Sub
+
+Sub Chat1_OnError(ErrorCode, Description)
+End Sub
+
+Sub Chat1_OnExitParticipant(ParticipantID)
+	If ParticipantID = MyParticipantID AND Chat2.State = 3 Then
+	  Chat2.ExitRoom
+	  Chat2.ClearHistory
+	  btnChatBot.Value = "Start ChatBot"
+	End If
+End Sub
+
+Sub Chat1_OnHistoryFull(Percent)
+	Chat1.ClearHistory
+End Sub
+
+Sub Chat1_OnParticipantAliasChanged(ParticipantID, OldAlias, NewAlias)
+Dim X
+	Do While X <> document.Admin.lstBanned.ListCount
+	  If CStr(OldAlias) = CStr(document.Admin.lstBanned.List(X)) Then
+	    document.Admin.lstBanned.List(X) = NewAlias
+	    Exit Do
+	  End If
+	X = X + 1
+	Loop
+End Sub
+
+Sub Chat1_OnRoomTopicChanged(NewRoomTopic)
+Dim Temp
+	If Chat1.RoomTopic = "" Then
+	  Chat1.SendMessage -1, 0, "There is no room topic."
+	Else
+	  Temp = "The room topic has been changed to " + Chat1.RoomTopic
+	  Chat1.SendMessage -1, 0, Temp
+	End If
+End Sub
+
+Sub Chat1_OnStateChanged(NewState)
+   Select Case NewState
+	Case 1:
+		document.WEBChat.btnJoin.Value="Join"
+		Chat1.BackColor=128
+	Case 2:
+		document.WEBChat.btnJoin.Value="Cancel"
+		Chat1.BackColor=33023
+	Case 3:
+		document.WEBChat.btnJoin.Value="Disconnect"
+		Chat1.BackColor=49152
+	Case Else:
+		MsgBox "Error has occured in OnStateChanged"
+   End Select
+End Sub
+
+'###########################################################################
+'#Events for MSChat OCX (2) --Do Not Edit
+'###########################################################################
+
+Sub Chat2_OnEnterParticipant(ParticipantID, Name, Status)
+	  lstNickName.AddItem Name
+	  lstParticipantID.AddItem ParticipantID
+	  lstWarnings.AddItem "0"
+End Sub
+
+Sub Chat2_OnExitParticipant(ParticipantID)
+Dim PartGone
+Dim X
+
+	PartGone = ParticipantID
+	X = 0
+
+	Do While X <> lstNickName.ListCount
+	  If CStr(PartGone) = CStr(lstParticipantID.List(X)) Then
+	    lstParticipantID.RemoveItem X
+	    Exit Do
+	  End If
+	X = X + 1
+	Loop
+
+	lstWarnings.RemoveItem X
+	lstNickName.RemoveItem X
+End Sub
+
+Sub Chat2_OnMessage(ByVal SenderID, ByVal Message, ByVal MessageType)
+Dim CheckMessage
+Dim WordWatch
+Dim WordFound
+Dim Result
+Dim flag
+Dim StarPos
+Dim LastStarPos
+Dim LeftWord
+Dim RightWord
+Dim X
+Dim Y
+
+
+	MySenderID = SenderID
+	MyBadWord = 0
+        Y = 0
+	X = 0
+
+	CheckMessage = UCase(Message)
+
+	Do While lstWords.ListCount <> X
+	  WordWatch = lstWords.List(X)
+	  Result = InStr(CheckMessage, WordWatch)
+	  X = X + 1
+	  If Result > 0 Then
+	    WordFound = DblCheckMsg(WordWatch, WordWatch, CheckMessage)
+	    flag = 1
+	  End If
+	Loop
+	If flag = 1  and MyBadWord = 1 Then
+	    Do While Y <> lstNickName.ListCount
+	      If CStr(MySenderID) = CStr(lstParticipantID.List(Y)) Then
+		If lstWarnings.List(Y) = txtNumWarnings.Value Then
+		  MyKickOrWarn = 1
+		Else
+		  MyKickOrWarn = 0
+		End If
+	        ProcessUser()
+		flag = 0
+	        Exit Do
+	      End If
+	    Y = Y + 1
+	    Loop
+	End If
+End Sub
+
+Sub Chat2_OnParticipantAliasChanged(ParticipantID, OldAlias, NewAlias)
+Dim Y
+	Y = 0
+	Do While Y <> lstNickName.ListCount
+	  If CStr(ParticipantID) = CStr(lstParticipantID.List(Y)) Then
+	    lstNickName.List(Y) = NewAlias
+	    Exit Do
+	  End If
+	Y = Y + 1
+	Loop
+
+End Sub
+
+Sub Chat2_OnStateChanged(NewState)
+   Select Case NewState
+	Case 1:
+		btnChatBot.Value="Start ChatBot"
+	        lstWarnings.Clear
+	        lstNickName.Clear
+	        lstParticipantID.Clear
+		MyBotFlag = 0
+	Case 2:
+		btnChatBot.Value="Cancel ChatBot"
+	        MyBotFlag = 1
+	Case 3:
+		btnChatBot.Value="Stop ChatBot"
+	Case Else:
+		MsgBox "Error has occured in OnStateChanged"
+   End Select
+End Sub
+-->
+</SCRIPT>
+
+   <HEAD><TITLE>ChatBot HTML Sample</TITLE></HEAD>
+   <BODY BGCOLOR=000080 TEXT=#FFFFFF LINK=#000000 VLINK=#008080>
+
+   <HR SIZE=3 WIDTH=75%>
+  
+   <CENTER><TABLE BORDER=0 CELLSPACING=5 CELLPADDING=0>
+	<TR>
+	  <TD COLSPAN=3 ALIGN=CENTER><H1>ChatBot HTML Sample</H1></TD>
+	</TR>
+
+	<TR>
+	  <TD><A NAME="TOP">[ <A HREF=#Admin>Use Host Features</A> |</TD>
+	  <TD><A HREF=#ChatBot>Use ChatBot</A> |</TD>
+	  <TD><A HREF=#Warnings>View User Warnings</A> ]</TD>
+	</TR>
+   </TABLE></CENTER>
+
+   <HR SIZE=3 WIDTH=75%>
+
+   <FORM NAME="WEBChat"><CENTER><TABLE BORDER=0 CELLPADDING=0 CELLSPACING=5 WIDTH=600>
+	<TR>
+	  <TD COLSPAN=5><H2>Microsoft Chat Control</H2></TD>
+	</TR>
+
+	<TR>
+	  <TD COLSPAN=5><I><B>Login to chat servers by entering a nickname, and correct room path with the Microsoft Chat Control.  Use the host features and ChatBot when you are the host of the room.</B></I><BR></TD>
+	</TR>
+
+	<TR>
+	  <TD>Real Name:</TD>
+	  <TD><INPUT TYPE=TEXT VALUE="MyRealName" SIZE=20 NAME="txtRealName" MAXLENGTH=58></TD>
+	  <TD>Room Path:</TD> 
+	  <TD><INPUT TYPE=TEXT VALUE="//comicsrv.microsoft.com/#MyRoom" SIZE=40 NAME="txtRoomPath" MAXLENGTH=58></TD>
+	  <TD><INPUT TYPE=BUTTON VALUE="        Join        " onClick="Join_Click" NAME="btnJoin"></TD>
+	</TR>
+
+	<TR>
+	  <TD>Nickname:</TD>
+	  <TD><INPUT TYPE=TEXT VALUE="MyNickName" SIZE=20 NAME="txtNickName" MAXLENGTH=58></TD>
+	  <TD>Room Topic:</TD>
+	  <TD><INPUT TYPE=TEXT VALUE="" SIZE=40 NAME="txtRoomTopic" MAXLENGTH=58></TD>
+	  <TD><INPUT TYPE=BUTTON VALUE="Change Topic" NAME="btnChangeTopic" onClick="ChangeTopic_Click"></TD>
+	</TR></FORM>
+
+	<TR>
+	  <TD COLSPAN=5><OBJECT STANDBY="Downloading the Microsoft Chat ActiveX Control"
+	CODETYPE="application/x-oleobject"
+	CLASSID="clsid:D6526FE0-E651-11CF-99CB-00C04FD64497"
+	WIDTH=600
+	HEIGHT=200
+	ID=Chat1>
+	  <PARAM NAME="UIOption"    VALUE="4095">
+	  <PARAM NAME="Appearance"  VALUE="0">
+	  <PARAM NAME="BorderStyle" VALUE="0">
+	  <PARAM NAME="BackColor"   VALUE="128">
+   </OBJECT></CENTER></TD>
+   </TABLE></CENTER>
+
+   <HR SIZE=3 WIDTH=75%>
+
+   <CENTER><TABLE BORDER=0 CELLSPACING=5 CELLPADDING=0 WIDTH=600>
+	<TR>
+	  <TD><A NAME="Admin"><H2>Host/Admin Functions</H2></TD>
+	</TR>
+
+	<TR>
+	  <TD><FONT SIZE=-1><A HREF="#TOP">Return to Top</A></FONT></TD>
+	</TR>
+
+	<TR>
+	  <TD COLSPAN=3><I><B>The below functions can be controlled if you are a host of a chat room.  Kick and/or change user status by selecting a name from the participants list, ban users by first typing in their nickname, unban by selecting their name from the banned list.</B></I></TD>
+	</TR>
+
+	<TR>
+	  <TD><FORM NAME="ADMIN">Kick Comment:<BR>
+	  <INPUT TYPE=TEXT VALUE="My Kick Comment" NAME="txtKickComment" SIZE=30 MAXLENGTH=58>  <INPUT TYPE=BUTTON VALUE="Kick" NAME="btnKick" onClick="Kick_Click"><BR>
+	  <BR>User Nickname:<BR>
+	  <INPUT TYPE=TEXT VALUE="" SIZE=30 NAME="txtBanName"> <INPUT TYPE=BUTTON VALUE="Ban" NAME="btnBan" Value="Ban"></TD>
+
+	  <TD COLSPAN=2>Users Banned:<BR>  <OBJECT STANDBY="Downloading ..."
+	   CODETYPE="application/x-oleobject" ID="lstBanned" WIDTH=153 HEIGHT=69
+	   CLASSID="CLSID:8BD21D20-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="ScrollBars" VALUE="3">
+		<PARAM NAME="DisplayStyle" VALUE="2">
+		<PARAM NAME="Size" VALUE="4049;1824">
+		<PARAM NAME="MatchEntry" VALUE="0">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT>
+	  <INPUT TYPE=BUTTON VALUE="UnBan" NAME="btnUnBan" onCLick="unBan_Click"></TD>
+	</TR>
+
+	<TR>
+	  <TD COLSPAN=3 ALIGN=CENTER><BR><OBJECT STANDBY="Downloading ..."
+		CODETYPE="application/x-oleobject"
+		ID="optHost" WIDTH=97 HEIGHT=24
+ 		CLASSID="CLSID:8BD21D50-EC42-11CE-9E0D-00AA006002F3">
+			<PARAM NAME="BackColor" VALUE=" 16777215">
+			<PARAM NAME="ForeColor" VALUE="0">
+			<PARAM NAME="DisplayStyle" VALUE="5">
+			<PARAM NAME="Size" VALUE="2566;635">
+			<PARAM NAME="Value" VALUE="0">
+			<PARAM NAME="Caption" VALUE="Host (Admin)">
+			<PARAM NAME="FontName" VALUE="Comic Sans MS">
+			<PARAM NAME="FontHeight" VALUE="180">
+			<PARAM NAME="FontCharSet" VALUE="0">
+			<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		</OBJECT>
+	        <OBJECT STANDBY="Downloading ..."
+		CODETYPE="application/x-oleobject"
+		ID="optParticipant" WIDTH=97 HEIGHT=24
+ 		CLASSID="CLSID:8BD21D50-EC42-11CE-9E0D-00AA006002F3">
+			<PARAM NAME="BackColor" VALUE=" 16777215">
+			<PARAM NAME="ForeColor" VALUE="0">
+			<PARAM NAME="DisplayStyle" VALUE="5">
+			<PARAM NAME="Size" VALUE="2566;635">
+			<PARAM NAME="Value" VALUE="0">
+			<PARAM NAME="Caption" VALUE="Participant">
+			<PARAM NAME="FontName" VALUE="Comic Sans MS">
+			<PARAM NAME="FontHeight" VALUE="180">
+			<PARAM NAME="FontCharSet" VALUE="0">
+			<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		</OBJECT>
+	        <OBJECT STANDBY="Downloading ..."
+		CODETYPE="application/x-oleobject"
+		ID="optSpectator" WIDTH=97 HEIGHT=24
+ 		CLASSID="CLSID:8BD21D50-EC42-11CE-9E0D-00AA006002F3">
+			<PARAM NAME="BackColor" VALUE=" 16777215">
+			<PARAM NAME="ForeColor" VALUE="0">
+			<PARAM NAME="DisplayStyle" VALUE="5">
+			<PARAM NAME="Size" VALUE="2566;635">
+			<PARAM NAME="Value" VALUE="0">
+			<PARAM NAME="Caption" VALUE="Spectator">
+			<PARAM NAME="FontName" VALUE="Comic Sans MS">
+			<PARAM NAME="FontHeight" VALUE="180">
+			<PARAM NAME="FontCharSet" VALUE="0">
+			<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		</OBJECT>  
+	  <INPUT TYPE=BUTTON VALUE="Change" NAME="btnPStatus" onClick="PStatus_Click"></TD>
+	</TR>
+   </TABLE></CENTER></FORM>
+
+   <HR SIZE = 3 WIDTH=75%>
+
+   <CENTER><TABLE BORDER=0 CELLSPACING=5 CELLPADDING=0 WIDTH=600>
+	<TR>
+	  <TD><A NAME="ChatBot"><H2>ChatBot</H2></TD>
+	</TR>
+
+	<TR>
+	  <TD><FONT SIZE=-1><A HREF="#TOP">Return to Top</A></FONT></TD>
+	</TR>
+
+	<TR>
+	  <TD COLSPAN=3><I><B>You must be the host of a room using the Microsoft Chat Control (above) to use ChatBot.  If you are not the host of the room, ChatBot will not be able to Kick or Ban chat members.  Use the text boxes below to control what the ChatBot says when it warns or kicks, and how often.  If nothing is specified, default values will be used.  Ban members after kicking them by using the check box, add words permanently by editing this HTML file, or add/remove words temporarily using the buttons.</B></I></TD>
+	</TR>
+
+	<TR>
+	  <TD><BR>ChatBot NickName:</TD>
+	</TR>
+
+
+	<TR>
+	  <TD><INPUT TYPE=TEXT VALUE="ChatBot" SIZE=25 NAME="txtBotNick"><INPUT TYPE=BUTTON VALUE="   Start ChatBot   " NAME="btnChatBot" onClick="ChatBot_Click"></TD>
+	</TR>
+
+	<TR>
+	  <TD>ChatBot Warning:<BR>
+	  <INPUT TYPE=TEXT VALUE="" NAME="txtBotWarn" SIZE=45 MAXLENGTH=58><BR>
+	  <BR>ChatBot Kick Comment:<BR>
+	  <INPUT TYPE=TEXT VALUE="" NAME="txtBotKick" SIZE=45 MAXLENGTH=58></TD>
+
+	  <TD>Scanned Items:<BR>
+	  <OBJECT STANDBY="Downloading ..."
+	   CODETYPE="application/x-oleobject"ID="lstWords" WIDTH=153 HEIGHT=69
+	   CLASSID="CLSID:8BD21D20-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="ScrollBars" VALUE="3">
+		<PARAM NAME="DisplayStyle" VALUE="2">
+		<PARAM NAME="Size" VALUE="4049;1824">
+		<PARAM NAME="MatchEntry" VALUE="0">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	  </OBJECT><BR>
+	  <INPUT TYPE=BUTTON VALUE="Add Word" NAME=btnAddWord onClick="AddWord_Click"><INPUT TYPE=BUTTON VALUE="Remove" NAME="btnRemove" onClick="Remove_Click"> </TD>
+	</TR>
+
+	<TR>
+	  <TD COLSPAN=3 ALIGN=CENTER><BR># of warnings before kicked:  <INPUT TYPE=TEXT VALUE="1" NAME="txtNumWarnings" MAXLENGTH=3 SIZE=3> (Ban after kick:  <INPUT TYPE=CHECKBOX NAME=chkBan VALUE = 0 OnClick="chkBan_Click">)</TD>
+	</TR>
+   </TABLE></CENTER>
+
+   <HR SIZE=3 WIDTH=75%>
+
+   <CENTER><TABLE BORDER=0 CELLSPACING=5 CELLPADDING=0 WIDTH=600>
+	<TR>
+	  <TD><A NAME="Warnings"><H2>User Warnings</A></H2></TD>
+	</TR>
+
+	<TR>
+	  <TD COLSPAN=3><I><B>The information below will display chat members' nickname, participant ID and the number of warnings they have while they are in the chat room.</B></I></TD>
+	</TR>
+
+	<TR>
+	  <TD><FONT SIZE=-1><A HREF="#TOP">Return to Top</A></FONT></TD>
+	</TR>
+
+	<TR>
+	  <TD>User Nickname:</TD>
+	  <TD>Participant ID: </TD>
+	  <TD>Number of Warnings:</TD>
+	</TR>
+
+	<TR>
+  	  <TD><OBJECT STANDBY="Downloading ..."
+		CODETYPE="application/x-oleobject"
+		ID="lstNickName" WIDTH=153 HEIGHT=69
+		CLASSID="CLSID:8BD21D20-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="ScrollBars" VALUE="3">
+		<PARAM NAME="DisplayStyle" VALUE="2">
+		<PARAM NAME="Size" VALUE="4049;1824">
+		<PARAM NAME="MatchEntry" VALUE="0">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	</OBJECT></TD>
+
+	  <TD><OBJECT STANDBY="Downloading ..."
+		CODETYPE="application/x-oleobject"
+		ID="lstParticipantID" WIDTH=153 HEIGHT=69
+		CLASSID="CLSID:8BD21D20-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="ScrollBars" VALUE="3">
+		<PARAM NAME="DisplayStyle" VALUE="2">
+		<PARAM NAME="Size" VALUE="4049;1824">
+		<PARAM NAME="MatchEntry" VALUE="0">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	</OBJECT></TD>
+
+	  <TD><OBJECT STANDBY="Downloading ..."
+		CODETYPE="application/x-oleobject"
+		ID="lstWarnings" WIDTH=153 HEIGHT=69
+		CLASSID="CLSID:8BD21D20-EC42-11CE-9E0D-00AA006002F3">
+		<PARAM NAME="ScrollBars" VALUE="3">
+		<PARAM NAME="DisplayStyle" VALUE="2">
+		<PARAM NAME="Size" VALUE="4049;1824">
+		<PARAM NAME="MatchEntry" VALUE="0">
+		<PARAM NAME="FontCharSet" VALUE="0">
+		<PARAM NAME="FontPitchAndFamily" VALUE="2">
+		<PARAM NAME="FontWeight" VALUE="0">
+	</OBJECT></TD>
+	</TR>
+   </TABLE></CENTER><BR>
+
+   <OBJECT STANDBY="Downloading the Microsoft Chat Control"
+	CODETYPE="application/x-oleobject"
+	CLASSID="clsid:D6526FE0-E651-11CF-99CB-00C04FD64497"
+	WIDTH=600
+	HEIGHT=200
+	ID=Chat2>
+	  <PARAM NAME="UIOption"    VALUE="0">
+	  <PARAM NAME="Appearance"  VALUE="0">
+	  <PARAM NAME="BorderStyle" VALUE="0">
+	  <PARAM NAME="BackColor"   VALUE="128">
+   </OBJECT>
+
+   <BR><CENTER><FONT SIZE=-1>
+   <SCRIPT LANGUAGE="VBScript">
+   <!-- 
+     document.write "Last Updated: " + document.lastmodified
+    -->
+   </SCRIPT>
+   </FONT></CENTER>
+
+</BODY>
+</HTML>

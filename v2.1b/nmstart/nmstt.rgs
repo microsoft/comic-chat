@@ -1,0 +1,32 @@
+HKCR
+{
+	NMStt.NMStt.1 = s 'NMStt Class'
+	{
+		CLSID = s '{F96522AF-FC37-11D0-99CB-00C04FD64497}'
+	}
+	NMStt.NMStt = s 'NMStt Class'
+	{
+		CurVer = s 'NMStt.NMStt.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F96522AF-FC37-11D0-99CB-00C04FD64497} = s 'NMStt Class'
+		{
+			ProgID = s 'NMStt.NMStt.1'
+			VersionIndependentProgID = s 'NMStt.NMStt'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove 'Control'
+			ForceRemove 'Programmable'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '132497'
+			}
+			'TypeLib' = s '{F96522A1-FC37-11D0-99CB-00C04FD64497}'
+			'Version' = s '1.0'
+		}
+	}
+}

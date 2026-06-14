@@ -1,46 +1,94 @@
 # Copilot Instructions for Microsoft Comic Chat
 
-## Architecture
+## Repository Layout
 
-This is **Microsoft Comic Chat** (circa 1996) — a Win32 MFC (Microsoft Foundation Classes) IRC client that renders chat conversations as comic strips in real time. The source lives entirely in `src/`.
+This is a historical source archive. Each top-level folder is a standalone snapshot — files are not shared between versions.
 
-### Core subsystems
+| Folder | Version | Toolchain |
+|---|---|---|
+| `v1.0-pre/` | 1.0 prerelease (internal) | Visual C++ 4.x |
+| `v1.0/client/` | Comic Chat 1.0 (Aug 1996, shipped with IE 3.0) | Visual C++ 4.x |
+| `v2.1b/cchat/` | Comic Chat 2.1 beta (Feb 1998) | Visual C++ 5.x |
+| `v2.5-beta-1/` | Comic Chat 2.5 beta 1 (Jun 1998) | Visual C++ 5.x |
+| `artifacts/` | Companion tools: avatar editor, Java client, SDK | various |
 
-- **IRC protocol layer** — `irc.cpp`, `ircsock.h`, `chatprot.cpp/h` handle IRC socket communication and protocol parsing.
-- **Comic rendering engine** — The heart of the application. An expert system (`semantic.cpp`) determines panel composition, character placement, gestures, expressions, balloon layout, and zoom. Key files:
-  - `avatar.cpp/h`, `avatario.cpp/h` — Character loading and rendering
-  - `balloon.cpp/h` — Word balloon generation and layout
-  - `panel.cpp/h`, `pageview.cpp/h` — Comic panel/page composition
-  - `backdrop.cpp/h` — Scene backgrounds
-  - `spline.cpp/h`, `splinutl.cpp` — Spline math for balloon outlines
-  - `traj.cpp/h`, `vector2d.cpp/h` — Character positioning and trajectories
-  - `textpose.cpp` — Text layout within balloons
-- **MFC document/view framework** — `chatdoc.cpp/h` (document), `chatview.cpp/h` (comic view), `textview.cpp/h` (plain text fallback view), `mainfrm.cpp/h` (frame window).
-- **OLE/COM embedding** — `binddoc.cpp/h`, `binditem.cpp/h`, `bindipfw.cpp/h`, `oleobjct.cpp`, `mfcbind.cpp/h` enable the app to run as an OLE server embedded in Internet Explorer 3.0.
-- **UI dialogs** — `setupdlg`, `profdlg`, `avatardl`, `admindlg`, `bothdlg`, `proppage` — connection setup, user profile, character selection, and room administration.
-
-### Data directories
-
-- `src/comicart/avatars/` — Character art assets
-- `src/comicart/backdrop/` — Background scene images
-- `src/res/` — Application resources (icons, bitmaps, toolbar art)
+`file dates.txt` records original file modification timestamps from the archive.
 
 ## Build System
 
-The project uses a Visual C++ 4.x NMAKE makefile (`src/chat.mak`). It targets Win32 x86 with MFC statically linked (Release) or as a shared DLL (Debug).
+No modern build system exists. All versions use NMAKE makefiles targeting Win32 x86.
 
-```
+**v1.0** (from `v1.0/client/`):
+```bat
 NMAKE /f "chat.mak" CFG="chat - Win32 Release"
 NMAKE /f "chat.mak" CFG="chat - Win32 Debug"
 ```
+Open `chat.mdp` in Visual C++ 4.x for IDE use.
 
-There is also a `.mdp` (Visual C++ 4.x project) file for IDE use. No modern CMake, MSBuild `.vcxproj`, or Visual Studio solution file exists.
+**v2.5-beta-1** (from `v2.5-beta-1/`):
+Open `chat.dsp` in Visual C++ 5.x. The `.dsp`/`.dsw` project format replaced `.mdp` in VC5.
+
+## Architecture
+
+### Comic rendering pipeline
+
+The core of the application is a rule-based expert system that turns IRC messages into comic panels in real time:
+
+1. **`semantic.cpp`** — Central expert system. Given an incoming message, it decides: which characters appear, their gestures/expressions, balloon type and shape, panel zoom, and whether to advance to a new panel. This is the largest and most complex file.
+2. **`traj.cpp/h`**, **`vector2d.cpp/h`** — 2D character positioning and trajectory math.
+3. **`avatar.cpp/h`**, **`avatario.cpp/h`** — Character sprite loading and rendering. In v2.5, `avbfile.cpp/h` adds direct `.avb` binary format parsing (shared with `artifacts/avtools/`).
+4. **`balloon.cpp/h`** — Word balloon generation: outline splines, tail geometry, and text layout.
+5. **`spline.cpp/h`**, **`splinutl.cpp`** — Spline math used for balloon outlines.
+6. **`panel.cpp/h`**, **`pageview.cpp/h`** — Comic panel layout and page composition.
+7. **`backdrop.cpp/h`** — Background scene rendering.
+8. **`textpose.cpp`** — Text layout within balloons.
+
+### MFC document/view framework
+
+Follows standard MFC architecture:
+- `chatdoc.cpp/h` — Document (holds chat session state)
+- `chatview.cpp/h` — Primary view (renders the comic strip)
+- `textview.cpp/h` — Plain-text fallback view (for non-comic mode)
+- `mainfrm.cpp/h` — Main SDI frame window
+
+In v2.5, `childfrm.cpp/h` adds MDI child frame support, and `chatbars.cpp/h` + `coolbar.cpp/h` + `tabbar.cpp/h` manage the multi-toolbar/tabbed UI.
+
+### IRC / protocol layer
+
+- **v1.0**: Single protocol — `irc.cpp`, `ircsock.h`, `chatprot.cpp/h`
+- **v2.5**: Multi-protocol abstraction — `ircproto.cpp/h` (IRC), `nmproto.cpp/h` (NetMeeting/CB32), `protsupp.cpp/h` (shared support), `chatsrv.cpp/h` (server abstraction). The `#define CB32SUPPORT` in `nmproto.h` gates the NetMeeting path.
+
+### OLE/COM embedding
+
+`binddoc.cpp/h`, `binditem.cpp/h`, `bindipfw.cpp/h`, `oleobjct.cpp`, `mfcbind.cpp/h` implement an OLE Document Server so the app can be embedded in Internet Explorer 3.0/4.0. `chat.reg` / `oldchat.reg` contain the COM registration entries. `mschat.h` (v2.5) is the public COM automation interface.
+
+### New in v2.5 vs v1.0
+
+- **`actions.cpp/h`** — Scripted automation actions triggered by channel events
+- **`rules.cpp/h`** — Channel rule sets
+- **`notif.cpp/h`**, **`notipage.cpp/h`** — Notification system
+- **`rtfctrl.cpp/h`**, **`rtfcmb.cpp/h`** — RTF text rendering in text view
+- **`userlist.cpp/h`**, **`userinfo.cpp`** — User list management (extracted from document)
+- **`mcithrd.cpp/h`** — MCI background thread for sound playback
+- **`webreq.cpp/h`** — HTTP requests (avatar/backdrop downloads)
+- **`filesend.cpp/h`** — File transfer
+- **`jis2sjis.cpp`**, **`sjis2jis.cpp`**, **`intl.c/h`** — Japanese (Shift-JIS) and internationalization support
+
+### Companion tools (`artifacts/`)
+
+- **`avtools/`** — Avatar editor (`avatarfiler`), AVB file converter (`avbcvt`), record appender (`addrec`). Uses `avbfile.cpp/h` shared with v2.5.
+- **`sdk/`** — Public Chat SDK with COM interfaces (`mschatpr.idl`), samples, and documentation
+- **`jchat/`** — Java IRC client companion
+- **`bettybot/`** — Automated chat bot
+- **`xcchat/`** — ActiveX control embedding host
 
 ## Conventions
 
-- **Precompiled headers** — All `.cpp` files must `#include "stdafx.h"` first. `chat.h` enforces this with a compile-time check.
-- **Units** — Drawing coordinates use TWIPs (1440 units per inch), defined in `common.h`.
-- **MFC patterns** — Classes follow MFC conventions: `C`-prefixed class names, `AFX_MSG` message maps, ClassWizard `//{{AFX_` markers. Do not remove ClassWizard delimiters.
-- **OLE class factory** — The app registers as an OLE server (`chat.reg`); keep registration entries consistent if modifying COM interfaces.
-- **Asset paths** — Character art is loaded from `ComicArt\Avatars` and backdrops from `ComicArt\Backdrop` (hardcoded in `chat.h`).
-- **Character encoding** — All strings are ANSI `char*` (no Unicode/wchar_t support).
+- **Precompiled headers** — All `.cpp` files must `#include "stdafx.h"` as the very first include. `chat.h` enforces this with a compile-time `#error`.
+- **Units** — All drawing coordinates are in TWIPs (1440 per inch). Defined in `common.h` (v1.0) / `defines.h` (v2.5).
+- **MFC class naming** — `C`-prefixed class names (`CChatDoc`, `CBalloon`, etc.), `AFX_MSG` message maps, `ON_COMMAND` / `ON_UPDATE_COMMAND_UI` macros.
+- **ClassWizard markers** — `//{{AFX_` and `//}}AFX_` comment blocks are maintained by ClassWizard. Do not add or remove code inside these delimiters manually.
+- **OLE registration** — Keep `chat.reg` and COM interface GUIDs consistent when modifying automation interfaces.
+- **Asset paths** — Character art loads from `ComicArt\Avatars` and backdrops from `ComicArt\Backdrop` (hardcoded, backslash-separated Windows paths).
+- **Character encoding** — All strings are ANSI `char*`. No Unicode or `wchar_t`. Japanese support uses runtime Shift-JIS conversion via `jis2sjis.cpp`.
+- **AVB file format** — The `.avb` (avatar) and `.bgb` (background) binary formats are documented implicitly in `avbfile.h`. The `AVATAR_NOT_CLIENT` preprocessor flag enables `avbfile.cpp` for use in tools outside the chat client.

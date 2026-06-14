@@ -1,0 +1,788 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD><TITLE>ServerProperty Property</TITLE>
+<STYLE>
+<!--
+.tctop {color: blue}
+.cpslug {color: blue; text-decoration: none}
+-->
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=10 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">
+<IMG SRC="art/headcoma.gif" WIDTH="175" HEIGHT="63"  BORDER=0 ALT="ServerProperty Property"><BR CLEAR=ALL>
+<H5><FONT COLOR="#000000">Objects</FONT></H5><A NAME="mschatpr_vb_ref_0504020201020d00"></A><H3>ServerProperty Property<BR CLEAR=ALL>
+<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Synchronously accesses a server property. 
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>.</B><I>object</I><B>.ServerProperty(</B><I>ServerPropertyName</I><B>)<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ServerPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string that contains one of these valid server property name values:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000101" TARGET="TEXT">AnonymousAllowed</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000102" TARGET="TEXT">ChannelCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000103" TARGET="TEXT">IgnoredUsers</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000104" TARGET="TEXT">Info</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000105" TARGET="TEXT">MaxMessageLength</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000106" TARGET="TEXT">Name</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000107" TARGET="TEXT">NetInvisibleCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000108" TARGET="TEXT">NetServerCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000109" TARGET="TEXT">NetUserCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010a" TARGET="TEXT">NodeServerCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010b" TARGET="TEXT">NodeUserCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010c" TARGET="TEXT">SecurityPackages</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010d" TARGET="TEXT">SysopCount</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010e" TARGET="TEXT">UnknownConnectionCount</A>
+</FONT></TD></TABLE>
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+<P>If the property could not be retrieved within the number of milliseconds specified by the <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020b00" TARGET="TEXT">PropertyAccessTimeOut</A> property, a time-out error is thrown and an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041300" TARGET="TEXT">OnServerProperty</A> event might be fired later with the requested property.
+<P>The connection state must be at least <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000303" TARGET="TEXT">csConnected</A> to access the following properties:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000101" TARGET="TEXT">AnonymousAllowed</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000103" TARGET="TEXT">IgnoredUsers</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000105" TARGET="TEXT">MaxMessageLength</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000106" TARGET="TEXT">Name</A>
+</FONT></TD></TABLE>
+<P>The state must be at least <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000305" TARGET="TEXT">csLogged</A> to access all other server properties.
+</BLOCKQUOTE><P>
+<H5>Example</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = MsChatPr1.ServerProperty("AnonymousAllowed")
+'...use chatitemobj 
+Set chatitemobj = MsChatPr1.ServerProperty("NodeUserCount")
+'...use chatitemobj 
+Set chatitemobj = Nothing
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020b00" TARGET="TEXT">PropertyAccessTimeOut</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201020e00"></A><H3>UserProperty Property<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Synchronously accesses a user property. 
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>value</I><B>=</B><I>object</I><B>.UserProperty(</B><I>UserPropertyName</I>[<B>,</B> <I>Nickname</I>]<B>)<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>value</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>UserPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string containing one of these valid user property name values:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000301" TARGET="TEXT">Away</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000302" TARGET="TEXT">Channels</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000303" TARGET="TEXT">HostInChannels</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000304" TARGET="TEXT">Identity</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000305" TARGET="TEXT">IdleTime</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000306" TARGET="TEXT">IPAddress</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030a" TARGET="TEXT">Modes</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030d" TARGET="TEXT">OwnerOfChannels</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030e" TARGET="TEXT">RealName</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030f" TARGET="TEXT">ServerInfo</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000310" TARGET="TEXT">ServerName</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000311" TARGET="TEXT">SignOnTime</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000312" TARGET="TEXT">UserName</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000314" TARGET="TEXT">VoiceInChannel</A>
+</FONT></TD></TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Nickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant parameter that can be omitted or empty, in which case the call concerns the control user. Otherwise the <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A> must be a current server user.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Access is read-only.
+<P>If the property could not be retrieved within the number of milliseconds specified by the <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020b00" TARGET="TEXT">PropertyAccessTimeOut</A> property, an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041500" TARGET="TEXT">OnUserProperty</A> event is fired with the requested property.
+</BLOCKQUOTE><P>
+<H5>Example</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = MsChatPr1.UserProperty("Away", "Mila")
+'. . . use chatitemobj&#009;&#009;&#009;
+Set chatitemobj = MsChatPr1.UserProperty("SignOnTime")
+'. . . use chatitemobj 
+Set chatitemobj = Nothing
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041500" TARGET="TEXT">OnUserProperty</A>, <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020b00" TARGET="TEXT">PropertyAccessTimeOut</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030000"></A><H3>Methods<HR></H3><P>This section lists the methods supported by the <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> object.
+
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030100"></A><H3>AboutBox Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Displays the About message dialog box.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.AboutBox<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> object.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030200"></A><H3>BanUsers Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Bans users from the server and reinstates users to the server.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.BanUsers</B> <I>UserItems</I><B>,</B> <I>Set</I>[<B>,</B> <I>Reason</I>][<B>,</B> <I>Duration</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>UserItems</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object. Defines which users are banned or reinstated. The item names that can be used to construct the <B>ChatItems</B> object are:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030c" TARGET="TEXT">NicknameOp</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000312" TARGET="TEXT">UserName</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000313" TARGET="TEXT">UserNameOp</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000306" TARGET="TEXT">IPAddress</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000307" TARGET="TEXT">IPAddressOp</A>
+</FONT></TD></TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Set</I> 
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A Boolean variable that determines whether the users are banned or reinstated.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Reason</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant that is used if <I>Set</I> is TRUE to contain the reason for banishing users.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Duration</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant that is used if <I>Set</I> is TRUE to indicate, in minutes, the length of time a user or users will be banned.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This feature is reserved for administrators and system operators only. Banned users will not be able to log on to the server. Some IRC servers do not provide this feature and will return an error code.
+
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>These examples illustrate methods of using <B>BanUsers</B> to ban users from the server and to reinstate users to the server. 
+
+
+<P>1. Ban a specific user:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType  = "Query"
+chatitemobj.Item("UserName") = "RebeccaH"
+chatitemobj.Item("IPAddressOp") = "EndsWith"
+chatitemobj.Item("IPAddress") = ".microsoft.com"
+MsChatPr1.BanUsers chatitemobj, True, "Abusive behavior"
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>2. Ban all the users with an IP address that ends with .edu, for the duration of one hour:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType  = "Query"
+chatitemobj.Item("IPAddressOp") = "EndsWith"
+chatitemobj.Item("IPAddress") = ".edu"
+MsChatPr1.BanUsers chatitemobj, True, , 60
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>3. Stop banning the same group:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType  = "Query"
+chatitemobj.Item("IPAddressOp") = "EndsWith"
+chatitemobj.Item("IPAddress") = ".edu"
+MsChatPr1.BanUsers chatitemobj, False
+Set chatitemobj = Nothing
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030300"></A><H3>CancelConnectLogin Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Cancels a <A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030600" TARGET="TEXT">Connect</A> or <A HREF="inet0538.htm#mschatpr_vb_ref_0504020201030d00" TARGET="TEXT">Login</A> call.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.CancelConnectLogin</B> <BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method can be called when the connection state is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000302" TARGET="TEXT">csConnecting</A> or <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000304" TARGET="TEXT">csLogging</A>.
+
+</BLOCKQUOTE><P>
+<H5>Example</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.Connect "comicsrv1.microsoft.com"
+    'OnConnectionState(csConnecting) event is fired 
+MsChatPr1.CancelConnectLogin
+
+MsChatPr1.Login "irc.mtv.com", "JB007", "JamesB", "James Bond"
+    'OnConnectionState(csConnecting) event is fired 
+MsChatPr1.CancelConnectLogin
+
+MsChatPr1.Login "irc.univ-lyon1.fr", "Vette"
+    'OnConnectionState(csConnecting) event is fired
+    'OnConnectionState(csLogging) event is fired&#009;&#009;
+MsChatPr1.CancelConnectLogin
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030600" TARGET="TEXT">Connect</A>, <A HREF="inet0538.htm#mschatpr_vb_ref_0504020201030d00" TARGET="TEXT">Login</A> 
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030400"></A><H3>ChangeNickname Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Asynchronously changes the user's <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A>.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ChangeNickname</B> <I>NewNickname</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>NewNickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression containing the user's new nickname.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P> A successful call to <B>ChangeNickname</B> results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041600" TARGET="TEXT">OnUserPropertyChanged</A> event.
+</BLOCKQUOTE><P>
+<H5>Example</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.ChangeNickname "NaomiH"
+
+'This is a shortcut for:
+MsChatPr1.ChangeUserProperty "Nickname", "NaomiH"
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030500" TARGET="TEXT">ChangeUserProperty</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030500"></A><H3>ChangeUserProperty Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Asynchronously modifies a user property.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ChangeUserProperty</B> <I>UserPropertyName</I><B>,</B> <I>NewUserProperty</I>[<B>,</B> <I>Nickname</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>UserPropertyName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string that must contain one of these two valid values: "Modes" or "Nickname".
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>NewUserProperty</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A variant, the type of which depends on the new user property.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Nickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. A variant. Can be omitted or empty, in which case the call concerns the control user. Otherwise, the <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A> must be a current server user. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This method can be used to change nicknames, user <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030a" TARGET="TEXT">Modes</A>, or ignore/stop ignoring other users. Callers can change only their own nickname or user modes.
+<P>A successful call to <B>ChangeUserProperty</B> results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201041600" TARGET="TEXT">OnUserPropertyChanged</A> event.
+<P>You cannot ignore a server system operator or administrator.
+
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. Change the nickname:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.ChangeUserProperty "Nickname", "ElisabethH", "Moi"
+'or
+MsChatPr1.ChangeUserProperty "Nickname", "ElisabethH"
+    'This is equivalent to MsChatPr1.ChangeNickname "ElisabethH"
+</FONT></PRE>
+<P>2. Become invisible:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.ChangeUserProperty "Modes", umInvisible
+</FONT></PRE>
+<P>3. Give up the system operator privileges and become visible:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.ChangeUserProperty "Modes", umNotSysop + umNotInvisible
+</FONT></PRE>
+<P>4. Ignore a user:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.ChangeUserProperty "Modes", umClientIgnored, "Maja"
+</FONT></PRE>
+<P>5. Stop ignoring a user:
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.ChangeUserProperty "Modes", umNotClientIgnored, "Maja"
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030400" TARGET="TEXT">ChangeNickname</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030600"></A><H3>Connect Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P> Creates a connection between the user's computer and the server. 
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.Connect</B> <I>ServerName</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I> 
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ServerName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression that contains the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000310" TARGET="TEXT">ServerName</A>. This parameter can include the socket port to be used. The port 6667 is used by default.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>A successful <B>Connect</B> call results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040800" TARGET="TEXT">OnConnectionState</A> event for which the <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020300" TARGET="TEXT">ConnectionState</A> parameter is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000302" TARGET="TEXT">csConnecting</A>. Next, an <B>OnConnectionState</B> event is fired for which the <B>ConnectionState</B> parameter is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000303" TARGET="TEXT">csConnected</A>. The server properties accessible at the <B>csConnected</B> point are:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000106" TARGET="TEXT">Name</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000105" TARGET="TEXT">MaxMessageLength</A> 
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400010c" TARGET="TEXT">SecurityPackages</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000101" TARGET="TEXT">AnonymousAllowed</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000103" TARGET="TEXT">IgnoredUsers</A>
+</FONT></TD></TABLE>
+<P>All the other server properties can be accessed once the user is logged on.
+
+
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">'ServerName only, port 66667 by default
+MsChatPr1.Connect "comicsrv1.microsoft.com" 
+
+'ServerName and socket port
+MsChatPr1.Connect "irc.eskimo.com:6668"      
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0538.htm#mschatpr_vb_ref_0504020201030d00" TARGET="TEXT">Login</A>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030700"></A><H3>Disconnect Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Disconnects from the chat server.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.Disconnect<BR>
+</B></BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The <B>Disconnect</B> method can be called when the connection state is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000303" TARGET="TEXT">csConnected</A> or <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000305" TARGET="TEXT">csLogged</A>.
+<P>A successful call results in an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040800" TARGET="TEXT">OnConnectionState</A> event for which the connection state is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000306" TARGET="TEXT">csDisconnecting</A>, and another <B>OnConnectionState</B> event for which the <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201020300" TARGET="TEXT">ConnectionState</A> parameter is <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000301" TARGET="TEXT">csDisconnected</A>.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.Connect "comicsrv1.microsoft.com"
+    'OnConnectionState(csConnecting) event is fired
+    'OnConnectionState(csConnected) event is fired
+MsChatPr1.Disconnect
+
+
+MsChatPr1.Login "irc.mtv.com", "JB007", "JamesB", "James Bond"
+    'OnConnectionState(csConnecting) event is fired
+    'OnConnectionState(csLogging) event is fired
+    'OnConnectionState(csLogged) event is fired
+MsChatPr1.Disconnect
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<H5>See Also</H5><BLOCKQUOTE><P>
+<A HREF="inet0537.htm#mschatpr_vb_ref_0504020201030600" TARGET="TEXT">Connect</A>, <A HREF="inet0538.htm#mschatpr_vb_ref_0504020201030d00" TARGET="TEXT">Login</A>, <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040800" TARGET="TEXT">OnConnectionState</A> 
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030800"></A><H3>IgnoreUsers Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Allows the caller to ignore or stop ignoring users. 
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.IgnoreUsers</B> <I>UserItems</I><B>,</B> <I>Set</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>UserItems</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object. Allows the caller to set criteria on the user's <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A>, <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000312" TARGET="TEXT">UserName</A>, or <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000306" TARGET="TEXT">IPAddress</A>. 
+
+The item names that can be used to construct the <B>ChatItems</B> object are:
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030c" TARGET="TEXT">NicknameOp</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000312" TARGET="TEXT">UserName</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000313" TARGET="TEXT">UserNameOp</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000306" TARGET="TEXT">IPAddress</A>
+</FONT></TD><TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000307" TARGET="TEXT">IPAddressOp</A>
+</FONT></TD></TABLE>
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Set</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A Boolean value used to indicate if a user should be ignored. If set to TRUE, the user is ignored. If set to FALSE, the user is no longer ignored.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>Ignoring a user means that the caller will no longer receive private messages from the ignored user. 
+<P>Administrators and system operators are never ignored, even if the caller ignores a group of users that includes an administrator or system operator.
+<P>The <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000103" TARGET="TEXT">IgnoredUsers</A> server property returns the list of ignored users in the form of an array of <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> objects and is updated each time the user calls the <B>IgnoreUsers</B> method.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. Ignore one specific user:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType  = "Query"
+chatitemobj.Item("Nickname") = "Justin"
+chatitemobj.Item("UserName") = "ArthurB"
+chatitemobj.Item("IPAddress") = "foo.microsoft.com"
+MsChatPr1.IgnoreUsers chatitemobj, True
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>2. Ignore all the users with an IP address that ends with .edu:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType  = "Query"
+chatitemobj.Item("IPAddressOp") = "EndsWith"
+chatitemobj.Item("IPAddress") = ".edu"
+MsChatPr1.IgnoreUsers chatitemobj, True
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>3. Stop ignoring the same group:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType  = "Query"
+chatitemobj.Item("IPAddressOp") = "EndsWith"
+chatitemobj.Item("IPAddress") = ".edu"
+MsChatPr1.IgnoreUsers chatitemobj, False
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>4. Stop ignoring everybody:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim vIgnoredUsers As Variant
+Dim chatitemobj As ChatItems
+Dim iIndex As Integer
+
+Set chatitemobj = MsChatPr1.ServerProperty("IgnoredUsers")
+
+If (chatitemobj.ItemValid("IgnoredUsers")) Then
+    vIgnoredUsers = chatitemobj.Item("IgnoredUsers")
+    If (Not IsEmpty(vIgnoredUsers)) Then
+        For iIndex = LBound(vIgnoredUsers) To UBound(vIgnoredUsers)
+        MsChatPr1.IgnoreUsers vIgnoredUsers(iIndex), False
+        Next iIndex
+    End If
+End If
+
+Set chatitemobj = Nothing 
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030900"></A><H3>KickUser Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Disconnects a user from the server.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.KickUser</B> <I>Nickname</I>[<B>,</B> <I>Reason</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Nickname</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression that contains an existing user <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400030b" TARGET="TEXT">Nickname</A>.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Reason</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. Can be an empty value or a string containing the reason for user disconnection.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>This feature is reserved for administrators and system operators only.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.KickUser "Rousseau", "You talk too much!"
+
+MsChatPr1.KickUser "Voltaire"
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030a00"></A><H3>KillChannel Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Terminates a channel on the server.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.KillChannel</B> <I>ChannelName</I>[<B>,</B> <I>Reason</I>]<BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelName</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. A string expression that must be an existing channel <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A>.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>Reason</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Optional. Can be empty, missing, or a string containing the reason for channel termination.
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The caller must be an administrator or system operator to successfully perform this operation. 
+<P>All channel members are kicked out of the channel and the channel is closed.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<PRE><FONT FACE="Courier" SIZE="2">MsChatPr1.KillChannel "#TheirChannel"
+
+MsChatPr1.KillChannel "#BadChannel", "Bad language is used in this channel."
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><P><HR SIZE=5 NOSHADE>
+<A NAME="mschatpr_vb_ref_0504020201030b00"></A><H3>ListChannels Method<HR></H3><H5>Description</H5>
+<BLOCKQUOTE><P>
+<P>Lists channels on the chat server.
+</BLOCKQUOTE><P>
+<H5>Syntax</H5>
+<BLOCKQUOTE><P><I>object</I><B>.ListChannels</B> <I>ChannelQueryItems</I><BR>
+</BLOCKQUOTE><P>
+<BLOCKQUOTE>
+<TABLE WIDTH=87% BORDER=1 CELLPADDING=5 CELLSPACING=0>
+<TR VALIGN=TOP BGCOLOR="#DDDDDD">
+<TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Part</B></FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><B>Description</B></FONT></TD></TR>
+<TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>object</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to an <A HREF="inet0536.htm#mschatpr_vb_ref_0504020201010000" TARGET="TEXT">MsChatPr</A> control.
+</FONT></TD></TR><TR VALIGN=TOP><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE=2><I>ChannelQueryItems</I>
+ </FONT></TD><TD><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Required. An object expression that evaluates to a <A HREF="inet0541.htm#mschatpr_vb_ref_05040202010b0000" TARGET="TEXT">ChatItems</A> object. 
+</FONT></TD></TR></TABLE>
+</BLOCKQUOTE><P>
+<H5>Remarks</H5><BLOCKQUOTE><P>
+<P>The <I>ChannelQueryItems</I> parameter can restrict the listing to a subset of channels. 
+<P>The IRC protocol is limited to listing all the server channels or only one specific channel. On an IRC server, the valid item name for <I>ChannelQueryItems</I> is "Name".
+<P>For an IRCX server, the valid item names are listed in the following table.
+
+<P>See <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000201" TARGET="TEXT">Note</A> for an explanation of the "Op" endings.
+<TABLE BORDER=0>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Item name </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B> </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Type </B></FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><B>Usage
+ </B></FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000215" TARGET="TEXT">Name</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">String </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the name of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000216" TARGET="TEXT">NameOp</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">String </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the name of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">String </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the topic of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000223" TARGET="TEXT">TopicOp</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">String </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the topic of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020d" TARGET="TEXT">Language</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">String </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the language of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020e" TARGET="TEXT">LanguageOp</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">String </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the language of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021e" TARGET="TEXT">Subject</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">String </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the subject of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021f" TARGET="TEXT">SubjectOp</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">String </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the subject of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000204" TARGET="TEXT">ChannelAgeMax</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Long </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the creation time of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000205" TARGET="TEXT">ChannelAgeMin</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Long </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the creation time of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020f" TARGET="TEXT">ListCount</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Long </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Limits the number of listed channels to a certain value.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0540.htm#mschatpr_vb_ref_0504020201060600" TARGET="TEXT">MemberCount</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Long </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the member count of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000212" TARGET="TEXT">MemberCountMax</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Long </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the member count of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000213" TARGET="TEXT">MemberCountMin</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Long </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the member count of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000221" TARGET="TEXT">TopicAgeMax</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Long </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the latest topic change of the channel.
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000222" TARGET="TEXT">TopicAgeMin</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Long </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Sets listing criteria based on the latest topic change of the channel. 
+ </FONT></TD>
+</TR>
+<TR><TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"><A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021c" TARGET="TEXT">Registered</A> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2"> </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Boolean&nbsp;&nbsp; </FONT></TD>
+<TD ALIGN=LEFT VALIGN=TOP><FONT FACE="VERDANA,ARIAL,HELVETICA" SIZE="2">Limits the listed channels to registered channels only.
+</FONT></TD>
+</TR>
+</TABLE>
+<P>The channels are filtered depending on their PICS <A HREF="#" onclick="return ALink(10,'inet0257.htm')">Rating</A> and the user's ratings settings. For example, if the user cannot view unrated content, the <B>ListChannels</B> call fails on an IRC connection or shows only the rated channels on an IRCX connection. If the user has some specific PICS ratings settings, only the channels that are appropriately rated are exposed to the user.
+<P>A successful <B>ListChannels</B> call results in a succession of events. First, an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040200" TARGET="TEXT">OnBeginEnumeration</A> event to mark the beginning of the channel listing is fired. Then, one <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040400" TARGET="TEXT">OnChannelProperty</A>( event for each channel listed transpires and the <I>ChannelItems</I> parameter exposes all the known channel properties. Finally, an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040a00" TARGET="TEXT">OnEndEnumeration</A> with the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000703" TARGET="TEXT">etChannels</A> parameter event is fired to mark the end of the channel listing. 
+<P>If a listing is stopped because of a limitation set by the <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020f" TARGET="TEXT">ListCount</A> item, an <A HREF="inet0539.htm#mschatpr_vb_ref_0504020201040a00" TARGET="TEXT">OnEndEnumeration</A> with the <A HREF="inet0543.htm#mschatpr_vb_ref_0504020202000704" TARGET="TEXT">etChannelsTruncated</A> parameter event is fired instead.
+<P>The IRC protocol is limited to listing all the server channels or only one specific channel.
+</BLOCKQUOTE><P>
+<H5>Examples</H5><BLOCKQUOTE><P>
+<P>1. On an IRC/IRCX server:
+<PRE><FONT FACE="Courier" SIZE="2">'List all the channels:
+
+Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+MsChatPr1.ListChannels chatitemobj
+Set chatitemobj = Nothing
+
+'List one specific channel:
+
+Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("Name") = "#Comic_Chat"
+MsChatPr1.ListChannels chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>2. On an IRCX server, list all the channels that have been created in the last hour, and limit the listing to 100 channels:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("ChannelAgeMax") = 60
+chatitemobj.Item("ListCount") = 100
+MsChatPr1.ListChannels chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>3. On an IRCX server, list all the channels that have between 10 and 50 members, in which the <A HREF="inet0545.htm#mschatpr_vb_ref_0504020204000220" TARGET="TEXT">Topic</A> includes the word "Corvette":
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("MemberCountMin") = 10
+chatitemobj.Item("MemberCountMax") = 50
+chatitemobj.Item("TopicOp") = "Contains"
+chatitemobj.Item("Topic") = "Corvette"
+MsChatPr1.ListChannels chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>4. On an IRCX server, list all the registered channels that start with "#F" and have a <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400020d" TARGET="TEXT">Language</A> property that contains "FR":
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("Registered") = True
+chatitemobj.Item("NameOp") = "StartsWith"
+chatitemobj.Item("Name") = "#F"
+chatitemobj.Item("LanguageOp") = "Contains"
+chatitemobj.Item("Language") = "FR"
+MsChatPr1.ListChannels chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+<P>5. On an IRCX server, list all the channels that have "real estate" in their <A HREF="inet0545.htm#mschatpr_vb_ref_050402020400021e" TARGET="TEXT">Subject</A> property:
+
+<PRE><FONT FACE="Courier" SIZE="2">Dim chatitemobj As ChatItems
+
+Set chatitemobj = New ChatItems
+chatitemobj.AssociatedType = "Query"
+chatitemobj.Item("SubjectOp") = "Contains"
+chatitemobj.Item("Subject") = "real estate"
+MsChatPr1.ListChannels chatitemobj
+Set chatitemobj = Nothing
+</FONT></PRE>
+</BLOCKQUOTE><P>
+<P><P><FONT FACE="MS SANS SERIF" SIZE="1" COLOR="BLACK">
+<A CLASS=cpslug HREF="legal.htm" TARGET="TEXT">&#169; 1997 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<BR CLEAR=ALL><P>
+</FONT><P>
+</BODY></HTML>

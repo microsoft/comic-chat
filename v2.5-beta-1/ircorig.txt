@@ -1,0 +1,3204 @@
+:irc.stealth.net 451 * :You have not registered
+
+:irc.stealth.net 001 djk87 :Welcome to the Internet Relay Network djk87!~djk87@tide22.microsoft.com
+
+:irc.stealth.net 002 djk87 :Your host is irc.stealth.net, running version 2.9.4
+
+:irc.stealth.net 003 djk87 :This server was created Mon Dec 1 1997 at 10:45:33 EST
+
+:irc.stealth.net 004 djk87 irc.stealth.net 2.9.4 oirw abiklmnopqstv
+
+:irc.stealth.net 251 djk87 :There are 20602 users and 2 services on 64 servers
+
+:irc.stealth.net 252 djk87 119 :operators online
+
+:irc.stealth.net 253 djk87 6 :unknown connections
+
+:irc.stealth.net 254 djk87 8303 :channels formed
+
+:irc.stealth.net 255 djk87 :I have 1189 clients, 0 services and 1 servers
+
+:irc.stealth.net 375 djk87 :- irc.stealth.net Message of the Day - 
+
+:irc.stealth.net 372 djk87 :- 10/9/1997 23:36
+
+:irc.stealth.net 372 djk87 :- 
+
+:irc.stealth.net 372 djk87 :- Welcome to Stealth Communications' IRC Server.
+
+:irc.stealth.net 372 djk87 :-              ___               ___   ___   ___
+
+:irc.stealth.net 372 djk87 :-     ______ _/  /_ _____ ___   /  / _/  /_ /  / 
+
+:irc.stealth.net 372 djk87 :-    /  ___/_   __// ___// _ \ /  //_   __//  /__
+
+:irc.stealth.net 372 djk87 :-   __\  \  /  /_ / ___// (_) \  /__/  /_ /  __  \ 
+
+:irc.stealth.net 372 djk87 :-  /_____/  \___/ \___//___|__/_____\___//__/  \__\.net
+
+:irc.stealth.net 372 djk87 :-      "On the edge of Internet Communications"
+
+:irc.stealth.net 372 djk87 :-  
+
+:irc.stealth.net 372 djk87 :- 	Server capacity: 4090 connections.
+
+:irc.stealth.net 372 djk87 :- 
+
+:irc.stealth.net 372 djk87 :-  IPhoners, bots and faked usernames are not permitted!.
+
+:irc.stealth.net 372 djk87 :- 
+
+:irc.stealth.net 372 djk87 :- If you get ~ or - prefix in username, it means your
+
+:irc.stealth.net 372 djk87 :- sysadmin should install ident service (RFC 1413).
+
+:irc.stealth.net 372 djk87 :- ftp.funet.fi:/pub/unix/networking/ident/
+
+:irc.stealth.net 372 djk87 :- If you require assistance, join #irchelp.
+
+:irc.stealth.net 372 djk87 :- 
+
+:irc.stealth.net 372 djk87 :- More info about restricted connections at:
+
+:irc.stealth.net 372 djk87 :- http://www.funet.fi/~irc/server/restricted.html
+
+:irc.stealth.net 372 djk87 :- 
+
+:irc.stealth.net 372 djk87 :- Administrator is Shrihari Pandit, digital@stealth.net.
+
+:irc.stealth.net 372 djk87 :- 
+
+:irc.stealth.net 372 djk87 :- Note: If your site uses stealth as the default server, notify us!
+
+:irc.stealth.net 372 djk87 :- 
+
+:irc.stealth.net 372 djk87 :- Remember, IRC is supposed to be an enjoyable experience.
+
+:irc.stealth.net 372 djk87 :- 
+
+:irc.stealth.net 376 djk87 :End of /MOTD command.
+
+:djk87 MODE djk87 :+i
+
+:djk87!~djk87@tide22.microsoft.com JOIN :#Italia
+
+:irc.stealth.net 332 djk87 #Italia :http://www.nonsolokick.com/ IL SITO IRC
+
+:irc.stealth.net 353 djk87 = #italia :djk87 Soujourne PSICOLOGO FRIUL BILLY Bravo1 buna LE Luke1 man mone ISABELLA2 Leos diablo__ |ts| FURIA perla^ Stroz melusina cownik Puni^zSk pindarus AlexV Gesu VENERE Beppe JACKPOT larss emanuele Luca ranma DJ-ICEMAN Robyone ^Blaster^ icecream smile2 FULMINATO |^|_|^| NIKKY [SKUNK] tommy_ SIBRO FireWall Attilio Holly Claudio-k Perseo JazzMan ^alex^ xinxin TuTToLogO solo ^poeta Robert_ok @|^OLtRe^| shine THOR1 DIAVOLI Gabby xuto Loris LKx EAGLE75 meskalito 
+
+:irc.stealth.net 353 djk87 = #italia :NRG1 {[ToNiC]} perata mariuana_ yogii sleuK _Cosmo Freddie ^IKaRuS^ liberts beckham @CaLiGoLa Lupin3 GIUSTIZIE __michele goblin^^^ ^cuore ATALANTA luna-ross Chiaretta PUNK_Guy JJSapido Nuvola Diego Dirk Angelsoft Trieste Mirko FOX fantasma Gnappo pippero Carving Skystar gost Onat Zelig^ aureliano IeC ago73 limoncina marios Linus^^ robyx Cristina Il^Corvo Leon_Jeso CHICCO1 @[CaNNON] Francesko IAIO babybirba italboy colore krugher Tex^away victa Alma- franz^^^ 
+
+:irc.stealth.net 353 djk87 = #italia :NikOlo GRANDI The_Edge boss2 FRANCY69 kendra Stupenda carpe geguar Asterix SQUALO Mr_Fidel CIELO mariuana M_O_N_Y @Dix^ ^zeus1^ @RoCkMaN8 hg lampo annalisa Mauro22 etrusco jena farang Paperinik @sveva fuego73 eLLeGi @gianbat @ANFETAMIN dappista bikerblu Bob_Rock micol @max- salernita Devil_Man raff VENERE^ NITRO K-Awayyyy Linda__ rcl Bikers antonella aTOSCANI9 Dux lupetto FF79 Marco78 ICE-EYES @[FrAnKiE] pixi1 RAMBO BELLO @CuCcIoLeT EMIRO @BaPhOmEt MissionX 
+
+:irc.stealth.net 353 djk87 = #italia :DODO^ X12 GreenDay SOAK Denny_ @ReFuGiNa Davide__ Sissi {EmAnUeL} ANDREA-VB OKAMI Davide39 @SKIZZO Knight^ Reo DANIELE^ Sabba Necom spicedan socrates ^Gio^ scanner Massimo korat Netcafe6 matteo zanis FeDeRiKa gerry` Bergamo mirkoo ^Skynet ALEX37m Mary donAldo Dogged SpaceOne SNOOPY ^Principe @[^Vi_AwAy Piccadill fgi _mario Belluno _Debe_ ^kor susy-1 @Shalafy max3 FREDDY1 BALBO Samurai pgp esser-ci VERESOV _Tetsuya_ alfaalfa Er_Puma @aquila_ Cronico mucchy 
+
+:irc.stealth.net 353 djk87 = #italia :CRUISE_ @foxtwo Fortunato marco30 Dario BOZO laika^ ricky40 Giamp33 VAL^RIK Pippos @Cassiopea daniele vlad_III Mirko_RM giuliano Dreaming @alessia- Codazzo Cristian giovanni didolina Joe__ a32 nightfly rao LOVEBLE FIAMMA liz capitani seminole bellissim boston Barbies ravpc1 Andrea1 futuro santo- pinorc flash-- Umano @Silla @A`g`o`n`y @|Leila| paoladal siffel SlalomMAN giampi` Gatto^^ barbarell santo Lela_ miciotto SANDRO Bello38Bo Dolce FaManY dutchy3 Thanos- 
+
+:irc.stealth.net 353 djk87 = #italia :megara davide Jenny1 bambino Astry a-24 Marco_GE FuocoBlu @PaTrOcLo Nadal corvo Mex SIRENA sorpresa Eros_ Bazzz Luca38 |King-K| Buon1998 ESTEBAN @JWK Andrea StreGretA @Samantha Alessio romani @Scorpione TREMOR re-artu @BackB0ne SAGGIO slush` _piccolo @Bonetty 
+
+:irc.stealth.net 366 djk87 #Italia :End of /NAMES list.
+
+:irc.stealth.net 324 djk87 #Italia +tn 
+
+:irc.stealth.net 352 djk87 #italia ~djk87 tide22.microsoft.com irc.stealth.net djk87 H :0 Your Full Name
+
+:irc.stealth.net 352 djk87 #italia giulio.pol 195.103.15.143 irc.tin.it Soujourne H :8 Giulio Pollini
+
+:irc.stealth.net 352 djk87 #italia eee ps2-3.ucl-24.bcc.ac.uk ircnet.demon.co.uk PSICOLOGO H :9 eee
+
+:irc.stealth.net 352 djk87 #italia fux Udine4-61.tin.it irc.tin.it FRIUL H :8 chiedimelo
+
+:irc.stealth.net 352 djk87 #italia utint 194.184.29.93 irc.tin.it BILLY H :8 Bowling Treviso - Medi@.Evo Internet Show
+
+:irc.stealth.net 352 djk87 #italia gpetrazz ppp02.alvignano.peoples.it *.unipi.it Bravo1 H :6 giovanni
+
+:irc.stealth.net 352 djk87 #italia +micio 194.116.42.49 *.unipi.it buna H :6 andrea bonavia
+
+:irc.stealth.net 352 djk87 #italia lab 194.243.56.102 irc.tin.it LE H :8 B
+
+:irc.stealth.net 352 djk87 #italia Luke ppp01.nocera.peoples.it irc.tin.it Luke1 H :8 Luciano
+
+:irc.stealth.net 352 djk87 #italia ~repaci modem1.i-2000net.it irc.tin.it man H :8 repaci
+
+:irc.stealth.net 352 djk87 #italia xyz Modena5-18.tin.it *.unipi.it mone H :6 Simone
+
+:irc.stealth.net 352 djk87 #italia AlenBeer 169-69-18.ipt.aol.com ircnet.irc.aol.com ISABELLA2 H :3 alenbeer
+
+:irc.stealth.net 352 djk87 #italia jack67 co-max-ip-71.iunet.it irc.tin.it Leos H :8 marco
+
+:irc.stealth.net 352 djk87 #italia Giovanni ct110.ctonline.it irc.tin.it diablo__ H :8 Gio
+
+:irc.stealth.net 352 djk87 #italia tschenz dialin-er-42.fen.baynet.de *.DE |ts| H :6 ---=== tScHeNz ===---
+
+:irc.stealth.net 352 djk87 #italia ~guest 195.103.196.133 irc.tin.it FURIA H :8 Ask
+
+:irc.stealth.net 352 djk87 #italia pc3 195.120.26.186 irc.tin.it perla^ H :8 pc3
+
+:irc.stealth.net 352 djk87 #italia garoth oak.rpg.org.pl warszawa.irc.pl Stroz H :10 http://www.srfrog.com
+
+:irc.stealth.net 352 djk87 #italia XXX line9gio.joynet.it *.unipi.it melusina H :6 certo, certo!
+
+:irc.stealth.net 352 djk87 #italia sdf32689 195.120.127.16 irc.tin.it cownik H :8 Nikola
+
+:irc.stealth.net 352 djk87 #italia zSk ppp08-gw1.ba.nettuno.it irc.tin.it Puni^zSk H :8 zSk! versione 0.1 by Puni
+
+:irc.stealth.net 352 djk87 #italia robcardi Verona4-34.tin.it irc.tin.it pindarus H :8 Cardinali Roberto
+
+:irc.stealth.net 352 djk87 #italia dark swfi71-70.iol.it irc.tin.it AlexV H :8 Alex
+
+:irc.stealth.net 352 djk87 #italia barto 151.99.232.180 irc.tin.it Gesu H :8 Anonymous
+
+:irc.stealth.net 352 djk87 #italia litos alice1.alicecafe.it irc.flashnet.it VENERE H :9 Fabrizio
+
+:irc.stealth.net 352 djk87 #italia boh trn7.novanet.it irc.tin.it Beppe H :8 TI PIACEREBBE SAPERLO EH?
+
+:irc.stealth.net 352 djk87 #italia +ivan 151.99.135.67 *.unipi.it JACKPOT H :6 Piru pirù
+
+:irc.stealth.net 352 djk87 #italia larss Milano30-22.tin.it *.unipi.it larss H :6 ***
+
+:irc.stealth.net 352 djk87 #italia +cavolo 208.209.175.101 *.fi emanuele H :7 emanuele
+
+:irc.stealth.net 352 djk87 #italia LucaNobile ppp02-18.stm.it irc.fun.uni.net Luca H :7 irc.fun.uni.net
+
+:irc.stealth.net 352 djk87 #italia ddd Padova11-31.tin.it irc.tin.it ranma H :8 Ranma Saotome
+
+:irc.stealth.net 352 djk87 #italia ~_ sli07.more.energy.it irc.tin.it DJ-ICEMAN H :8 xxx
+
+:irc.stealth.net 352 djk87 #italia ~Roby 195.120.207.41 irc.tin.it Robyone H :8 Robyone
+
+:irc.stealth.net 352 djk87 #italia Makaveli Bologna9-4.tin.it irc.tin.it ^Blaster^ H :8 nose ollie
+
+:irc.stealth.net 352 djk87 #italia dd sandona1-14.alfa.it *.unipi.it icecream H :6 oiuu
+
+:irc.stealth.net 352 djk87 #italia ~zamp mica130.mix.it irc.flashnet.it smile2 H :9 pippo
+
+:irc.stealth.net 352 djk87 #italia giater dial-505.argosid.it irc.tin.it FULMINATO H :8 giater
+
+:irc.stealth.net 352 djk87 #italia +killer 195.103.129.19 irc.tin.it |^|_|^| H :8 Sabato
+
+:irc.stealth.net 352 djk87 #italia fumis Gorizia3-6.tin.it irc.tin.it NIKKY H :8 Pavlo
+
+:irc.stealth.net 352 djk87 #italia skunk.d 194.184.96.161 irc.tin.it [SKUNK] H :8 SKUNK dee destroyer
+
+:irc.stealth.net 352 djk87 #italia ~utint 194.243.109.16 irc.tin.it tommy_ H :8 Bowling Parma - Medi@.Evo Internet Show
+
+:irc.stealth.net 352 djk87 #italia TRiBE dial-506.argosid.it irc.tin.it SIBRO H :8 SIBRO
+
+:irc.stealth.net 352 djk87 #italia Default 151.99.144.34 irc.tin.it FireWall H :8 ANtonINo
+
+:irc.stealth.net 352 djk87 #italia attilag Sondrio3-24.tin.it *.unipi.it Attilio H :6 Attilio
+
+:irc.stealth.net 352 djk87 #italia Holly Verona6-40.tin.it irc.tin.it Holly H :8 Holly
+
+:irc.stealth.net 352 djk87 #italia italia 194.185.76.108 irc.fun.uni.net Claudio-k H :7 Claudio 
+
+:irc.stealth.net 352 djk87 #italia nemesi LaSpezia3-18.tin.it irc.tin.it Perseo H :8 luigi
+
+:irc.stealth.net 352 djk87 #italia ^cesare pc-rez53.supelec-rennes.fr *.fr JazzMan H :8 Cesare Tagliaferri
+
+:irc.stealth.net 352 djk87 #italia ~abcd 194.243.105.77 irc.tin.it ^alex^ H :8 aaa
+
+:irc.stealth.net 352 djk87 #italia fr mn-max-ip-252.iunet.it irc.tin.it xinxin H :8 mauro
+
+:irc.stealth.net 352 djk87 #italia cOSmoS ppp-7.globenet.it irc.fun.uni.net TuTToLogO H :7 FukkonS
+
+:irc.stealth.net 352 djk87 #italia ~utint 194.243.109.19 irc.tin.it solo H :8 Bowling Parma - Medi@.Evo Internet Show
+
+:irc.stealth.net 352 djk87 #italia rossogian Pordenone3-8.tin.it irc.tin.it ^poeta H :8 Puff
+
+:irc.stealth.net 352 djk87 #italia iobzprog 194.184.81.206 irc.fun.uni.net Robert_ok H :7 Roberto Architetto
+
+:irc.stealth.net 352 djk87 #italia OLtRe net130-044.mclink.it irc.fun.uni.net |^OLtRe^| H@ :7 http://www.zuzzurello.com/informazione/khyri/
+
+:irc.stealth.net 352 djk87 #italia roccof ppp-16.meda.it *.unipi.it shine H :6 shine
+
+:irc.stealth.net 352 djk87 #italia danny62 194.116.40.47 irc.fun.uni.net THOR1 H :7 chiedilo
+
+:irc.stealth.net 352 djk87 #italia ~r 195.31.205.27 irc.tin.it DIAVOLI H :8 diavoli
+
+:irc.stealth.net 352 djk87 #italia loop net133-129.mclink.it *.unipi.it Gabby H :6 SHAKESPEARE
+
+:irc.stealth.net 352 djk87 #italia fr mn-max-ip-252.iunet.it irc.tin.it xuto H :8 mauro
+
+:irc.stealth.net 352 djk87 #italia ernest Treviso5-3.tin.it irc.tin.it Loris H :8 Alberto
+
+:irc.stealth.net 352 djk87 #italia stemanfr m-8-osimo.indi.it irc.tin.it LKx H :8 Stefano
+
+:irc.stealth.net 352 djk87 #italia ~tripc9 194.243.143.107 irc.tin.it EAGLE75 H :8 InternetPoint Funnynet http://funnynet.netanday.it
+
+:irc.stealth.net 352 djk87 #italia user2 iv-max-ip-94.iunet.it irc.tin.it meskalito H :8 meskalito
+
+:irc.stealth.net 352 djk87 #italia seklanw 195.170.14.53 *.gr NRG1 H :9 NRG1
+
+:irc.stealth.net 352 djk87 #italia BoTonico 195.120.74.42 irc.fun.uni.net {[ToNiC]} H :7 http://utenti.jnet.it/tonico/tonic.html
+
+:irc.stealth.net 352 djk87 #italia ~request 194.247.172.77 irc.flashnet.it perata H :9 Tom
+
+:irc.stealth.net 352 djk87 #italia pastac Pistoia3-198.tin.it irc.stealth.net mariuana_ H :0 Che tene va in tasca?
+
+:irc.stealth.net 352 djk87 #italia ~CBITS 207.136.112.153 *.ca yogii H :5 Rob Gambini
+
+:irc.stealth.net 352 djk87 #italia kamma 194.243.243.53 irc.tin.it sleuK H :8 [http://www.7thSphere.com]
+
+:irc.stealth.net 352 djk87 #italia +tponzo 194.184.19.174 *.unipi.it _Cosmo H :6 Tommaso Ponzo
+
+:irc.stealth.net 352 djk87 #italia ThePivels 151.99.209.156 irc.tin.it Freddie H :8 ***
+
+:irc.stealth.net 352 djk87 #italia ThePivels swmi67-137.iol.it irc.tin.it ^IKaRuS^ H :8 x
+
+:irc.stealth.net 352 djk87 #italia sono gate01.struinfo.it irc.tin.it liberts H :8 Ariete
+
+:irc.stealth.net 352 djk87 #italia +ManUtd 193.76.232.213 *.unipi.it beckham H :6 beck
+
+:irc.stealth.net 352 djk87 #italia ~derby5 195.103.58.70 irc.tin.it CaLiGoLa H@ :8 derbybar
+
+:irc.stealth.net 352 djk87 #italia anonimo 151.99.232.111 irc.tin.it Lupin3 H :8 Anonimo
+
+:irc.stealth.net 352 djk87 #italia Crto swtr64-149.iol.it irc.tin.it GIUSTIZIE H :8 Crtomir
+
+:irc.stealth.net 352 djk87 #italia Mikelino Verona6-36.tin.it *.unipi.it __michele H :6 mm
+
+:irc.stealth.net 352 djk87 #italia goldc ppp05.mcorvino.peoples.it irc.tin.it goblin^^^ H :8 goblin^^^
+
+:irc.stealth.net 352 djk87 #italia info line-06-01.torino.alpcom.it irc.tin.it ^cuore H :8 ...connected to irc server!!!
+
+:irc.stealth.net 352 djk87 #italia quake total17.mediacom.it irc.fun.uni.net ATALANTA H :7 HACKER
+
+:irc.stealth.net 352 djk87 #italia u 195.31.205.19 irc.tin.it luna-ross H :8 mmmmmm
+
+:irc.stealth.net 352 djk87 #italia ~pazzi rub094.mc00.cn.interbusiness.it irc.tin.it Chiaretta H :8 Chaira Pazzi
+
+:irc.stealth.net 352 djk87 #italia user9234 swrm69-119.iol.it irc.tin.it PUNK_Guy H :8 te lo vebgo a dire a te il mio vero nome!!
+
+:irc.stealth.net 352 djk87 #italia cazzo r3p126.ntt.it irc.tin.it JJSapido H :8 kjhkghg
+
+:irc.stealth.net 352 djk87 #italia hghg Roma25-20.tin.it irc.tin.it Nuvola H :8 me lo devi chiedere
+
+:irc.stealth.net 352 djk87 #italia Unknown 194.21.236.107 irc.fun.uni.net Diego H :7 Diego
+
+:irc.stealth.net 352 djk87 #italia pc6 194.243.143.104 irc.tin.it Dirk H :8 Internet Point FUNNYNET funnynet.netanday.it
+
+:irc.stealth.net 352 djk87 #italia enjtc Roma25-13.tin.it irc.tin.it Angelsoft H :8 SIRIO
+
+:irc.stealth.net 352 djk87 #italia ~Client_3 rub005.ts00.ne.interbusiness.it irc.tin.it Trieste H :8 Intervision Point TRIESTE
+
+:irc.stealth.net 352 djk87 #italia SkyBot ppp-06.lert.it irc.tin.it Mirko H :8 Mirko
+
+:irc.stealth.net 352 djk87 #italia speedy 151.99.155.184 irc.fun.uni.net FOX H :7 Stefano
+
+:irc.stealth.net 352 djk87 #italia ~Client_5 rub005.ts00.ne.interbusiness.it irc.tin.it fantasma H :8 intervision point Trieste
+
+:irc.stealth.net 352 djk87 #italia melzio swrm68-4.iol.it irc.tin.it Gnappo H :8 mele
+
+:irc.stealth.net 352 djk87 #italia tripc5 194.243.143.103 irc.tin.it pippero H :8 Internet Point FUNNYNET http:/funnynet.netanday.it
+
+:irc.stealth.net 352 djk87 #italia morel.mr 194.243.111.110 irc.tin.it Carving H :8 More
+
+:irc.stealth.net 352 djk87 #italia Skystar 195.103.54.72 irc.tin.it Skystar H :8 Roberto
+
+:irc.stealth.net 352 djk87 #italia edipc4 Edy-04.nauta.it irc.tin.it gost H :8 Internet Point FUNNYNET http:/funnynet.netanday.it
+
+:irc.stealth.net 352 djk87 #italia MAc pats1-01.pn.ITnet.it irc.tin.it Onat H :8 Ciao
+
+:irc.stealth.net 352 djk87 #italia u 195.31.205.18 irc.tin.it Zelig^ H :8 Karvin
+
+:irc.stealth.net 352 djk87 #italia aureliano 194.244.29.22 irc.tin.it aureliano H :8 aureliano
+
+:irc.stealth.net 352 djk87 #italia +frank 194.21.237.212 irc.flashnet.it IeC H :9 *****
+
+:irc.stealth.net 352 djk87 #italia b.club 195.103.129.43 irc.stealth.net ago73 H :0 Bi.Club Battipaglia-Sa-
+
+:irc.stealth.net 352 djk87 #italia wella 175-217-25.ipt.aol.com ircnet.irc.aol.com limoncina H :3 Leoncinoooo oooo
+
+:irc.stealth.net 352 djk87 #italia mario ppp04.montesarchio.peoples.it *.unipi.it marios H :6 mario
+
+:irc.stealth.net 352 djk87 #italia Roma net130-200.mclink.it irc.tin.it Linus^^ H :8 dreamming...........
+
+:irc.stealth.net 352 djk87 #italia utint 195.120.77.201 irc.tin.it robyx H :8 Sport Bowling Savona - Medi@.Evo Internet Show
+
+:irc.stealth.net 352 djk87 #italia xxxx linea9.vercelli.alpcom.it irc.tin.it Cristina H :8 Cristina
+
+:irc.stealth.net 352 djk87 #italia ~cap caffe4.gianni-cafe.it *.unipi.it Il^Corvo H :6 1.92 occhi verdi
+
+:irc.stealth.net 352 djk87 #italia ~user ppp-3.marconinet.it irc.tin.it Leon_Jeso H :8 Marco
+
+:irc.stealth.net 352 djk87 #italia pc8 pc8-palabowling.panservice.it irc.flashnet.it CHICCO1 H :9 Palabowling
+
+:irc.stealth.net 352 djk87 #italia LuCiFeRo hd60-219.hil.compuserve.com irc.cifnet.com [CaNNON] H@ :2 [BiONiC][***|-SHAÑÑARA-|***][BiONiC]
+
+:irc.stealth.net 352 djk87 #italia Totonno_c ppp1.infoline.it *.unipi.it Francesko H :6 Totonno
+
+:irc.stealth.net 352 djk87 #italia sky pdnet40.protec.it irc.tin.it IAIO H :8 IAIO, il maghetto dei PC!
+
+:irc.stealth.net 352 djk87 #italia ~bowling rub151.vr00.ne.interbusiness.it irc.tin.it babybirba H :8 Bowling2
+
+:irc.stealth.net 352 djk87 #italia ~zeta 195.120.19.186 irc.stealth.net italboy H :0 Salvo Rossitto
+
+:irc.stealth.net 352 djk87 #italia ~pirch vc01ts1-14.pn.ITnet.it irc.tin.it colore H :8 My Real Name
+
+:irc.stealth.net 352 djk87 #italia ~io vc02ts1-08.pn.ITnet.it *.unipi.it krugher H :6 che te frega?
+
+:irc.stealth.net 352 djk87 #italia goldc eth00.mcorvino.peoples.it irc.tin.it Tex^away H :8 ------
+
+:irc.stealth.net 352 djk87 #italia petra.h baw9pub32.bluewin.ch *.DE victa H :5 unimportant
+
+:irc.stealth.net 352 djk87 #italia Pentium 195.31.200.149 irc.tin.it Alma- H :8 il mio :)))))
+
+:irc.stealth.net 352 djk87 #italia 02 i24.modena.pianeta.it *.unipi.it franz^^^ H :6 franz
+
+:irc.stealth.net 352 djk87 #italia nikolo ppmr-1.prometeo.it irc.stealth.net NikOlo H :0 camillina
+
+:irc.stealth.net 352 djk87 #italia ~mak1 ppp-5.speednet.it irc.flashnet.it GRANDI H :9 xxx
+
+:irc.stealth.net 352 djk87 #italia AlienVirus zeta-foli2.cline.it irc.tin.it The_Edge H :8 Er Pippa
+
+:irc.stealth.net 352 djk87 #italia ~hallo ppp151-bx.dnet.it irc.anet-chi.com boss2 H :5 if u want to know me then talk to me
+
+:irc.stealth.net 352 djk87 #italia lohacker swfi71-123.iol.it irc.flashnet.it FRANCY69 H :9 FRANCY69
+
+:irc.stealth.net 352 djk87 #italia ~kendra arcappp24.arcanet.it irc.tin.it kendra H :8 kendra
+
+:irc.stealth.net 352 djk87 #italia ~Via ppp-3.macronet.it irc.flashnet.it Stupenda H :9 Stupenda
+
+:irc.stealth.net 352 djk87 #italia pc3 pc3-palabowling.panservice.it irc.flashnet.it carpe H :9 Palabowling
+
+:irc.stealth.net 352 djk87 #italia userid 194.184.178.48 irc.tin.it geguar H :8 -
+
+:irc.stealth.net 352 djk87 #italia asterix ppp15.netfly.it irc.tin.it Asterix H :8 Asterix
+
+:irc.stealth.net 352 djk87 #italia utint 195.103.81.137 irc.tin.it SQUALO H :8 Bowling Deagostini - Medi@.Evo Internet Show
+
+:irc.stealth.net 352 djk87 #italia ~MARCOS 194.184.178.41 irc.tin.it Mr_Fidel H :8 SUB
+
+:irc.stealth.net 352 djk87 #italia +angie 132.254.54.19 *.fi CIELO H :7 fiore del cielo
+
+:irc.stealth.net 352 djk87 #italia pastac Pistoia3-217.tin.it irc.stealth.net mariuana H :0 Che tene va in tasca?
+
+:irc.stealth.net 352 djk87 #italia feldemar BiellaC-20.tin.it irc.tin.it M_O_N_Y H :8 Monica100%laziale
+
+:irc.stealth.net 352 djk87 #italia dix sana2.netanday.it irc.flashnet.it Dix^ H@ :9 Bimba Indipendente:)
+
+:irc.stealth.net 352 djk87 #italia salerno 195.120.26.179 irc.fun.uni.net ^zeus1^ H :7 SCARFACE 29
+
+:irc.stealth.net 352 djk87 #italia Skluk net133-134.mclink.it irc.tin.it RoCkMaN8 H@ :8 <<-PRoToBoY->>
+
+:irc.stealth.net 352 djk87 #italia mc4452 195.120.251.120 irc.tin.it hg H :8 ask me!
+
+:irc.stealth.net 352 djk87 #italia lara r3p007.ntt.it irc.tin.it lampo H :8 lampo
+
+:irc.stealth.net 352 djk87 #italia pippo 194.243.245.68 irc.tin.it annalisa H :8 *
+
+:irc.stealth.net 352 djk87 #italia amodus ip020.pool-03.flashnet.it irc.flashnet.it Mauro22 H :9 Mauro
+
+:irc.stealth.net 352 djk87 #italia 11 Grosseto3-141.tin.it irc.tin.it etrusco H :8 Grosseto
+
+:irc.stealth.net 352 djk87 #italia ~jena Salerno4-33.tin.it irc.fun.uni.net jena H :7 yep.. I'm a jena, sometimes a fox
+
+:irc.stealth.net 352 djk87 #italia ichi swto70-130.iol.it irc.tin.it farang H :8 che te fraga chi sono ?
+
+:irc.stealth.net 352 djk87 #italia ~PP 193.76.232.188 irc.tin.it Paperinik H :8 PP 
+
+:irc.stealth.net 352 djk87 #italia rawhide 195.103.129.85 irc.fun.uni.net sveva H@ :7 Battipaglia (SA)
+
+:irc.stealth.net 352 djk87 #italia ~lucacontu Cagliari7-27.tin.it irc.tin.it fuego73 H :8 Gianluca C..........
+
+:irc.stealth.net 352 djk87 #italia irc.tin.it nav05.mds.it irc.tin.it eLLeGi H :8 eLLeGi is an Irc Operator :)
+
+:irc.stealth.net 352 djk87 #italia rawhide 195.103.129.82 irc.flashnet.it gianbat H@ :9 Rawhide Club di Battipaglia SA
+
+:irc.stealth.net 352 djk87 #italia topi PN128.RTC-ppp022.pronet.it irc.fun.uni.net ANFETAMIN H@ :7 Bambino Odioso
+
+:irc.stealth.net 352 djk87 #italia nexus ppp-01.ccesse.it irc.tin.it dappista H :8 LIA
+
+:irc.stealth.net 352 djk87 #italia xxx 151.99.187.101 irc.tin.it bikerblu H :8 wwwwwwww
+
+:irc.stealth.net 352 djk87 #italia pit44 na1-max-ip-117.iunet.it irc.tin.it Bob_Rock H :8 XXXXXXXXXXX
+
+:irc.stealth.net 352 djk87 #italia ~asabina bbs.galactica.it irc.tin.it micol H :8 anna
+
+:irc.stealth.net 352 djk87 #italia netcafe 195.103.128.193 irc.fun.uni.net max- H@ :7 Net Café - [§I<¥ßøt 2.6]
+
+:irc.stealth.net 352 djk87 #italia kim Salerno4-41.tin.it *.fi salernita H :7 Francesco
+
+:irc.stealth.net 352 djk87 #italia ~DevilWorl sana1.netanday.it irc.tin.it Devil_Man H :8 Stefano
+
+:irc.stealth.net 352 djk87 #italia lll eth01.alvignano.peoples.it irc.tin.it raff H :8 raf
+
+:irc.stealth.net 352 djk87 #italia MARCELLA ppp-0.pointel.it irc.flashnet.it VENERE^ H :9 marcella
+
+:irc.stealth.net 352 djk87 #italia X-plosion rombon-max-1-l43.comm2000.it irc.stealth.net NITRO H :0 Nitro
+
+:irc.stealth.net 352 djk87 #italia beowulf Bergamo6-23.tin.it irc.tin.it K-Awayyyy H :8 Natali Max
+
+:irc.stealth.net 352 djk87 #italia ~c a10.scorze.nettuno.it irc.fun.uni.net Linda__ H :7 Client1 Calamity Club Scorzè- By  Cafè On Line
+
+:irc.stealth.net 352 djk87 #italia edipc1 Edy-01.nauta.it irc.tin.it rcl H :8 Internet Point FUNNYNET http:/funnynet.netanday.it
+
+:irc.stealth.net 352 djk87 #italia TrAnSaLp swna69-177.iol.it irc.tin.it Bikers H :8 carpap
+
+:irc.stealth.net 352 djk87 #italia rmignani 195.31.192.68 irc.tin.it antonella H :8 Chi lo sa....
+
+:irc.stealth.net 352 djk87 #italia ~o Livorno4-11.tin.it irc.tin.it aTOSCANI9 H :8 fluki
+
+:irc.stealth.net 352 djk87 #italia Apocalisse Pe-dialup3.anthesi.com irc.tin.it Dux H :8 Apocalisse
+
+:irc.stealth.net 352 djk87 #italia KilleR Rovereto2-31.tin.it irc.tin.it lupetto H :8 Iasklas
+
+:irc.stealth.net 352 djk87 #italia userid latina-7.panservice.it irc.fun.uni.net FF79 H :7 Fabio
+
+:irc.stealth.net 352 djk87 #italia LGUERRINI ppp2.unisi.it *.unipi.it Marco78 H :6 Marco
+
+:irc.stealth.net 352 djk87 #italia ~David 194.242.4.66 irc.tin.it ICE-EYES H :8 David
+
+:irc.stealth.net 352 djk87 #italia CaMz bcsc.bcsnet.it irc.tin.it [FrAnKiE] H@ :8 PaLlA
+
+:irc.stealth.net 352 djk87 #italia ~fr56lp ppp-15.rtmol.stt.it irc.flashnet.it pixi1 H :9 pixi
+
+:irc.stealth.net 352 djk87 #italia ~xxx async07-lug.queen.it irc.tin.it RAMBO H :8 Caffetteria Dell'Angolo - InterNet CAFE'
+
+:irc.stealth.net 352 djk87 #italia ~bar.arcob rub080.ro00.ne.interbusiness.it irc.tin.it BELLO H :8 Bar Arcobaleno
+
+:irc.stealth.net 352 djk87 #italia ~da-man Salerno4-48.tin.it irc.tin.it CuCcIoLeT H@ :8 YeAh FuCk OFF
+
+:irc.stealth.net 352 djk87 #italia -carla 194.21.237.195 chat.bt.net EMIRO H :11 carla
+
+:irc.stealth.net 352 djk87 #italia Sphere Salerno4-48.tin.it irc.tin.it BaPhOmEt H@ :8 [http://www.7thSphere.com]
+
+:irc.stealth.net 352 djk87 #italia root 195.31.207.200 irc.tin.it MissionX H :8 Mirko
+
+:irc.stealth.net 352 djk87 #italia goldc eth03.mcorvino.peoples.it irc.tin.it DODO^ H :8 Ronny
+
+:irc.stealth.net 352 djk87 #italia xxx Ancona4-11.tin.it irc.tin.it X12 H :8 marco
+
+:irc.stealth.net 352 djk87 #italia ~acanigl Napoli9-36.tin.it irc.tin.it GreenDay H :8 G.D.Nimrod
+
+:irc.stealth.net 352 djk87 #italia Rappresent ud51.xnet.it irc.tin.it SOAK H :8 [Inserisci il tuo nome]
+
+:irc.stealth.net 352 djk87 #italia pp Le-dialup4.anthesi.com irc.tin.it Denny_ H :8 Denny
+
+:irc.stealth.net 352 djk87 #italia refugee phix.com *.ca ReFuGiNa H@ :5 --> ReFuGeE'S GiRlFrIeNd <--
+
+:irc.stealth.net 352 djk87 #italia www Venezia5-13.tin.it irc.tin.it Davide__ H :8 .
+
+:irc.stealth.net 352 djk87 #italia Silvie dadovago67.dada.it *.unipi.it Sissi H :6 Silvia
+
+:irc.stealth.net 352 djk87 #italia ThePivels swtr64-162.iol.it irc.flashnet.it {EmAnUeL} H :9 old boy pub
+
+:irc.stealth.net 352 djk87 #italia a line-6.verbania.alpcom.it irc.tin.it ANDREA-VB H :8 ANDREA-VB
+
+:irc.stealth.net 352 djk87 #italia KAMI Torino15-61.tin.it irc.tin.it OKAMI H :8 la vita e' sogno
+
+:irc.stealth.net 352 djk87 #italia Davide Ferrara4-29.tin.it irc.tin.it Davide39 H :8 Davide
+
+:irc.stealth.net 352 djk87 #italia ~mgenito Benevento4-57.tin.it irc.tin.it SKIZZO H@ :8 fAbIO
+
+:irc.stealth.net 352 djk87 #italia ~ftratzi 194.184.19.23 irc.tin.it Knight^ H :8 Fabio Tratzi
+
+:irc.stealth.net 352 djk87 #italia ~vmalenovs 195.60.230.231 *.webbernet.net Reo H :3 malenovschi valentino
+
+:irc.stealth.net 352 djk87 #italia utint 151.99.217.25 irc.tin.it DANIELE^ H :8 Perseo - Pordenone - Medi@.Evo Internet Show
+
+:irc.stealth.net 352 djk87 #italia BLACK_SABB legnago6.netbusiness.it irc.tin.it Sabba H :8 Black S
+
+:irc.stealth.net 352 djk87 #italia ~gigi 151.99.178.42 irc.tin.it Necom H :8 Gigi
+
+:irc.stealth.net 352 djk87 #italia nome net130-173.mclink.it *.unipi.it spicedan H :6 daniele
+
+:irc.stealth.net 352 djk87 #italia telecom eth01.alburni.peoples.it irc.tin.it socrates H :8 nicola
+
+:irc.stealth.net 352 djk87 #italia ~Galletti Treviso5-57.tin.it irc.tin.it ^Gio^ H :8 Giovanni
+
+:irc.stealth.net 352 djk87 #italia ~andrea Pescara5-17.tin.it irc.tin.it scanner H :8 andrea
+
+:irc.stealth.net 352 djk87 #italia ~mfrigen Roma31-142.tin.it irc.tin.it Massimo H :8 Massimo Frigento
+
+:irc.stealth.net 352 djk87 #italia ~vvv Torino11-47.tin.it irc.tin.it korat H :8 carl
+
+:irc.stealth.net 352 djk87 #italia Netcafe netcafe6.netanday.it irc.tin.it Netcafe6 H :8 NetCafé Internet Point Lignano (Italy)
+
+:irc.stealth.net 352 djk87 #italia ~abcd 194.243.105.74 irc.tin.it matteo H :8 aaa
+
+:irc.stealth.net 352 djk87 #italia +assos swna70-25.iol.it *.fi zanis H :7 zanis
+
+:irc.stealth.net 352 djk87 #italia Balzak Torino11-17.tin.it irc.flashnet.it FeDeRiKa H :9 FeDeRiKa
+
+:irc.stealth.net 352 djk87 #italia bowgal4 pc4.bowgallarate.it irc.flashnet.it gerry` H :9 Bowling Gallarate
+
+:irc.stealth.net 352 djk87 #italia +1111 194.244.63.93 *.unipi.it Bergamo H :6 Zio Tom
+
+:irc.stealth.net 352 djk87 #italia -line 195.103.156.33 *.fi mirkoo H :7 net
+
+:irc.stealth.net 352 djk87 #italia ~Skynet 194.243.123.101 irc.tin.it ^Skynet H :8 un sorriso
+
+:irc.stealth.net 352 djk87 #italia ~CIAO Brindisi3-18.tin.it irc.tin.it ALEX37m H :8 CIAO
+
+:irc.stealth.net 352 djk87 #italia ZZZZzzzzZZ 194.184.182.201 irc.tin.it Mary H :8 C'est moi!
+
+:irc.stealth.net 352 djk87 #italia ~artday,co 194.243.156.13 irc.tin.it donAldo H :8 aldo
+
+:irc.stealth.net 352 djk87 #italia bagrossi Parma5-26.tin.it irc.tin.it Dogged H :8 ivan
+
+:irc.stealth.net 352 djk87 #italia ~theChief guenda.cli.di.unipi.it *.unipi.it SpaceOne H :6 Black Sheep
+
+:irc.stealth.net 352 djk87 #italia 5 ip057.pool-04.flashnet.it irc.tin.it SNOOPY H :8 max
+
+:irc.stealth.net 352 djk87 #italia principe 194.244.31.33 irc.tin.it ^Principe H :8 Principe di Latina
+
+:irc.stealth.net 352 djk87 #italia pirozzi 151.99.156.244 irc.fun.uni.net [^Vi_AwAy H@ :7 Ma ke kazzo vuoI?!^_^
+
+:irc.stealth.net 352 djk87 #italia WhaSSuP dyn062-149.mdx.ac.uk irc.warwick.ac.uk Piccadill H :12 jhujy
+
+:irc.stealth.net 352 djk87 #italia dywsgw ppp4.globalcom.general.it irc.fun.uni.net fgi H :7 fgi
+
+:irc.stealth.net 352 djk87 #italia pc4 pc4-palabowling.panservice.it irc.flashnet.it _mario H :9 Palabowling
+
+:irc.stealth.net 352 djk87 #italia s beta.dedalus.it irc.tin.it Belluno H :8 My one !
+
+:irc.stealth.net 352 djk87 #italia FBI ppp-0.to2.flashnet.it irc.flashnet.it _Debe_ H :9 Debe
+
+:irc.stealth.net 352 djk87 #italia ~TRIPC3 194.243.143.101 irc.tin.it ^kor H :8 InternetPoint Funnynet http://funnynet.netanday.it
+
+:irc.stealth.net 352 djk87 #italia Dynamirc ppp24.caen.it irc.tin.it susy-1 H :8 http://www.zuzzurello.com/informazione/khyri/
+
+:irc.stealth.net 352 djk87 #italia ~Shalafy Bologna9-35.tin.it irc.fun.uni.net Shalafy H@ :7 bimbo magico ;)
+
+:irc.stealth.net 352 djk87 #italia 111.22.34. Bologna11-245.tin.it *.unipi.it max3 H :6 chiedi
+
+:irc.stealth.net 352 djk87 #italia ~mbellada Fermo3-7.tin.it irc.tin.it FREDDY1 H :8 Mistery
+
+:irc.stealth.net 352 djk87 #italia ThePivels 195.31.192.82 irc.tin.it BALBO H :8 alex
+
+:irc.stealth.net 352 djk87 #italia ~samurai ip035.pool-01.flashnet.it irc.fun.uni.net Samurai H :7 Andrea
+
+:irc.stealth.net 352 djk87 #italia uassa 193.204.40.235 irc.tin.it pgp H :8 Bloody and fucking curious
+
+:irc.stealth.net 352 djk87 #italia mirc ps2-4.ucl-24.bcc.ac.uk ircnet.demon.co.uk esser-ci H :9 dfgwr
+
+:irc.stealth.net 352 djk87 #italia nice 195.46.36.25 irc.tin.it VERESOV H :8 NICE
+
+:irc.stealth.net 352 djk87 #italia Tetsuya Bologna9-36.tin.it *.unipi.it _Tetsuya_ H :6 ??????
+
+:irc.stealth.net 352 djk87 #italia xxx ppp-r2.ermes.it irc.flashnet.it alfaalfa H :9 ???????
+
+:irc.stealth.net 352 djk87 #italia techno ihterm05.ihnet.it irc.tin.it Er_Puma H :8 Glauco Rovere
+
+:irc.stealth.net 352 djk87 #italia Guendalin 195.103.129.35 irc.fun.uni.net aquila_ H@ :7 misterx
+
+:irc.stealth.net 352 djk87 #italia prnice 194.184.95.39 irc.tin.it Cronico H :8 Enrico
+
+:irc.stealth.net 352 djk87 #italia ~bennys03 client6.oldlondon.it irc.flashnet.it mucchy H :9 "irc.flashnet.it"
+
+:irc.stealth.net 352 djk87 #italia +Global as4-mc.imcn.net *.DE CRUISE_ H :5 Global
+
+:irc.stealth.net 352 djk87 #italia ~rlucia Salerno4-33.tin.it irc.fun.uni.net foxtwo H@ :7 Bimbo furbetto ma affettuoso
+
+:irc.stealth.net 352 djk87 #italia ~fabioc async02-cs1.meet.it irc.tin.it Fortunato H :8 Fabio
+
+:irc.stealth.net 352 djk87 #italia marco30 swrm69-122.iol.it *.unipi.it marco30 H :6 marco30
+
+:irc.stealth.net 352 djk87 #italia lor2511 arcipc6.bo.cnr.it *.unipi.it Dario H :6 Dario Fiorini
+
+:irc.stealth.net 352 djk87 #italia omarcacc Lucca3-13.tin.it irc.tin.it BOZO H :8 oooooo
+
+:irc.stealth.net 352 djk87 #italia mogio Roma22-25.tin.it irc.tin.it laika^ H :8 mariagrazia
+
+:irc.stealth.net 352 djk87 #italia ogioiello ppp08.battipaglia.peoples.it irc.flashnet.it ricky40 H :9 ricky40
+
+:irc.stealth.net 352 djk87 #italia morel.mr 195.120.127.13 irc.tin.it Giamp33 H :8 mmm
+
+:irc.stealth.net 352 djk87 #italia +cp79id 194.184.21.112 *.unipi.it VAL^RIK H :6 Valeriano & Riccardo
+
+:irc.stealth.net 352 djk87 #italia sdfgsdfg work.globalcom.general.it irc.tin.it Pippos H :8 PIPPOS
+
+:irc.stealth.net 352 djk87 #italia ~Cassiopea ppp3-sa.xcom.it irc.tin.it Cassiopea H@ :8 *
+
+:irc.stealth.net 352 djk87 #italia bowl300 bowling3.savigliano.alpcom.it irc.tin.it daniele H :8 yoghi
+
+:irc.stealth.net 352 djk87 #italia ~Twaddle async07-cs1.meet.it irc.tin.it vlad_III H :8 fboe
+
+:irc.stealth.net 352 djk87 #italia ~valentina ppp-13.macronet.it irc.flashnet.it Mirko_RM H :9 franco
+
+:irc.stealth.net 352 djk87 #italia AAA net130-192.mclink.it irc.tin.it giuliano H :8 "irc.tin.it"
+
+:irc.stealth.net 352 djk87 #italia Dreaming work4.digitalnet.it irc.tin.it Dreaming H :8 Dreaming
+
+:irc.stealth.net 352 djk87 #italia SkyBot r2p077.ntt.it irc.tin.it alessia- H@ :8 alessia@script v.1.0
+
+:irc.stealth.net 352 djk87 #italia eggy 194.243.238.7 irc.tin.it Codazzo H :8 a
+
+:irc.stealth.net 352 djk87 #italia ~a client.alfa.it irc.tin.it Cristian H :8 Cristian
+
+:irc.stealth.net 352 djk87 #italia ~utint 194.243.109.20 irc.tin.it giovanni H :8 Bowling Parma - Medi@.Evo Internet Show
+
+:irc.stealth.net 352 djk87 #italia qqqqq client5.oldlondon.it irc.flashnet.it didolina H :9 "irc.flashnet.it"
+
+:irc.stealth.net 352 djk87 #italia dfre Salerno4-42.tin.it irc.flashnet.it Joe__ H :9 **
+
+:irc.stealth.net 352 djk87 #italia ftraver Ancona5-14.tin.it *.unipi.it a32 H :6 W LA FOCA E CHE DIO LA BENEDOCA
+
+:irc.stealth.net 352 djk87 #italia -capitano 194.184.59.52 irc.flashnet.it nightfly H :9 capitano|||
+
+:irc.stealth.net 352 djk87 #italia ~mad 195.103.234.135 irc.tin.it rao H :8 gnogno
+
+:irc.stealth.net 352 djk87 #italia ~gfds work1.globalcom.general.it irc.tin.it LOVEBLE H :8 LOVEBLE
+
+:irc.stealth.net 352 djk87 #italia arenadue porto7.alfa.it *.unipi.it FIAMMA H :6 FIAMMA
+
+:irc.stealth.net 352 djk87 #italia goldc eth02.mcorvino.peoples.it irc.tin.it liz H :8 ...........
+
+:irc.stealth.net 352 djk87 #italia ua01411 usr3.lcnet.it irc.tin.it capitani H :8 salvatore
+
+:irc.stealth.net 352 djk87 #italia ~ciaociao ppp37.ts.spin.it irc.flashnet.it seminole H :9 seminole
+
+:irc.stealth.net 352 djk87 #italia Guendalin 195.103.129.34 irc.fun.uni.net bellissim H :7 Guendalin netpoint, non bannate il localeplease,An
+
+:irc.stealth.net 352 djk87 #italia oriente eth02.napoli1.peoples.it *.unipi.it boston H :6 diego
+
+:irc.stealth.net 352 djk87 #italia ThePivels swtr64-162.iol.it irc.flashnet.it Barbies H :9 so sempre io!!!!
+
+:irc.stealth.net 352 djk87 #italia ~funnynet Ravenna4-29.tin.it irc.tin.it ravpc1 H :8 Internet Point FUNNYNET http:/funnynet.netanday.it
+
+:irc.stealth.net 352 djk87 #italia depi 195.120.155.208 irc.tin.it Andrea1 H :8 depi
+
+:irc.stealth.net 352 djk87 #italia utint 195.103.83.72 irc.fun.uni.net futuro H :7 Eureka - Domodossola - Medi@.Evo Internet Show
+
+:irc.stealth.net 352 djk87 #italia pad102k1 195.103.54.26 irc.tin.it santo- H :8 santo
+
+:irc.stealth.net 352 djk87 #italia user modem1-rs.i-2000net.it *.unipi.it pinorc H :6 normale
+
+:irc.stealth.net 352 djk87 #italia Dynamirc ppp9.getnet.it irc.tin.it flash-- H :8 D.J. Flash
+
+:irc.stealth.net 352 djk87 #italia -XXXX 208.163.252.20 irc.ncal.verio.net Umano H :4 The best
+
+:irc.stealth.net 352 djk87 #italia Silla pr-max-ip-146.iunet.it irc.flashnet.it Silla H@ :9 Allis
+
+:irc.stealth.net 352 djk87 #italia ~Agony ws1-bovolone.netbusiness.it irc.tin.it A`g`o`n`y H@ :8 Is An AlexB Team Helper
+
+:irc.stealth.net 352 djk87 #italia irc dns.datas.it *.fi |Leila| H@ :7 --> Chiedimelo <--
+
+:irc.stealth.net 352 djk87 #italia marcodalle dial01.lunet.it irc.tin.it paoladal H :8 dalle piagge marco
+
+:irc.stealth.net 352 djk87 #italia unfaehig pool24.wiwi.uni-frankfurt.de *.DE siffel H :5 pooluser
+
+:irc.stealth.net 352 djk87 #italia ~. swtr64-153.iol.it *.unipi.it SlalomMAN H :6 Franco
+
+:irc.stealth.net 352 djk87 #italia bowgal1 pc1.bowgallarate.it irc.flashnet.it giampi` H :9 *
+
+:irc.stealth.net 352 djk87 #italia +pippo 195.103.129.30 irc.tin.it Gatto^^ H :8 ..........
+
+:irc.stealth.net 352 djk87 #italia ~pirch ppp11.versilia.toscana.it irc.tin.it barbarell H :8 gabriellaMy Real Name
+
+:irc.stealth.net 352 djk87 #italia pad102k1 195.103.54.26 irc.tin.it santo H :8 santo
+
+:irc.stealth.net 352 djk87 #italia a l-ufficio.fo.nettuno.it irc.tin.it Lela_ H :8 ..
+
+:irc.stealth.net 352 djk87 #italia ~Pc15 195.103.99.48 irc.tin.it miciotto H :8 NETWORLD-CyberCafè-Padova
+
+:irc.stealth.net 352 djk87 #italia juri arcappp15.arcanet.it irc.tin.it SANDRO H :8 sandro
+
+:irc.stealth.net 352 djk87 #italia cavoloI swbo71-47.iol.it irc.tin.it Bello38Bo H :8 gasp
+
+:irc.stealth.net 352 djk87 #italia x pc2.bowgallarate.it irc.tin.it Dolce H :8 fatti i tuoi
+
+:irc.stealth.net 352 djk87 #italia ~Schenziur 194.91.163.128 irc.fun.uni.net FaManY H :7 Schenziura
+
+:irc.stealth.net 352 djk87 #italia nastyalex hlm76.pi.net irc2.sci.kun.nl dutchy3 H :7 Alex
+
+:irc.stealth.net 352 djk87 #italia ~Soton 194.81.148.231 irc.stealth.net Thanos- H :0 Thanassis
+
+:irc.stealth.net 352 djk87 #italia stefano 195.103.124.204 irc.tin.it megara H :8 stefano
+
+:irc.stealth.net 352 djk87 #italia utint 195.31.202.214 irc.tin.it davide H :8 Amadeus Medi@.Evo Internet Show
+
+:irc.stealth.net 352 djk87 #italia a int2.interplanet.it irc.tin.it Jenny1 H :8 a
+
+:irc.stealth.net 352 djk87 #italia Bambinocat ip030.pool-04.flashnet.it irc.tin.it bambino H :8 bambino
+
+:irc.stealth.net 352 djk87 #italia a r09.split.it irc.tin.it Astry H :8 Astrea... :-)))
+
+:irc.stealth.net 352 djk87 #italia goldc eth04.mcorvino.peoples.it irc.tin.it a-24 H :8 a 24
+
+:irc.stealth.net 352 djk87 #italia inaff giraff.c1rass.interbusiness.it irc.tin.it Marco_GE H :8 Marco_GE
+
+:irc.stealth.net 352 djk87 #italia Ghillak s08-144.mi.energy.it *.unipi.it FuocoBlu H :6 Khu
+
+:irc.stealth.net 352 djk87 #italia PaTrO 151.99.156.247 irc.fun.uni.net PaTrOcLo H@ :7 http://www.infernet.it/Patroclo/
+
+:irc.stealth.net 352 djk87 #italia Linus ppp00.nocera.peoples.it irc.fun.uni.net Nadal H :7 lxx
+
+:irc.stealth.net 352 djk87 #italia goldc ppp06.mcorvino.peoples.it irc.tin.it corvo H :8 corvo
+
+:irc.stealth.net 352 djk87 #italia Mex limacon.nosc.mil *.webbernet.net Mex H :3 Mex
+
+:irc.stealth.net 352 djk87 #italia Sirena empoli05.leonet.it *.unipi.it SIRENA H :6 Sirena
+
+:irc.stealth.net 352 djk87 #italia goldc eth01.mcorvino.peoples.it irc.tin.it sorpresa H :8 sorpresa
+
+:irc.stealth.net 352 djk87 #italia erosit r1p122.ntt.it *.unipi.it Eros_ H :6 Eros
+
+:irc.stealth.net 352 djk87 #italia alice alice2.alicecafe.it irc.flashnet.it Bazzz H :9 Fabrizio
+
+:irc.stealth.net 352 djk87 #italia mister 195.46.32.6 irc.tin.it Luca38 H :8 Luca38
+
+:irc.stealth.net 352 djk87 #italia ~cyber cyber11.ronchiato.it irc.stealth.net |King-K| H :0 cyber
+
+:irc.stealth.net 352 djk87 #italia secpc1 sec-piano03.xnet.it irc.tin.it Buon1998 H :8 Internet Point FUNNYNET http:/funnynet.netanday.it
+
+:irc.stealth.net 352 djk87 #italia md4757 net130-116.mclink.it *.unipi.it ESTEBAN H :6 esteban
+
+:irc.stealth.net 352 djk87 #italia JWK asy30.intercity.shiny.it irc.tin.it JWK H@ :8 James (@ The Warlords @)
+
+:irc.stealth.net 352 djk87 #italia daa 194.183.24.68 irc.fun.uni.net Andrea H :7 a
+
+:irc.stealth.net 352 djk87 #italia Comp.4 195.103.219.70 irc.tin.it StreGretA H :8 VALENTINA
+
+:irc.stealth.net 352 djk87 #italia ~ALONEDARK digdur.lovdata.no *.no Samantha H@ :8 --> Reign in the DArk <--
+
+:irc.stealth.net 352 djk87 #italia ~cyber cyber17.ronchiato.it irc.tin.it Alessio H :8 cyber
+
+:irc.stealth.net 352 djk87 #italia Mhax 151.99.187.108 irc.fun.uni.net romani H :7 Dodge
+
+:irc.stealth.net 352 djk87 #italia scorpione www.queen.it irc.fun.uni.net Scorpione H@ :7 bimbo bravo ;-)
+
+:irc.stealth.net 352 djk87 #italia ~? 195.103.99.55 irc.tin.it TREMOR H :8 |[|T|B|E|]|-|R|U|L|Z|-|U|-|M|0|F|0|Z|
+
+:irc.stealth.net 352 djk87 #italia abcd 194.243.105.76 irc.tin.it re-artu H :8 fai prima a chiedere
+
+:irc.stealth.net 352 djk87 #italia ~lenin alpha.barentsnett.no *.no BackB0ne H@ :7 We d0nt want n0 bitch m0de here
+
+:irc.stealth.net 352 djk87 #italia ~uno.due pcdsa6.jrc.it *.unipi.it SAGGIO H :6 Max
+
+:irc.stealth.net 352 djk87 #italia +wpack pinto.hardlink.com *.fi slush` H :7 *unknown*
+
+:irc.stealth.net 352 djk87 #italia irc server.altarisoluzione.it *.unipi.it _piccolo H :6 piccolo
+
+:irc.stealth.net 352 djk87 #italia infotel 194.184.182.40 irc.stealth.net Bonetty H@ :0 chita.
+
+:irc.stealth.net 315 djk87 #Italia :End of /WHO list.
+
+:ranma!ddd@Padova11-31.tin.it PRIVMSG #italia :ACTION INVITA GLI APPASSIONATI SU #CALCIO
+
+:Viper^^!cobra@latina-26.panservice.it JOIN :#italia
+
+:franx!~dsdfs@1Cust27.tnt19.nyc3.da.uu.net JOIN :#italia
+
+:Zelig^!u@195.31.205.18 QUIT :Connection reset by peer
+
+:ISABELLA2!AlenBeer@169-69-18.ipt.aol.com QUIT :Excess Flood
+
+:Mirko_RM!~valentina@ppp-13.macronet.it PRIVMSG #italia :1,98cerchiamo ragazze per dgt 
+
+:Umano!-XXXX@208.163.252.20 PRIVMSG #italia :Cosa fa l'Inter
+
+:Mirko_RM!~valentina@ppp-13.macronet.it PRIVMSG #italia :1,98cerchiamo ragazze per dgt 
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Bboy e Flygirls venite su 4#hiphopitalia....ma zero scrausi ok????
+
+:Absolut-!xxxxx@CiscoAsy2.novacomp.it JOIN :#italia
+
+:Mirko_RM!~valentina@ppp-13.macronet.it PRIVMSG #italia :1,98cerchiamo ragazze per dgt 
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :grande..
+
+:Scorpione!scorpione@www.queen.it KICK #italia Mirko_RM :repeatflud
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it MODE #italia +o Viper^^ 
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:Mirko_RM!~valentina@ppp-13.macronet.it JOIN :#italia
+
+:max-!netcafe@195.103.128.193 KICK #italia Mirko_RM :4§I<¥ßøt © 2.6 Stop repeating yourself ! 
+
+:one--!enri@rtrsa165giu.net-uno.it JOIN :#italia
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :Silla vai adesso
+
+:gigio!tenchi77@piroletto2.areacom.it JOIN :#italia
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it JOIN :#italia
+
+:AlterEgo!~AlterEgo@rub234.rm00.rm.interbusiness.it JOIN :#italia
+
+:Mirko_RM!~valentina@ppp-13.macronet.it JOIN :#italia
+
+:annita-!~piercav@p-sale12.hydranet.it JOIN :#italia
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it KICK #italia Mirko_RM :4§I<¥ßøt © 2.6 Stop repeating yourself ! 
+
+:Umano!-XXXX@208.163.252.20 PRIVMSG #italia :Cosa fa l'Inter?
+
+:Shiro205!~Ciro@Modena4-23.tin.it JOIN :#italia
+
+:boby!sunshine@015.ppp.linet.it JOIN :#italia
+
+:fuego73!~lucacontu@Cagliari7-27.tin.it QUIT :Error 0
+
+:Mirko_RM!~valentina@ppp-13.macronet.it JOIN :#italia
+
+:Andrea!daa@194.183.24.68 QUIT :Ping timeout
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it KICK #italia Mirko_RM :ÍmMòRtã£ Ðêãth Repeat more than 3 times with in 4 secs, limit is 3. Get out, L
+
+:Shalafy!~Shalafy@Bologna9-35.tin.it QUIT :Giù le zampe dalla mia Khy, takkino avvertito ... >:)
+
+:fizzy!alice@alice4.alicecafe.it JOIN :#italia
+
+:hg!mc4452@195.120.251.120 PRIVMSG #italia :01,13Qulacuno che dgt da palermo?
+
+:|ts|!tschenz@dialin-er-42.fen.baynet.de PRIVMSG #italia :-> ananas - simpsalapim - dcrulz - XX!XX <-
+
+:worrior!+lucy@195.103.129.27 JOIN :#italia
+
+:Mirko_RM!~valentina@ppp-13.macronet.it JOIN :#italia
+
+:Cucdom!cucdom@194.184.178.40 JOIN :#italia
+
+:BaPhOmEt!Sphere@Salerno4-48.tin.it MODE #italia +b *!*@ppp-13.macronet.it 
+
+:[SKUNK]!skunk.d@194.184.96.161 PRIVMSG #italia :volete un canale alternativo?
+
+:BaPhOmEt!Sphere@Salerno4-48.tin.it KICK #italia Mirko_RM :Mass Join Protection! (4 Joins in 14 second(s) of 30. (7th Sphere
+
+:^NESSIE^!xxx@ws-03.discovery.flashnet.it JOIN :#italia
+
+:Francesko!Totonno_c@ppp1.infoline.it QUIT :Leaving
+
+:Salvo!salva@151.99.191.217 JOIN :#italia
+
+:fantasma!~Client_5@rub005.ts00.ne.interbusiness.it PRIVMSG #italia :altro appello c'è qualcuna vuol digit con me
+
+:Lela_!a@l-ufficio.fo.nettuno.it PART #ITALIA :Lela_
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :notare il trattino c'è sempre
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it MODE #italia +o Cucdom 
+
+:Funstuf!fromking@sandona2-3.alfa.it JOIN :#italia
+
+:Shiro205!~Ciro@Modena4-23.tin.it PART #italia :Shiro205
+
+:FRANCY69!lohacker@swfi71-123.iol.it PRIVMSG #italia :8,1Ci sei SARA???????????????????????????????????????????
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :12,8----------S O R R E N T O-----------
+
+:^poeta!rossogian@Pordenone3-8.tin.it PRIVMSG #italia :0,8 ad'alcuni il calcio blocca il ragionamento e riduce il cervello come un pallone sgonfio
+
+:|ts|!tschenz@dialin-er-42.fen.baynet.de PRIVMSG #italia :-> ananas - simpsalapim - dcrulz - XX!XX <-
+
+:Lupin3!anonimo@151.99.232.111 PRIVMSG #Italia :ACTION 1,9 Invita tutti coloro che sono di Siena su #siena
+
+:diVino!mio@alba13.areacom.it JOIN :#italia
+
+:DJ-ICEMAN!~_@sli07.more.energy.it PRIVMSG #italia :MY WEB PAGE:www.aspide.it/freeweb/djiceman
+
+:Jenny1!a@int2.interplanet.it PART #italia :Jenny1
+
+:DJ-ICEMAN!~_@sli07.more.energy.it PRIVMSG #italia :MY WEB PAGE:www.aspide.it/freeweb/djiceman
+
+:CHICCO1!pc8@pc8-palabowling.panservice.it NICK :CICCIOLIN
+
+:TAOISTA35!USER@195.31.205.35 JOIN :#italia
+
+:EAGLE75!~tripc9@194.243.143.107 PRIVMSG #italia :7CIAO PETRA!!
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da BARI o provincia???? /msg me
+
+:ALBATROS!mr@195.103.220.66 JOIN :#italia
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da BARI o provincia???? /msg me
+
+:pindarus!robcardi@Verona4-34.tin.it PRIVMSG #italia :8,2SALUTO IL CYBER CLUB DI VERONA!!!!!!!
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :bhààà
+
+:Scorpione!scorpione@www.queen.it MODE #italia -b *!*killer@195.120.80.* 
+
+:Luca!LucaNobile@ppp02-18.stm.it PRIVMSG #italia :goooollll 
+
+:Stella_!quarta@srv.1.7.goodnews.net JOIN :#italia
+
+:Soujourne!giulio.pol@195.103.15.143 PRIVMSG #italia :GOAL DI RONALDO!!!
+
+:pasquali!pasquale@netplus-1.i-2000net.it JOIN :#ITALIA
+
+:DJ-ICEMAN!~_@sli07.more.energy.it PRIVMSG #italia :MY WEB PAGE:www.aspide.it/freeweb/djiceman
+
+:|^|_|^|!+killer@195.103.129.19 PART #italia :|^|_|^|
+
+:Umano!-XXXX@208.163.252.20 PRIVMSG #italia :Cosa fa l'Inter?
+
+:Bergamo!+1111@194.244.63.93 PRIVMSG #italia : amiche per passare l'ultimo in montagna ..cercasi!
+
+:DJ-ICEMAN!~_@sli07.more.energy.it PRIVMSG #italia :MY WEB PAGE:www.aspide.it/freeweb/djiceman
+
+:[SKUNK]!skunk.d@194.184.96.161 PRIVMSG #italia :CHI E' DJ?
+
+:FRIUL!fux@Udine4-61.tin.it PRIVMSG #ITALIA :gol
+
+:DJ-ICEMAN!~_@sli07.more.energy.it PRIVMSG #italia :MY WEB PAGE:www.aspide.it/freeweb/djiceman
+
+:Samantha!~ALONEDARK@digdur.lovdata.no KICK #italia DJ-ICEMAN :--- Non ripetere Grazie! ---
+
+:lune-!hastalavic@Messina4-8.tin.it JOIN :#italia
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,3 ciao!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:FRIUL!fux@Udine4-61.tin.it PRIVMSG #ITALIA :ronaldo gol
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :WhizzChess:/runscript [whizzchess] create master x #italia jena Silla
+
+:Gatta!wind_of_ne@195.120.245.72 JOIN :#italia
+
+:mone!xyz@Modena5-18.tin.it PRIVMSG #italia :ciao
+
+:DJ-ICEMAN!~_@sli07.more.energy.it JOIN :#italia
+
+:Stella_!quarta@srv.1.7.goodnews.net PRIVMSG #italia :Ciao a tutti
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :gasp!!!!!
+
+:Nah-Kow!^nahkow@193.225.118.1 JOIN :#italia
+
+:Dirk!pc6@194.243.143.104 PART #italia :Dirk
+
+:victa!petra.h@baw9pub32.bluewin.ch QUIT :Leaving
+
+:larss!larss@Milano30-22.tin.it PRIVMSG #Italia :Sto usando 13**Ralph III 3§2¢4®5¥6¶7t10æ 2Versione 0.56** 12©1997 13, by larss Scaricatelo a: space.tin.it/computer/luciaga/... Oppure Chiedetemelo!!
+
+:AlterEgo!~AlterEgo@rub234.rm00.rm.interbusiness.it PRIVMSG #italia :op op op op op op op 
+
+:LKx!stemanfr@m-8-osimo.indi.it QUIT :Broken pipe
+
+:FRIUL!fux@Udine4-61.tin.it PRIVMSG #ITALIA :RONALDO GOL
+
+:^NESSIE^!xxx@ws-03.discovery.flashnet.it PRIVMSG #italia :6ciao a tutti!
+
+:Soujourne!giulio.pol@195.103.15.143 PRIVMSG #italia :L'inter è in vantaggio
+
+:^zeus1^!salerno@195.120.26.179 PRIVMSG #italia :onorato
+
+:gigio!tenchi77@piroletto2.areacom.it PRIVMSG #italia :ciao
+
+:Scorpione!scorpione@www.queen.it MODE #italia +o AlterEgo 
+
+:DOCTOR2!~Bubba@cento1-max-ip-103.iunet.it JOIN :#italia
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :STALLA______________
+
+:Picchio!Picchio@consumer7.starnet.it JOIN :#italia
+
+:FireWall!Default@151.99.144.34 PRIVMSG #Italia :9 W MILAN!!!!!!!!!
+
+:[SKUNK]!skunk.d@194.184.96.161 PRIVMSG djk87 :dj vero?
+
+:FRIUL!fux@Udine4-61.tin.it PRIVMSG #ITALIA :INTERNAZIONALE 1 STRASBURGO 0
+
+:DODO^!goldc@eth03.mcorvino.peoples.it PRIVMSG #italia :Ciao stella
+
+:Leon_Jeso!~user@ppp-3.marconinet.it PRIVMSG #italia :4Da Jesolo mando un grosso salutone a tutto il magico mondo della notte
+
+:|ts|!tschenz@dialin-er-42.fen.baynet.de PRIVMSG #italia :-> ananas - simpsalapim - dcrulz - XX!XX <-
+
+:Freddie!ThePivels@151.99.209.156 PRIVMSG #Italia :W LAZIO
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,3 ciao!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:FRANCY69!lohacker@swfi71-123.iol.it PRIVMSG #italia :8,1Ci sei SARA???????????????????????????????????????????
+
+:Gauccio!1@starfight00.xnet.it JOIN :#italia
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da BARI o provincia???? /msg me
+
+:Dix^!dix@sana2.netanday.it KICK #ITALIA FRIUL :Non URLARE!!!!
+
+:SuPeRgAtE!~DaNgEr@ppp14.getnet.it JOIN :#Italia
+
+:mac74!max@r3p103.ntt.it JOIN :#italia
+
+:Axl!amns@ppp-03.cosmos.it JOIN :#italia
+
+:cownik!sdf32689@195.120.127.16 PRIVMSG #italia :NIK invita i ravennati su #RAVENNA
+
+:santo!pad102k1@195.103.54.26 QUIT :Ciao a tutti
+
+:mac74!max@r3p103.ntt.it PRIVMSG #italia :ciao  a tutti
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da 3,4BARI o provincia???? /msg me
+
+:misterx!+lucy@195.103.129.27 JOIN :#italia
+
+:mcmax!bi.club@195.103.129.42 JOIN :#italia
+
+:FRIUL!fux@Udine4-61.tin.it JOIN :#ITALIA
+
+:Raul!Raul@194.184.95.185 JOIN :#italia
+
+:Luca!LucaNobile@ppp02-18.stm.it QUIT :Leaving
+
+:ReFuGiNa!refugee@phix.com PRIVMSG #italia :ACTION is back, Somebody tossed me a rope so I crawled back out!
+
+:mariuana!pastac@Pistoia3-217.tin.it QUIT :No route to host
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da 1,4BARI o provincia???? /msg me
+
+:Lupin3!anonimo@151.99.232.111 PRIVMSG #Italia :ACTION 1,9 Invita tutti i Senesi su #Siena
+
+:Stella_!quarta@srv.1.7.goodnews.net QUIT :Ciao!
+
+:chouky!chouky@vs1-p02.vtx.ch JOIN :#italia
+
+:romantik!dmorra@ppp02.battipaglia.peoples.it JOIN :#italia
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :Silla.. aspe'
+
+:summe_r!/////@195.103.129.20 JOIN :#Italia
+
+:monkeys!Domino@farnetici1.netanday.it JOIN :#italia
+
+:Denny_!pp@Le-dialup4.anthesi.com QUIT :Error 0
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :ACTION e se me ne andassi??????
+
+:Picchio!Picchio@consumer7.starnet.it PRIVMSG #italia :ancora con questo script.ini??????????? fizzyyyyyyyyyyyyyyyyyyyy
+
+:beckham!+ManUtd@193.76.232.213 PART #italia :beckham
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da 0,4BARI o provincia???? /msg me
+
+:SHEILA!pc5@195.120.26.188 JOIN :#italia
+
+:romantik!dmorra@ppp02.battipaglia.peoples.it PART #italia :romantik
+
+:Cronico!prnice@194.184.95.39 PRIVMSG #italia :chi mi manda delle foto? mi servono per prova
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :JENAAAAAAAAAA
+
+:Soujourne!giulio.pol@195.103.15.143 PRIVMSG #italia :C'è nessuno di Brescia
+
+:barbarell!~pirch@ppp11.versilia.toscana.it QUIT :Broken pipe
+
+:alberto!alice@alice5.alicecafe.it JOIN :#italia
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it PRIVMSG #italia :Ciao, qualcuno ha voglia di spiegarmi un paio di cose?
+
+:^poeta!rossogian@Pordenone3-8.tin.it PRIVMSG #italia :0,4 il calcio e' merda
+
+:FlyByNigh!killer@195.120.80.147 JOIN :#italia
+
+:ranma!ddd@Padova11-31.tin.it PRIVMSG #italia :ACTION INVITA GLI APPASSIONATI SU #CALCIO
+
+:birbar2!birbar@dns.datas.it JOIN :#italia
+
+:THOR1!danny62@194.116.40.47 QUIT :Excess Flood
+
+:ranma!ddd@Padova11-31.tin.it PRIVMSG #italia :ACTION INVITA GLI APPASSIONATI SU #CALCIO
+
+:Luke1!Luke@ppp01.nocera.peoples.it PART #ITALIA :Luke1
+
+:pgp!uassa@193.204.40.235 PRIVMSG #italia :Cerco disperatamente Mp3 Compressor
+
+:Linus^^!Roma@net130-200.mclink.it QUIT :Broken pipe
+
+:ranma!ddd@Padova11-31.tin.it PRIVMSG #italia :ACTION INVITA GLI APPASSIONATI SU #CALCIO
+
+:ISABELLA2!AlenBeer@169-69-18.ipt.aol.com JOIN :#italia
+
+:one--!enri@rtrsa165giu.net-uno.it PRIVMSG #italia :4Cerco persone interessate alla Filosofia
+
+:Angelsoft!enjtc@Roma25-13.tin.it PRIVMSG #italia :giandro!!!!!!!!!!!!!!! ci sei??????????????
+
+:DJ-ICEMAN!~_@sli07.more.energy.it QUIT :Broken pipe
+
+:^poeta!rossogian@Pordenone3-8.tin.it PRIVMSG #italia :0,4 il calcio e' merda
+
+:Axl!amns@ppp-03.cosmos.it PRIVMSG #italia :allora tutti i fiorentini su #firenze
+
+:ranma!ddd@Padova11-31.tin.it PRIVMSG #italia :ACTION INVITA GLI APPASSIONATI SU #CALCIO
+
+:max-!netcafe@195.103.128.193 KICK #italia ranma :4§I<¥ßøt © 2.6 Stop repeating yourself ! 
+
+:LE!lab@194.243.56.102 QUIT :Leaving
+
+:VERESOV!nice@195.46.36.25 QUIT :Broken pipe
+
+:Bob_Rock!pit44@na1-max-ip-117.iunet.it PART #italia :Bob_Rock
+
+:DYD666!utint@194.184.29.68 JOIN :#italia
+
+:mistero!~TRIPC1@194.243.143.99 JOIN :#italia
+
+:Axl!amns@ppp-03.cosmos.it PART #italia :Axl
+
+:Eveline^^!~Client_3@rub005.ts00.ne.interbusiness.it JOIN :#italia
+
+:chouky!chouky@vs1-p02.vtx.ch PART #italia :chouky
+
+:DEA^!utint@194.184.29.70 JOIN :#italia
+
+:falidan!massi@rtrsa168giu.net-uno.it JOIN :#italia
+
+:Faser^!faser@194.209.185.135 JOIN :#italia
+
+:MISTICO!valely@Massa3-28.tin.it JOIN :#italia
+
+:birbar2!birbar@dns.datas.it NICK :skatafasc
+
+:|ts|!tschenz@dialin-er-42.fen.baynet.de PRIVMSG #italia :Durak
+
+:Kirk_at!~alca@line07.atlink.it JOIN :#italia
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,3 ciao!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:Luke1!Luke@ppp01.nocera.peoples.it JOIN :#italia
+
+:eye!~s92768@195.46.32.23 JOIN :#italia
+
+:Tex^away!goldc@eth00.mcorvino.peoples.it PRIVMSG #italia :ACTION has been away since 21:06:25 ( away concesso in libera concessione da gianbat del Rawhide )
+
+:boss2!~hallo@ppp151-bx.dnet.it PART #italia :boss2
+
+:Viper^^!cobra@latina-26.panservice.it KICK #italia ^poeta :Viper^^
+
+:Lucio!eurogay@p42635e.M.dip.t-online.de JOIN :#italia
+
+:[^Vi_AwAy!pirozzi@151.99.156.244 PRIVMSG #italia :ACTION è via dalle  21.49.29 perchè....non mi chimate ((msg:registrati))((se vi servo:/ctcp [^Vi_AwAy PAGE))
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:mcmax!bi.club@195.103.129.42 PRIVMSG #italia :bonettyyyyyy
+
+:Faser^!faser@194.209.185.135 PART #italia :Faser^
+
+:Tool1!Domino@farnetici4.netanday.it JOIN :#italia
+
+:INTRI!~dmorra@ppp02.battipaglia.peoples.it JOIN :#italia
+
+:annita-!~piercav@p-sale12.hydranet.it QUIT :Connection timed out
+
+:Samantha!~ALONEDARK@digdur.lovdata.no PRIVMSG #italia :ACTION is away : I watch TV - Don't Disturb ME (Left at: 21:16,  9 Dec 1997)
+
+:PUNK_Guy!user9234@swrm69-119.iol.it QUIT :Excess Flood
+
+:Silvie!Silvie@dadovago81.dada.it JOIN :#italia
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :Sillaaaaa funziaaaaaaaaaaaa
+
+:HULK!bar.arcoba@Ferrara4-4.tin.it JOIN :#italia
+
+:marcos!~marco@BustoArsizio3-50.tin.it JOIN :#italia
+
+:pgp!uassa@193.204.40.235 PRIVMSG #italia :Cerco disperatamente Mp3 Compressor
+
+:lampo!lara@r3p007.ntt.it PART #italia :lampo
+
+:Sarina!~smeini@Firenze9-38.tin.it JOIN :#italia
+
+:ISABELLA2!AlenBeer@169-69-18.ipt.aol.com QUIT :Excess Flood
+
+:twenty!xxxx@async01-cs1.meet.it JOIN :#Italia
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da 0,4BARI o provincia???? /msg me
+
+:romantik!dmorra@ppp02.battipaglia.peoples.it JOIN :#italia
+
+:sballo!n@nprfl1-5.gate.net JOIN :#italia
+
+:sleuK!kamma@194.243.243.53 QUIT :7th Sphere v3.0 © 1997 7th Sphere Enterprises
+
+:FRANCY69!lohacker@swfi71-123.iol.it PRIVMSG #italia :8,1Ci sei SARA???????????????????????????????????????????
+
+:DJ-ICEMAN!~_@sli07.more.energy.it JOIN :#italia
+
+:LE!lab@194.243.56.102 JOIN :#italia
+
+:RoCkMaN8!Skluk@net133-134.mclink.it NICK :RoK8
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:ago73!b.club@195.103.129.43 QUIT :Connection reset by peer
+
+:mac74!max@r3p103.ntt.it PRIVMSG #italia :qualcuno vuole fare quattro chiacchere?
+
+:Bikers!TrAnSaLp@swna69-177.iol.it QUIT :Broken pipe
+
+:M28!+longos@195.103.129.17 JOIN :#italia
+
+:[SKUNK]!skunk.d@194.184.96.161 PRIVMSG djk87 :allora?
+
+:bont!pc4@195.120.26.187 JOIN :#italia
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :Sillaaaaaaa4funzionaaaaaaaaaaaaaaaa
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Bboy e Flygirls venite su 4#hiphopitalia....ma zero scrausi ok????
+
+:aquila_!Guendalin@195.103.129.35 QUIT :Leaving
+
+:FlyByNigh!killer@195.120.80.147 PRIVMSG #italia :dove è finito scorpione ?
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Jena mannaccia proprio adesso che ho ciuso
+
+:PUNK_Guy!user9234@swrm69-119.iol.it JOIN :#italia
+
+:pgp!uassa@193.204.40.235 PRIVMSG #italia :Cerco disperatamente Mp3 Compressor
+
+:Cronico!prnice@194.184.95.39 QUIT :Broken pipe
+
+:MISTICO!valely@Massa3-28.tin.it PRIVMSG #italia :#ITALIAMISTICA
+
+:falidan!massi@rtrsa168giu.net-uno.it PART #italia :falidan
+
+:_MINNIE!~jhk@194.243.116.172 JOIN :#ITALIA
+
+:sballo!n@nprfl1-5.gate.net PART #italia :sballo
+
+:Tervueren!pa0101@latina-10.panservice.it JOIN :#italia
+
+:annalisa!pippo@194.243.245.68 QUIT :Ping timeout
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :Silla4vai vai
+
+:|ts|!tschenz@dialin-er-42.fen.baynet.de PART #italia :|ts|
+
+:mone!xyz@Modena5-18.tin.it PRIVMSG #italia :modena o provincia???
+
+:NikOlo!nikolo@ppmr-1.prometeo.it QUIT :Connection reset by peer
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :Sillastronz..................
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,3 ciao!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:mireya!-dsfdsf@148.227.221.77 JOIN :#italia
+
+:one--!enri@rtrsa165giu.net-uno.it PRIVMSG #italia :4Cerco persone interessate alla Filosofia o alla Scienza
+
+:AranBanjo!l.franchi@slip1.zen.it JOIN :#ITALIA
+
+:one--!enri@rtrsa165giu.net-uno.it PRIVMSG #italia :4Cerco persone interessate alla Filosofia o alla Scienza
+
+:INTRI!~dmorra@ppp02.battipaglia.peoples.it PRIVMSG #italia :CIAO
+
+:fizzy!alice@alice4.alicecafe.it QUIT :Leaving
+
+:TopoGigio!orsoyogy@pe01ts1-01.pn.ITnet.it JOIN :#italia
+
+:LKx!stemanfr@m-2-osimo.indi.it JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Jena premi new
+
+:aureliano!aureliano@194.244.29.22 QUIT :Error 0
+
+:DANILO!trevisan@go01ts1-12.pn.ITnet.it JOIN :#italia
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Bboy e Flygirls venite su 4#hiphopitalia....ma zero scrausi ok????
+
+:Chantell!bomber@cz007.cybrzn.com JOIN :#italia
+
+:Akira_!bonecamp@dialup5-me.cys.it JOIN :#Italia
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da 0,4BARI o provincia???? /msg me
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :Silla4fatto
+
+:^poeta!rossogian@Pordenone3-8.tin.it JOIN :#italia
+
+:pbowl6!pc6@pc6-palabowling.panservice.it JOIN :#italia
+
+:[SKUNK]!skunk.d@194.184.96.161 PRIVMSG #italia :4CERCO GENTE INTERESSATA A FORMARE UN MOVIMENTO RAVE
+
+:Scorpione!scorpione@www.queen.it KICK #italia [SKUNK] :capslock/monnezza
+
+:HULK!bar.arcoba@Ferrara4-4.tin.it PRIVMSG #italia :ciao a tutti
+
+:ReaSilvia!bau@r2p035.ntt.it JOIN :#italia
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :No query per piacere!
+
+:[SKUNK]!skunk.d@194.184.96.161 JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :alessia- perchè?
+
+:Cronico!prnice@194.184.95.39 JOIN :#italia
+
+:AnGeLFaKe!Sphere@ppp01-gw1.bl.nettuno.it JOIN :#italia
+
+:Gauccio!1@starfight00.xnet.it PRIVMSG #italia :forza udinese
+
+:Eveline^^!~Client_3@rub005.ts00.ne.interbusiness.it PRIVMSG #italia :Nick/darko
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:dutchy3!nastyalex@hlm76.pi.net QUIT :Connection reset by peer
+
+:NRG1!seklanw@195.170.14.53 PRIVMSG #ITALIA :PPPPPPPPPPPLLLLLLLLLLLLGGGGGGGGGGGGGGGGGGG????????????
+
+:Athos!blob@asy01-ferrara.asianet.it JOIN :#italia
+
+:[SKUNK]!skunk.d@194.184.96.161 PRIVMSG #italia :?
+
+:Scorpione!scorpione@www.queen.it KICK #ITALIA NRG1 :capslock/monnezza
+
+:alessia-!SkyBot@r2p077.ntt.it KICK #italia alessia- :ma ke stai a diiiiiiiii via via via via via via via via via via via viavia via v
+
+:Eveline^^!~Client_3@rub005.ts00.ne.interbusiness.it PART #italia :Eveline^^
+
+:^poeta!rossogian@Pordenone3-8.tin.it PRIVMSG #italia :0,9 banda di pirla
+
+:Dix^!dix@sana2.netanday.it KICK #italia [SKUNK] :Non URLARE!!!!
+
+:HULK!bar.arcoba@Ferrara4-4.tin.it PRIVMSG #italia :ciao
+
+:[SKUNK]!skunk.d@194.184.96.161 JOIN :#italia
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:mone!xyz@Modena5-18.tin.it PRIVMSG #italia :ciao
+
+:pindarus!robcardi@Verona4-34.tin.it PRIVMSG #italia :ha segnato l' inter???
+
+:alessia-!SkyBot@r2p077.ntt.it JOIN :#italia
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :spe' silla che non funzia l'evento
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Jena mah ...
+
+:NRG1!seklanw@195.170.14.53 JOIN :#ITALIA
+
+:rcl!edipc1@Edy-01.nauta.it PRIVMSG #italia :xche non mi chiamate?
+
+:Riccardo!~pieric@async01-fo.queen.it JOIN :#italia
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,3 ciao!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da 0,4BARI o provincia???? /msg me
+
+:dutchy3!nastyalex@hlm76.pi.net JOIN :#italia
+
+:^poeta!rossogian@Pordenone3-8.tin.it PRIVMSG #italia :0,4 il calcio e' merda
+
+:Mago!~Client_3@rub005.ts00.ne.interbusiness.it JOIN :#italia
+
+:Dix^!dix@sana2.netanday.it MODE #italia +o alessia- 
+
+:FRANCY69!lohacker@swfi71-123.iol.it PRIVMSG #italia :8,1Ci sei SARA???????????????????????????????????????????
+
+:KRYCEK!sdebiag@Udine4-20.tin.it JOIN :#italia
+
+:Tool1!Domino@farnetici4.netanday.it QUIT :Bye Bye da Farnetici Internet Point Latisana
+
+:pippero!tripc5@194.243.143.103 PRIVMSG #italia :nessuno vuole parlare un po' ?
+
+:annalisa!pippo@194.243.245.68 JOIN :#italia
+
+:ricky40!ogioiello@ppp08.battipaglia.peoples.it PRIVMSG #italia :a domani
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :vai Silla
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :ehehehheheehehehheheheheh
+
+:speed2!secpc4@sec-piano06.xnet.it JOIN :#italia
+
+:[SKUNK]!skunk.d@194.184.96.161 PRIVMSG djk87 :okz...allora ciao :o))
+
+:Marco_GE!inaff@giraff.c1rass.interbusiness.it QUIT :Connection timed out
+
+:clipper!maxt@ppp1.TheBrain.cz.it JOIN :#italia
+
+:Salvo!salva@151.99.191.217 PART #italia :Salvo
+
+:fufy!cmonteni@ppp02.benevento.peoples.it JOIN :#italia
+
+:pindarus!robcardi@Verona4-34.tin.it PRIVMSG #italia :dai poeta non esagerare con definizioni qualunquiste
+
+:Raul!Raul@194.184.95.185 PRIVMSG #italia :forza savoia
+
+:WNeck28!meophil@modem01.freenet.it JOIN :#italia
+
+:Sissi!Silvie@dadovago67.dada.it QUIT :Ping timeout
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da 0,4BARI o provincia???? /msg me....sono bono/17/m/dj in una radio....:o))))
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :uffaaaaaaaaaaaaaaaa
+
+:diablo__!Giovanni@ct110.ctonline.it QUIT :Error 0
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,3 ciao!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:TopoGigio!orsoyogy@pe01ts1-01.pn.ITnet.it QUIT :Leaving
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :ke bello kikkarsiiiiiiii.....Silla scusa volevo un poretesto per kikkarmi..sei autorizzata a fare la stessa cosa...anzi la stessa ca%%ata
+
+:Beppe!boh@trn7.novanet.it PRIVMSG #italia :4,9Per tutti i fan di JIM CARREY c'è il nuovissimo sito www.aspide.it/freeweb/carrey ! 
+
+:italboy!~zeta@195.120.19.186 QUIT :Connection timed out
+
+:il_gigi!kk@legnago2.netbusiness.it JOIN :#italia
+
+:gatto27!serba@ppp04.mcorvino.peoples.it JOIN :#italia
+
+:A`g`o`n`y!~Agony@ws1-bovolone.netbusiness.it QUIT :Error 0
+
+:MAJIN_GT!m3.b24@194.243.134.170 JOIN :#italia
+
+:SAD666!utint@194.243.96.166 JOIN :#italia
+
+:Davidson!casamia@ppp-21.macronet.it JOIN :#italia
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :ronaldo mi fa schifooooooooo!!!!!!!!!!!!
+
+:exxo!exxo@sappada-ppp4.sunrise.it JOIN :#italia
+
+:americano!~de-zenf@mbts1-07.pn.ITnet.it JOIN :#italia
+
+:CinicoIRC!Angelo@194.244.63.92 JOIN :#italia
+
+:Raul!Raul@194.184.95.185 PRIVMSG #italia :d
+
+:etrusco!11@Grosseto3-141.tin.it QUIT :Broken pipe
+
+:FURIA!~guest@195.103.196.133 PRIVMSG #italia :CANOSA  DI PUGLIA CI SEI 
+
+:Jaaz!ecgori@swbo71-16.iol.it JOIN :#italia
+
+:Raul!Raul@194.184.95.185 PRIVMSG #italia :2ds
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it PRIVMSG #italia :ho bisogno di un angelo!
+
+:^poeta!rossogian@Pordenone3-8.tin.it PRIVMSG #italia :0,3 qualunquiste sta' fava
+
+:aurora!cpuntob@Roma22-26.tin.it JOIN :#italia
+
+:MISTICO!valely@Massa3-28.tin.it PRIVMSG #italia :NEW IRC
+
+:cownik!sdf32689@195.120.127.16 PRIVMSG #italia :NIK invita i ravennati su #RAVENNA
+
+:cownik!sdf32689@195.120.127.16 PRIVMSG #italia :NIK invita i ravennati su #RAVENNA
+
+:Raul!Raul@194.184.95.185 PRIVMSG #italia :4ddddd
+
+:mireya!-dsfdsf@148.227.221.77 PART #italia :mireya
+
+:Piolox!ciaociao@Trieste5-14.tin.it JOIN :#italia
+
+:_Cosmo!+tponzo@194.184.19.174 PRIVMSG #Italia :Ciao a tutti ragazzi!!!!
+
+:exxo!exxo@sappada-ppp4.sunrise.it PRIVMSG #italia :hi there
+
+:AranBanjo!l.franchi@slip1.zen.it PRIVMSG #ITALIA :12,0%0,12%12,12  1,12%12,1%0,1  4DAITARN 8III 0,1HOME PAGE: www.zen.it/~l.franchi/daitarn3  12,1%1,12%12,12  0,12%12,0%
+
+:Raul!Raul@194.184.95.185 PRIVMSG #italia :4ff
+
+:fizzy!alice@alice4.alicecafe.it JOIN :#italia
+
+:GRANDI!~mak1@ppp-5.speednet.it PRIVMSG #italia :ciao Silla mettiti in contatto con me per favore!!!!!!
+
+:ricky40!ogioiello@ppp08.battipaglia.peoples.it QUIT :Leaving
+
+:pbowl6!pc6@pc6-palabowling.panservice.it NICK :_marzia
+
+PING :irc.stealth.net
+
+:AsphiX!AsphiX2@net130-246.mclink.it JOIN :#ITALIA
+
+:Tool1!Domino@farnetici4.netanday.it JOIN :#italia
+
+:MISTICO!valely@Massa3-28.tin.it PRIVMSG #italia :NEW IRC #ITALIAMISTICA
+
+:Samantha!~ALONEDARK@digdur.lovdata.no MODE #italia -b *!*@ppp04.cava.peoples.it 
+
+:ALDO!deberna@Aosta3-48.tin.it JOIN :#ITALIA
+
+:NIKKY!fumis@Gorizia3-6.tin.it NICK :DartFener
+
+:PAKY!m3.b24@ReggioCalabria4-8.tin.it JOIN :#Italia
+
+:TuTToLogO!cOSmoS@ppp-7.globenet.it PRIVMSG #italia :87,39 se c'è gente che vuole mettere in vendita qualcosa  vengha su #compravendita
+
+:boby!sunshine@015.ppp.linet.it QUIT :Leaving
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Jena ....ma che combini? quante mosse fai?
+
+:NETRUNNER!+fabio@194.243.111.100 JOIN :#italia
+
+:Astry!a@r09.split.it PART #italia :Astry
+
+:argy!argy@thes-g10.otenet.gr JOIN :#italia
+
+:bambino!Bambinocat@ip030.pool-04.flashnet.it PART #italia :bambino
+
+:Mirko1Pd!~GC10000E@ppp-isdn-01.doge.it JOIN :#italia
+
+:Buon1998!secpc1@sec-piano03.xnet.it QUIT :Error 0
+
+:Raul!Raul@194.184.95.185 PRIVMSG #italia :3sdsdds
+
+:Lucio!eurogay@p42635e.M.dip.t-online.de QUIT :Ping timeout
+
+:Bergamo!+1111@194.244.63.93 PRIVMSG #italia : Io Trol cerco fatine per la festa della nascita del nuovo anno!
+
+:Bad|Boy!Davide@swmi67-107.iol.it JOIN :#italia
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :Silla eheheheheh
+
+:gigio!tenchi77@piroletto2.areacom.it PRIVMSG #italia :ciao
+
+:gigio!tenchi77@piroletto2.areacom.it PRIVMSG #italia :ciao
+
+:Perseo!nemesi@LaSpezia3-18.tin.it PRIVMSG #italia :salve a tutti
+
+:gigio!tenchi77@piroletto2.areacom.it PRIVMSG #italia :ciao
+
+:gigio!tenchi77@piroletto2.areacom.it PRIVMSG #italia :ciao
+
+:TheEdge!f.ghidoni@194.91.74.67 JOIN :#italia
+
+:FlyByNigh!killer@195.120.80.147 PART #italia :FlyByNigh
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :muovi tu adesso
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it QUIT :ÍmMòRtã£ Ðêãth v5.4beta - By: ||KoRn|| and help from #mirc-scripts ---- Get it a
+
+:Scorpione!scorpione@www.queen.it KICK #italia gigio :repeatflud
+
+:Codazzo!eggy@194.243.238.7 PART #italia :Codazzo
+
+:Raul!Raul@194.184.95.185 PRIVMSG #italia :3ddddd
+
+:Viper^^!cobra@latina-26.panservice.it KICK #italia TuTToLogO :Usa /invite
+
+:TuTToLogO!cOSmoS@ppp-7.globenet.it JOIN :#italia
+
+:gigio!tenchi77@piroletto2.areacom.it JOIN :#italia
+
+:yogii!~CBITS@207.136.112.153 PRIVMSG #italia :ho una voglia di parlare che mangerei la tastiera!
+
+:^poeta!rossogian@Pordenone3-8.tin.it PRIVMSG #italia :0,4 il calcio sembra far dimenticare i caos che fanno quella banda di pirla al governo
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Jena ho chiuso :PppPP
+
+:mcmax!bi.club@195.103.129.42 QUIT :Ping timeout
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :Silla la mia scacchiera non risponde
+
+:scanner!~andrea@Pescara5-17.tin.it PRIVMSG #italia :venereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee :((((((((((((((((((((((((((((((88
+
+:Dux!Apocalisse@Pe-dialup3.anthesi.com NICK :Shadow
+
+:smile1!~zamp@mica105.mix.it JOIN :#italia
+
+:TuTToLogO!cOSmoS@ppp-7.globenet.it PRIVMSG #italia :87,39 se c'è gente che vuole mettere in vendita qualcosa  vengha su #compravendita           ps    non mi frega qune siete è solo un canale utile!!!!!!!
+
+:Sivinka!Sivinka@nav03.mds.it JOIN :#Italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Jena domani?
+
+:Viper^^!cobra@latina-26.panservice.it MODE #Italia +o Sivinka 
+
+:diVino!mio@alba13.areacom.it PART #italia :diVino
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:^DJANGO!~INFORMATI@158.102.47.247 JOIN :#italia
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :ACTION slaps Chantell around a bit with a large trout
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :anvedi ste modenesi ke facce da kiulooooo
+
+:Sivinka!Sivinka@nav03.mds.it PRIVMSG #Italia :ACTION 12,11 saluta tutti con un grosso bacione sulla guancia destra ** 4,14S7M8A9C11K4 **
+
+:Orione!xxxx@cappa-vice.abnet.it JOIN :#italia
+
+:rj!~rchiller@Firenze9-46.tin.it JOIN :#italia
+
+:Joe__!dfre@Salerno4-42.tin.it QUIT :Leaving
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :Silla4vabbuo'
+
+:FURIA!~guest@195.103.196.133 PRIVMSG #italia :G
+
+:Sivinka!Sivinka@nav03.mds.it PRIVMSG #Italia :ACTION 12,11ringrazia Viper^^ per l'op :)))
+
+:Viper^^!cobra@latina-26.panservice.it MODE #italia +b *!*cOSmoS@*.globenet.it 
+
+:^DJANGO!~INFORMATI@158.102.47.247 PRIVMSG #italia :seraaaaaaaaaaaaaaaa
+
+:smile2!~zamp@mica130.mix.it QUIT :Ping timeout
+
+:France!mio@alba13.areacom.it JOIN :#italia
+
+:Tex^away!goldc@eth00.mcorvino.peoples.it PRIVMSG #italia :ACTION has been away since 21:06:25 ( away concesso in libera concessione da gianbat del Rawhide )
+
+:Ragazza!nicol@195.120.72.36 JOIN :#italia
+
+:Tool1!Domino@farnetici4.netanday.it QUIT :Bye Bye da Farnetici Internet Point Latisana
+
+:Lupin3!anonimo@151.99.232.111 PRIVMSG #Italia :ACTION 1,9 Invita tutti i Senesi su #Siena
+
+:KRYCEK!sdebiag@Udine4-20.tin.it PRIVMSG #italia :jena rispondimi
+
+:Viper^^!cobra@latina-26.panservice.it KICK #italia TuTToLogO :Dovevi usare lo /invite, fuori!
+
+:ReFuGiNa!refugee@phix.com PRIVMSG #italia :ACTION is away : I watch TV - Don't Disturb ME (Left at: 12:20,  9 Dec 1997)
+
+:FaManY!~Schenziur@194.91.163.128 QUIT :Ping timeout
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it JOIN :#italia
+
+:Gauccio!1@starfight00.xnet.it PRIVMSG #italia :friulani su #udine
+
+:CryinGirl!cryingirl@latina-27.panservice.it JOIN :#italia
+
+:enzo__!+NetUno14@195.120.69.23 JOIN :#ITALIA
+
+:NETRUNNER!+fabio@194.243.111.100 PRIVMSG #italia :                    Ehi c'è una CERTA LISA2 DI S.MARINO
+
+:Perseo!nemesi@LaSpezia3-18.tin.it PRIVMSG #italia :Ho una collezione di schede telefoniche che, a casua di nuovi interessi, la
+
+:BOZO!omarcacc@Lucca3-13.tin.it QUIT :Error 0
+
+:Perseo!nemesi@LaSpezia3-18.tin.it PRIVMSG #italia :vorrei rivendere. Se è interessato alla prossima e-mail le allego un file
+
+:Perseo!nemesi@LaSpezia3-18.tin.it PRIVMSG #italia :con tutti i particolari. Saluti! 
+
+:Perseo!nemesi@LaSpezia3-18.tin.it PRIVMSG #italia :Luigi Manzo - nemexis@tin.it
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it KICK #italia Perseo :Dynamirc Non Floddare!
+
+:CryinGirl!cryingirl@latina-27.panservice.it PART #italia :CryinGirl
+
+:Viper^^!cobra@latina-26.panservice.it MODE #italia -b *!*cOSmoS@*.globenet.it 
+
+:^poeta!rossogian@Pordenone3-8.tin.it PRIVMSG #italia :0,5 io mi suicido
+
+:^poeta!rossogian@Pordenone3-8.tin.it PRIVMSG #italia :ciao
+
+:pindarus!robcardi@Verona4-34.tin.it PRIVMSG #italia :8,2VERONESI 2,8SALTATE 8,2FUORI
+
+:one--!enri@rtrsa165giu.net-uno.it QUIT :Excess Flood
+
+:aureliano!aureliano@194.244.29.21 JOIN :#italia
+
+:cownik!sdf32689@195.120.127.16 QUIT :bye bye
+
+:^poeta!rossogian@Pordenone3-8.tin.it PART #italia :^poeta
+
+:Dix^!dix@sana2.netanday.it MODE #italia +o ANFETAMIN 
+
+:TheEdge!f.ghidoni@194.91.74.67 PRIVMSG #italia :1,9Dix^1,8:)
+
+:TuTToLogO!cOSmoS@ppp-7.globenet.it JOIN :#italia
+
+:TheEdge!f.ghidoni@194.91.74.67 PRIVMSG #italia :1,9Silla1,8:)
+
+:SNOOPY!5@ip057.pool-04.flashnet.it QUIT :Leaving
+
+:Soujourne!giulio.pol@195.103.15.143 PRIVMSG #italia :C'è nessuno di BS?
+
+:PORTANOVA!sempre_vic@195.103.219.156 JOIN :#italia
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:FURIA!~guest@195.103.196.133 PRIVMSG #italia :CANOSA DOVE SEI
+
+:JazzMan!^cesare@pc-rez53.supelec-rennes.fr PART #italia :JazzMan
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :Edgeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Ehi Edge :)))
+
+:mac74!max@r3p103.ntt.it PRIVMSG #italia :qualcuno vuole fare quattro chiacchere?
+
+:FURIA!~guest@195.103.196.133 PRIVMSG #italia :CANOSA DOVE SEI
+
+:Bad|Boy!Davide@swmi67-107.iol.it PART #italia :Bad|Boy
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it PRIVMSG #italia :Qualcuno che digita da 0,4BARI o provincia???? /msg me....sono bono/17/m/dj in una radio....:o))))
+
+:K-Awayyyy!beowulf@Bergamo6-23.tin.it NICK :CereaL-K
+
+:skatafasc!birbar@dns.datas.it PRIVMSG #italia :NO POETA non lo fare...........
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :ciaoooooooooooooooooooooooooooooooooooooooooooooooo
+
+:CAFERNET!CAFERNET@195.31.255.244 JOIN :#italia
+
+:danyelaa!Guendalin@195.103.129.36 JOIN :#italia
+
+:Dirk!pc6@194.243.143.104 JOIN :#italia
+
+:mac74!max@r3p103.ntt.it PRIVMSG #italia :cliccatemi
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Jena che fai?
+
+:[^Vi_AwAy!pirozzi@151.99.156.244 PRIVMSG #italia :ACTION è via dalle  21.49.29 perchè....non mi chimate ((msg:registrati))((se vi servo:/ctcp [^Vi_AwAy PAGE))
+
+:Gatta!wind_of_ne@195.120.245.72 PART #italia :Gatta
+
+:Perseo!nemesi@LaSpezia3-18.tin.it JOIN :#italia
+
+:alessia-!SkyBot@r2p077.ntt.it MODE #italia +o danyelaa 
+
+:oibaf!~fgerosa@lc-max-ip-10.iunet.it JOIN :#italia
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it PART #italia :ANFETAMIN
+
+:SICILIANO!~Sicilia@Palermo7-17.tin.it JOIN :#italia
+
+:Dalla!lorenzo.da@pool165.rsadvnet.it JOIN :#italia
+
+:jade!fdfrefr@dialin-04.askesis.it JOIN :#italia
+
+:alessia-!SkyBot@r2p077.ntt.it NICK :sUiCiDiO
+
+:TheEdge!f.ghidoni@194.91.74.67 PRIVMSG #italia :ciaoooo dixeeeeeee :)+
+
+:Claudio-k!italia@194.185.76.108 QUIT :Ping timeout
+
+:scanner!~andrea@Pescara5-17.tin.it PRIVMSG #italia :SAPETE DOVE SI TROVA VENERE
+
+:colore!~pirch@vc01ts1-14.pn.ITnet.it NICK :Marianna_
+
+:Bergamo!+1111@194.244.63.93 QUIT :Leaving
+
+:uby71!~biru@194.91.50.145 JOIN :#italia
+
+:tanka!CW97@cento1-max-ip-124.iunet.it JOIN :#italia
+
+:Dix^!dix@sana2.netanday.it KICK #italia scanner :Non URLARE!!!!
+
+:Dalla!lorenzo.da@pool165.rsadvnet.it PRIVMSG #italia :ciao a tutti
+
+:sUiCiDiO!SkyBot@r2p077.ntt.it MODE #italia -o danyelaa 
+
+:Perseo!nemesi@LaSpezia3-18.tin.it PRIVMSG #italia :scusate ma il messaggio che c'era prima non c'entrava nulla
+
+:Mary!ZZZZzzzzZZ@194.184.182.201 PART #italia :Mary
+
+:Frankye!Dynamirc@195.103.129.29 JOIN :#italia
+
+:^^cristia!secpc1@sec-piano03.xnet.it JOIN :#italia
+
+:Angelsoft!enjtc@Roma25-13.tin.it PRIVMSG #italia :messaggio per i segni fissi, beati voi che avete la Luna in Ariete!!!!!!!!
+
+:Tool1!Domino@farnetici3.netanday.it JOIN :#italia
+
+:ReaSilvia!bau@r2p035.ntt.it QUIT :Error 0
+
+:TheEdge!f.ghidoni@194.91.74.67 PRIVMSG #italia :scanner: dopo marte, prima di plutone, girato l'angolo?
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it JOIN :#italia
+
+:tanka!CW97@cento1-max-ip-124.iunet.it PRIVMSG #italia :akiraaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+:Mirko1Pd!~GC10000E@ppp-isdn-01.doge.it QUIT :Leaving
+
+:sUiCiDiO!SkyBot@r2p077.ntt.it PRIVMSG #italia :whattt=
+
+:TuTToLogO!cOSmoS@ppp-7.globenet.it PRIVMSG #italia : se c'è qualcuno che vuole acquistare qualcosa o venderla abbiamo creato un canaluccio  con il topic libero
+
+:mcmax!bi.club@195.103.129.42 JOIN :#italia
+
+:BART_S!~sonsay@195.103.99.50 JOIN :#italia
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :Edgeeeeeee come stai???
+
+:mariuana_!pastac@Pistoia3-198.tin.it QUIT :No route to host
+
+:sUiCiDiO!SkyBot@r2p077.ntt.it NICK :alessia-
+
+:|_AsTaRtE!XxXxXX@Firenze9-31.tin.it JOIN :#italia
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it QUIT :*** Di$connected by -<< Cr¥-ßæß¥-Cr¥ >>-
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :Sillaaaaaaaaaaaaaaaa
+
+:Holly!Holly@Verona6-40.tin.it PRIVMSG #italia :perche' hai messo giuì?
+
+:Lupis``!ddsgf@dud-fi.wlv.ac.uk JOIN :#italia
+
+:NETRUNNER!+fabio@194.243.111.100 PRIVMSG #italia :Ehi c'è una CERTA LISA2 DI S.MARINO
+
+:VAN-GOGH!netcafe@195.103.128.193 JOIN :#italia
+
+:Playmaker!ThePivels@rieti.nautanet.it JOIN :#italia
+
+:adriano!~adriano_t@swto70-103.iol.it JOIN :#italia
+
+:AranBanjo!l.franchi@slip1.zen.it PRIVMSG #ITALIA :12,0%0,12%12,12  1,12%12,1%0,1  4DAITARN 8III 0,1HOME PAGE: www.zen.it/~l.franchi/daitarn3  12,1%1,12%12,12  0,12%12,0%
+
+:Holly!Holly@Verona6-40.tin.it PRIVMSG #italia :perchè hai messo giu'?
+
+:Gianluca-!rm@ip001.pool-01.flashnet.it JOIN :#italia
+
+:ARIES!~derby1@195.103.58.70 JOIN :#italia
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:^Bill!~.@Roma27-59.tin.it JOIN :#italia
+
+:Playmaker!ThePivels@rieti.nautanet.it PRIVMSG #italia :Ciao AMICI
+
+:jena!~jena@Salerno4-33.tin.it PRIVMSG #italia :ACTION si eclissa ehehehhe
+
+:TuTToLogO!cOSmoS@ppp-7.globenet.it PRIVMSG #italia : se c'è qualcuno che vuole acquistare qualcosa o venderla abbiamo creato un canaluccio  con il topic libero  #compravendita
+
+:exxo!exxo@sappada-ppp4.sunrise.it PART #italia :exxo
+
+:jena!~jena@Salerno4-33.tin.it PART #italia :jena
+
+:flash--!Dynamirc@ppp9.getnet.it QUIT :ZIO chiude ciao a tutti!!!!!!
+
+:mirkoo!-line@195.103.156.33 QUIT :Ping timeout
+
+:Leon_Jeso!~user@ppp-3.marconinet.it PART #italia :Leon_Jeso
+
+:giovanna!planet@195.120.27.88 JOIN :#italia
+
+:ARIES!~derby1@195.103.58.70 PRIVMSG #italia :ACTION saluta il canale :))
+
+:Silla!Silla@pr-max-ip-146.iunet.it TOPIC #italia :Ceati voi che avete la Luna in Ariete!!!!!!!! Io ho Urano nel LEONE
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:TheEdge!f.ghidoni@194.91.74.67 PRIVMSG #italia :dixeeeeeeee beneeeeeeeeeeee tuuuuuuuuuuu? :)
+
+:limoncina!wella@175-217-25.ipt.aol.com PART #italia :limoncina
+
+:DANONE^^!u@195.31.205.18 JOIN :#ITALIA
+
+:VENERE!litos@alice1.alicecafe.it QUIT :Leaving
+
+:Dado_!tORnfLESh@194.243.160.37 JOIN :#italia
+
+:AsphiX!AsphiX2@net130-246.mclink.it PRIVMSG #ITALIA :ACTION c'e' qualcuno esperto di Playstation?...
+
+:Miky_!+NetUno2@195.120.69.11 JOIN :#italia
+
+:SIRENA!Sirena@empoli05.leonet.it QUIT :Ping timeout
+
+:IGNITEx!~P75@sli07.more.energy.it JOIN :#italia
+
+:Puni^zSk!zSk@ppp08-gw1.ba.nettuno.it QUIT :Error 0
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :Edgeeeeeeee beneeeee 
+
+:SOAK!Rappresent@ud51.xnet.it PART #iTaLiA :SOAK
+
+:Silla!Silla@pr-max-ip-146.iunet.it TOPIC #italia :Beati voi che avete la Luna in Ariete!!!!!!!! Io ho Urano nel LEONE
+
+:Cronico!prnice@194.184.95.39 PRIVMSG #italia :chi mi manda foto? servono come prova
+
+:Freedom!freedom@195.31.192.80 JOIN :#italia
+
+:icecream!dd@sandona1-14.alfa.it NICK :diamonds
+
+:VENERE!litos@alice1.alicecafe.it JOIN :#italia
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :giovedi iniziano i corsi di recupero a scuola
+
+:FURIA!~guest@195.103.196.133 PRIVMSG #italia :DDDDD
+
+:kendra!~kendra@arcappp24.arcanet.it PART #italia :kendra
+
+:PORTANOVA!sempre_vic@195.103.219.156 PART #italia :PORTANOVA
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :12,8----------S O R R E N T O-----------
+
+:^Skynet!~Skynet@194.243.123.101 PART #italia :^Skynet
+
+:Angelsoft!enjtc@Roma25-13.tin.it PRIVMSG #italia :messaggio per i segni cosidetti mobili, siate cauti la Luna consiglia moderazione....
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :io ho solo mate per fortuna
+
+:rj!~rchiller@Firenze9-46.tin.it PRIVMSG #italia :CIAO !
+
+:davide!utint@195.31.202.214 QUIT :Arrivederci a presto
+
+:danyelaa!Guendalin@195.103.129.36 PRIVMSG #italia :ciaooooooooooooooooooooooooooooooooooooooooooooooooo
+
+:Gianluca-!rm@ip001.pool-01.flashnet.it QUIT :Leaving
+
+:brendas!xsempre@194.243.128.12 JOIN :#italia
+
+:Danilo76!dmarcoc@Roma19-42.tin.it JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Foxtwo che c'è???
+
+:QUEEN!ThePivels@195.36.6.34 JOIN :#italia
+
+:JJSapido!cazzo@r3p126.ntt.it PART #italia :JJSapido
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :Silla4che1hai4tu?
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :ronaldo mi fa schifooooooooo!!!!!!!!!!!!
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it PRIVMSG #italia :ACTION is now away because [4mi scappa la pipì....mi scappa la pipì papà....]: messages will be logged 1[§I<¥ßøt © 2.6]
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it NICK :SKIZaway_
+
+:IGNITEx!~P75@sli07.more.energy.it PART #italia :IGNITEx
+
+:SKIZaway_!~mgenito@Benevento4-57.tin.it NICK :SKIZZaway
+
+:danyelaa!Guendalin@195.103.129.36 PRIVMSG #italia :ciao a tuttiiiiiiiiiiiiiiiiiiiiiii
+
+:socrates!telecom@eth01.alburni.peoples.it PRIVMSG #italia :sono un prof. e cerco una prof.!!!!!!!!!!!
+
+:NUANDA!nuanda@nu.isnet.it JOIN :#italia
+
+:ago73!b.club@195.103.129.43 JOIN :#italia
+
+:Zonde!Zonde@Milano29-10.tin.it JOIN :#italia
+
+:Paperinik!~PP@193.76.232.188 PART #italia :Paperinik
+
+:richard1!~internetp@194.247.165.67 JOIN :#italia
+
+:AlexV!dark@swfi71-70.iol.it PART #italia :AlexV
+
+:TuTToLogO!cOSmoS@ppp-7.globenet.it PRIVMSG #italia : se c'è qualcuno che vuole acquistare qualcosa o venderla abbiamo creato un canaluccio  con il topic libero  #compravendita  ok  visto che siete una mandria di ignoranti e non capite l'utilità di IRC ciaooooooooooooo
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :allora!!!!!!!!!!!!
+
+:Cronico!prnice@194.184.95.39 PRIVMSG #italia :chi mi manda foto? servono come prova
+
+:Zonde!Zonde@Milano29-10.tin.it PRIVMSG #italia :uelaaa
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :ACTION cerco uomo, bello,alto...con dei pettorali da fola....di terza mano ( con esperienze ) ! /DCC Dix^
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :foxtwo ...boh ..ho ricordato una canzone di uno
+
+:Unico!~abcd@194.243.105.71 JOIN :#italia
+
+:RARA60!carluc@m-3-fano.indi.it JOIN :#italia
+
+:Maufel!+maufel@151.99.178.26 JOIN :#italia
+
+:France!mio@alba13.areacom.it QUIT :Leaving
+
+:DRE_LOVE!massive@ppp04-01.stm.it JOIN :#italia
+
+:[SKUNK]!skunk.d@194.184.96.161 PRIVMSG #italia :4RAVERSSSSSSSS...AME!
+
+:Elena____!~pirch@ppp1.cgm.it JOIN :#italia
+
+:capitani!ua01411@usr3.lcnet.it PRIVMSG #italia :nessuna da roma che ha voglia di dgt con il capitano??????????
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :Zondeeeeeeeeeeeeeeeeeeeee
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :ACTION ha la volpe nel pollaio
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :ACTION  cerco uomo, bello,alto...con dei pettorali da fola....di terza mano ( con esperienze ) ! /DCC Dix^
+
+:geguar!userid@194.184.178.48 PART #italia :geguar
+
+:Scorpione!scorpione@www.queen.it MODE #italia -o TuTToLogO 
+
+:Scorpione!scorpione@www.queen.it MODE #italia +b *!*cOSmoS@*.globenet.it 
+
+:Scorpione!scorpione@www.queen.it KICK #italia TuTToLogO :mandria di cosa ?
+
+:Dix^!dix@sana2.netanday.it MODE #italia +o Zonde 
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :ZZZZZZZZZondeeeeeeeeeeeeeee
+
+:Danilo76!dmarcoc@Roma19-42.tin.it PART #italia :Danilo76
+
+:Zonde!Zonde@Milano29-10.tin.it PRIVMSG #italia :ciao dix:)
+
+:Marianna_!~pirch@vc01ts1-14.pn.ITnet.it PART #italia :Marianna_
+
+:raf^!nbp97109@a12-01.studres.strath.ac.uk JOIN :#italia
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:Zonde!Zonde@Milano29-10.tin.it PRIVMSG #italia :fox :)
+
+:crying_fm!~sisa@194.91.50.150 JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :ACTION cerca il solito MILIARDARIO novantenne, senza eredi e cagionevole di SALUTE....DOVE SEI?
+
+:lisa22!XXX@195.13.14.164 JOIN :#italia
+
+:Zonde!Zonde@Milano29-10.tin.it PRIVMSG #italia :*straronf*
+
+:Chantell!bomber@cz007.cybrzn.com QUIT :Leaving
+
+:ago73!b.club@195.103.129.43 PRIVMSG #italia :ciao a ttttttttttttttutti
+
+:lisa22!XXX@195.13.14.164 PRIVMSG #italia :j france
+
+:_rick_!admin@RIGHI.DF.UNIBO.IT JOIN :#italia
+
+:Giulia!amici@mo-max-ip-218.iunet.it JOIN :#italia
+
+:mcmax!bi.club@195.103.129.42 QUIT :Connection reset by peer
+
+:marcos!~marco@BustoArsizio3-50.tin.it QUIT :Error 0
+
+:Zonde!Zonde@Milano29-10.tin.it PRIVMSG #italia :silla te pareva
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:Gen__!gennarodg@consumer2.starnet.it JOIN :#Italia
+
+:a-24!goldc@eth04.mcorvino.peoples.it PART #italia :a-24
+
+:alessia!xxx@Massa3-25.tin.it JOIN :#italia
+
+:Cronico!prnice@194.184.95.39 PRIVMSG #italia :ragazze chiamatemi
+
+:SALERNO!fmancino@ppp02.paestum.peoples.it JOIN :#italia
+
+:nick1!~Stargate2@stargate20.internetcafe.it JOIN :#italia
+
+:giobba!tripc7@194.243.143.105 JOIN :#italia
+
+:Luca38!mister@195.46.32.6 QUIT :Broken pipe
+
+:alsiom3!bi.club@195.103.129.42 JOIN :#italia
+
+:gigio!tenchi77@piroletto2.areacom.it QUIT :Leaving
+
+:FURIA!~guest@195.103.196.133 PRIVMSG #italia :CI SEI O NON CI SEI CANOSA DI PUGLIA
+
+:^Bill!~.@Roma27-59.tin.it PART #italia :^Bill
+
+:Dix^!dix@sana2.netanday.it KICK #italia FURIA :Usi troppe maiuscole...
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :giassai
+
+:piero^^!utint@195.103.102.150 JOIN :#italia
+
+:Danilo76!dmarcoc@Roma19-42.tin.it JOIN :#italia
+
+:Umano!-XXXX@208.163.252.20 PRIVMSG #italia :Quando uno è figlio di un prof., allora w i orfani!!!
+
+:Cronico!prnice@194.184.95.39 PRIVMSG #italia :chi mi manda foto? servono come prova
+
+:pippero!tripc5@194.243.143.103 PRIVMSG #italia :se nessuno mi parla mi avveleno!
+
+:Jaaz!ecgori@swbo71-16.iol.it QUIT :Broken pipe
+
+:piovra!tripc8@194.243.143.106 JOIN :#italia
+
+:Angelsoft!enjtc@Roma25-13.tin.it PRIVMSG #italia :messaggio per i segni cardinali, ragazzi state attenti perchè con questa Luna in Ariete non si scherza!!
+
+:ReFuGiNa!refugee@phix.com PRIVMSG #italia :ACTION is back, Somebody tossed me a rope so I crawled back out!
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it PRIVMSG #italia :qualcuno sa dirmi come entrare nel canale di roxybar?
+
+:FURIA!~guest@195.103.196.133 JOIN :#italia
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,4 ciao!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:Dalla!lorenzo.da@pool165.rsadvnet.it PRIVMSG #italia :ci sono delle ragazze per me?
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Ciao Cristia
+
+:DOCTOR2!~Bubba@cento1-max-ip-103.iunet.it QUIT :Leaving
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it PRIVMSG #italia :4QUALCUNO SA DIRMI COME ENTRARE NEL CANALE DI ROXYBAR?
+
+:HaBo-Ab5!you@ppp1-sa.xcom.it JOIN :#italia
+
+:Perseo!nemesi@LaSpezia3-18.tin.it PRIVMSG #italia :caro tuttologo dei miei stivali il messaggio che era uscito prima era dovuto al premere per sbaglio di ctrl+v. e' stato uno sbaglio risparmia la tua intelligenza per altre cose
+
+:Playmaker!ThePivels@rieti.nautanet.it PRIVMSG #italia :devi cambiare server
+
+:Giulia!amici@mo-max-ip-218.iunet.it PART #italia :Giulia
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :Scorpiòòòòòòòòòòòòòòòòòòòòòòòòòòòòòò
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :ACTION va a recuperare un panino
+
+:Scorpione!scorpione@www.queen.it KICK #italia Sibemolle :capslock/monnezza
+
+:Giulio34!giulio34@194.116.10.150 JOIN :#italia
+
+:pippero!tripc5@194.243.143.103 PRIVMSG #italia :quardate che non scherzo!
+
+:Tex^away!goldc@eth00.mcorvino.peoples.it PRIVMSG #italia :ACTION has been away since 21:06:25 ( away concesso in libera concessione da gianbat del Rawhide )
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :,1 avete foto da mandarmi!!?????
+
+PING :irc.stealth.net
+
+:]Macbeth[!dark@swfi71-70.iol.it JOIN :#italia
+
+:Raul!Raul@194.184.95.185 PRIVMSG #italia :ACTION cerca persone che si collegano dal provider di Scafati
+
+:Playmaker!ThePivels@rieti.nautanet.it PRIVMSG #italia :devi cambiare server sibemolle
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :irc.roxybar.it
+
+:tanka!CW97@cento1-max-ip-124.iunet.it PART #italia :tanka
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it JOIN :#italia
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,1 avete foto da mandarmi???????????
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :è il server
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :pippero con la q????
+
+:Zonde!Zonde@Milano29-10.tin.it PRIVMSG #italia :ACTION saluta tutti gli #italiani e torna in spiaggia, se volete sapete dove trovarmi ;)))
+
+:Giulia!amici@mo-max-ip-218.iunet.it JOIN :#italia
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:Alma-!Pentium@195.31.200.149 QUIT :Un saluto dalla splendida citta' di Trieste :)))))
+
+:Scorpione!scorpione@www.queen.it PRIVMSG #italia :|^OLtRe^| e' da mo' che ti ho salutato
+
+:Zonde!Zonde@Milano29-10.tin.it PRIVMSG #italia :scorpioneeeeeeeeeee :)
+
+:]Macbeth[!dark@swfi71-70.iol.it PRIVMSG #italia :ahahahah
+
+:Katia!caste@async14.infotel.it JOIN :#italia
+
+:Valeria_!~_@ppp2-sa.xcom.it JOIN :#ITALIA
+
+:Er_Puma!techno@ihterm05.ihnet.it QUIT :Connection reset by peer
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,1 avete foto da mandarmi???????????
+
+:Shiryu!~shiryu@Roma33-244.tin.it JOIN :#ITALIA
+
+:DartFener!fumis@Gorizia3-6.tin.it NICK :NIKKY
+
+:Cassiopea!~Cassiopea@ppp3-sa.xcom.it PRIVMSG #italia :ACTION ciao a tutti torno dopoooooooooooooooooooooooooooooooooo
+
+:Scorpione!scorpione@www.queen.it PRIVMSG #italia :Zonde salustri :-))
+
+:giampi`!bowgal1@pc1.bowgallarate.it PRIVMSG #italia :(giampi) c'è qualcuno che vuole dgt con me
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it JOIN :#italia
+
+:Samantha!~ALONEDARK@digdur.lovdata.no MODE #italia -bb *!*21st@*.dynamic.Vienna.AT.EU.net *!*@rub102.pn00.ne.interbusiness.it 
+
+:Monia^^!~fenpc2@194.243.143.196 JOIN :#italia
+
+:M_O_N_Y!feldemar@BiellaC-20.tin.it PART #italia :M_O_N_Y
+
+:alsiom3!bi.club@195.103.129.42 NICK :LEONE_
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :ah si si si ??
+
+:FULMINATO!giater@dial-505.argosid.it QUIT :Error 0
+
+:MBV!m@ppp-8.macronet.it JOIN :#italia
+
+:VAL^RIK!+cp79id@194.184.21.112 QUIT :Leaving
+
+:Danilo76!dmarcoc@Roma19-42.tin.it PART #italia :Danilo76
+
+:^Blaster^!Makaveli@Bologna9-4.tin.it QUIT :2Erection reset by queer2
+
+:jade!fdfrefr@dialin-04.askesis.it PRIVMSG #italia :chi sa che tasti devo usare per fare il simbolo infinito?????
+
+:bellissim!Guendalin@195.103.129.34 PRIVMSG #italia :ACTION 13,9(¯`·.¸¸.·´¯`·.¸¸.->9,13 LKx 13,9<-.¸¸.·´¯`·.¸¸.·´¯)
+
+:VOLPINO!+killer@195.103.129.28 JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :ACTION dice che sono le ore 12º4[0,2 21.25.11 4,]12º  minuto + minuto - :-Þ
+
+:fuego73!~lucacontu@Cagliari5-24.tin.it JOIN :#italia
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :Mbvvvvvvvvvvvvvvvvvvvv
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,1 avete foto da mandarmi???????????
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :ACTION cercasi novantenne invalido su sedia a rotelle...con possibili infarti istantanei /DCC silla <---raccomandata da alessia-
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it PRIVMSG #italia :uffa
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :e nun avevo visto!! e nun te ncazzà capito??!
+
+:AnGeLFaKe!Sphere@ppp01-gw1.bl.nettuno.it PRIVMSG #italia :visitate il mio sito: http://www.nettaxi.com/citizens/angelf  Only SEX!!
+
+:Cassiopea!~Cassiopea@ppp3-sa.xcom.it QUIT :ciao a dopooooooo :PPPPPPPPPPPPPPPPPP
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia ::OP
+
+:AnGeLFaKe!Sphere@ppp01-gw1.bl.nettuno.it PRIVMSG #italia :visitate il mio sito: http://www.nettaxi.com/citizens/angelf  Only SEX!!
+
+:Milan!~Michele@193.218.135.31 JOIN :#italia
+
+:ninjo!~pippo@cs-virtualpub.shiny.it JOIN :#italia
+
+:AnGeLFaKe!Sphere@ppp01-gw1.bl.nettuno.it PRIVMSG #italia :visitate il mio sito: http://www.nettaxi.com/citizens/angelf  Only SEX!!
+
+:]Macbeth[!dark@swfi71-70.iol.it PRIVMSG #italia :Buonasera a tutti ma soprattutto a tutte!!!!!!!:))
+
+:Scorpione!scorpione@www.queen.it KICK #italia AnGeLFaKe :repeatflud
+
+:AnGeLFaKe!Sphere@ppp01-gw1.bl.nettuno.it JOIN :#italia
+
+:AlterEgo!~AlterEgo@rub234.rm00.rm.interbusiness.it KICK #italia AnGeLFaKe :Repeat Flood: 3 repeats at 1.521 rpts/s
+
+:Robyone!~Roby@195.120.207.41 QUIT :Broken pipe
+
+:Blackbir!~Blake@194.247.170.90 JOIN :#italia
+
+:Scorpione!scorpione@www.queen.it KICK #italia |^OLtRe^| :takeoverista
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it PRIVMSG #italia :GRAZIE, SCORPIONE PER AVERMI BUTTATA FUORI.
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it JOIN :#italia
+
+:^TheJoy!~arcinfo2@kit8.quicknet.it JOIN :#italia
+
+:Gauccio!1@starfight00.xnet.it PRIVMSG #italia :FORZA UDINESE
+
+:BaPhOmEt!Sphere@Salerno4-48.tin.it MODE #italia -o Scorpione 
+
+:Gnappo!melzio@swrm68-4.iol.it QUIT :Dead Socket
+
+:Gauccio!1@starfight00.xnet.it PRIVMSG #italia :VINCI PER NOI
+
+:Gauccio!1@starfight00.xnet.it PRIVMSG #italia :FORZA UDINESE
+
+:Gauccio!1@starfight00.xnet.it PRIVMSG #italia :UDINESE  OLE'
+
+:Dix^!dix@sana2.netanday.it MODE #italia +o ANFETAMIN 
+
+:AranBanjo!l.franchi@slip1.zen.it PRIVMSG #ITALIA :12,0%0,12%12,12  1,12%12,1%0,1  4DAITARN 8III 0,1HOME PAGE: www.zen.it/~l.franchi/daitarn3  12,1%1,12%12,12  0,12%12,0%
+
+:BaPhOmEt!Sphere@Salerno4-48.tin.it MODE #italia +o |^OLtRe^| 
+
+:Dix^!dix@sana2.netanday.it KICK #italia Sibemolle :Non URLARE!!!!
+
+:|Leila|!irc@dns.datas.it KICK #italia Gauccio :flood
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :alessia- ahahahaha grassie
+
+:Blackbir!~Blake@194.247.170.90 PRIVMSG #italia :saaaaaaalvelox
+
+:cK-one!Bellissimo@asy03.gol.grosseto.it JOIN :#italia
+
+:FRANCY69!lohacker@swfi71-123.iol.it PRIVMSG #italia :8,1Ci sei SARA???????????????????????????????????????????
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :Bravoooooooooooooooooooooooooooooooo
+
+:Frankye!Dynamirc@195.103.129.29 PRIVMSG #italia :9,1Qualcuna di Salerno e provincia??????????
+
+:Samantha!~ALONEDARK@digdur.lovdata.no MODE #italia +o Scorpione 
+
+:Aika!Aika@ppp03.cilento.peoples.it JOIN :#italia
+
+:ATALANTA!quake@total17.mediacom.it QUIT :Broken pipe
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:pgp!uassa@193.204.40.235 PRIVMSG #italia :Cerco disperatamente Mp3 Compressor
+
+:GIANPI!~gianpi@Napoli10-38.tin.it JOIN :#italia
+
+:pgp!uassa@193.204.40.235 PRIVMSG #italia :Cerco disperatamente Mp3 Compressor
+
+:SKIZZaway!~mgenito@Benevento4-57.tin.it NOTICE #italia :[7*Notice to all on #italia 4(389)7*]: Non oppate un certo MIZIETTO...deve imparare prima a non bannare i locali e poi forse lo potrà essere!
+
+:Scorpione!scorpione@www.queen.it PRIVMSG #italia :|^OLtRe^| :-)
+
+:Cucdom!cucdom@194.184.178.40 MODE #italia +o Aika 
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :ehehehehehehehehhe
+
+:FURIA!~guest@195.103.196.133 PRIVMSG #italia :CI SEI ANTONELLA
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :ACTION 12[4@ 3 °¤º°º¤.,¸ 12 Aika ]
+
+:alessia-!SkyBot@r2p077.ntt.it MODE #italia +o Aika 
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it PRIVMSG #italia :Dix grassie
+
+:Dix^!dix@sana2.netanday.it MODE #italia +o Aika 
+
+:Gauccio!1@starfight00.xnet.it JOIN :#italia
+
+:Aika!Aika@ppp03.cilento.peoples.it PRIVMSG #italia :ACTION saluta tuttiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+
+:AnGeLFaKe!Sphere@ppp01-gw1.bl.nettuno.it JOIN :#italia
+
+:{[ToNiC]}!BoTonico@195.120.74.42 QUIT :Volsi così colà dove si puote e più non dimandar....
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it PRIVMSG #italia :ma ki sei scusa???
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it JOIN :#italia
+
+:Aika!Aika@ppp03.cilento.peoples.it PRIVMSG #italia ::))))))))))))))))))))))))))
+
+:[^Vi_AwAy!pirozzi@151.99.156.244 PRIVMSG #italia :ACTION è via dalle  21.49.29 perchè....non mi chimate ((msg:registrati))((se vi servo:/ctcp [^Vi_AwAy PAGE))
+
+:marcos!+marcos@195.103.102.134 JOIN :#italia
+
+:Samantha!~ALONEDARK@digdur.lovdata.no PRIVMSG #italia :ACTION is back, Somebody tossed me a rope so I crawled back out!
+
+:Aika!Aika@ppp03.cilento.peoples.it PRIVMSG #italia :SKIZZO
+
+:Aika!Aika@ppp03.cilento.peoples.it PRIVMSG #italia ::))))))))
+
+:FURIA!~guest@195.103.196.133 PRIVMSG #italia :CI SEI ANTONELLA
+
+:]Macbeth[!dark@swfi71-70.iol.it PRIVMSG #italia :pgp intendi dire un encoder
+
+:Davidson!casamia@ppp-21.macronet.it QUIT :Network is unreachable
+
+:ALDO!deberna@Aosta3-48.tin.it QUIT :Connection timed out
+
+:]Macbeth[!dark@swfi71-70.iol.it PRIVMSG #italia :??
+
+:Aika!Aika@ppp03.cilento.peoples.it PRIVMSG #italia :Cucdom 
+
+:AranBanjo!l.franchi@slip1.zen.it QUIT :l.franchi@zen.it - www.zen.it/~l.franchi
+
+:IRON-MAN!alice@alice3.alicecafe.it JOIN :#italia
+
+:Aika!Aika@ppp03.cilento.peoples.it PRIVMSG #italia :Dix^ :)))))))))))))))))))))))))))))
+
+:SKIZZaway!~mgenito@Benevento4-57.tin.it PRIVMSG #italia :Aikaaaaa:))
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :anfetamin sono Dix^ e basta:)
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it KICK #italia Scorpione :[ un funghetto trallala ] Dynamirc
+
+:Zonde!Zonde@Milano29-10.tin.it PART #italia :Zonde
+
+:giampi`!bowgal1@pc1.bowgallarate.it PRIVMSG #italia :(giampi) liz non dare ascolto a quei due coglioni che mi hanno citato 
+
+:Scorpione!scorpione@www.queen.it JOIN :#italia
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :ciao aika
+
+:delfina!utint@195.103.107.78 JOIN :#italia
+
+:Samantha!~ALONEDARK@digdur.lovdata.no MODE #italia +o Scorpione 
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it MODE #italia +o Scorpione 
+
+:terremoto!Guendalin@195.103.129.37 JOIN :#italia
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :ACTION cercasi novantenne FIGOOOO invalido su sedia a rotelle...con possibili infarti istantanei /DCC silla <---raccomandata da alessia-
+
+:socrates!telecom@eth01.alburni.peoples.it PRIVMSG #italia :ue
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it PRIVMSG #italia :4Buttata fuori due volte. 
+
+:AlterEgo!~AlterEgo@rub234.rm00.rm.interbusiness.it QUIT :Ulixes
+
+:ANFETAMIN!topi@PN128.RTC-ppp022.pronet.it PRIVMSG #italia :umm
+
+:malattia!malattia@Salerno4-30.tin.it JOIN :#italia
+
+:Tool1!Domino@farnetici3.netanday.it PRIVMSG #italia :ciao Dix^!!!!
+
+:Frnc27!19@ppp04.battipaglia.peoples.it JOIN :#italia
+
+:Paura!PAO@195.46.36.20 JOIN :#italia
+
+:alessia-!SkyBot@r2p077.ntt.it MODE #italia +o terremoto 
+
+:buna!+micio@194.116.42.49 PART #italia :buna
+
+:paolo_3!~crypter@sie-home-1-3.urbanet.ch JOIN :#italia
+
+:raf^!nbp97109@a12-01.studres.strath.ac.uk PRIVMSG #italia :ciao all
+
+:mambo!cino@asy03-ravenna.asianet.it JOIN :#italia
+
+:khy-ri-!~msd@Roma29-30.tin.it JOIN :#italia
+
+:Scorpione!scorpione@www.queen.it MODE #italia +o khy-ri- 
+
+:Prdt!Srdt@client19.sitec.fr JOIN :#italia
+
+:Angelsoft!enjtc@Roma25-13.tin.it PRIVMSG #italia :giandro!!!!!!!!!!!!!! ci sei??????????????
+
+:Unico!~abcd@194.243.105.71 PART #italia :Unico
+
+:Giuspin!carluc@m-2-fano.indi.it JOIN :#italia
+
+:ago73!b.club@195.103.129.43 QUIT :Connection reset by peer
+
+:paolo_3!~crypter@sie-home-1-3.urbanet.ch PRIVMSG #italia :ciao
+
+:meskalito!user2@iv-max-ip-94.iunet.it PART #italia :meskalito
+
+:Dix^!dix@sana2.netanday.it PRIVMSG #italia :Tooooolllllllllllll11111111111
+
+:alessia-!SkyBot@r2p077.ntt.it MODE #italia -o terremoto 
+
+:HIPHOP!utint@195.120.77.200 JOIN :#italia
+
+:meskalito!user2@iv-max-ip-94.iunet.it JOIN :#italia
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :ciao Khyri!!!
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,1 avete foto da mandarmi???????????
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,1 avete foto da mandarmi???????????
+
+:^DJANGO!~INFORMATI@158.102.47.247 PRIVMSG #italia :giorgettaaaaaaaaaaaaaa
+
+:MISTICO!valely@Massa3-28.tin.it PART #italia :MISTICO
+
+:mone!xyz@Modena5-18.tin.it PRIVMSG #italia :ohhhhh
+
+:Tool1!Domino@farnetici3.netanday.it PRIVMSG #italia :CIAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+:Cronico!prnice@194.184.95.39 PRIVMSG #italia :ciao a domani
+
+:pasquali!pasquale@netplus-1.i-2000net.it QUIT :Leaving
+
+:OKAMI!KAMI@Torino15-61.tin.it QUIT :Error 0
+
+:Scorpione!scorpione@www.queen.it PRIVMSG #italia :alessia- hai in auto-op tutto il locale del guendalin
+
+:khy-ri-!~msd@Roma29-30.tin.it PRIVMSG #italia :ACTION ciao :9
+
+:Dix^!dix@sana2.netanday.it KICK #italia Tool1 :Non URLARE!!!!
+
+:Bidone!gzanfra@Bari9-144.tin.it JOIN :#italia
+
+:FULMINATO!giater@dial-505.argosid.it JOIN :#italia
+
+:khy-ri-!~msd@Roma29-30.tin.it PRIVMSG #italia :Oltre :)))
+
+:Massimoo!SDPrO@195.103.15.204 JOIN :#italia
+
+:AlterEgo!~AlterEgo@rub234.rm00.rm.interbusiness.it JOIN :#italia
+
+:Bonetty!infotel@194.184.182.40 QUIT :Connection reset by peer
+
+:khy-ri-!~msd@Roma29-30.tin.it MODE #italia +o AlterEgo 
+
+:VAMPIRI!utint@151.99.217.20 JOIN :#italia
+
+:john1!.@Bologna11-197.tin.it JOIN :#italia
+
+:mcmax!b.club@195.103.129.43 JOIN :#italia
+
+:Napoleone!i@195.31.205.26 JOIN :#italia
+
+:clipper!maxt@ppp1.TheBrain.cz.it QUIT :Ping timeout
+
+:^DJANGO!~INFORMATI@158.102.47.247 PRIVMSG #italia :giorgiaaaaaaaaaa
+
+:ALDO!deberna@Aosta3-48.tin.it JOIN :#ITALIA
+
+:Aika!Aika@ppp03.cilento.peoples.it NICK :Aika_AwAy
+
+:Tool1!Domino@farnetici3.netanday.it JOIN :#Italia
+
+:mambo!cino@asy03-ravenna.asianet.it QUIT :Broken pipe
+
+:hg!mc4452@195.120.251.120 QUIT :Connection reset by peer
+
+:Giulia!amici@mo-max-ip-218.iunet.it PART #italia :Giulia
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:Reo!~vmalenovs@195.60.230.231 QUIT :Operation timed out
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :quanto sta l' inter
+
+:Blackbir!~Blake@194.247.170.90 PRIVMSG #italia :khyriiiiiiiiiii
+
+:gul!+utint@194.184.29.85 JOIN :#italia
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :quanto sta l' inter
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :quanto sta l' inter
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :Scorpio non +++
+
+:GreenDay!~acanigl@Napoli9-36.tin.it QUIT :Leaving
+
+:Scorpione!scorpione@www.queen.it KICK #italia Napoleone :repeatflud
+
+:Merlino!setteceli@194.184.96.172 JOIN :#italia
+
+:Hdg!~hedgehog@Pescara4-48.tin.it JOIN :#italia
+
+:robyx!utint@195.120.77.201 PRIVMSG #italia :serena ti voglio bene tanto mi manchi
+
+:davide!utint@195.31.202.214 JOIN :#italia
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :ACTION e' tornato :)
+
+:khy-ri-!~msd@Roma29-30.tin.it PRIVMSG #italia :Blaccccbirddddd
+
+:Tool1!Domino@farnetici3.netanday.it PRIVMSG #Italia :sorry
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:Unico!~abcd@194.243.105.71 JOIN :#italia
+
+:Playmaker!ThePivels@rieti.nautanet.it PRIVMSG #italia :1-0
+
+:Monia^^!~fenpc2@194.243.143.196 PRIVMSG #italia :ciao a tutti  
+
+:deste!deste@mrb2.novanet.it JOIN :#italia
+
+:EAGLE75!~tripc9@194.243.143.107 PRIVMSG #italia :71 a 0
+
+:deste!deste@mrb2.novanet.it PRIVMSG #italia :re
+
+:emanuele!+cavolo@208.209.175.101 PRIVMSG #ITALIA :CIAO A TUTTI NESSUNO DI VOI E' DELLE   MARCHE????     IO SONO IN PAKISTAN E VORREI SCAMBIARE 2 CHIACCHIERE CON UN MIO COMPAESANO /A   :)
+
+:Gnappo!melzio@swrm68-4.iol.it JOIN :#italia
+
+:Bonetty!infotel@194.184.182.40 JOIN :#italia
+
+:TopoGigio!orsoyogy@pe01ts1-01.pn.ITnet.it JOIN :#italia
+
+:Unico!~abcd@194.243.105.71 PART #italia :Unico
+
+:Scorpione!scorpione@www.queen.it KICK #ITALIA emanuele :capslock/monnezza
+
+:Tool1!Domino@farnetici3.netanday.it PRIVMSG #Italia :+maufel manda script non richiesti!!!!!
+
+:WALEM6!m@ud08.xnet.it JOIN :#italia
+
+:pasquali!pasquale@netplus-1.i-2000net.it JOIN :#ITALIA
+
+:Napoleone!i@195.31.205.26 JOIN :#italia
+
+:toronto!toronto@learnet.freenet.hut.fi JOIN :#italia
+
+:xxx-rated!~cap@caffe8.gianni-cafe.it JOIN :#italia
+
+:SAVONA!utint@195.120.77.200 JOIN :#italia
+
+:siffel!unfaehig@pool24.wiwi.uni-frankfurt.de QUIT :Dead Socket
+
+:BiG_BoY!~2@pg-max-ip-114.iunet.it JOIN :#italia
+
+:^DJANGO!~INFORMATI@158.102.47.247 PART #italia :^DJANGO
+
+:Hdg!~hedgehog@Pescara4-48.tin.it PART #italia :Hdg
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,1 avete foto da mandarmi???????????
+
+:Frankye!Dynamirc@195.103.129.29 PRIVMSG #italia :9,1Qualcuna di Salerno e provincia??????????
+
+:GRANDI!~mak1@ppp-5.speednet.it PRIVMSG #italia :STUPENDA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :quanto sta l' inter
+
+:capitani!ua01411@usr3.lcnet.it QUIT :Leaving
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:Scorpione!scorpione@www.queen.it PRIVMSG #italia :
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :quanto sta l' inter
+
+:mambo!cino@asy03-ravenna.asianet.it JOIN :#italia
+
+:TheEdge!f.ghidoni@194.91.74.67 PRIVMSG #italia :scorpione ehila' :)
+
+:^DJANGO!~INFORMATI@158.102.47.247 JOIN :#italia
+
+:FRANCY69!lohacker@swfi71-123.iol.it PRIVMSG #italia :8,1Ci sei SARA???????????????????????????????????????????
+
+:FRANCY69!lohacker@swfi71-123.iol.it PRIVMSG #italia :8,1Ci sei SARA???????????????????????????????????????????
+
+:Ste76m!User@195.122.64.16 JOIN :#italia
+
+:Davidson!casamia@ppp-21.macronet.it JOIN :#italia
+
+:Onat!MAc@pats1-01.pn.ITnet.it PART #italia :Onat
+
+:john1!.@Bologna11-197.tin.it PRIVMSG #italia :fra poco mi scade mirc in prova... come avete fatto voi???
+
+:khy-ri-!~msd@Roma29-30.tin.it MODE #italia +o ^DJANGO 
+
+:Cristina!xxxx@linea9.vercelli.alpcom.it PART #italia :Cristina
+
+:Angelsoft!enjtc@Roma25-13.tin.it PRIVMSG #italia :se hai Urano di nascita nel Leone vuol dire che sei nato nel 1957!!!!!!!! 
+
+:Sarina!~smeini@Firenze9-38.tin.it QUIT :Error 0
+
+:_rick_!admin@RIGHI.DF.UNIBO.IT QUIT :Ping timeout
+
+:DANILO!trevisan@go01ts1-12.pn.ITnet.it PART #italia :DANILO
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,1 avete foto da mandarmi???????????
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :ACTION se ne va, a piu tardi!!!!!!!!!!!!!
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:Fargetta!mmystere@swna69-201.iol.it JOIN :#italia
+
+:cicccio!c.f.s.@swna69-224.iol.it JOIN :#italia
+
+:^DJANGO!~INFORMATI@158.102.47.247 PRIVMSG #italia :grazie giorgia
+
+:DANILO!trevisan@go01ts1-12.pn.ITnet.it JOIN :#italia
+
+:paolo_3!~crypter@sie-home-1-3.urbanet.ch PRIVMSG #italia :ce una bella donna per parlare con me
+
+:unfaehig!unfaehig@pool24.wiwi.uni-frankfurt.de JOIN :#italia
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :ciao a tutti
+
+:Paura!PAO@195.46.36.20 QUIT :Connection timed out
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :AVE GENTEEEEEEE <---questi attacchi mi vengono spontanei ke si sappiaaaa
+
+:^DJANGO!~INFORMATI@158.102.47.247 PRIVMSG #italia ::**
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,1 avete foto da mandarmi???????????
+
+:rj!~rchiller@Firenze9-46.tin.it PRIVMSG #italia :C'é qualcuno di Scandicci?
+
+:babybirba!~bowling@rub151.vr00.ne.interbusiness.it NICK :babybirbo
+
+:Scorpione!scorpione@www.queen.it PRIVMSG #italia :|^OLtRe^| il canale e' salvo per adesso :>
+
+:diamante!~yhjhgjhj@ip67.netline96.it JOIN :#italia
+
+:mambo!cino@asy03-ravenna.asianet.it QUIT :Leaving
+
+:Piolox!ciaociao@Trieste5-14.tin.it PART #italia :Piolox
+
+:Piolox!ciaociao@Trieste5-14.tin.it JOIN :#italia
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :2,3quanto sta l' inter?
+
+:robyx!utint@195.120.77.201 PRIVMSG #italia :ti voglio bene serena 
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :2,3quanto sta l' inter?
+
+:ambrogio!lab@194.243.56.100 JOIN :#italia
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it PRIVMSG #italia :ahahahahahahahaha
+
+:Fargetta!mmystere@swna69-201.iol.it PRIVMSG #italia :nessuna ragazza è interessata ad un ragazzo di 15 anni?
+
+:|^OLtRe^|!OLtRe@net130-044.mclink.it QUIT :Dynamirc v3.0 http://www.zuzzurello.com/informazione/khyri/
+
+:robyx!utint@195.120.77.201 PRIVMSG #italia :ti voglio bene serena 
+
+:Tex^away!goldc@eth00.mcorvino.peoples.it PRIVMSG #italia :ACTION has been away since 21:06:25 ( away concesso in libera concessione da gianbat del Rawhide )
+
+:RARA60!carluc@m-3-fano.indi.it QUIT :Connection reset by peer
+
+:fantasma!~Client_5@rub005.ts00.ne.interbusiness.it PRIVMSG #italia :QUALCUNA VUOL DIGITERE CON ME PER PIETA'
+
+:Kirk_at!~alca@line07.atlink.it QUIT :Error 0
+
+:Playmaker!ThePivels@rieti.nautanet.it PRIVMSG #italia :1-0
+
+:Attilio!attilag@Sondrio3-24.tin.it PRIVMSG #italia :9,1 avete foto da mandarmi???????????
+
+:Dix^!dix@sana2.netanday.it KICK #italia fantasma :Usi troppe maiuscole...
+
+:Gauccio!1@starfight00.xnet.it PRIVMSG #italia :l'inter perde 2-0
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :12,3quanto sta l' inter?
+
+:Samantha!~ALONEDARK@digdur.lovdata.no KICK #italia Attilio :--- Non ripetere Grazie! ---
+
+:fantasma!~Client_5@rub005.ts00.ne.interbusiness.it JOIN :#italia
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :12,8W0,1 11,4L4,11E0,1 15,3C12,8A11,4N4,11N15,3E
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :12,3quanto sta l' inter?
+
+:Samantha!~ALONEDARK@digdur.lovdata.no MODE #italia -b *!*@ppp-13.macronet.it 
+
+:pippero!tripc5@194.243.143.103 PRIVMSG #italia :c'è qualche fan di STAR TREK?
+
+:BRASIL!WORLDGYM@194.184.95.36 JOIN :#italia
+
+:summe_r!/////@195.103.129.20 QUIT :Leaving
+
+:Elisa74!~dadaumpa@Biella4-51.tin.it JOIN :#italia
+
+:alberto!alice@alice5.alicecafe.it QUIT :Leaving
+
+:Attilio!attilag@Sondrio3-24.tin.it JOIN :#italia
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :12,13quanto sta l' inter?
+
+:pixi1!~fr56lp@ppp-15.rtmol.stt.it PRIVMSG #italia :1-0
+
+:AnGeLFaKe!Sphere@ppp01-gw1.bl.nettuno.it PRIVMSG #italia :visitate il mio sito: http://www.nettaxi.com/citizens/angelf  Only SEX!!
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :12,1quanto sta l' inter?
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :12,1quanto sta l' inter?
+
+:Mr_Fidel!~MARCOS@194.184.178.41 QUIT :Broken pipe
+
+:^^MiKy^^!DADO@194.243.45.66 JOIN :#italia
+
+:Cronico!prnice@194.184.95.39 QUIT :Leaving
+
+:Napoleone!i@195.31.205.26 PRIVMSG #italia :12,1quanto sta l' inter?
+
+:^DJANGO!~INFORMATI@158.102.47.247 PRIVMSG #italia :ACTION è il capitano kirk in persona
+
+:toronto!toronto@learnet.freenet.hut.fi PRIVMSG #italia :how many ppl in #italia ??
+
+:SKIZZaway!~mgenito@Benevento4-57.tin.it KICK #italia Napoleone :4§I<¥ßøt © 2.6 Stop repeating yourself ! 
+
+:Piolox!ciaociao@Trieste5-14.tin.it PRIVMSG #italia :sta vincendo L'INTER , e Ronaldo ha sbagliato un rigore
+
+:[CaNNON]!LuCiFeRo@hd60-219.hil.compuserve.com PRIVMSG #itaLIA :!seen sHOCK^OTL
+
+:Leos!jack67@co-max-ip-71.iunet.it PRIVMSG #italia :1-0
+
+:|Leila|!irc@dns.datas.it PRIVMSG #itaLIA :[CaNNON]: sHOCK^OTL was last here 5 hours, 5 minutes ago
+
+:Samantha!~ALONEDARK@digdur.lovdata.no PRIVMSG #itaLIA :[CaNNON]: sHOCK^OTL was last here 5 hours, 5 minutes ago
+
+:RaVeL!ravel@cc-dialin3-1.hut.fi JOIN :#italia
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :Elisaaaaaaaaaaaaa :)
+
+:jade!fdfrefr@dialin-04.askesis.it PRIVMSG #italia :come faccio il simbolo infinito con la tastiera????
+
+:vinci1!neverland@async3.lumetel.it JOIN :#italia
+
+:skatafasc!birbar@dns.datas.it PRIVMSG #italia :robix ti voglio bene
+
+:Client4O!~AMUSE4@swpd64-78.iol.it JOIN :#italia
+
+:dafne!tretas@194.65.242.140 JOIN :#italia
+
+:foxtwo!~rlucia@Salerno4-33.tin.it MODE #italia +o Elisa74 
+
+:gemello!+infotel@194.184.182.45 JOIN :#italia
+
+:Verdolina!LONIGOVICE@175-217-25.ipt.aol.com JOIN :#italia
+
+:anna!HDC@rub102.pn00.ne.interbusiness.it JOIN :#italia
+
+:pbowl2!pc2@pc2-palabowling.panservice.it JOIN :#italia
+
+:marios!mario@ppp04.montesarchio.peoples.it QUIT :Excess Flood
+
+:NUANDA!nuanda@nu.isnet.it QUIT :Leaving
+
+:triste!~utint@194.243.109.19 JOIN :#italia
+
+:ReFuGiNa!refugee@phix.com PRIVMSG #itaLIA :[CaNNON]: sHOCK^OTL was last here 5 hours, 5 minutes ago
+
+:Viper^^!cobra@latina-26.panservice.it PRIVMSG #italia :che pippa Ronaldo :)
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it PRIVMSG #italia :4Qualcuno può dirmi come fare ad andare in roxybar? Senza sbattermi fuori dicendomi monnezza?
+
+:^^MiKy^^!DADO@194.243.45.66 PRIVMSG #italia :ciao a tutti
+
+:LKx!stemanfr@m-2-osimo.indi.it QUIT :Leaving
+
+:gerry`!bowgal4@pc4.bowgallarate.it PRIVMSG #italia :ciao da gerry a tutte le signore
+
+:diamante!~yhjhgjhj@ip67.netline96.it QUIT :Error 0
+
+:il_gigi!kk@legnago2.netbusiness.it QUIT :[The Pivels 2.0] - www.geocities.com/Eureka/Park/7321
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :0,1 1,2 2,3 3,4 4,5 5,6 6,7 7,8 8,9 9,10 10,11 11,12 12,13 13,14 14,15 15,08,10,0 15,1>12,1<13,1(11,1(9,1(13,1(4,1(0,1º8,1> 0,1 alessia- 8,1<0,1º4,1)9,1)11,1)13,1)12,1)15,1>8,1<15,0 14,15 13,14 12,13 11,12 10,11 9,10 6,9 7,8 6,7 5,6 4,5 3,4 2,3 1,2 0
+
+:TopoGigio!orsoyogy@pe01ts1-01.pn.ITnet.it QUIT :Leaving
+
+:BRASIL!WORLDGYM@194.184.95.36 PRIVMSG #italia :ciao
+
+:larss!larss@Milano30-22.tin.it PRIVMSG #Italia :12Il 13**Ralph III 3§2¢4®5¥6¶7t10æ** 12Avverte Che13 larss 12è Via Un Attimo Perchè10 #away! 12... Se Volete Chiamarmi, Fate 6Ctcp larss Awaymsg + Il Vostro Messaggio12!
+
+:larss!larss@Milano30-22.tin.it NICK :larssaway
+
+:^^MiKy^^!DADO@194.243.45.66 PRIVMSG #italia :4 12[The Pivels v2.0] Su questo canale ci sono 407 utenti. 31 oppati, 376 no.
+
+:xxx-rated!~cap@caffe8.gianni-cafe.it PRIVMSG #italia :maufel manda virus in rete
+
+:Unico!~abcd@194.243.105.71 JOIN :#italia
+
+:Anatra!Anatra@cetena5.ulisse.it JOIN :#italia
+
+:monkeys!Domino@farnetici1.netanday.it PRIVMSG #italia :molllllaciiiiii
+
+:MAJIN_GT!m3.b24@194.243.134.170 PART #italia :MAJIN_GT
+
+:lapacho!IOFORSE@195.46.36.17 JOIN :#italia
+
+PING :irc.stealth.net
+
+:FDS!m3.b24@Napoli11-54.tin.it JOIN :#italia
+
+:terremoto!Guendalin@195.103.129.37 PART #italia :terremoto
+
+:SKIZZaway!~mgenito@Benevento4-57.tin.it PRIVMSG #italia :ACTION is coming back...I was away since2 [21:20] 
+
+:SKIZZaway!~mgenito@Benevento4-57.tin.it NICK :SKIZZO_
+
+:ReFuGiNa!refugee@phix.com PRIVMSG #italia :ACTION is away : I'm reading my Email (Left at: 12:30,  9 Dec 1997)
+
+:pbowl2!pc2@pc2-palabowling.panservice.it PRIVMSG #italia :;)
+
+:SKIZZO_!~mgenito@Benevento4-57.tin.it NICK :SKIZZO
+
+:|robertus!~i096851@rm6-max-ip-177.iunet.it JOIN :#italia
+
+:summe_r!/////@195.103.129.20 JOIN :#Italia
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :Silla ti vengono spontanei pure a te....la vecchiaia fa venì certi skizziiii
+
+:john1!.@Bologna11-197.tin.it PRIVMSG #italia :fra poco mi scade mirc in prova... come avete fatto voi???
+
+:Eros_!erosit@r1p122.ntt.it QUIT :Ping timeout
+
+:socrates!telecom@eth01.alburni.peoples.it PRIVMSG #italia :sono un prof. e cerco una prof.!!!!!!!!!!!
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it PRIVMSG #italia :ACTION is back now at2 [21:27]. Did I miss something ? ;) 1[§I<¥ßøt © 2.6]
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:Napoleone!i@195.31.205.26 JOIN :#italia
+
+:FDS!m3.b24@Napoli11-54.tin.it PART #italia :FDS
+
+:^Principe!principe@194.244.31.33 QUIT :Broken pipe
+
+:BRASIL!WORLDGYM@194.184.95.36 PART #italia :BRASIL
+
+:bellissim!Guendalin@195.103.129.34 NICK :paolo
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :4,1@9,1}-`-,-- 4,1@9,1}-`-,--12,8 foxtwo 4,1@9,1}-`-,-- 4,1@9,1}-`-,--');
+
+:Robyone!~Roby@195.120.207.41 JOIN :#italia
+
+:xinxin!fr@mn-max-ip-252.iunet.it QUIT :Connection timed out
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it PRIVMSG #italia :ACTION reeeeeeeeeeeeeeeeeeeeeee
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :oplalà le rose
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:unfaehig!unfaehig@pool24.wiwi.uni-frankfurt.de QUIT :Leaving
+
+:MORRISON!felix@151.99.186.129 JOIN :#italia
+
+:xuto!fr@mn-max-ip-252.iunet.it QUIT :Broken pipe
+
+:BRASIL!WORLDGYM@194.184.95.36 JOIN :#italia
+
+:mcmax!b.club@195.103.129.43 NICK :ago73
+
+:AnGeLFaKe!Sphere@ppp01-gw1.bl.nettuno.it PRIVMSG #italia :visitate il mio sito: http://www.nettaxi.com/citizens/angelf  Only SEX!!
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :15,4RONALDO mi fa schifooooooooooooooooooooooo
+
+:Maraja!Ago@cn04ts1-12.pn.ITnet.it JOIN :#italia
+
+:Fargetta!mmystere@swna69-201.iol.it PRIVMSG #italia :jenny chiamami in quey
+
+:piero^^!utint@195.103.102.150 PART #italia :piero^^
+
+:Chiaretta!~pazzi@rub094.mc00.cn.interbusiness.it QUIT :Connection timed out
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :11,1~9,1(_.·´¯)11,1¤4,18,1Bye6,19¤11(_.·´¯)9¤80 foxtwo 99¤11(_.·´¯)9¤28,1Bye611¤9(_.·´¯)11~
+
+:fantasma!~Client_5@rub005.ts00.ne.interbusiness.it PRIVMSG #italia :digitate con me
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :Silla4smack :)
+
+:pbowl2!pc2@pc2-palabowling.panservice.it PRIVMSG #italia :ciao a tutti
+
+:winsurfer!claudio@ip014.pool-21.flashnet.it JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :meglio così va
+
+:PORTANOVA!sempre_vic@195.103.219.157 JOIN :#italia
+
+:RazorKill!RbS@193.189.182.236 JOIN :#italia
+
+:piero^^!utint@195.103.102.150 JOIN :#italia
+
+:toronto!toronto@learnet.freenet.hut.fi PART #italia :toronto
+
+:[^Vi_AwAy!pirozzi@151.99.156.244 PRIVMSG #italia :ACTION è via dalle  21.49.29 perchè....non mi chimate ((msg:registrati))((se vi servo:/ctcp [^Vi_AwAy PAGE))
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :ciao Silla4bella1:4*
+
+:lupis!~anpagano@Lucca3-19.tin.it JOIN :#italia
+
+:Leos!jack67@co-max-ip-71.iunet.it PRIVMSG #italia :come si fa a chattare su roxybar????????????????
+
+:giobba!tripc7@194.243.143.105 NICK :susina
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it PRIVMSG #italia :azzlalà-------------->only for you Silla:PP
+
+:Ema33!~mc3801@195.94.129.40 JOIN :#italia
+
+:lupis!~anpagano@Lucca3-19.tin.it PRIVMSG #italia :# Appears as ARMANDO.
+
+:Mr_Fidel!~MARCOS@194.184.178.41 JOIN :#italia
+
+:SEXPHONE!SDPrO@195.103.15.204 JOIN :#italia
+
+:Chiaretta!~pazzi@rub094.mc00.cn.interbusiness.it JOIN :#italia
+
+:LEONE_!bi.club@195.103.129.42 QUIT :Ping timeout
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :Sillaa domaniiiiiiiiiiiiiiiiiiii
+
+:Sabba!BLACK_SABB@legnago6.netbusiness.it QUIT :Error 0
+
+:CaLiGoLa!~derby5@195.103.58.70 MODE #italia +o Bonetty 
+
+:max-!netcafe@195.103.128.193 KICK #italia lupis :4§I<¥ßøt © 2.6 Stick your fuckin' Comic Chat up your ass sideways !! 
+
+:Guevara!~ceompers@Palermo8-184.tin.it JOIN :#italia
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:lupis!~anpagano@Lucca3-19.tin.it PRIVMSG djk87 :# Appears as ARMANDO.
+
+:gemello!+infotel@194.184.182.45 PART #italia :gemello
+
+:gemello!+infotel@194.184.182.45 JOIN :#italia
+
+:uby71!~biru@194.91.50.145 PRIVMSG #italia :CIAO A TUTTE
+
+:OKAMI!KAMI@Torino12-78.tin.it JOIN :#italia
+
+:M28!+longos@195.103.129.17 QUIT :Leaving
+
+:itasurfer!petrachi@sesam-line9.media.it JOIN :#italia
+
+:Gambino!~polka@rtrsa48aq.sgol.it JOIN :#italia
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :ACTION hugs 1©2©3©4©5©6©7©8©9©10©11©12©13©14©15© SKIZZO 1©2©3©4©5©6©7©8©9©10©11©12©13©14©15©
+
+:raf^!nbp97109@a12-01.studres.strath.ac.uk QUIT :Leaving
+
+:bacio!NetUno13@195.120.69.22 JOIN :#ITALIA
+
+:Lupin3!anonimo@151.99.232.111 PRIVMSG #Italia :ACTION 4,9 Invita tutti i Senesi su #Siena
+
+:Umano!-XXXX@208.163.252.20 PART #italia :Umano
+
+:anna!HDC@rub102.pn00.ne.interbusiness.it PRIVMSG #italia :sono triste
+
+:alessia-!SkyBot@r2p077.ntt.it PRIVMSG #italia :ACTION cronaca...abbiamo una Silla molto inventiva stasera una Dix^ arrapata e un'alessia + asina del solitoo
+
+:^^cristia!secpc1@sec-piano03.xnet.it PRIVMSG #italia :cerco ragazze zona udine
+
+:Gambino!~polka@rtrsa48aq.sgol.it PART #italia :Gambino
+
+:pbowl2!pc2@pc2-palabowling.panservice.it NICK :_fiaba
+
+:_fiaba!pc2@pc2-palabowling.panservice.it PRIVMSG #italia :;)
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :15,4RONALDO mi fa schifooooooooooooooooooooooo
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :<12H1><12U1><12G1><12S1> Viper^^ <12K1><12I1><12S1><12S1><12E1><12S1>
+
+:deste!deste@mrb2.novanet.it PRIVMSG #italia :ACTION vi invita a visitare 4,16 http://www.novanet.it/com/personale/destefani/
+
+:cK-one!Bellissimo@asy03.gol.grosseto.it QUIT :Connection reset by peer
+
+:Sabba!BLACK_SABB@legnago4.netbusiness.it JOIN :#italia
+
+:__michele!Mikelino@Verona6-36.tin.it PRIVMSG #italia :ci sei?
+
+:X12!xxx@Ancona4-11.tin.it QUIT :Connection reset by peer
+
+:Kiev!pentha@195.60.134.23 JOIN :#italia
+
+:Viper^^!cobra@latina-26.panservice.it PRIVMSG #italia ::))
+
+:Marco78!LGUERRINI@ppp2.unisi.it PRIVMSG #italia :8,2Chi chatta con me?
+
+:tom--s!Guendalin@195.103.129.37 JOIN :#italia
+
+:tom--s!Guendalin@195.103.129.37 QUIT :Leaving
+
+:[CaNNON]!LuCiFeRo@hd60-219.hil.compuserve.com TOPIC #italia :[Wallop/ircd.webbernet.net]: Remote CONNECT *.portal.ru 6667 from SVC
+
+:susina!tripc7@194.243.143.105 NICK :giobba
+
+:foxtwo!~rlucia@Salerno4-33.tin.it TOPIC #italia :@}---`-----,-------,---`-----{@ Silla @}---`-----,-------,---`-----{@
+
+:perla^!pc3@195.120.26.186 QUIT :Connection reset by peer
+
+:Sibemolle!eryxymo@s21-157.mi.energy.it PRIVMSG #italia :4qualcuno sa dirmi come entrare in roxybar?
+
+:marcos!+marcos@195.103.102.134 QUIT :[
+
+:_mario!pc4@pc4-palabowling.panservice.it QUIT :Leaving
+
+:xuto!fr@mn-max-ip-201.iunet.it JOIN :#italia
+
+:VOLPINO!+killer@195.103.129.28 QUIT :Error 0
+
+:Viper^^!cobra@latina-26.panservice.it PRIVMSG #italia :thanx! Silla
+
+:Strike!~login@async05-fo.queen.it JOIN :#italia
+
+:RaVeL!ravel@cc-dialin3-1.hut.fi PART #italia :RaVeL
+
+:aquila_!Guendalin@195.103.129.35 JOIN :#italia
+
+:AL_AN!~AL_AN@Udine4-42.tin.it JOIN :#italia
+
+:ago73!b.club@195.103.129.43 PRIVMSG #italia :ciao 
+
+:arto1!~Pc11@194.183.1.84 JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :beh ..foxetto eheheheeh
+
+:foxtwo!~rlucia@Salerno4-33.tin.it PRIVMSG #italia :azzz
+
+:franx!~dsdfs@1Cust27.tnt19.nyc3.da.uu.net QUIT :Leaving
+
+:tom--s!Guendalin@195.103.129.37 JOIN :#italia
+
+:JENNIFER_!~Veronica@I26-P2.uni.net JOIN :#ITALIA
+
+:Doctor!~zigzag@Milano18-40.tin.it JOIN :#italia
+
+:Luca!Luca@Gorizia3-14.tin.it JOIN :#italia
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :12,8W0,1 11,4L4,11E0,1 15,3C12,8A11,4N4,11N15,3E
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:aquila_!Guendalin@195.103.129.35 PRIVMSG #italia :ACTION risaluta tutto il canale :)))))))))))
+
+:aquila_!Guendalin@195.103.129.35 PRIVMSG #italia :ACTION risaluta tutto il canale :)))))))))))
+
+:CICCIOLIN!pc8@pc8-palabowling.panservice.it QUIT :Leaving
+
+:spyke!a@151.99.168.43 JOIN :#italia
+
+:^Principe!principe@latina-29.panservice.it JOIN :#italia
+
+:Writer40!xxxx@dial27.panama.c-com.net JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Viper^^ ...ehehehe piacere :)))
+
+:PRIDE^kkk!justice@bay3-26.icenet.fi JOIN :#italia
+
+:Kokart!RbS@193.189.182.236 JOIN :#italia
+
+:BRASIL!WORLDGYM@194.184.95.36 PRIVMSG #italia :anche a noi  ronaldo ci fa schifo
+
+:Libido_!~powandrea@Trieste5-57.tin.it JOIN :#italia
+
+:twenty!xxxx@async01-cs1.meet.it PART #Italia :twenty
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it PRIVMSG #italia :Silla:)
+
+:PRIDE^kkk!justice@bay3-26.icenet.fi PART #italia :PRIDE^kkk
+
+:Cucdom!cucdom@194.184.178.40 QUIT :Connection timed out
+
+:Leos!jack67@co-max-ip-71.iunet.it PRIVMSG #italia :tutttttttttttolooooooooooooooogggggggggooooooooooooo
+
+:vinci1!neverland@async3.lumetel.it PRIVMSG #italia :marco 78 dimmi come fai il colore per favore!:)
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :toh... un'aquila
+
+:Stroz!garoth@oak.rpg.org.pl JOIN :#italia
+
+:lapacho!IOFORSE@195.46.36.17 PRIVMSG #italia :w fulminato!!
+
+:Mave!~maverick@195.122.64.48 JOIN :#italia
+
+:RazorKill!RbS@193.189.182.236 QUIT :Excess Flood
+
+:GIUSTIZIE!Crto@swtr64-149.iol.it QUIT :Broken pipe
+
+:Mave!~maverick@195.122.64.48 PRIVMSG #italia :Ciao a Tutti!!!
+
+:Kiev!pentha@195.60.134.23 PART #italia :Kiev
+
+:Doctor!~zigzag@Milano18-40.tin.it PRIVMSG #italia :ACTION Ciao a tuttiiiiiiiiiiiiiiiiiii
+
+:Enricolan!yuri@195.103.226.205 JOIN :#Italia
+
+:aquila_!Guendalin@195.103.129.35 PRIVMSG #italia :ACTION uèèèèèèèèè ho salutato !!!!!!!!!!!!!
+
+:DOCTOR2!~Bubba@cento1-max-ip-116.iunet.it JOIN :#italia
+
+:picche!~giogio@tech-ppp001.netway.it JOIN :#italia
+
+:tom--s!Guendalin@195.103.129.37 PRIVMSG #italia :10,11141312810947131281094 ciaooooooooooooo:))))) 15,11141312810947131281094
+
+:Scorpione!scorpione@www.queen.it MODE #italia +o aquila_ 
+
+:spicedan!nome@net130-173.mclink.it PRIVMSG #italia :4,8 CERCO POSSESSORI DI MOTORACER
+
+:fabry!mazzafnc@Venezia7-73.tin.it JOIN :#italia
+
+:FRANCY69!lohacker@swfi71-123.iol.it PRIVMSG #italia :8,1Ci sei SARA???????????????????????????????????????????
+
+:Leon_mo!kk@s24.datas.it JOIN :#italia
+
+:FRANCY69!lohacker@swfi71-123.iol.it PRIVMSG #italia :8,1Ci sei SARA???????????????????????????????????????????
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :ACTION dice che sono le ore 12º4[0,2 21.32.41 4,]12º  minuto + minuto - :-Þ
+
+:Dix^!dix@sana2.netanday.it KICK #italia spicedan :Non URLARE!!!!
+
+:spicedan!nome@net130-173.mclink.it JOIN :#italia
+
+:^zeus1^!salerno@195.120.26.179 QUIT :Connection reset by peer
+
+:FULMINATO!giater@dial-505.argosid.it PRIVMSG #italia :w lapacho
+
+:djspider8!OS2best@195.120.231.32 JOIN :#italia
+
+:SKIZZO!~mgenito@Benevento4-57.tin.it MODE #italia +o aquila_ 
+
+:Claudia}!claudia@Roma32-220.tin.it JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PRIVMSG #Italia :Ciao a tutti ..e fate i bravi :)))
+
+:PORTOS!paolo@bbs-18.galactica.it JOIN :#italia
+
+:RazorKill!~Kolaj@193.189.182.236 JOIN :#italia
+
+:siffel!unfaehig@pool24.wiwi.uni-frankfurt.de JOIN :#italia
+
+:Silla!Silla@pr-max-ip-146.iunet.it PART #Italia :Silla
+
+:ago73!b.club@195.103.129.43 PRIVMSG #italia :akuilaaaaaaaaaaaaaaaaaaa
+
+:Maufel!+maufel@151.99.178.26 QUIT :Leaving
+
+:Trieste!~Client_3@rub005.ts00.ne.interbusiness.it PART #italia :Trieste
+
+:Emanuela!-lovefeder@195.103.156.58 JOIN :#italia
+
+:fabiolt!fabio71@latina-8.panservice.it JOIN :#italia
+
+:Stroz!garoth@oak.rpg.org.pl QUIT :Excess Flood
+
+:Mave!~maverick@195.122.64.48 PART #italia :Mave
+
+:Samantha!~ALONEDARK@digdur.lovdata.no PRIVMSG #italia :ACTION is away : Go to eat Brioche and Hot Chocolate (Left at: 21:33,  9 Dec 1997)
+
+:emanuele!+cavolo@208.209.175.101 JOIN :#ITALIA
+

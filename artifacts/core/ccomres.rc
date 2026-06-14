@@ -1,0 +1,24 @@
+/////////////////////////////////////////////////////////////////////////////
+// CComRes.Rc
+//=--------------------------------------------------------------------------=
+// Copyright  1996  Microsoft Corporation.  All Rights Reserved.
+//
+//=--------------------------------------------------------------------------=
+//
+#include "CComRes.H"
+#include "Windows.H"
+
+STRINGTABLE DISCARDABLE
+BEGIN
+	IDS_APPEARSAS,			"# Appears as "
+	IDS_GETINFO,			"# GetInfo"
+	IDS_BACKGROUND,			"# Background "
+	IDS_CCPREFIX,			"(#"
+	IDS_CCSUFFIX1,			") <Chr>"
+	IDS_CCSUFFIX2,			") "
+	IDS_ACTION,				"ACTION"
+	IDS_M3,					"M3"
+	IDS_M5,					"M5"
+
+	IDS_ILLEGALUSER_SICILY,	"This login information is incorrect."
+END

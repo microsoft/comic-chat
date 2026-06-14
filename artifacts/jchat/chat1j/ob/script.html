@@ -1,0 +1,66 @@
+<html>
+
+<!-- The commented out line sets the size of the java applet to a percentage of the overall window size. Best results for browsers on MacIntosh are obtained by specifying the width and height. -->
+
+<body bgcolor=c0c0c0>
+<FORM NAME="form1">
+
+<table >
+<tr>
+<td>Enter Nickname</td>
+<td><INPUT TYPE="text" SIZE="20" NAME="nickname"></td>
+</tr>
+<tr>
+<td>Enter Room (Optional)</td>
+<td><INPUT TYPE="text" SIZE="20" NAME="room"><td>
+</tr>
+<tr>
+<td>
+<INPUT TYPE="button" VALUE="Connect"
+   onClick="document.Chat.connect(document.form1.nickname.value, document.form1.room.value)">
+</td>
+<td>
+<INPUT TYPE="button" VALUE="Disconnect"
+   onClick="document.Chat.disconnect()">
+</td>
+</tr>
+<tr>
+<td>
+<INPUT TYPE="button" VALUE="showRoomList"
+   onClick="document.Chat.showRoomList()">
+</td>
+<td>
+<INPUT TYPE="button" VALUE="showFontDialog"
+   onClick="document.Chat.showFontDialog()">
+</td>
+</tr>
+<tr>
+<td>
+<INPUT TYPE="button" VALUE="showEnterRoomDialog"
+   onClick="document.Chat.showEnterRoomDialog()">
+</td>
+<td>
+<INPUT TYPE="button" VALUE="join (room from above)"
+   onClick="document.Chat.join(document.form1.room.value, null)">
+</td>
+</tr>
+<tr>
+<td>
+<INPUT TYPE="button" VALUE="showConnectDialog"
+   onClick="document.Chat.showConnectDialog()">
+</td>
+<td>
+<INPUT TYPE="button" VALUE="showAboutDialog"
+   onClick="document.Chat.showAboutDialog()">
+</td>
+</tr></table>
+</FORM>
+Note: with the toolbar option turned off, users cannot navigate to other rooms.
+<!-- applet code=MSChat archive=mschat.jar name=Chat width=100% height=85% -->
+<applet code=MSChat archive=mschat.jar name=Chat width=640 height=400>
+        <param name=cabbase value=mschat.cab>
+	<param name=autodisconnect value=true>
+	<param name=room value=#newbies>
+	<param name=toolbar value=false>
+</applet>
+</html>

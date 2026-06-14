@@ -1,0 +1,775 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\Chappy.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Chappy.ico"
+IDR_CHAPPYTYPE          ICON    DISCARDABLE     "res\\ChppyDoc.ico"
+IDI_ROOM_LIST           ICON    DISCARDABLE     "res\\room_lis.ico"
+IDI_SAY                 ICON    DISCARDABLE     "res\\icon1.ico"
+IDI_WHISPER             ICON    DISCARDABLE     "res\\ico00002.ico"
+IDI_DO                  ICON    DISCARDABLE     "res\\ico00003.ico"
+IDI_IMPORTANT           ICON    DISCARDABLE     "res\\ico00004.ico"
+IDI_EARTH               ICON    DISCARDABLE     "res\\Earth.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+IDR_SEND_TOOLBAR        BITMAP  DISCARDABLE     "res\\toolbar1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_SERVER_LOGIN
+    BUTTON      ID_SERVER_LOGOUT
+    SEPARATOR
+    BUTTON      ID_ROOM_CONNECT
+    BUTTON      ID_ROOM_DISCONNECT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_SEND_TOOLBAR TOOLBAR DISCARDABLE  16, 16
+BEGIN
+    BUTTON      ID_BTN_SEND
+    BUTTON      ID_BTN_WHISPER
+    BUTTON      ID_BTN_DO
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Server"
+    BEGIN
+        MENUITEM "&Log in",                     ID_SERVER_LOGIN
+        MENUITEM "Log &out",                    ID_SERVER_LOGOUT
+        MENUITEM SEPARATOR
+        MENUITEM "&List Rooms",                 ID_ROOM_LISTROOMS
+        MENUITEM SEPARATOR
+        MENUITEM "&Ban User",                   ID_SERVER_BANUSER
+    END
+    POPUP "&Room"
+    BEGIN
+        MENUITEM "&Enter",                      ID_ROOM_CONNECT
+        MENUITEM "E&xit",                       ID_ROOM_DISCONNECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Clear",                      ID_HISTORY_CLEAR
+        MENUITEM "&Get Info",                   ID_ROOM_INFO
+    END
+    POPUP "&Members"
+    BEGIN
+        MENUITEM "&Kick\tCtrl+K",               ID_PARTLIST_KICK
+        MENUITEM "&Ban\tCtrl+B",                ID_PARTLIST_BAN
+        MENUITEM SEPARATOR
+        MENUITEM "Make &Host",                  ID_PARTLIST_MAKEHOST
+        MENUITEM "Make &Participant",           ID_PARTLIST_MAKEPARTICIPANT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Chappy...",            ID_APP_ABOUT
+    END
+END
+
+IDR_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP "History"
+    BEGIN
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "C&lear",                      ID_HISTORY_CLEAR
+    END
+    POPUP "PartList"
+    BEGIN
+        MENUITEM "&Kick\tCtrl+K",               ID_PARTLIST_KICK
+        MENUITEM "&Ban\tCtrl+B",                ID_PARTLIST_BAN
+        MENUITEM SEPARATOR
+        MENUITEM "Make &Host",                  ID_PARTLIST_MAKEHOST
+        MENUITEM "Make &Participant",           ID_PARTLIST_MAKEPARTICIPANT
+    END
+    POPUP "Input"
+    BEGIN
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "&Send\tENTER",                ID_BTN_SEND
+        MENUITEM "&Whisper\tAlt+ENTER",         ID_BTN_WHISPER
+        MENUITEM "&Action",                     ID_BTN_DO
+    END
+    POPUP "Room"
+    BEGIN
+        MENUITEM "&List Rooms",                 ID_ROOM_LISTROOMS
+    END
+    POPUP "RoomHistory"
+    BEGIN
+        MENUITEM "&Enter Room",                 ID_ROOM_CONNECT
+        MENUITEM "E&xit Room",                  ID_ROOM_DISCONNECT
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "C&lear",                      ID_HISTORY_CLEAR
+    END
+    POPUP "RoomList"
+    BEGIN
+        MENUITEM "&Enter Room",                 ID_ROOMLIST_ENTERROOM
+        MENUITEM SEPARATOR
+        MENUITEM "&List Rooms",                 ID_ROOM_LISTROOMS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_RETURN,      ID_BTN_WHISPER,         VIRTKEY, ALT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Chappy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Chappy Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright © 1997",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+END
+
+IDD_CHAT_CONNECT DIALOG DISCARDABLE  0, 0, 215, 88
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Chappy - Enter Room"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_ROOM,5,18,203,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,5,45,203,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,99,67,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,158,67,50,14
+    LTEXT           "Room",IDC_STATIC,5,7,20,8
+    LTEXT           "Password",IDC_STATIC,5,33,32,8
+END
+
+IDD_LOG_IN_DLG DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Chappy - Server Log In"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,130,18,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,35,50,14
+    COMBOBOX        IDC_SERVER,8,17,116,133,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Server:",IDC_STATIC,8,7,24,8
+    EDITTEXT        IDC_PASSWORD,8,44,115,14,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "Password:",IDC_STATIC,8,33,34,8
+    EDITTEXT        IDC_NICKNAME,8,72,115,14,ES_AUTOHSCROLL
+    LTEXT           "Nickname",IDC_STATIC,8,61,33,8
+    CONTROL         "List all rooms <might take several minutes>",
+                    IDC_ROOM_LIST_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,92,149,10
+END
+
+IDD_PASSWORD DIALOG DISCARDABLE  0, 0, 186, 46
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Chappy - Password"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_PASSWORD,7,24,113,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LTEXT           "Password: ",IDC_STATIC,7,13,36,8
+END
+
+IDD_KICK DIALOG DISCARDABLE  0, 0, 186, 46
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Chappy - Kick"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LTEXT           "Reason:",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_REASON,7,24,118,14,ES_AUTOHSCROLL
+END
+
+IDD_BAN DIALOG DISCARDABLE  0, 0, 203, 187
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Chappy - Ban & Un-Ban"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "What !!",IDC_STATIC,7,7,51,64
+    CONTROL         "&Un-Ban",IDC_RB_UNBAN,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,14,20,40,10
+    CONTROL         "&Ban",IDC_RB_BAN,"Button",BS_AUTORADIOBUTTON,14,32,29,
+                    10
+    GROUPBOX        "Operation",IDC_STATIC,63,7,60,64
+    CONTROL         "E&qual to",IDC_RB_NO_OP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,69,20,45,10
+    CONTROL         "&Contains",IDC_RB_CONTAINS,"Button",BS_AUTORADIOBUTTON,
+                    69,32,43,10
+    CONTROL         "&Starts With",IDC_RB_STARTS_WITH,"Button",
+                    BS_AUTORADIOBUTTON,69,44,51,10
+    CONTROL         "&Ends With",IDC_RB_ENDS_WITH,"Button",
+                    BS_AUTORADIOBUTTON,69,56,49,10
+    GROUPBOX        "Property",IDC_STATIC,128,7,68,64
+    CONTROL         "&IP Address",IDC_RB_IP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,134,20,50,10
+    CONTROL         "&Nickname",IDC_RB_NICKNAME,"Button",BS_AUTORADIOBUTTON,
+                    134,32,48,10
+    CONTROL         "&User Name",IDC_USER_NAME,"Button",BS_AUTORADIOBUTTON,
+                    134,44,51,10
+    LTEXT           "Value:",IDC_STATIC,7,77,21,8
+    EDITTEXT        IDC_VALUE,7,87,189,14,ES_AUTOHSCROLL
+    LTEXT           "For How Many Minutes ?",IDC_STATIC,7,105,80,8
+    EDITTEXT        IDC_HOW_LONG,7,115,189,14,ES_AUTOHSCROLL
+    LTEXT           "Reason ?",IDC_STATIC,7,133,32,8
+    EDITTEXT        IDC_REASON,7,143,189,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,84,166,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,150,166,46,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "CHAPPY MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "CHAPPY\0"
+            VALUE "LegalCopyright", "Copyright © 1997\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "CHAPPY.EXE\0"
+            VALUE "ProductName", "CHAPPY Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_CHAT_CONNECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 208
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 81
+    END
+
+    IDD_LOG_IN_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_PASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_KICK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 94
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_BAN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        VERTGUIDE, 14
+        VERTGUIDE, 63
+        VERTGUIDE, 69
+        VERTGUIDE, 128
+        VERTGUIDE, 134
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 180
+        HORZGUIDE, 20
+        HORZGUIDE, 71
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_LOG_IN_DLG DLGINIT
+BEGIN
+    IDC_SERVER, 0x403, 23, 0
+0x6f63, 0x696d, 0x7363, 0x7672, 0x6d2e, 0x6369, 0x6f72, 0x6f73, 0x7466, 
+0x632e, 0x6d6f, "\000" 
+    IDC_SERVER, 0x403, 24, 0
+0x6f63, 0x696d, 0x7363, 0x7672, 0x2e31, 0x696d, 0x7263, 0x736f, 0x666f, 
+0x2e74, 0x6f63, 0x006d, 
+    IDC_SERVER, 0x403, 24, 0
+0x6f63, 0x696d, 0x7363, 0x7672, 0x2e32, 0x696d, 0x7263, 0x736f, 0x666f, 
+0x2e74, 0x6f63, 0x006d, 
+    IDC_SERVER, 0x403, 24, 0
+0x6f63, 0x696d, 0x7363, 0x7672, 0x2e33, 0x696d, 0x7263, 0x736f, 0x666f, 
+0x2e74, 0x6f63, 0x006d, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Chappy\n \nChappy\n\n\nChappy.Document\nChappy Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Chappy"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new room\nNew Room"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    IDS_SEND                "Send"
+    IDS_WHISPER             "Whisper"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cuts the selection and puts it in the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    IDS_NO_MEMBER_SELECTED  "You need to select a member to whisper"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_BTN_SEND             "Send"
+    IDS_NO_ROOM_LIST_MSG    "Right click on this window for the room list"
+    ID_BTN_WHISPER          "Whisper"
+    IDS_CHAT_TAB            "Chat Room"
+    IDS_ROOM_LIST_TAB       "Room List "
+    IDS_MESSAGES_TAB        "Private Messages "
+    ID_PARTLIST_KICK        "Kick this paricipant out of the room"
+    ID_PARTLIST_BAN         "Ban this participant from this room"
+    ID_ROOM_CONNECT         "Enter a chat room\nEnter Room"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FAIL_TO_LOAD_OCX    "Chappy failed to load MSChatPr.ocx.\nYou might need to install it."
+    IDS_URL_TO_CHAT         "http://www.microsoft.com/ie/ie3/chatocx.htm"
+    IDS_DEFAULT_CHAT_ROOM   "#TestThis"
+    IDS_DEFAULT_NICKNAME    "Andrea"
+    IDS_DEFAULT_SERVER      "comicsrv1.microsoft.com"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TEXT_MSG_TYPE       "Says:"
+    IDS_DATA_MSG_TYPE       "gives you a notice:"
+    IDS_NORMAL_MSG_TYPE     "Data:"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_ROOM_DISCONNECT      "Exit from the current chat room\nExit Room"
+    ID_BTN_THINK            "Think"
+    ID_BTN_DO               "Do"
+    IDM_SELECT_FONT         "Opens the font selection dialog"
+    ID_ROOM_LOGIN           "Log in a chat server\nLogIn"
+    ID_ROOM_LOGOUT          "Logs you out and disconnect from the server\nLogOut"
+    ID_ROOM_LISTROOMS       "Refresh the list of rooms"
+    ID_ROOMLIST_ENTERROOM   "Enter the selected room"
+    ID_SERVER_LOGIN         "Connect to the server and Log In\nConnect && Log In"
+    ID_SERVER_LOGOUT        "Log Out and disconnect from the Server\nLog Out && Disconnect"
+    ID_SERVER_BANUSER       "Ban a user or a group of users from the server"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CS_DISCONNECTED     "Disconnected"
+    IDS_CS_CONNECTING       "Connecting"
+    IDS_CS_CONNECTED        "Connected"
+    IDS_CS_LOGGING          "Logging"
+    IDS_CS_LOGGED           "Logged"
+    IDS_CS_DISCONNECTING    "Disconnecting"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CT_NOTCONNECTED_YET " "
+    IDS_CT_IRC              "IRC: "
+    IDS_CT_IRCX             "IRCX: "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SMT_NORMAL          "Server Message:\n"
+    IDS_SMT_NOTIFICATION    "Notice:\n"
+    IDS_SMT_MESSAGE_OF_THE_DAY "Server message of the day:\n"
+    IDS_SMT_SERVER_INFO     "Server Info:\n"
+    IDS_SMT_ERROR           "ERROR:\n"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MNU_CANCEL_LOGGING  "Cancel L&og in"
+    IDS_MNU_LOGOUT          "Log &out"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ADD_MEMBER          "has joined the conversation"
+    IDS_DEL_MEMBER          "has left the conversation"
+    IDS_KICKED_MSG          "%s got kicked from room %s, because: %s"
+    IDS_CHANNEL_ERROR_MSG   "Error in room %s - %u: %s"
+    IDS_CONNECTION_ERROR_MSG "Connection error - %u: %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SERVER_KILLUSER      "Kill a user"
+    ID_SERVER_KILLCHANNEL   "Remove a room from the list"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_IP_ADDRESS_ITEM     "IPAddress"
+    IDS_NICKNAME_ITEM       "Nickname"
+    IDS_USER_NAME_ITEM      "UserName"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_IP_ADDRESS_OP_NAME  "IPAddressOp"
+    IDS_NICKNAME_OP_NAME    "NicknameOp"
+    IDS_USER_NAME_OP_NAME   "UserNameOp"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONTAINS_OP         "Contains"
+    IDS_STARTS_WITH_OP      "StartsWith"
+    IDS_ENDS_WITH           "EndsWith"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_WHISPER_MSG_TYPE    "Whispers: "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_THOUGHT_MSG_TYPE    "Thinks: "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DO_MSG_TYPE         "Does: "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SOUND_MSG_TYPE      "plays a sound:"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INFO_MSG_TYPE       "INFO"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TCP_MSG_TYPE        "TCP"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\Chappy.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

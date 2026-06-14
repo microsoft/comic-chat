@@ -1,0 +1,147 @@
+WHAT
+
+  This is version 0.7 of hashjava.
+
+  Hashjava is a java library to alter symbol names directly from
+  java bytecode. It includes two example applications which obfuscates
+  symbol names in your bytecode.
+
+  This software is UNSUPPORTED. Please mail bug reports and suggestions
+  to kbs@sbktech.org.
+
+INSTALLATION
+
+  If you are reading this file, you have already successfully unpacked
+  the hashjava distribution. Check for a file called bin/HashApplet
+  (or bin\HashApplet.bat) If this file was created, your installation is
+  complete. Otherwise, add the directory the README file is sitting in
+  to your CLASSPATH.
+
+QUICK CHECK
+
+  If you already have a bin directory with the batch file, simply
+  run it.
+
+% bin/HashApplet
+
+  Otherwise, add the root directory of the installation to your
+  CLASSPATH and run the application HashApplet.
+
+% java sbktech.tools.hashjava.hashpplet.Main
+
+  Note that while the HashApplet application will make some effort to
+  replicate the directory structure of the applet as it obfuscates it,
+  it will NOT copy any dependent files (like images or sound) so you
+  will need to copy over the obfuscated bytecode to the original location
+  to get your obfuscated bytecode to work. Check the online
+  documentation for more details.
+
+MORE INFORMATION
+
+  The latest documentation is available online from
+  http://www.sbktech.org/hashjava.html
+
+  The doc/ subdirectory contains the package documentation for the
+  hashjava.bytecode library, which is the engine to alter symbols
+  in java bytecode.
+
+  The src/ subdirectory contains the complete source code to the
+  library and the example applications.
+
+KNOWN BUGS
+
+ Applet obfuscator application:
+  * If you use Class.forName() in your applet code, not all the code
+  will be correctly obfuscated, or your code may call classes with
+  the wrong name.
+  * Not all HTML input is correctly handled by the example
+  application.
+  * Various combinations of CODE/CODEBASE tags can also confuse the
+  example application.
+
+ Command line obfuscator:
+
+ Obfuscating engine:
+
+CHANGES from version 0.6
+Obfuscating engine
+ * Added support to handle 1.1 compiler attributes (InnerClass, mainly)
+
+CHANGES from version 0.5
+ Batch obfuscator
+ * Added options to swap name generation strategy, and ability
+   to rename the overall package name. Provided 3 builtin name
+   generation strategies.
+ * Added option to create a script to verify generated files.
+ Applet obfuscator
+ * Also uses same name generation idea, with new panel which
+   offers to switch between the provided alternatives.
+ Obfuscating engine
+ * Reduce space consumed by Mocha defeating code.
+
+ Many thanks to John Neffenger (john@volano.com) for the suggestions
+ and tests which led to these changes.
+
+CHANGES from version 0.4
+ Obfuscating engine:
+ * Now closes files explicitly to prevent the "too many open files"
+   problem when dumping classes.
+
+CHANGES from version 0.3
+ Obfuscating engine:
+ * API changes to fix another variant of the interface/class
+   hierarchy bug.
+
+ Applet obfuscator application:
+ * Added check to get full path name when the CLASSPATH contains
+   a "." to prevent the wrong classes getting loaded if the working
+   directory changes.
+
+CHANGES from version 0.2
+ Obfuscating engine:
+ * fixed bug that prevented classes that implemented interfaces
+   whose methods were defined in a superclass from being properly
+   obfuscated.
+ * Additional checks to detect certain forms of out of date dependencies
+
+ Applet obfuscator application:
+ * cosmetic changes to reduce the annoying animation leader, font
+   changes.
+
+ New command line obfuscator:
+
+CHANGES from version 0.1
+
+ Applet obfuscator application:
+ * added option to generate illegal identifiers (which uses java
+   operators for method/variable names) in applets.
+
+ Obfuscating engine:
+ * bug fix to catch table which was not properly updating the
+   pc into the code when the code size changes.
+
+LEGALESE
+
+  The hashjava package (including the example application) is
+  distributed under the GNU Library General Public License, please see
+  the file COPYING.LIB for details.
+
+  Keep backup copies of any bytecode you alter. I DO NOT GUARANTEE the
+  example application or the symbol altering library will work
+  correctly. Make sure you have a way to back out of any obfuscation
+  you perform if it fails to work.
+
+FINALLY...
+
+Ok. If you find this stuff useful enough you would consider paying
+money for it, send in $10 to the Red Cross (or any international
+charity you prefer.) Oh, and whether or not you choose to do so, no
+need to let me know :-)
+
+American Red Cross
+ online donations : http://www.redcross.org
+ US toll free     : 1-800-HELP-NOW
+
+Thanks,
+-KB-
+Tue Jul  8 08:33:46 PDT 1997

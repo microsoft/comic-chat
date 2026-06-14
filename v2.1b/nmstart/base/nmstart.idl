@@ -1,0 +1,63 @@
+#include <olectl.h>
+// NMStart.idl : IDL source for NMStart.Ocx
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (NMStart.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(F96522A1-FC37-11D0-99CB-00C04FD64497),
+	version(1.0),
+	helpstring("Microsoft NMStart Control 1.0")
+]
+library NMSTARTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	
+	[
+		object,
+		uuid(F96522AE-FC37-11D0-99CB-00C04FD64497),
+		dual,
+		helpstring("INMStt Interface"),
+		pointer_default(unique)
+	]
+	interface INMStt : IDispatch
+	{
+		[propget, id(1)] HRESULT AcceptNetMeetingCalls([out, retval] BOOL *pbAcceptNetMeetingCalls);
+		[propput, id(1)] HRESULT AcceptNetMeetingCalls([in] BOOL AcceptNetMeetingCalls);
+		[propget, id(2)] HRESULT NetMeetingInstalled([out, retval] BOOL *pbNetMeetingInstalled);
+		[propget, id(3)] HRESULT IPAddress([out, retval] BSTR *pbstrIPAddress);
+		[id(4)] HRESULT OpenNetMeetingConference([in] BSTR IPAddress);
+		[id(5)] HRESULT InstallNetMeeting();
+		[id(6)] HRESULT StartNetMeetingListen();
+	};
+
+	[
+        uuid(F96522AD-FC37-11D0-99CB-00C04FD64497),
+		helpstring("_INMSttEvent Interface")
+	]
+	dispinterface _INMSttEvent
+	{
+		properties:
+		//  Event interface has no properties
+		methods:
+		[id(10)]
+			void OnListenDone(VARIANT_BOOL Success);
+		[id(11)]
+			void OnConnectDone(VARIANT_BOOL Success);
+	};
+
+	[
+		uuid(F96522AF-FC37-11D0-99CB-00C04FD64497),
+		helpstring("Microsoft NMStart Control")
+	]
+	coclass NMStart
+	{
+		[default] interface INMStt;
+		[default, source] interface _INMSttEvent;
+	};
+};

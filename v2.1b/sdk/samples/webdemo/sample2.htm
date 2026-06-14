@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>Microsoft Chat Control - No Whispering Demo Page</title>
+</head>
+
+<body bgcolor="#FFFFFF" link="#FFFFDD" vlink="#33FFFF"
+topmargin="4">
+<script language="VBScript">
+</script>
+
+<h1 align="center"><font color="#0000FF" size="5">Microsoft Chat
+Control - No Whispering Demo Page</font></h1>
+
+<form name="WEBChat">
+    <pre>
+Chat Path   <input type="text" size="36" maxlength="64"
+name="Room" value="//ComicSrv.microsoft.com/#SampleRoom">
+Nick Name   <input type="text" size="36" maxlength="32"
+name="Alias" value="YourNickName">
+</pre>
+    <p><input type="button" name="FluxBtn"
+    value="   Join the chat   " onclick="Flux"  Language="VBScript"> </p>
+    <pre>
+</pre>
+</form>
+
+<p><object id="Chat"
+classid="clsid:D6526FE0-E651-11CF-99CB-00C04FD64497"
+codebase="MSChatOCX.Cab#Version=4,71,730,0"
+align="baseline" border="0" width="600" height="250"
+standby="Downloading the Microsoft Chat Control"
+codetype="application/x-oleobject"><param name="UIOption"
+value="4093"><param name="Appearance" value="0"><param
+name="BorderStyle" value="0"><param name="BackColor" value="255"></object></p>
+
+<pre>No Whisper button - MicOnly flag is set - NoWhisper type is set
+
+
+<script language="VBScript">
+SUB Flux
+	Dim Form
+   	Set Form = Document.WEBChat
+
+	If (Chat.State = 1) Then
+		Chat.EnterRoom Form.Room.Value, "", Form.Alias.Value, "ALL", 1, 3
+	Else 
+		If (Chat.State = 2) Then
+			Chat.CancelEntering
+			Chat.ClearHistory
+		Else 
+			If (Chat.State = 3) Then
+				Chat.ExitRoom
+				Chat.ClearHistory
+			End If
+		End If
+	End If
+END SUB
+
+SUB Chat_OnStateChanged(ByVal NewState)
+	If (NewState = 1) Then
+		Document.WEBChat.FluxBtn.Value = "   Join the chat   "
+		Chat.BackColor = 255
+	Else
+		If (NewState = 2) Then
+			Document.WEBChat.FluxBtn.Value = "Cancel Entering"
+			Chat.BackColor = 33023
+		Else
+			If (NewState = 3) Then
+				Document.WEBChat.FluxBtn.Value = "Leave the chat"
+				Chat.BackColor = 49152
+			End If
+		End If
+	End If
+END SUB
+</script>
+</pre>
+</body>
+</html>

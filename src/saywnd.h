@@ -70,6 +70,8 @@ protected:
 	CSayCtrl	m_wndSayCtrl;
 	CToolBar	m_wndGestBar;
 	CToolBar	m_wndSayBar;
+	CImageList	m_sayBarImages;		// DPI-scaled button images (high-DPI only)
+	CBitmap		m_sayBarBmp;
 
 // Construction
 public:

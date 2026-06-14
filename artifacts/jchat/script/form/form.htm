@@ -1,0 +1,506 @@
+<html>
+<body bgcolor=white onLoad=init() onUnload=disconnect()>
+
+<script>
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	JavaScript Sample Methods
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+function init()
+{
+	addChatHistory(getVersion())
+	var nick = getSearchParameter("name", null)
+	if (isNull(nick))
+		nick = prompt("Enter a nickname to connect.", "Anonymous")
+	if (!isNull(nick))
+		connect(nick, null)
+	//	PULL METHOD MUST BE CALLED IN ORDER TO RECEIVE NOTIFICATIONS
+	pull()
+}
+
+function isNull(value)
+{
+	return value == null || value == ""
+}
+
+function changeNick()
+{
+	var oldnick = getLocalNickname()
+	if (isNull(oldnick))
+		oldnick = "Anonymous"
+	var newnick = prompt("Enter new nickname.", oldnick)
+	if (!isNull(newnick))
+	{
+		setLocalNickname(newnick)
+		if (!isConnected())
+			connect(newnick, null)
+	}
+}
+
+//	prompts the user to enter a new room to join
+function changeRoom()
+{
+	var oldroom = getLocalRoom()
+	newroom = prompt("Enter name of room to join.", oldroom)
+	if (!isNull(newroom))
+	{
+		if (!isNull(oldroom))
+			partRoom(oldroom)
+		joinRoom(newroom)
+	}
+}
+
+//	sends a chat message
+function sendChatMessage(target)
+{
+	var message = clearChatMessage()
+	if (!isNull(message))
+	{
+		sendMessage(target, message)
+		//	display your message
+		var nick = getLocalNickname()
+		var whisper = (target != getLocalRoom())
+		displayChatMessage(nick, target, message, whisper)
+	}
+	//	reselect the message area
+	document.chat.message.focus()
+	//	this method returns false so that the chat form doesn't actually submit
+	return false
+}
+
+//	sends a whisper after prompting for target
+var lastTarget = ""
+function sendWhisper()
+{
+	var target = prompt("Whisper to whom?", lastTarget)
+	if (!isNull(target))
+	{
+		sendChatMessage(target)
+		lastTarget = target
+	}
+}
+
+//	returns the contents of the chat message input area and then clears it
+function clearChatMessage()
+{
+	var contents = document.chat.message.value
+	document.chat.message.value = ""
+	return contents
+}
+
+//	display chat message
+function displayChatMessage(source, target, message, whisper)
+{
+	if (whisper)
+		addChatHistory(source + " whispers to " + target + ": " + message)
+	else
+		addChatHistory(source + " says: " + message)
+}
+
+//	clears the chat history area
+function clearChatHistory()
+{
+	document.chat.history.value = ""
+}
+
+//	clears the member list area
+function clearChatMembers()
+{
+	document.chat.members.value = ""
+}
+
+//	adds a message to the history area
+function addChatHistory(text)
+{
+	document.chat.history.value += text + "\n"
+	//	to make the chat history display from bottom up to top do this
+	//	document.chat.history.value = text + "\n" + document.chat.history.value
+}
+
+//	adds an array of members to the chat members
+//	prepend for hosts     = "@"
+//	prepend for speakers  = ""
+//	prepend for observers = "-"
+function addChatMembers(prepend, members)
+{
+	for (i = 0; i < members.length; i++)
+		document.chat.members.value += prepend + members[i] + "\r\n"
+}
+
+//	requests an updated member list
+function updateMemberList()
+{
+	var room = getLocalRoom()
+	if (room == null)
+		clearChatMembers()
+	else
+		requestMemberList(room)
+}
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	IRCApplet Method Wrappers
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+//	connects to the server
+function connect(localnick, password)
+{
+	document.irc.connect(null, 6667, localnick, password)
+}
+
+//	disconnects from the server
+function disconnect()
+{
+	document.irc.disconnect()
+}
+
+//	returns the local users nickname
+function getLocalNickname()
+{
+	return document.irc.getLocalNickname()
+}
+
+//	returns the name of the room the user is in (or only the first one if in multiple)
+function getLocalRoom()
+{
+	return document.irc.getLocalRoom()
+}
+
+//	returns an array of all rooms the local user is in
+function getLocalRooms()
+{
+	var rooms = document.irc.getLocalRooms(",")
+	rooms = new String(rooms)
+	return rooms.split(",")
+}
+
+//	returns the room topic or null if unknown
+function getTopic(room)
+{
+	return document.irc.getTopic(room)
+}
+
+//	returns the applet version
+function getVersion()
+{
+	return document.irc.getVersion()
+}
+
+//	returns true if the applet is connected to a chat server
+function isConnected()
+{
+	return document.irc.isConnected()
+}
+
+//	attempts to join a room, password may be null
+function joinRoom(room, password)
+{
+	document.irc.joinRoom(room, password)
+}
+
+//	departs from a room
+function partRoom(room)
+{
+	document.irc.partRoom(room)
+}
+
+//	requests an updated member List for a room
+//	applet replies with "memberList" method
+function requestMemberList(room)
+{
+	document.irc.requestMemberList(room)
+}
+
+//	requests an updated list of all rooms on server
+//	applet replies with "roomList" method
+function requestRoomList()
+{
+	document.irc.requestRoomList()
+}
+
+//	requests an updated list of all users on server
+//	applet replies with "userList" method
+function requestUserList()
+{
+	document.irc.requestUserList()
+}
+
+//	sends an invitation to a user to join a room
+function sendInvitation(nick, room)
+{
+	document.irc.sendInvitation(nick, room)
+}
+
+//	sends a message to a room or user
+function sendMessage(target, message)
+{
+	document.irc.sendMessage(target, message)
+}
+
+//	sends a raw line to the irc server without preprocessing
+function sendServer(raw)
+{
+	document.irc.sendServer(raw)
+}
+
+//	attempts to change the localusers nickname
+function setLocalNickname(nick)
+{
+	document.irc.setLocalNickname(nick)
+}
+
+//	attempts to change a rooms topic
+function setTopic(room, topic)
+{
+	document.irc.setTopic(room, topic)
+}
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	IRCListener Notification Methods
+//	called indirectly by applet via "pull" method
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+//	successful connection
+function connected(server, motd)
+{
+	addChatHistory("Connected to " + server + ".")
+	if (!isNull(motd))
+	{
+		for (i = 0; i < motd.length; i++)
+			addChatHistory(motd[i])
+	}
+	var room = getSearchParameter("room", null)
+	if (!isNull(room))
+		joinRoom(room)
+	else
+		changeRoom()
+}
+
+//	failed connection attempt, or connection lost
+function disconnected(server)
+{
+	addChatHistory("Disconnected from " + server + ".")
+	clearChatMembers()
+}
+
+//	invalid nickname or nickname already in use
+//	user should be prompted to try another one
+function invalidNick(badnick)
+{
+	var nick = prompt("Invalid nickname. Enter new nickname.", badnick)
+	if (!isNull(nick))
+		setLocalNickname(nick)
+}
+
+//	an invitation to join a room has arrived
+function invitationArrived(source, room)
+{
+	var accept = confirm(source + " has invited you to join room " + room + ".")
+	if (accept)
+	{
+		partRoom(getLocalRoom())
+		joinRoom(room)
+	}
+}
+
+//	a new member has joined a room
+function memberJoined(room, nick, identity)
+{
+	addChatHistory(nick + " has joined " + room + ".")
+	updateMemberList()
+}
+
+//	a room member has been kicked from room
+//	reason may be null
+function memberKicked(room, nick, kicker, reason)
+{
+	addChatHistory(kicker + " has kicked " + nick + " from " + room + ".")
+	if (!isNull(reason))
+		addChatHistory("Reason: " + reason)
+	updateMemberList()
+}
+
+//	an updated member list has arrived
+//	called in response to "requestMemberList"
+function memberList(room, hosts, speakers, observers)
+{
+	clearChatMembers()
+	if (hosts != null)
+		addChatMembers("@", hosts)
+	if (speakers != null)
+		addChatMembers("", speakers)
+	if (observers != null)
+		addChatMembers("-", observers)
+}
+
+//	a room member has departed
+function memberParted(room, nick)
+{
+	addChatHistory(nick + " has left " + room + ".")
+	updateMemberList()
+}
+
+//	a chat message has arrived
+function messageArrived(source, target, message, identity)
+{
+	if (target == getLocalNickname())
+		addChatHistory(source + " whispers to " + target + ": " + message)
+	else
+		addChatHistory(source + " says: " + message)
+}
+
+//	a member has changed their nickname
+function nickChanged(oldnick, newnick, identity)
+{
+	addChatHistory(oldnick + " is now known as " + newnick)
+	updateMemberList()
+}
+
+//	an updated room list has arrived
+function roomList(rooms, counts, topics)
+{
+	addChatHistory("")
+	addChatHistory("RoomList:")
+	for (i = 0; i < rooms.length; i++)
+		addChatHistory(rooms[i])
+}
+
+//	a rooms moderation status or topic has changed
+function roomStatusChanged(room, moderated, topic)
+{
+	updateMemberList()
+}
+
+//	an updated user list has arrived
+function userList(nicks, users, rooms, hosts)
+{
+	addChatHistory("")
+	addChatHistory("UserList:")
+	for (i = 0; i < nicks.length; i++)
+		addChatHistory(nicks[i])
+}
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	Utility Methods
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+
+//	This method checks the search parameters at the end of the url,
+//	and returns a value if found, or a default value if not found.
+//	this enables information to be passed to the page via url as below
+//	http://www.microsoft.com/java/chat?name=bill&room=newbies
+function getSearchParameter(parameter, def)
+{
+	url = new String(top.location)
+	search = new String(url.substring(url.indexOf("?") + 1, url.length))
+	search = search.split("&")
+	for (i = 0; i < search.length; i++)
+	{
+		pair = new String(search[i])
+		index = pair.indexOf("=")
+		if (index > 0 && index < pair.length)
+		{
+			check = pair.substring(0, index)
+			if (parameter == check)
+				return pair.substring(index + 1, pair.length)
+		}
+	}
+	return def
+}
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+//	DO NOT REMOVE THE "PULL" OR "EVALUATE" METHODS.
+//	The "pull" method must be called once after the page is loaded.
+//	After that it will call itself using the timeout at the end of the method.
+//	This enables the applet to call the "IRCListener" javascript methods on this page.
+//
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+function pull()
+{
+	meth = document.irc.nextMethod();
+	while (meth != null)
+	{
+		evaluate(meth)
+		meth = document.irc.nextMethod()
+	}
+	timeout = setTimeout("pull()", 1000)
+}
+
+//	evaluates a string pulled from applet representing a javascript method
+function evaluate(raw)
+{
+	var ms = "{"
+	var as = "}"
+
+	meth = new String(raw)
+	meth = meth.substring(1, meth.length)
+	meth = meth.split(ms)
+	for (i = 0; i < meth.length; i++)
+	{
+		obj = new String(meth[i])
+		if (obj == "null")
+			meth[i] = null
+		else if (obj.charAt(0) == as)
+		{
+			meth[i] = obj.substring(1, obj.length)
+			meth[i] = meth[i].split(as)
+		}
+	}
+
+	var evalme = meth[0] + "("
+	for (i = 1; i < meth.length; i++)
+	{
+		evalme = evalme + "meth[" + i + "]"
+		if (i + 1 < meth.length)
+			evalme = evalme + ", "
+	}
+	evalme = evalme + ")"
+
+	eval(evalme)
+}
+
+</script>
+
+<form name=chat onSubmit="return sendChatMessage(getLocalRoom())">
+	<textarea name=history rows=20 cols=60></textarea>
+	<textarea name=members rows=20 cols=20></textarea>
+	<br>
+	<input type=text name=message size=60>
+	<input type=submit value="Send">
+	<input type=button value="Whisper" onClick="sendWhisper()">
+	<br>
+	<input type=button value="Clear Chat" onClick="clearChatHistory()">
+	<input type=button value="Change Nick" onClick="changeNick()">
+	<input type=button value="Change Room" onClick="changeRoom()">
+	<input type=button value="Get Room List" onClick="requestRoomList()">
+	<input type=button value="Get User List" onClick="requestUserList()">
+
+</form>
+
+<applet codebase=.. name=irc code=IRCApplet width=0 height=0>
+</applet>
+
+</html>
+
+
+
+
