@@ -2,7 +2,7 @@
 
 Microsoft Comic Chat is a Microsoft-developed internet chat client released in 1996 that transformed traditional text-based conversations into automatically generated comic strips. Instead of plain text, users communicate through cartoon avatars, with messages displayed in speech bubbles inside dynamically created comic panels that conveyed gestures, emotions, and narrative flow. Built as an IRC client and originally a Microsoft Research project, it uses algorithms to mimic comic storytelling techniques, such as panel layout and character expressions, to make online communication more visual and expressive. It was later bundled with Internet Explorer and MSN before being discontinued in the early 2000s.
 
-![Comic Chat](src/readme.gif)
+![Comic Chat](v1.0-pre/readme.gif)
 
 ## How It Works
 
@@ -17,11 +17,30 @@ As users type messages, each Comic Chat client automatically determines:
 
 The application connects to standard IRC servers and is fully interoperable with text-based IRC clients. Non-Comic Chat users are automatically assigned characters so the entire conversation is rendered graphically.
 
+## Repository Structure
+
+This repository contains source snapshots from multiple versions of Comic Chat:
+
+```
+v1.0/               # Comic Chat 1.0 (August 1996, shipped with IE 3.0)
+│   ├── client/     # Win32 MFC client source
+│   ├── help/       # Help file source
+│   ├── setup/      # IExpress installer
+│   └── shared/     # Redistributable DLLs and fonts
+v2.1b/              # Comic Chat 2.1 beta (February 1998)
+v2.5-beta-1/        # Comic Chat 2.5 beta 1 (June 1998)
+artifacts/          # Companion tools: avatar editor, Java client, SDK
+file dates.txt      # Original file timestamps from archive
+```
+
 ## Building
 
-The project targets Win32 (x86) using Visual C++ 4.x with MFC. Build with NMAKE:
+The project targets Win32 (x86) using Visual C++ 4.x with MFC.
+
+**Comic Chat 1.0** — source is in `v1.0/client/`:
 
 ```batch
+cd v1.0\client
 REM Release build (MFC statically linked)
 NMAKE /f "chat.mak" CFG="chat - Win32 Release"
 
@@ -29,42 +48,18 @@ REM Debug build (MFC shared DLL)
 NMAKE /f "chat.mak" CFG="chat - Win32 Debug"
 ```
 
-Alternatively, open `chat.mdp` in Visual C++ 4.x.
+Alternatively, open `chat.mdp` in Visual C++ 4.x. For **Comic Chat 2.5 beta 1**, source is in `v2.5-beta-1/` and uses a Visual C++ 5.x project (`chat.dsp`).
 
 ### Requirements
 
-- Visual C++ 4.x (or compatible NMAKE toolchain)
+- Visual C++ 4.x (v1.0) or Visual C++ 5.x (v2.5-beta-1)
 - MFC 4.x libraries
 - Windows 95 or Windows NT 4.0 (original target)
 - 486 processor, 8 MB RAM, 256-color video (minimum)
 
-## Repository Structure
-
-```
-src/
-├── chat.mak          # NMAKE makefile
-├── chat.mdp          # Visual C++ 4.x project file
-├── chat.cpp/h        # Application entry point (CChatApp)
-├── chatdoc.cpp/h     # MFC document (chat session state)
-├── chatview.cpp/h    # Comic strip view
-├── textview.cpp/h    # Plain text fallback view
-├── mainfrm.cpp/h     # Main frame window
-├── irc.cpp           # IRC protocol implementation
-├── chatprot.cpp/h    # IRC protocol parsing
-├── semantic.cpp      # Comic layout expert system
-├── avatar.cpp/h      # Character rendering
-├── balloon.cpp/h     # Word balloon generation
-├── panel.cpp/h       # Comic panel composition
-├── backdrop.cpp/h    # Scene backgrounds
-├── comicart/
-│   ├── avatars/      # Character art assets
-│   └── backdrop/     # Background scene images
-└── res/              # Icons, bitmaps, toolbar art
-```
-
 ## History
 
-Comic Chat was released as part of Internet Explorer 3.0 in 1996 and could run standalone or embedded as an OLE server within the browser. It was developed by Microsoft Research and represented a novel approach to graphical chat by applying comics conventions to real-time conversation.
+Comic Chat was originally a Microsoft Research project and shipped as part of Internet Explorer 3.0 in August 1996. It could run standalone or embedded as an OLE server within the browser. Version 2.0 added NetMeeting integration and was bundled with Internet Explorer 4.0 and Windows 98. The 2.5 beta added further protocol support and UI improvements before the product was eventually discontinued in the early 2000s.
 
 ## License
 
