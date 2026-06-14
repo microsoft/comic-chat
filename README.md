@@ -19,7 +19,7 @@ The application connects to standard IRC servers and is fully interoperable with
 
 ## Repository Structure
 
-This repository contains source snapshots spanning the full development history of Comic Chat, from a 1996 pre-release through the 2.5 beta, plus a modernized build that runs on current Windows.
+This repository contains source snapshots spanning the full development history of Comic Chat, from a 1996 pre-release through the 2.5 beta. It also includes two **`*-modern`** folders — worked examples that get the original code building and running on a current Windows machine (see [the note on the modernized folders](#a-note-on-the-modernized-folders) for what they are and why they exist).
 
 | Folder | Date | Description |
 |--------|------|-------------|
@@ -28,8 +28,8 @@ This repository contains source snapshots spanning the full development history 
 | [`v2.1b/`](v2.1b/) | February 1998 | Comic Chat 2.1 beta source — [README](docs/v2.1b/README.md) |
 | [`v2.5-beta-1/`](v2.5-beta-1/) | June 1998 | Comic Chat 2.5 beta 1 source — [README](docs/v2.5-beta-1/README.md) |
 | [`artifacts/`](artifacts/) | January 1998 | SDK, companion tools, JChat, documentation |
-| [`v1.0-pre-modern/`](v1.0-pre-modern/) | 2026 | Modernized v1.0-pre: DPI-aware, TLS, builds with current Visual Studio |
-| [`v2.5-beta-1-modern/`](v2.5-beta-1-modern/) | 2026 | Modernized v2.5-beta-1: DPI-aware, builds with current Visual Studio (nmake replaces the NT DDK build) |
+| [`v1.0-pre-modern/`](v1.0-pre-modern/) | 2026 | Modernized v1.0-pre: builds with current Visual Studio, DPI-aware UI scaling, native TLS |
+| [`v2.5-beta-1-modern/`](v2.5-beta-1-modern/) | 2026 | Modernized v2.5-beta-1: builds with current Visual Studio (nmake replaces the NT DDK build), uniform display scaling, runs live on modern IRC |
 | [`docs/`](docs/) | — | Modernization write-ups and documentation |
 
 See [`file dates.txt`](file%20dates.txt) for the original file modification timestamps from each archive.
@@ -80,7 +80,7 @@ cd v2.5-beta-1-modern
 nmake /f chat.mak CFG="chat - Win32 Debug"
 ```
 
-It carries the DPI/mouse-wheel/panels-per-row work across; the chief 2.5-specific fixes were dropping the MFC-4.0 common-control struct-tag remap and adding a Common Controls v6 manifest so the rebar toolbar creates. See [`v2.5-beta-1-modern/README.md`](v2.5-beta-1-modern/README.md).
+It carries the mouse-wheel and panels-per-row work across and runs **DPI-unaware** so Windows scales the whole window uniformly (rather than scaling a few surfaces and leaving the rest tiny). The chief 2.5-specific fixes were dropping the MFC-4.0 common-control struct-tag remap, adding a Common Controls v6 manifest so the rebar toolbar creates, and the runtime fixes needed to connect/join/chat on a present-day IRC network. See [`v2.5-beta-1-modern/README.md`](v2.5-beta-1-modern/README.md).
 
 ### A note on the modernized folders
 
