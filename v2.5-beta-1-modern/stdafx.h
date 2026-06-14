@@ -38,6 +38,7 @@
 #include <mmsystem.h>
 
 #include "dpiscale.h"
+#include "safectype.h"		// make is*/to* safe for raw (signed) char args
 
 #ifndef NOGLOBPAL
 extern CPalette        ghPalette;

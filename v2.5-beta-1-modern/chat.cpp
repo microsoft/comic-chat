@@ -424,23 +424,11 @@ BOOL CChatApp::InitInstance()
 	int iarg;
 	CString strTmp;
 
-	// Declare per-monitor/system DPI awareness so Windows does not bitmap-stretch
-	// the comic view, then capture the display DPI for DpiScale().
-	HMODULE hUser32 = LoadLibrary("user32.dll");
-	if (hUser32) {
-		typedef BOOL (WINAPI *SetProcessDPIAwareFunc)();
-		SetProcessDPIAwareFunc setDPIAware = (SetProcessDPIAwareFunc)GetProcAddress(hUser32, "SetProcessDPIAware");
-		if (setDPIAware) setDPIAware();
-		FreeLibrary(hUser32);
-	}
-	{
-		HDC hdcScreen = ::GetDC(NULL);
-		if (hdcScreen) {
-			int dpi = ::GetDeviceCaps(hdcScreen, LOGPIXELSX);
-			if (dpi > 0) g_screenDpi = dpi;
-			::ReleaseDC(NULL, hdcScreen);
-		}
-	}
+	// Run DPI-UNAWARE: we deliberately do NOT call SetProcessDPIAware(). On a
+	// high-DPI display Windows then bitmap-scales the whole window uniformly
+	// (toolbar, status bar, every font, the comic view) instead of us scaling a
+	// handful of surfaces and leaving the rest tiny. g_screenDpi stays 96, so the
+	// DpiScale() helper is a no-op everywhere.
 
 	/*
 		There are three paths in NM that can launch CChat. Two of them use CreateProcess and
@@ -499,6 +487,26 @@ BOOL CChatApp::InitInstance()
 	//  ShankuN 05/01/98 - the base dir is needed during loading of registry 
 	//  for default cases, so load it first.
 	SetBaseDir(__argv[0]);
+
+	// The bundled art (ComicArt) normally sits next to the executable. In a
+	// developer build, though, the exe lives in a Debug\ (or Release\) subfolder
+	// while the art stays in the project root. Probe both so the bundled art is
+	// found either way and we don't fall back to the dead-server "download art"
+	// prompt. (Paths are compared case-insensitively by the OS, so "ComicArt"
+	// matches the on-disk "comicart".)
+	{
+		CString strArtHere = m_strBaseDir + "\\" + m_strDefaultArtDir;
+		if (GetFileAttributes(strArtHere) == (DWORD)-1)		// not next to the exe
+		{
+			int nSlash = m_strBaseDir.ReverseFind('\\');
+			if (nSlash > 0)
+			{
+				CString strParent = m_strBaseDir.Left(nSlash);
+				if (GetFileAttributes(strParent + "\\" + m_strDefaultArtDir) != (DWORD)-1)
+					m_strBaseDir = strParent;				// art is one level up
+			}
+		}
+	}
 
 	// Load initial values from the registry
 	LoadFromReg();
@@ -2117,6 +2125,22 @@ void CChatApp::OnDefineMacro()
 // Maximum reasonable limit for size of files to be downloaded
 #define WEBREQ_MAXFILESIZE (2 * 1024 * 1024)
 
+// Comic Chat used to download custom characters and backdrops from Microsoft's
+// art servers, which no longer exist. Show a friendly heads-up the first time a
+// download would have happened, then quietly fall back to the bundled art.
+static void NoteArtServersGoneOnce()
+{
+	static BOOL s_bShown = FALSE;
+	if (s_bShown)
+		return;
+	s_bShown = TRUE;
+	AfxMessageBox(
+		"The Comic Chat art servers are long gone, so custom characters and "
+		"backdrops can no longer be downloaded.\n\n"
+		"The characters bundled with this build will be used instead.",
+		MB_OK | MB_ICONINFORMATION);
+}
+
 // Start downloading an avatar. If the avatar is already being downloaded,
 // it does not try again.
 
@@ -2126,6 +2150,14 @@ CUserInfo* pUserFrom,
 CChatDoc * pDocFrom,
 BOOL	   bInteractive)
 {
+	// Microsoft's Comic Chat art servers no longer exist, so an avatar fetch would
+	// just hang on a dead host. Never download: the user keeps the bundled character
+	// already assigned to them. Clear the pending-download flags so we don't retry
+	// on every message from this user.
+	NoteArtServersGoneOnce();
+	pUserFrom->SetFlag (UF_AUTODOWNLOAD | UF_INTERACTIVEDOWNLOAD, FALSE);
+	return FALSE;
+
 	LPCTSTR pszAvatar = pUserFrom->GetAvatarRealName ();
 	LPCTSTR pszURL = pUserFrom->GetAvatarRealURL ();
 
@@ -2205,6 +2237,11 @@ CChatApp::StartDownloadingBackdrop(
 LPCSTR pszBackdrop,
 LPCSTR pszURL)
 {
+	// Comic Chat's backdrop servers are long gone; never fetch over the network.
+	// The room falls back to a bundled backdrop.
+	NoteArtServersGoneOnce();
+	return FALSE;
+
 	CChatFileRequest * pRequest = NULL;	
 
 	// Do we have a valid name and URL? 

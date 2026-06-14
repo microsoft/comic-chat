@@ -1361,6 +1361,12 @@ void CIrcSocket::HandleCommand(CString& strLine, char *szLine, PIRCPARSE pParse,
 		case cmdidJoin:
 		{
 			TRACE("Got a JOIN!\n");
+			// Modern IRC servers (RFC 2812, e.g. Libera) send "JOIN #channel"
+			// with the channel as an ordinary argument rather than a ":"-prefixed
+			// trailing parameter, so the parser leaves lastString NULL and puts the
+			// channel in args[1].  Recover it so the rest of the handler works.
+			if (!pParse->lastString && pParse->nArgs >= 2 && pParse->args[1])
+				pParse->lastString = strdup(pParse->args[1]);
 			ASSERT(pParse->lastString);
 
 			CSInPlace(pParse->user);

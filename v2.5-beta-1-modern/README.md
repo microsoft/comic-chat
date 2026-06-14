@@ -75,20 +75,44 @@ art lives next to the source in [`comicart\`](comicart) as `.avb` / `.bgb` files
 - Shared fix in [`../artifacts/core/urlutil.cpp`](../artifacts/core/urlutil.cpp)
   (`const int` + `(LPTSTR)` casts).
 
-## Modernization features (ported from the `v1.0-pre-modern/` modernization)
+## Display scaling
 
-- **DPI awareness** — `SetProcessDPIAware` at startup plus a `DpiScale()` helper
-  ([`dpiscale.h`](dpiscale.h)) seeded from the display DPI. The comic page is
-  drawn in device-independent TWIPs and needs no help; the *pixel-based* surfaces
-  are scaled:
-  - Member-list image-list cells, with the avatar faces stretched to match.
-  - The bodycam emotion wheel (cursor radius, face icons, bullseye).
-  - The say/input control font, the say-bar action-button glyphs (stretched into
-    a DPI-scaled image list), and the splitter's minimum say-pane height.
+The app runs **DPI-unaware**: it deliberately does *not* call
+`SetProcessDPIAware()`, so on a high-DPI display Windows bitmap-scales the whole
+window uniformly (toolbar, status bar, menus, every font, and the comic view all
+scale together). This avoids the "some surfaces scale, others stay tiny" mess
+that results from per-surface scaling in a TWIP + pixel hybrid UI like this one.
+
+A `DpiScale()` helper ([`dpiscale.h`](dpiscale.h)) and the per-surface scaling
+ported from `v1.0-pre-modern` are still present but become no-ops while DPI-
+unaware (the display DPI reads as 96). If you'd rather make the app DPI-*aware*
+and scale every surface yourself, that infrastructure is the starting point —
+left as an exercise for the reader.
+
+## Other modernization fixes
+
 - **Mouse-wheel scrolling** in the comic view (`CPageView::OnMouseWheel`).
 - **Panels-per-row auto-fit** on resize — `CPageView` chooses the largest
-  comfortable column count for the current width. The reflow is deferred to a
-  posted `WM_AUTOFITPANELS` message to avoid `WM_SIZE` re-entrancy.
+  comfortable column count for the current width, deferred via a posted
+  `WM_AUTOFITPANELS` message to avoid `WM_SIZE` re-entrancy.
+- **IRC JOIN parsing** — modern servers (e.g. Libera) send `JOIN #channel` with
+  the channel as a normal argument rather than a `:`-trailing parameter; the JOIN
+  handler now recovers the channel from `args[1]` so rooms register correctly.
+- **Text view buffer tracking** — modern RichEdit stores a line break as a single
+  `\r`, so the old `m_dwBuffSize` accounting (which counted `\r\n` as two) drifted
+  and tripped debug assertions; it now resyncs to the control's actual length.
+- **No dead-server downloads** — Comic Chat used to fetch custom characters and
+  backdrops from Microsoft's (now-gone) art servers. Both download paths are
+  disabled in favor of the bundled art, with a one-time heads-up dialog.
+- **Bundled-art lookup** — the art is found whether it sits next to the exe
+  (distribution) or one directory up (the dev `Debug\` layout).
+- **On-screen startup window** — a stale/oversized saved placement is shrunk to
+  the work area and clamped fully on-screen.
+- **Safe `is*` functions** ([`safectype.h`](safectype.h)) — `isspace`/`isdigit`/
+  etc. are wrapped to pass `unsigned char`, so high-byte characters no longer trip
+  the modern debug CRT.
+- **Default comic balloon font** bumped from 9pt to 12pt for readability on large
+  high-DPI panels (`IDS_DFLT_COMICSPNTSIZE`).
 
 ## Known differences / not yet ported
 
@@ -99,6 +123,5 @@ art lives next to the source in [`comicart\`](comicart) as `.avb` / `.bgb` files
   connect dialog. See [`../docs/tls.md`](../docs/tls.md).
 - **Balloon word-wrap** is intentionally left as-is: 2.5 already has a more
   advanced international, word-boundary-aware wrapper
-  (`FindSubStringForINTLThatFits`), so the simpler `src` fix is not needed here.
-- The **main toolbar** glyphs are not DPI-stretched (only the say-bar action
-  buttons are).
+  (`FindSubStringForINTLThatFits`), so the simpler `v1.0-pre-modern` fix is not
+  needed here.

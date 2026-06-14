@@ -159,10 +159,13 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 				theApp.m_xFrame + theApp.m_cxFrame, theApp.m_yFrame + theApp.m_cyFrame);
 		MakeRectVisibleOnScreen (&rect);
 
+		// Use the adjusted rect for BOTH position and size: MakeRectVisibleOnScreen
+		// may have shrunk an oversized (e.g. stale, different-DPI) placement to fit
+		// the work area.
 		cs.x = rect.left;
 		cs.y = rect.top;
-		cs.cx = theApp.m_cxFrame;
-		cs.cy = theApp.m_cyFrame;
+		cs.cx = rect.Width();
+		cs.cy = rect.Height();
 		// note: maximization setting happens in CChatApp.InitInstance
 	}
 

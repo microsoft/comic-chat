@@ -1782,19 +1782,10 @@ void
 MakeRectVisibleOnScreen(
 LPRECT prc)
 {
-	// First check if it is indeed visible.
-	HDC hdc;
-	hdc = GetDC (NULL);
-	BOOL bVisible = RectVisible (hdc, prc);
-	ReleaseDC (NULL, hdc);
-
-	if (bVisible)
-		return;
-
-
+	// Find the work area of the monitor nearest this rect (multi-monitor aware
+	// when the monitor APIs are available, otherwise the primary work area).
 	if (!g_bMonitorFunxLoaded)
 	{
-		// Try to load monitor funx from User32 - this will provide multimon support.
 		g_bMonitorFunxLoaded = TRUE;
 		HINSTANCE hUser32 = GetModuleHandle ("USER32");
 		if (hUser32 != NULL)
@@ -1808,39 +1799,39 @@ LPRECT prc)
 	if (g_pMonitorFromRect != NULL && g_pGetMonitorInfo != NULL)
 	{
 		HANDLE hMonitor = g_pMonitorFromRect (prc, MONITOR_DEFAULTTONEAREST);
-		ASSERT(hMonitor != NULL);
 		MONITORINFO mi;
 		mi.cbSize = sizeof(mi);
-		g_pGetMonitorInfo (hMonitor, &mi);
-		rcWork = mi.rcWork;
+		if (hMonitor != NULL && g_pGetMonitorInfo (hMonitor, &mi))
+			rcWork = mi.rcWork;
+		else
+			SystemParametersInfo (SPI_GETWORKAREA, 0, &rcWork, 0);
 	}
 	else
 	{
 		SystemParametersInfo (SPI_GETWORKAREA, 0, &rcWork, 0);
 	}
 
-	int cxOffset, cyOffset;
-	if (prc->right < rcWork.left)
-		cxOffset = rcWork.left - prc->left;
-	else if (prc->left > rcWork.right)
-	{
-		if (prc->right - prc->left >= rcWork.right - rcWork.left)
-			cxOffset = -prc->left;
-		else
-			cxOffset = rcWork.right - prc->right;
-	}
-	else 
-		cxOffset = 0;
-	if (prc->bottom < rcWork.top)
-		cyOffset = rcWork.top - prc->top;
-	else if (prc->top > rcWork.bottom)
-	{
-		if (prc->bottom - prc->top >= rcWork.bottom - rcWork.top)
-			cyOffset = -prc->top;
-		else
-			cyOffset = rcWork.bottom - prc->bottom;
-	}
-	else 
-		cyOffset = 0;
-	OffsetRect (prc, cxOffset, cyOffset);
+	int workW = rcWork.right - rcWork.left;
+	int workH = rcWork.bottom - rcWork.top;
+	int w = prc->right - prc->left;
+	int h = prc->bottom - prc->top;
+
+	// Already fully within the work area? Leave it alone.
+	if (prc->left >= rcWork.left && prc->top >= rcWork.top &&
+		prc->right <= rcWork.right && prc->bottom <= rcWork.bottom)
+		return;
+
+	// A window/box can be bigger than the work area (e.g. a stale placement saved
+	// in a different DPI mode). Shrink it to fit, then clamp it fully on-screen.
+	if (w > workW) w = workW;
+	if (h > workH) h = workH;
+
+	int x = prc->left;
+	int y = prc->top;
+	if (x + w > rcWork.right)  x = rcWork.right  - w;
+	if (y + h > rcWork.bottom) y = rcWork.bottom - h;
+	if (x < rcWork.left) x = rcWork.left;
+	if (y < rcWork.top)  y = rcWork.top;
+
+	SetRect (prc, x, y, x + w, y + h);
 }
