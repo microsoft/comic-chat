@@ -1,8 +1,8 @@
 # Microsoft Comic Chat
 
-Microsoft Comic Chat is a Microsoft-developed internet chat client released in 1996 that transformed traditional text-based conversations into automatically generated comic strips. Instead of plain text, users communicate through cartoon avatars, with messages displayed in speech bubbles inside dynamically created comic panels that conveyed gestures, emotions, and narrative flow. Built as an IRC client and originally a Microsoft Research project, it uses algorithms to mimic comic storytelling techniques, such as panel layout and character expressions, to make online communication more visual and expressive. It was later bundled with Internet Explorer and MSN before being discontinued in the early 2000s.
+Microsoft Comic Chat is a Microsoft-developed IRC chat client released in 1996 that rendered conversations as automatically generated comic strips. Instead of plain text, users communicated through cartoon avatars with messages displayed in speech bubbles inside dynamically composed comic panels. The application used an expert system to determine character placement, gestures, facial expressions, balloon shape, and panel layout in real time. It shipped as part of Internet Explorer 3.0 and was later bundled with Windows 98 and MSN before being discontinued in the early 2000s.
 
-![Comic Chat](src/readme.gif)
+![Comic Chat](v1.0-pre/client/readme.gif)
 
 ## How It Works
 
@@ -17,73 +17,70 @@ As users type messages, each Comic Chat client automatically determines:
 
 The application connects to standard IRC servers and is fully interoperable with text-based IRC clients. Non-Comic Chat users are automatically assigned characters so the entire conversation is rendered graphically.
 
+## Repository Structure
+
+This repository contains source snapshots spanning the full development history of Comic Chat, from a 1996 pre-release through the 2.5 beta, plus a modernized build that runs on current Windows.
+
+| Folder | Date | Description |
+|--------|------|-------------|
+| [`v1.0-pre/`](v1.0-pre/) | August 1996 | Pre-release source snapshot (rup 206 "Beta 2") |
+| [`v1.0/`](v1.0/) | August 1996 | Comic Chat 1.0 release source |
+| [`v2.1b/`](v2.1b/) | February 1998 | Comic Chat 2.1 beta source |
+| [`v2.5-beta-1/`](v2.5-beta-1/) | June 1998 | Comic Chat 2.5 beta 1 source |
+| [`artifacts/`](artifacts/) | January 1998 | SDK, companion tools, JChat, documentation |
+| [`v1.0-pre-modern/`](v1.0-pre-modern/) | 2026 | Modernized v1.0-pre: DPI-aware, TLS, builds with current Visual Studio |
+| [`docs/`](docs/) | — | Modernization write-ups and documentation |
+
+See [`file dates.txt`](file%20dates.txt) for the original file modification timestamps from each archive.
+
+### Version notes
+
+- **v1.0-pre** and **v1.0** share the same internal version number (`rup 206, "Beta 2"`) but differ in ~99 of 111 shared source files. `v1.0` adds build infrastructure (`build/`, `help/`, `setup/`, `shared/`).
+- **v2.1b** and **v2.5-beta-1** include an IRC protocol layer with multi-server support, OLE automation for scripting, and the Art Pack 1 character set in addition to the original characters.
+- **artifacts/** contains the Comic Chat SDK, JChat (a Java client), the Betty Bot sample, xcchat, and internal design documents.
+
 ## Building
 
-The project targets Win32 (x86) using Visual C++ 4.x with MFC. Build with NMAKE:
+### Original build (Visual C++ 4.x)
 
+All versions target Win32 (x86) using Visual C++ 4.x with MFC and NMAKE makefiles.
+
+**v1.0-pre and v1.0:**
 ```batch
-REM Release build (MFC statically linked)
+cd v1.0/client
 NMAKE /f "chat.mak" CFG="chat - Win32 Release"
-
-REM Debug build (MFC shared DLL)
-NMAKE /f "chat.mak" CFG="chat - Win32 Debug"
 ```
 
-Alternatively, open `chat.mdp` in Visual C++ 4.x.
+**v2.5-beta-1:**
+```batch
+cd v2.5-beta-1
+NMAKE /f "chat.mak" CFG="chat - Win32 Release"
+```
 
-### Modernized build (2026)
+A `.mdp` (Visual C++ 4.x) project file is included in `v1.0-pre/client/` and `v1.0/client/` for IDE use.
 
-The project also builds with a current Visual Studio C++/MFC toolchain and runs
-on modern high-DPI Windows. Using the same makefile from a `vcvars32` prompt:
+### Modernized build (Visual Studio 2022)
+
+`v1.0-pre-modern/` builds with a current Visual Studio C++/MFC toolchain and runs on modern high-DPI Windows:
 
 ```bat
 call "<VisualStudio>\VC\Auxiliary\Build\vcvars32.bat"
-cd src
+cd v1.0-pre-modern
 nmake /f chat.mak CFG="chat - Win32 Debug"
 ```
 
-The modernization covers the build fixes (legacy C++, MFC/OLE macro clashes,
-linker libs), **DPI-aware rendering and UI scaling**, several **UX fixes**
-(mouse-wheel scrolling, panels-per-row auto-fit, balloon word-wrap), and
-optional **native TLS** for connecting to modern IRC networks. See
-[`docs/MODERNIZATION.md`](docs/MODERNIZATION.md) for the overview and the
-detailed write-ups it links to.
+The modernization covers build fixes (legacy C++, MFC/OLE macro clashes, linker libs), **DPI-aware rendering and UI scaling**, several **UX fixes** (mouse-wheel scrolling, panels-per-row auto-fit, balloon word-wrap), and optional **native TLS** for connecting to modern IRC networks. See [`docs/MODERNIZATION.md`](docs/MODERNIZATION.md) for details.
 
-
-### Requirements
+### Original build requirements
 
 - Visual C++ 4.x (or compatible NMAKE toolchain)
 - MFC 4.x libraries
-- Windows 95 or Windows NT 4.0 (original target)
+- Windows 95 or Windows NT 4.0
 - 486 processor, 8 MB RAM, 256-color video (minimum)
-
-## Repository Structure
-
-```
-src/
-├── chat.mak          # NMAKE makefile
-├── chat.mdp          # Visual C++ 4.x project file
-├── chat.cpp/h        # Application entry point (CChatApp)
-├── chatdoc.cpp/h     # MFC document (chat session state)
-├── chatview.cpp/h    # Comic strip view
-├── textview.cpp/h    # Plain text fallback view
-├── mainfrm.cpp/h     # Main frame window
-├── irc.cpp           # IRC protocol implementation
-├── chatprot.cpp/h    # IRC protocol parsing
-├── semantic.cpp      # Comic layout expert system
-├── avatar.cpp/h      # Character rendering
-├── balloon.cpp/h     # Word balloon generation
-├── panel.cpp/h       # Comic panel composition
-├── backdrop.cpp/h    # Scene backgrounds
-├── comicart/
-│   ├── avatars/      # Character art assets
-│   └── backdrop/     # Background scene images
-└── res/              # Icons, bitmaps, toolbar art
-```
 
 ## History
 
-Comic Chat was released as part of Internet Explorer 3.0 in 1996 and could run standalone or embedded as an OLE server within the browser. It was developed by Microsoft Research and represented a novel approach to graphical chat by applying comics conventions to real-time conversation.
+Comic Chat was originally a Microsoft Research project. The 1.0 release shipped in June 1996 bundled with Internet Explorer 3.0 and could run standalone or embedded as an OLE server within the browser. Version 2.0 shipped with Internet Explorer 4.0 and Windows 98 in 1997–1998, adding multi-server support, OLE scripting, and the Comic Chat SDK for third-party bots and extensions. The application was discontinued in the early 2000s as graphical chat gave way to instant messaging.
 
 ## License
 
@@ -91,7 +88,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
 
@@ -105,8 +102,8 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 ## Trademarks
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
+trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
