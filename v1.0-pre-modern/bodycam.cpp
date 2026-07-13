@@ -93,10 +93,10 @@ CBodyCam::CBodyCam()
 	EnableToolTips(TRUE);
 	m_toolTip.Activate(TRUE);
 
-	char buff[80];
+	CString path;
 	for (int i = 0; i < NEMOTIONS; i++) {
-		sprintf(buff, "%s\\%s", theApp.GetAvatarDir(), lg_icons[i]);
-		VERIFY(m_icons[i].Load(buff));
+		path.Format("%s\\%s", theApp.GetAvatarDir(), lg_icons[i]);
+		VERIFY(m_icons[i].Load(path));
 	}
 
 	// Scale the (96-DPI) emotion-wheel pixel metrics to the display DPI once, so the

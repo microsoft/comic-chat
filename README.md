@@ -83,6 +83,16 @@ nmake /f chat.mak CFG="chat - Win32 Debug"      REM asserts + TRACE for DebugVie
 
 It carries the mouse-wheel and panels-per-row work across and runs **DPI-unaware** so Windows scales the whole window uniformly (rather than scaling a few surfaces and leaving the rest tiny). The chief 2.5-specific fixes were dropping the MFC-4.0 common-control struct-tag remap, adding a Common Controls v6 manifest so the rebar toolbar creates, and the runtime fixes needed to connect/join/chat on a present-day IRC network. See [`v2.5-beta-1-modern/README.md`](v2.5-beta-1-modern/README.md).
 
+### Cloud builds
+
+The manually triggered **Build unofficial modern clients** GitHub Actions
+workflow builds both modernized clients on a pinned Windows runner, packages
+each executable with its art and documentation, smoke-tests the extracted ZIPs
+from random folders, and uploads release-ready artifacts with SHA-256 hashes.
+Fork owners can enable Actions and run the workflow without any secrets. See
+[`docs/UNOFFICIAL-RELEASE.md`](docs/UNOFFICIAL-RELEASE.md) for the packaging and
+manual release process.
+
 ### A note on the modernized folders
 
 This repository is published primarily as a **historical artifact** — the source is here for reference, study, and preservation, not as a maintained product. The `*-modern` folders are **not** a polished re-release; they're **worked examples** of the kinds of changes it takes to get a 1996–1998 MFC application building and running on a current machine, such as:

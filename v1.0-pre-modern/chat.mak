@@ -132,7 +132,7 @@ LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /machine:I386
 # ADD LINK32 uuid.lib winmm.lib /nologo /subsystem:windows /machine:I386 /nodefaultlib:"libc"
 LINK32_FLAGS=uuid.lib winmm.lib /nologo /subsystem:windows /incremental:no /FORCE:MULTIPLE\
- /LIBPATH:"C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\ATLMFC\lib\spectre\x86"\
+ /LIBPATH:"$(VCTOOLSINSTALLDIR)ATLMFC\lib\spectre\x86"\
  /pdb:"$(OUTDIR)/chat.pdb" /machine:I386 /nodefaultlib:"libc"\
  /out:"$(OUTDIR)/chat.exe" 
 LINK32_OBJS= \
@@ -292,7 +292,7 @@ LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386
 # ADD LINK32 uuid.lib winmm.lib /nologo /subsystem:windows /incremental:no /debug /machine:I386 /nodefaultlib:"libc"
 LINK32_FLAGS=uuid.lib winmm.lib /nologo /subsystem:windows /FORCE:MULTIPLE\
- /LIBPATH:"C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\ATLMFC\lib\spectre\x86"\
+ /LIBPATH:"$(VCTOOLSINSTALLDIR)ATLMFC\lib\spectre\x86"\
  /incremental:no /pdb:"$(OUTDIR)/chat.pdb" /debug /machine:I386\
  /nodefaultlib:"libc" /out:"$(OUTDIR)/chat.exe" 
 LINK32_OBJS= \

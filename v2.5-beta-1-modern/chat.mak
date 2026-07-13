@@ -35,7 +35,6 @@ LINK32=link.exe
 
 ARTINC=..\artifacts\inc
 ARTLIB=..\artifacts\lib\i386
-SPECTRE=C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\ATLMFC\lib\spectre\x86
 
 # /Zi is kept in both configs so Release is still debuggable (it emits a PDB but
 # does not disable optimization). The MFC/CRT static libraries are selected
@@ -47,7 +46,7 @@ RSC_PROJ=/l 0x409 /fo"$(INTDIR)\chat.res" /i "." /i "$(ARTINC)" $(RSC_CFG)
 
 LINK32_FLAGS=/nologo /subsystem:windows /FORCE:MULTIPLE /incremental:no /debug \
  /machine:I386 /nodefaultlib:"libc" \
- /LIBPATH:"$(SPECTRE)" /LIBPATH:"$(ARTLIB)" \
+ /LIBPATH:"$(VCTOOLSINSTALLDIR)ATLMFC\lib\spectre\x86" /LIBPATH:"$(ARTLIB)" \
  uuid.lib secur32.lib comctl32.lib ole32.lib oleaut32.lib oldnames.lib wsock32.lib \
  shell32.lib winmm.lib imm32.lib winspool.lib comdlg32.lib oledlg.lib wininet.lib zlib.lib \
  /out:"$(OUTDIR)\CChat.exe"

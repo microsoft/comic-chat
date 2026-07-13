@@ -1,0 +1,70 @@
+name: Build unofficial modern clients
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/build-modern.yml"
+      - "scripts/**"
+      - "v1.0-pre-modern/**"
+      - "v2.5-beta-1-modern/**"
+      - "artifacts/inc/**"
+      - "artifacts/lib/i386/zlib.lib"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build, package, and smoke test
+    runs-on: windows-2022
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v5
+
+      - name: Build both modernized clients
+        shell: cmd
+        run: |
+          for /f "usebackq delims=" %%I in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do set "VSINSTALL=%%I"
+          if not defined VSINSTALL (
+            echo No Visual Studio C++ installation was found.
+            exit /b 1
+          )
+          call "%VSINSTALL%\VC\Auxiliary\Build\vcvars32.bat"
+          if errorlevel 1 exit /b 1
+          if not exist "%VCToolsInstallDir%ATLMFC\lib\spectre\x86" (
+            echo The x86 Spectre-mitigated MFC libraries are missing.
+            exit /b 1
+          )
+
+          if exist "v1.0-pre-modern\Release" rmdir /s /q "v1.0-pre-modern\Release"
+          pushd "v1.0-pre-modern"
+          nmake /f chat.mak CFG="chat - Win32 Release"
+          if errorlevel 1 exit /b 1
+          popd
+
+          if exist "v2.5-beta-1-modern\Release" rmdir /s /q "v2.5-beta-1-modern\Release"
+          pushd "v2.5-beta-1-modern"
+          nmake /f chat.mak CFG="chat - Win32 Release"
+          if errorlevel 1 exit /b 1
+          popd
+
+      - name: Create archival ZIP files
+        shell: pwsh
+        run: ./scripts/package-modern-builds.ps1 -SourceRepositoryUrl "${{ github.server_url }}/${{ github.repository }}"
+
+      - name: Smoke test from random folders
+        shell: pwsh
+        run: ./scripts/smoke-test-modern-builds.ps1
+
+      - name: Upload release-ready packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: comic-chat-unofficial-modern-builds-${{ github.sha }}
+          path: |
+            out/modern-builds/*.zip
+            out/modern-builds/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 90

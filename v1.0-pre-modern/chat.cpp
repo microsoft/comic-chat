@@ -663,20 +663,9 @@ void CDUpOne(const char *fullpath) {
 
 // sets the chatapp's base directory to be the base of fullpath
 void CChatApp::SetBaseDir(const char *fullpath) {
-	char buff[200];
-	const char *start = fullpath, *ult = NULL;
-	while (1) {
-		const char *next = strchr(start, '\\');
-		if (next) {
-			ult = next;
-			start = next+1;
-		} else break;
-	}
-	ASSERT(ult);
-	int nchars = ult - fullpath;
-	strncpy(buff, fullpath, nchars);
-	buff[nchars] = '\0';
-	m_strBaseDir = buff;
+	CString path(fullpath);
+	int slash = path.ReverseFind('\\');
+	m_strBaseDir = slash >= 0 ? path.Left(slash) : ".";
 }
 
 

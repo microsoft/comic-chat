@@ -142,11 +142,11 @@ CPose *GetPoseFromID(unsigned short poseID, BOOL loadMask) {
 	// Nope, we need to construct a pose, and register it
 	CPose *pose = new CPose;
 
-	char buff[100];
+	CString path;
 	AVFileRec *arec = (AVFileRec *) avRec[poseID];
 
-	sprintf(buff, "%s\\%s.avb", theApp.GetAvatarDir(), arec->filename);
-	VERIFY(fp = fopen(buff, "rb"));
+	path.Format("%s\\%s.avb", theApp.GetAvatarDir(), arec->filename);
+	VERIFY(fp = fopen(path, "rb"));
 	pose->m_drawing = new CDIB;
 	fseek(fp, (long)arec->fgndOffset, SEEK_SET);
 	VERIFY(pose->m_drawing->Load(fp));
@@ -973,4 +973,3 @@ const char *CAvatarX::OriginalName() {
 BOOL NullAvatar() {
 	return (MyAvatar() == NULL);
 }
-
