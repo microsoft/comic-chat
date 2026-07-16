@@ -104,6 +104,36 @@
     font-size: 17px;
   }
 
+  /* Open-source announcement banner */
+  .oss {
+    margin: 14px 0 4px;
+    background: linear-gradient(180deg, #002b00 0%, #004d00 100%);
+    color: #ffffff;
+    border: 3px ridge #33cc33;
+    padding: 14px 18px;
+    text-align: center;
+    box-shadow: 4px 4px 0 rgba(0,0,0,.35);
+  }
+  .oss .tag {
+    display: inline-block;
+    background: #ff0000;
+    color: #ffff00;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 2px 8px;
+    border: 1px solid #ffff00;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .oss h2 { margin: 4px 0 6px; border: 0; color: #7CFC00; font-size: 22px; }
+  .oss p { margin: 4px 0 10px; font-size: 15px; }
+  .oss a.repo {
+    font-family: "Courier New", monospace;
+    color: #aeffae;
+    word-break: break-all;
+  }
+
   /* Emotion wheel strip of faces */
   .wheel { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 6px 0 2px; }
   .wheel figure { margin: 0; text-align: center; }
@@ -213,7 +243,7 @@
 
   <div class="hero">
     <h1>Comic Chat</h1>
-    <div class="sub">The chat client that draws your conversation &mdash; one comic panel at a time. <span class="blink">&#9646;</span></div>
+    <div class="sub">The chat client that draws your conversation, one comic panel at a time. <span class="blink">&#9646;</span></div>
   </div>
 
   <div class="badges">
@@ -233,6 +263,18 @@
       plain text, everyone talks through cartoon avatars in speech bubbles &mdash; laid
       out into comic panels in real time.
     </p>
+
+    <div class="oss">
+      <span class="tag">&#9733; EXCITING &#9733;</span>
+      <h2>Comic Chat is open source!</h2>
+      <p>
+        The complete source code 
+        is available to read, build, and tinker with under the <b>MIT License</b>.
+        Study it, modernize it, play with it:
+      </p>
+      <p><a class="repo" href="https://github.com/microsoft/comic-chat">github.com/microsoft/comic-chat</a></p>
+      <a class="btn" href="https://github.com/microsoft/comic-chat">&#128187; Explore the Source Code</a>
+    </div>
 
     <h2><span class="icon">&#128172;</span> What Is Comic Chat?</h2>
     <p>
