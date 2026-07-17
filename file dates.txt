@@ -1,6 +1,6 @@
 # Original file timestamps preserved from archive
 # Format: YYYY-MM-DD HH:MM:SS<TAB>relative/path
-# Total files: 3189
+# Total files: 3187
 #
 1997-11-05 14:21:52	artifacts/avated/avated.c
 1997-11-05 14:21:52	artifacts/avated/avated.def
@@ -1778,7 +1778,6 @@
 1996-08-02 18:25:52	v1.0/setup/w95inf16.dll
 1996-08-02 18:25:52	v1.0/setup/w95inf32.dll
 1996-08-02 18:25:52	v1.0/setup/wextract.exe
-1996-08-02 18:25:56	v1.0/shared/comic.ttf
 1996-08-02 18:26:00	v1.0/shared/msvcrt40.dll
 1996-08-02 18:26:00	v1.0/shared/riched32.dll
 1998-02-10 12:41:00	v2.1b/avated/avated.c
@@ -2001,7 +2000,6 @@
 1998-02-10 12:41:30	v2.1b/cchat/setup/chatcab2.cdf
 1998-02-10 12:41:30	v2.1b/cchat/setup/chatcab4.cdf
 1998-02-10 12:41:30	v2.1b/cchat/setup/choice.com
-1998-02-10 12:41:30	v2.1b/cchat/setup/comic.ttf
 1998-02-10 12:41:30	v2.1b/cchat/setup/icbcore.idl
 1998-02-10 12:41:30	v2.1b/cchat/setup/imsconf2.idl
 1998-02-10 12:41:30	v2.1b/cchat/setup/makefile
